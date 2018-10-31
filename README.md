@@ -19,7 +19,7 @@ depois de instalar o node o próximo passo é dar o comando git clone https://gi
 --------
 ## 3- Terceiro passo 
 
-dentro do cmd você precisa executar dois comandos, o "npm install" e o "npm install --save mdbreact".
+dentro do cmd você precisa executar dois comandos, o "npm install" e o "npm install --save mdbreact react-router-dom".
 
 --------
 
