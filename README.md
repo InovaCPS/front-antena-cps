@@ -26,7 +26,7 @@ Depois de instalar o Node.js o próximo passo é dar o comando **git clone https
 --------
 ## 3º - Terceiro passo 
 
-Dentro do terminal você precisa executar dois comandos, o **npm install** e o **npm install --save mdbreact react-router-dom**.
+Depois de clonada a pasta do projeto você precisa acessar as outras, o comando para acessá-las é cd INOVA-Page e depois cd FRONT sucessivamente, o próximo passo é executar dois comandos, o **npm install** e o **npm install --save mdbreact react-router-dom**.
 
 --------
 
