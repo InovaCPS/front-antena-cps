@@ -16,9 +16,8 @@ Aqui detalharemos o passo a passo de como preparar o ambiente para executar o pr
 
 ----
 ## 1º - Primeiro passo
+Baixar o [Node.js](https://nodejs.org/en/download/).
 
-Baixar o [Node.js] 
-(https://nodejs.org/en/download/).
 ------
 ## 2º - Segundo Passo
 
