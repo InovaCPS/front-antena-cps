@@ -9,7 +9,7 @@ class Home extends Component{
     render(){
         return(
             <div>
-                <h1>TESTE HOME</h1>
+                <a href="/">Antena <i class="fas fa-broadcast-tower"></i> CPS</a>
             </div>
         )
     }
