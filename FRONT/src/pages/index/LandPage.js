@@ -11,11 +11,12 @@ class LandPage extends Component{
         document.title = "Cadastro"
     }
 
-    state = {
-        data:[
-          {nome:"a", cpf:12345678954, ra:123464564, email:"teste@email.com", senha:"senha"}
-        ]
-    }
+        state = {
+      data:[
+            {nome:"a", cpf:12345678954, ra:123464564, email:"teste@email.com", senha:"senha"}
+                ]
+        }
+
     onSubmit = (model) => {
         fetch("http://34.226.121.69:8080/cp/parceiro",
             {

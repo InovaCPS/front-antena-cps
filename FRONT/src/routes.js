@@ -3,12 +3,14 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import LandPage from './pages/index/LandPage';
 import Home from './pages/home/Home';
+import About from './pages/AboutCps/aboutcps';
 
 const Routes  = () => (
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={LandPage} />
             <Route path="/home" component={Home} />
+            <Route path="/about" component={About} />
             <Redirect from="*" to="/home" />
         </Switch>
     </BrowserRouter>
