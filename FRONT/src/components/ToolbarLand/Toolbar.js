@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavItem } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './Toolbar.css';

@@ -7,9 +7,6 @@ class App extends Component {
   state = {
 
   }
-  constructor(){
-      super();
-  }
 
   onSubmit = (e) => {
       e.preventDefault();
