@@ -39,7 +39,7 @@
   }
   
   input {
-    padding: 10px 10px;
+    padding: 10px;
     border-radius: 5px;
     outline: none;
     border: 1px solid #cfcfcf;
@@ -62,7 +62,7 @@
   }
   
   .firstName {
-    margin-right: 1%;
+    margin-right:1%;
   }
   
   .lastName {
@@ -118,3 +118,13 @@
     color: #999;
     font-weight: lighter;
   }
+
+  .form-input {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    border-radius: 3px;
+    
+}
+  

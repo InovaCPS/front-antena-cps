@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Container, Row, Footer } from "mdbreact";
 
+
 class FooterPage extends React.Component {
 render() {
 return (
@@ -9,7 +10,7 @@ return (
     <Row>
       <Col md="6">
       <h5 className="title">Centro Paula Souza</h5>
-      <p>
+      <p className="futao">
             Governo do Estado de São Paulo
       </p>
       </Col>
