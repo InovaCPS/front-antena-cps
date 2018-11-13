@@ -11,7 +11,7 @@ return (
       <Col md="6">
       <h5 className="title">Centro Paula Souza</h5>
       <p className="futao">
-            Governo do Estado de São Paulo
+           Governo do Estado de São Paulo
       </p>
       </Col>
       <Col md="6">

@@ -37,7 +37,7 @@ class App extends Component {
                       className="form-input"
                       type={type}
                       key={"i" + m.key}
-                      onChange ={(e)=>{this.onChange(e, key)}}
+                      onChange ={(e)=>{this.onChange(e, key)}} 
                   />
               </div>
           );

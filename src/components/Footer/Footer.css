@@ -32,10 +32,15 @@
     border-radius: 100%;
     background: #dc3545;
 }
+
+.footer-social-icons ul li{
+    display: inline;
+    margin: 0 20px;
+}
 .footer-social-icons ul li a {
     color: white;
     font-size: 25px;
-    display: block;
+    display: inline;
     list-style: none;
 }
 
