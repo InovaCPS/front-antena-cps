@@ -5,7 +5,7 @@ class aboutcps extends Component{
     render(){
         return(
             <main>
-                Daniels
+                ABOUT
                 <Footer />
             </main>
         )

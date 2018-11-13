@@ -27,12 +27,9 @@ class ToolbarLand extends React.Component {
                 this.setState({data: data})
                 return alert( JSON.stringify(data))
             })
-
-            
-             
-      }
-
-
+  
+        
+   }
 
     render() {
 
