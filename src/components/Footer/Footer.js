@@ -20,17 +20,9 @@ const Footer = props => (
             <ul>
                 <li><a href="#"> Home </a></li>
                 <li><a href="#"> Contato </a></li>
-
-            </ul>
-        </div>
-
-        <div class="footer-menu-two">
-            <ul>
                 <li><a href="#"> ENDEREÇO </a></li>
                 <li><a href="#"> TELEFONE</a></li>
-
             </ul>
-
         </div>
         <div class="footer-bottom">
             <p>Copyright©<a href="#"> - INOVA Paula Souza</a></p>
