@@ -52,7 +52,7 @@ class App extends Component {
           <form id="test-form" className="dynamic-form" onSubmit={(e)=>{this.onSubmit(e)}}>
                 {this.renderForm()}
                 <div className="form-group">
-                <button type="submit">Enviar</button>
+                <button type="submit">ENVIAR</button>
                 </div>
           </form>
         </div>
