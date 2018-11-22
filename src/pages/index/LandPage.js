@@ -41,7 +41,11 @@ class LandPage extends Component{
             <main>
             <div className="content">
                 <ToolbarLand /> 
-                <div className="container">
+                <div className="jumbotron jumbotron-fluid">
+                    <div className="container jumb">
+                    </div>
+                </div>
+                <div className="container cont">
                     <div className="row">
                         <div className="col">
                             <News />
@@ -60,7 +64,7 @@ class LandPage extends Component{
                     </div>
                 </div>
             </div>
-                <FooterLand onSubmit = {(Object) => {this.onSubmit(Object)}} />    
+                <FooterLand />    
             </main>  
         )
     }

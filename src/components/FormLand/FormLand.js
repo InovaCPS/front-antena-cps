@@ -29,6 +29,7 @@ class App extends Component {
           let props = m.props || {};
 
           return (
+              
               <div key={key} className="form-group">
                   <label className="form-label" key={"l" + m.key} htmlFor={m.label}>{m.label}
                   </label>
@@ -46,7 +47,7 @@ class App extends Component {
   } 
   render() {
     return (
-      <div className="wrapper">
+      <div className="card">
         <div className="form-wrapper">
           <h1>Seja um Antenado</h1>
           <form id="test-form" className="dynamic-form" onSubmit={(e)=>{this.onSubmit(e)}}>

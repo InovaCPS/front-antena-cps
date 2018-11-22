@@ -8,8 +8,7 @@
     width: 100%;
     height: auto;
     margin: auto;
-    background: #dc3545;
-    padding: 10px 0px;
+background: #cc0000;    padding: 10px 0px;
 }
 
 .footer-social-icons {
@@ -30,7 +29,7 @@
     height: 50px;
     margin: 10px 0px;
     border-radius: 100%;
-    background: #dc3545;
+    background: #cc0000;
 }
 
 .footer-social-icons ul li{
@@ -60,6 +59,7 @@
     margin: 0px;
     padding: 0px;
     text-align: center;
+    background: #cc0000;
 }
 
 .footer-menu-one ul li {
@@ -105,7 +105,7 @@
     width: 100%;
     height: auto;
     margin: auto;
-    background: #323232;
+    background: #cc0000;
     padding: 10px;
 }
 

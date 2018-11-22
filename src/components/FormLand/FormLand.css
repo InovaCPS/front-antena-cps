@@ -1,25 +1,13 @@
-.wrapper {
-    height: 100vh;
-    width: 100%;
-    display: flex;  
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-  }
   
   .form-wrapper {
-    width: 400px;
     display: flex;
     flex-direction: column;
-    padding: 20px 40px;
     border-radius: 10px;
   }
   
   form {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
   }
   
   h1 {
@@ -45,80 +33,6 @@
     border: 1px solid #cfcfcf;
   }
   
-  input::placeholder {
-    font-size: 1.2em;
-    font-weight: lighter;
-    color: #999;
-  }
-  
-  input.error {
-    border: 1px solid red;
-  }
-  
-  .errorMessage {
-    color: red;
-    font-size: 0.75em;
-    display: relative;
-  }
-  
-  .firstName {
-    margin-right:1%;
-  }
-  
-  .lastName {
-    margin-left: 1%;
-  }
-  
-  .firstName,
-  .lastName,
-  .email,
-  .password {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-  }
-  
-  .firstName,
-  .lastName {
-    width: 49%;
-  }
-  
-  .email,
-  .password {
-    width: 100%;
-  }
-  
-  .createAccount {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .createAccount button {
-    background-color: #b00d15;
-    color: #fff;
-    border: 2px solid #fff;
-    width: 100%;
-    margin-top: 1em;
-    padding: 8px 0px;
-    font-size: 1em;
-    font-weight: lighter;
-    letter-spacing: 1px;
-    margin-bottom: 0.25em;
-  }
-  
-  .createAccount button:hover {
-    color: #b00d15;
-    background-color: #fff;
-    border: 2px solid #b00d15;
-  }
-  
-  .createAccount small {
-    color: #999;
-    font-weight: lighter;
-  }
-
   .form-input {
     width: 320px;
     display: flex;

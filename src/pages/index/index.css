@@ -4,3 +4,16 @@
 .footer{
     flex-shrink: 0;
 }
+
+.jumbotron{
+    background-image: url("../../data/images/backgroundLand.png");
+    background-size: cover;
+}
+
+.jumb{
+    padding: 1rem 1rem;
+}
+
+.cont{
+    margin-top: -3px;
+}
