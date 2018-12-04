@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 import './FormLand.css';
 
-
-
 class App extends Component {
   state = {
 
@@ -47,17 +45,15 @@ class App extends Component {
   } 
   render() {
     return (
-      <div className="card">
         <div className="form-wrapper">
           <h1>Seja um Antenado</h1>
           <form id="test-form" className="dynamic-form" onSubmit={(e)=>{this.onSubmit(e)}}>
                 {this.renderForm()}
                 <div className="form-group">
-                <button type="submit">ENVIAR</button>
+                <button type="submit" class="btn">ENVIAR</button>
                 </div>
           </form>
         </div>
-      </div>
     );
   }
 }

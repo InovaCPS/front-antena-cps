@@ -32,7 +32,7 @@ class App extends Component {
           let props = m.props || {};
 
           return (
-              <div key={key} className="form-group">
+              <div key={key} className="form-group" id="formLogin">
                   <label className="form-label" key={"l" + m.key} htmlFor={m.label}>{m.label}
                   </label>
                   <input {...props}
@@ -51,7 +51,7 @@ class App extends Component {
     return (
         <form className="login" onSubmit={(e)=>{this.onSubmit(e)}}>
             {this.renderForm()}
-            <input className="item" type="submit" value="Entrar" />
+            <input className="item" class="btn btn-outline-light" type="submit" value="Entrar" />
             
         </form>
     );

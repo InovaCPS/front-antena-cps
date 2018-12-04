@@ -9,4 +9,31 @@
 
 .item {
     height: 80%
+}.Logo a{
+    color:white ;
+    
+}
+
+.login .item{
+    margin-left: 10px;
+}
+
+.item {
+    height: 80%
+}
+
+#formLogin {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#formLogin label {
+    font-size: 18px;
+    color: white;
+    margin-left: 10px;
+    margin-right: -5px;
+}
+
+.login input {
+    background-color: white;
 }

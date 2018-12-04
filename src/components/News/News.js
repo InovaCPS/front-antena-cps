@@ -5,7 +5,7 @@ import './News.css';
 
 const News = props => {
   return (
-    <Card style={{ width: '21rem', marginTop: '16%' }}  className="text-center">
+    <Card style={{ width: '21rem' }}  className="text-center">
       <CardHeader color="danger-color-dark">Sintonize-se</CardHeader>
       <CardBody>
         <CardTitle><iframe width="300px" frameborder="0" height="200px" src="https://www.youtube.com/embed/XY8h1oyu4vI"></iframe></CardTitle>

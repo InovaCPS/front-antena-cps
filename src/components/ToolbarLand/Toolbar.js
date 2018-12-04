@@ -43,8 +43,8 @@ class ToolbarLand extends React.Component {
                           <NavItem>
                             <FormLogin className="login"                        
                                 model = {[
-                                    {key: "username", label: "Email", props:{}},
-                                    {key: "password", label: "Senha", type:"password", props:{min:6, max:12}}
+                                    {key: "username", props:{placeholder:"Email"}},
+                                    {key: "password", type:"password", props:{min:6, max:12, placeholder:"Senha"}}
                                 ]}        
                                 onSubmit = {(model) => {this.onSubmit(model)}}/>
                             
