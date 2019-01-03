@@ -28,7 +28,7 @@ const carousel = props => (
             <span className="sr-only">Next</span>
         </a>
     </div>
-
 ); 
-
+ 
 export default carousel;
+

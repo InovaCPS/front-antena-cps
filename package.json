@@ -5,7 +5,7 @@
   "dependencies": {
     "@types/react-router-dom": "^4.3.1",
     "axios": "^0.18.0",
-    "mdbreact": "^4.8.2",
+    "mdbreact": "^4.8.6",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-dynamic-forms": "^1.0.3",

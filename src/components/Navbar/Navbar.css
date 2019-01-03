@@ -3,8 +3,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: #cc0000;
-    height: 56px;
+    background: white;
+    height: 80px;
 }
 .toolbar-navigation {
     display: flex;

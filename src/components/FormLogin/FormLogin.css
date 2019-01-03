@@ -7,19 +7,9 @@
     margin-left: 10px;
 }
 
-.item {
-    height: 80%
-}.Logo a{
-    color:white ;
-    
-}
 
-.login .item{
-    margin-left: 10px;
-}
-
-.item {
-    height: 80%
+.botao {
+    margin-bottom: 50px;
 }
 
 #formLogin {
@@ -36,4 +26,13 @@
 
 .login input {
     background-color: white;
+}
+
+.pr-1 {
+   width: 25%;
+   
+}
+
+.pr-2 {
+  width: 10%;
 }

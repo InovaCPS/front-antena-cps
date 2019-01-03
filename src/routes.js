@@ -13,7 +13,7 @@ const Routes  = () => (
             <Route path="/home" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/anten" component={anten} />
-            <Redirect from="*" to="/home" />
+            <Redirect from="*" to="/home" /> 
         </Switch>
     </BrowserRouter>
 );

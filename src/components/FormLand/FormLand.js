@@ -17,10 +17,9 @@ class App extends Component {
           [key]: this[key].value
       })
   }
-
+  
   renderForm = () => {
       let model = this.props.model;
-
       let formUI = model.map((m) => {
           let key = m.key;
           let type = m.type || "text";
