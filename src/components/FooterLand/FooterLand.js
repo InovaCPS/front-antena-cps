@@ -7,10 +7,8 @@ class FooterPage extends React.Component {
 render() {
 return (
 <Footer color="white" className="footerLand">
-  <Container fluid className="text-md-rigth">
-    <Row>
-      <img src={imgCPS} style={{width: '300px'}} style={{height: '88px'}}/>      
-    </Row>
+  <Container>
+      <img src={imgCPS} style={{height: '88px'}}/> 
   </Container>
 </Footer>
 );

@@ -19,27 +19,31 @@ class Popup extends React.Component {
     }
 
     onSubmit = (model) => {
-        fetch("http://34.226.121.69:8080/login",
-            {
+        fetch("https://localhost:8080/login",
+            {   
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
                 method: "POST",
-                body: JSON.stringify(model)
-
+                body: JSON.stringify(model)                
+                
             })
             .then(response => response.json())
-            .then(data => {
-                this.setState({ data: data })
-                return alert(JSON.stringify(data))
+			.then(data => {
+                this.setState({data: data})
+                var token = data['token']
+                localStorage.setItem('token', token)
+                return alert( "Bem-vindo!" )
             })
-    }
+  
+        
+   }
     render() {
         return (
             <div className='popup'>
                 <div className='popup_inner'>
-                    <button class="btn btn-blue btn-custom" type="button" onClick={this.props.closePopup}><span class="glyphicon glyphicon-ok img-circle btn-icon"></span>X</button>
+                    <button class="btn btn-red btn-custom" type="button" onClick={this.props.closePopup}><span class="glyphicon glyphicon-ok img-circle btn-icon"></span>X</button>
                     <div>
                         <img src={logo} style={{ width: '24%', float: "left" }} />
                     </div>
@@ -87,7 +91,7 @@ class ToolbarLand extends React.Component {
                     </NavbarBrand>
                     <NavbarNav right>
                         <div className='app'>
-                            <input className="item" class="btn btn-blue" type="submit" value="Entrar" onClick={this.togglePopup.bind(this)} />
+                            <input className="item" class="btn btn-red" type="submit" value="Entrar" onClick={this.togglePopup.bind(this)} />
                             {this.state.showPopup ?
                                 <Popup
                                     text='Entrar'
