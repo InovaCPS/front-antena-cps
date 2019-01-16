@@ -1,7 +1,0 @@
-front:
-  build: .
-  command: bash -c "npm start"
-  volumes:
-    - ./root
-  ports:
-    - 3000:3000

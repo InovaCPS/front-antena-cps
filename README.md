@@ -1,35 +1,27 @@
-# INOVA-Page
+# InovaAngular
 
-Este projeto tem como objetivo a criação das interfaces gráficas que irão se comunicar com o projeto [Antena-CPS](https://github.com/InovaCPS/antena-cps).
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
 
-## Equipe
+## Development server
 
-A equipe envolvida neste projeto faz parte do INOVA Paula Souza, do CPS. Conheça melhor a equipe clicando [aqui](Equipe.md)
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Começando
+## Code scaffolding
 
-Aqui detalharemos o passo a passo de como preparar o ambiente para executar o projeto!
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
+## Build
 
-## Para que serve o React?
->Ele é uma biblioteca JavaScript declarativa, eficiente e flexível para criar interfaces visuais.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-----
-## 1º - Primeiro passo
-Baixar o [Node.js](https://nodejs.org/en/download/).
+## Running unit tests
 
-------
-## 2º - Segundo Passo
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Depois de instalar o Node.js o próximo passo é dar o comando **git clone https://github.com/InovaCPS/INOVA-Page** , o intuito deste comando é clonar todas as aplicações e componentes do código.
+## Running end-to-end tests
 
---------
-## 3º - Terceiro passo 
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-Depois de clonada a pasta do projeto você precisa acessar as outras, o comando para acessá-las é "cd INOVA-Page" , o próximo passo é executar dois comandos o **npm install** e o **npm install --save mdbreact react-router-dom**.
+## Further help
 
---------
-
-## 4º - Quarto passo
-
-Após instalar todas as bibliotecas e comandos necessários basta você executar o comando **npm start** para rodar o projeto (aplicação).
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
