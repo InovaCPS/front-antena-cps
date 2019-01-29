@@ -57,3 +57,10 @@ Git: https://github.com/julianaplanck
 ### Eduardo Simão
 
 Git: https://github.com/EduardoSimao
+
+### Ricardo Pupo Larguesa
+Git: https://github.com/larguesa
+
+### Fábio Silva
+
+### Alvaro Gabriele
