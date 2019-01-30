@@ -1,5 +1,9 @@
 #logo {
     width: 100%;
-    max-width: 120px;   
+    max-width: 200px;   
     height: auto;
+}
+
+.fab fa-facebook-f {
+    color: blue;
 }

@@ -1,5 +1,7 @@
 #brasao{
-    max-width: 300px ;
+    max-width: 220px ;
     width: 100% ;
-    height: auto 
+    height: auto; 
+    position: relative;
+    right: -500%;
 }
