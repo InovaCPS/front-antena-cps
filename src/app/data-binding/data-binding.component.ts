@@ -2,6 +2,7 @@
 import { Component } from "@angular/core";
 import { map } from "rxjs/operators"
 import { HttpClient } from "@angular/common/http";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-data-binding',
@@ -15,7 +16,7 @@ export class DataBindingComponent {
     usrn: String;
     pswd: String;
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private router: Router) {}
 
     doPOST() {
         console.log("POST");
@@ -23,7 +24,8 @@ export class DataBindingComponent {
         this.http
           .post(url, { username: this.usrn, password: this.pswd })
           .pipe(map(response => { localStorage.setItem('token', JSON.stringify(response)) }))
-          .subscribe(res => console.log("Bem Vindo!!!"))    
+          .subscribe(res => console.log("Bem Vindo!!!"))
+          this.router.navigate(['/aluno']);    
           
     }
 
