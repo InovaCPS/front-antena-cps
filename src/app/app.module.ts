@@ -7,13 +7,17 @@ import { DataBindingComponent } from './data-binding/data-binding.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './content/content.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DataBindingComponent,
     FooterComponent,
-    ContentComponent
+    ContentComponent,
+    ProfileComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
