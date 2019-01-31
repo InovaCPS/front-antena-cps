@@ -8,6 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class ContentComponent {
 
   banner = require('../../app/images/grupo.jpg')
-  graf = require('../../app/images/prototipo2-02.png')
+  graf = require('../../app/images/background.png')
 
 }

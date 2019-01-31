@@ -4,6 +4,41 @@
     height: auto;
 }
 
-.fab fa-facebook-f {
-    color: blue;
-}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid red;
+    border-radius: 0px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 45%;
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius:0px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: red;
+  }
+  
+
+
+ #fbcolor{
+    border-radius: 50%;
+ }
+
+ #ggcolor {
+    background-color: red;
+    color:white;
+    border-radius: 52%;
+ }
+  
+  

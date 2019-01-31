@@ -7,26 +7,37 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Cadastre-se</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Entrar</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </button>      
       </div>
       <div class="modal-body">
+        <div>
+          <p>Se você for Aluno(a), Parceiro (a) ou Gestor, faça login.</p>
+        </div>
         <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email</label>
-            <input type="email" class="form-control" [(ngModel)]="usrn"  name="username" aria-describedby="emailHelp" placeholder="Digite o Email ">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Senha</label>
-            <input type="password" class="form-control" [(ngModel)]="pswd"  name="password" placeholder="Digite a senha desejada">
-          </div>
-          <button class="btn btn-primary" (click)="doPOST()">Enviar</button>
+          <div>
+            <form>
+              <label for="email">Email</label>
+              <input type="text" id="username" name="username" placeholder="Email">
           
-          <button type="button btn-btn 3" mdbBtn class="btn-fb bg-light" mdbWavesEffect><i class="fab fa-facebook-f"></i></button>
+              <label for="password">Senha</label>
+              <input type="text" id="password" name="password" placeholder="Senha">
+                     
+              <input type="submit" value="Entrar">
+               <br />
+               <br />
+               <br />
 
-          <button class="btn btn-primary" (click)="lgGoogle()">Google</button>
+              <p>
+                Primeiro acesso? Cadastre-se aqui ou continue em:
+              </p>
+              <button type="button"  size="lg" class="btn btn-primary" id="fbcolor" ><i class="fab fa-facebook-f left"></i></button>
+              <button type="button" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button>
+            </form>
+          </div>
+          
         </form>
       </div>
       <div class="modal-footer">
@@ -34,3 +45,4 @@
     </div>
   </div>
 </div>
+
