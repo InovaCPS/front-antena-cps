@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './profile/profile.component'
 import { LandingComponent } from './landing-page/landing.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { AboutComponent } from './about/about.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     ContentComponent,
     ProfileComponent,
     LandingComponent,
-    CadastroComponent
+    CadastroComponent,
+    AboutComponent,
+    CarouselComponent
     
   ],
   imports: [

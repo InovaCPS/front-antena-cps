@@ -1,3 +1,4 @@
+import { AboutComponent } from './about/about.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
@@ -15,8 +16,12 @@ const routes: Routes = [
   },
   {
     path: 'cadastro',
-    component: CadastroComponent
-}      
+    component: CadastroComponent     
+  },   
+  {
+    path: 'about',
+    component: AboutComponent
+  }
 ];
 
 @NgModule({

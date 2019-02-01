@@ -4,11 +4,49 @@
 }
 
 #profile{
-    margin-top: -110px;
+    margin-top: -140px;
 }
 
 #profile-pic {
     border-radius: 50%;
-    max-width: 500px;
-    max-height: 500px;
+    width: 320px;
+    height: 320px;
+}
+#icons{
+    margin-left: -100px;
+}
+#icon {
+    height: 100px;
+    width: 100px;
+}
+#icons-social{
+    margin-left: -30px; 
+}
+
+#name{
+
+    font-weight: bold;
+}
+
+#portfolio{
+    margin-top: 100px;
+    margin-left: -60px;
+}
+.blog .carousel-indicators {
+	left: 0;
+	top: auto;
+    bottom: -40px;
+
+}
+
+/* The colour of the indicators */
+.blog .carousel-indicators li {
+    background: #a3a3a3;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+}
+
+.blog .carousel-indicators .active {
+background: #707070;
 }
