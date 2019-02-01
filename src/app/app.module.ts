@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './profile/profile.component'
 import { LandingComponent } from './landing-page/landing.component';
+import { AboutComponent } from './about/about.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LandingComponent } from './landing-page/landing.component';
     FooterComponent,
     ContentComponent,
     ProfileComponent,
-    LandingComponent
+    LandingComponent,
+    AboutComponent,
+    CarouselComponent
     
   ],
   imports: [
