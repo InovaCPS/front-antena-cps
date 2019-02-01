@@ -1,0 +1,60 @@
+#logo {
+    width: 100%;
+    max-width: 200px;   
+    height: auto;
+    color: white;   
+ }   
+
+input[type=text], select {
+    width: 100%;
+    padding: 5px 10px;
+    margin: 10px 0px;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 1px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 9%;
+    background-color: red;
+    color: white;
+    padding: 8px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: red;
+  }
+  
+  div {
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+  }
+
+  #fbcolor{
+    border-radius: 50%;
+    color: white;
+    background-color: black;
+    border: black;
+ }
+
+ #background{
+    background-size: cover;
+    height: auto;
+    width: auto;
+    
+ }
+
+ #ggcolor {
+    border-radius: 50%;
+    color: white;
+    background-color: black;
+    border: black;
+
+ }
+  
