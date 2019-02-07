@@ -15,17 +15,17 @@ export class ProfileComponent {
 
   constructor(private profileService: profileService){
     this.profileService.getUserId().subscribe(res => {
-      console.log(res);
+      this.profileService.getProfileAluno(res['id']).subscribe((aluno: Aluno) => {
+        this.aluno = aluno;
+        console.log(this.aluno);
+        if(aluno.foto_perfil){
+          this.fotoPerfil = require('CAMINHO DO BUCKET' + aluno.foto_perfil);
+        }
+        else{
+          this.fotoPerfil = require('../../app/images/profile-pic.jpg');
+        }
+      });
     })
-    this.profileService.getProfileAluno(1).subscribe((aluno: Aluno) => {
-      this.aluno = aluno;
-      if(aluno.foto_perfil){
-        this.fotoPerfil = require('CAMINHO DO BUCKET' + aluno.foto_perfil);
-      }
-      else{
-        this.fotoPerfil = require('../../app/images/profile-pic.jpg');
-      }
-    });
   }
   
   bg = require('../../app/images/profile-bg.jpg')

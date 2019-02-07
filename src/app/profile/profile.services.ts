@@ -5,21 +5,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class profileService{
     apiRoot: string = "http://localhost:8080";
     headers;
+    token;
 
     constructor(private http: HttpClient){
-        this.headers = new HttpHeaders({
-            "Content-type": "application/json; charset=UTF-8", 
-            "token": localStorage.getItem('token')
-        })
+        this.token = JSON.parse(localStorage.getItem('token'));
     }
 
     getUserId(){
-        console.log(this.headers);
-        return this.http.get(`${this.apiRoot}/cp/getId`, this.headers);
+        return this.http.get(`${this.apiRoot}/cp/getId`, {headers: new HttpHeaders({
+            'token': this.token.token
+        })});
     }
 
     getProfileAluno(id){
-        return this.http.get(`${this.apiRoot}/cp/aluno/${id}`);
+        return this.http.get(`${this.apiRoot}/cp/aluno/${id}`, {headers: new HttpHeaders({
+            'token': this.token.token
+        })});
     }
 }
 
@@ -42,4 +43,5 @@ export interface Aluno{
     twitter?: string;
     escola?: string;
     escola_unidade?: string;
+    idade?: string;
 }
