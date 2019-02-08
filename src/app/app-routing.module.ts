@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { LandingComponent } from './landing-page/landing.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
-
+import {ProjectComponent} from './projeto/projeto.component';
+ 
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'projeto',
+    component: ProjectComponent
   }
 ];
 

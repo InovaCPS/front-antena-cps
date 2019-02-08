@@ -1,0 +1,73 @@
+<nav class="navbar navbar-light bg-light">
+  <img id="logo" class="navbar-brand mb-0" [src]="logo"></nav>
+
+  <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4"></h1>
+          <p class="lead"> CAPA</p>
+        </div>
+      </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+          <h4>
+              <strong>
+                  Cadastrar projeto
+              </strong>
+          </h4>
+          <p>
+              Título do projeto
+          </p>
+
+          <label for="describe"></label>
+          <input type="text" id="describe" name="describe" placeholder="Descrisão do projeto">
+
+          <label for="unidade-one"></label>
+          <select id="unidade" name="unidade">
+              <option value="options">Unidade 1 envolvida</option>
+              <option value="options">Unidade 2 envolvida</option>
+              <option value="options">Unidade 3 envolvida</option>
+          </select>
+
+          <label for="others"></label>
+          <select id="others" name="others">
+              <option value="others">Demais unidades</option>
+          </select>
+
+          <label for="curso"></label>
+          <select id="curso" name="curso">
+              <option value="options">Curso 1 envolvido</option>
+              <option value="options">Curso 2 envolvido</option>
+              <option value="options">Curso 3 envolvido</option>
+          </select>
+
+          <label for="keywords"></label>
+          <input type="password" id="kwords" name="kwords" placeholder="5 palavras-chave">
+      
+        </div>
+
+      <div class="col-md-6">
+        <label for="search"></label>
+        <input type="text" id="search" name="search" placeholder="Buscar colaborador">
+        <div class="row">
+        <div class="col-sm-3"><a href=""><img [src]="upload" id="icon" alt=""></a></div>
+        <div class="col-sm-3"><a href=""><img [src]="imag" id="icon" alt=""></a></div>
+        <div class="col-sm-3"><a href=""><img [src]="adfile" id="icon" alt=""></a></div>
+      </div>
+        <h4>
+                <div class="col-sm-3"><a href=""><img [src]="plus" id="icon" alt=""></a></div>
+          <strong>
+              Categorias
+          </strong>
+      </h4>
+      <p>   
+          meio-ambiente, gestão, robótica, educação,
+          <br /> 
+          tecnologia, infraestrutura, saúde
+      </p>
+      <div class="col-sm-3"><a href=""><img [src]="escudo" id="icon" alt=""></a></div> <p> <strong>Ganhou prêmios?</strong> </p>
+      <label for="premium"></label>
+          <input type="text" id="premium" name="premium"> 
+  </div>
+</div>

@@ -13,6 +13,7 @@ import { LandingComponent } from './landing-page/landing.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { AboutComponent } from './about/about.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import {ProjectComponent} from './projeto/projeto.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     LandingComponent,
     CadastroComponent,
     AboutComponent,
-    CarouselComponent
+    CarouselComponent,
+    ProjectComponent
     
   ],
   imports: [
