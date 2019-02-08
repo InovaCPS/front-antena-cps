@@ -16,23 +16,23 @@
       
        
       <label for="fname"></label>
-      <input type="text" id="fname" class="confform" name="fname" placeholder="Nome Completo">
+      <input type="text" id="fname" class="confform" name="fname" [(ngModel)]="nome" placeholder="Nome">
       <br />
       <label for="sname"></label>
-      <input type="text" id="sname" class="confform" name="fname" placeholder="Sobrenome">
+      <input type="text" id="sname" class="confform" name="fname" [(ngModel)]="sobrenome" placeholder="Sobrenome">
       <br />
       <label for="email"></label>
-      <input type="text" id="email" class="confform" name="email" placeholder="E-mail">
+      <input type="text" id="email" class="confform" name="email" [(ngModel)]="email" placeholder="E-mail">
       <br />
       <label for="password"></label>
-      <input type="password" id="pssword" class="confform" name="pssword" placeholder="Senha">
+      <input type="password" id="pssword" class="confform" name="pssword" [(ngModel)]="senha" placeholder="Senha">
       <br />
       <label for="confpass"></label>
-      <input type="password" id="confp" class="confform" name="confp" placeholder="Confirmar Senha">
+      <input type="password" id="confp" class="confform" name="confp" [(ngModel)]="confSenha" placeholder="Confirmar Senha">
       <br />
       <br />
       
-      <input type="submit" value="Cadastrar">
+      <input type="submit" (click)="doPOST()"  value="Cadastrar">
 
       <br />
       <br />

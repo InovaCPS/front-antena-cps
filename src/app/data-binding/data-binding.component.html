@@ -20,12 +20,12 @@
           <div>
             <form>
               <label for="email">Email</label>
-              <input type="text" id="username" name="username" placeholder="Email">
+              <input type="text" id="username" class="camposform" name="username" [(ngModel)]="usrn"  placeholder="Email">
           
               <label for="password">Senha</label>
-              <input type="text" id="password" name="password" placeholder="Senha">
+              <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="pswd" placeholder="Senha">
                      
-              <input type="submit" value="Entrar">
+              <input type="submit" (click)="doPOST()" value="Entrar">
                <br />
                <br />
                <br />
@@ -34,7 +34,7 @@
                 Primeiro acesso? Cadastre-se aqui ou continue em:
               </p>
               <button type="button"  size="lg" class="btn btn-primary" id="fbcolor" ><i class="fab fa-facebook-f left"></i></button>
-              <button type="button" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button>
+              <button (click)="lgGoogle()" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button>
             </form>
           </div>
           

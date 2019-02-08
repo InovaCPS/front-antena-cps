@@ -17,18 +17,18 @@
       </div>
     </div>
     <div class="col-md-4" id="profile">
-        <img id="profile-pic" [src]="profile" alt="">
+        <img id="profile-pic" [src]="fotoPerfil" alt="">
     </div>
     <div class="col-md-4">
-      <div class="row" id="name"><h1>Edu Francisco Simao</h1></div>
-      <div class="row" style="margin-top: -5px;">Fatec da Praia Grande</div>
-      <div class="row" style="margin-top: -5px;">22 anos</div>
+      <div class="row" id="name"><h1>{{ aluno.nome }} {{ aluno.sobrenome }}</h1></div>
+      <div class="row" style="margin-top: -5px;">{{ aluno.escola }}</div>
+      <div *ngIf="aluno.idade != ''" class="row" style="margin-top: -5px;">{{ aluno.idade }} anos</div>
       <div class="row" style="margin-top: -5px;">Estudante</div>
       <div class="row" style="margin-top: 5px;">
-        <div class="col-sm-3" id="icons-social"><a href=""><img [src]="fb" alt=""></a></div>  
-        <div class="col-sm-3" id="icons-social"><a href=""><img [src]="tw" alt=""></a></div>
-        <div class="col-sm-3" id="icons-social"><a href=""><img [src]="li" alt=""></a></div>
-        <div class="col-sm-3" id="icons-social"><a href=""><img [src]="yt" alt=""></a></div>
+        <div *ngIf="aluno.facebook != null" class="col-sm-3" id="icons-social"><a href="http://{{ aluno.facebook }}" target="_blank"><img [src]="fb" alt=""></a></div>  
+        <div *ngIf="aluno.twitter != null" class="col-sm-3" id="icons-social"><a href="http://{{ aluno.twitter }}" target="_blank"><img [src]="tw" alt=""></a></div>
+        <div *ngIf="aluno.linkedin != null" class="col-sm-3" id="icons-social"><a href="http://{{ aluno.linkedin }}" target="_blank"><img [src]="li" alt=""></a></div>
+        <div *ngIf="aluno.youtube != null" class="col-sm-3" id="icons-social"><a href="http://{{ aluno.youtube }}" target="_blank"><img [src]="yt" alt=""></a></div>
       </div>
     </div>
   </div>
