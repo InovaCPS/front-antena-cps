@@ -1,103 +1,127 @@
 <nav class="navbar navbar-light bg-light">
-  <img id="logo" class="navbar-brand mb-0" [src]="logo"></nav>
+    <img id="logo" class="navbar-brand mb-0" [src]="logo"></nav>
 
-  <div ><a href=""><img [src]="back" id="graf" alt=""></a></div>
+<div><a href=""><img [src]="back" id="graf" alt=""></a></div>
 
 <div class="container">
-  <div class="row">
-      <div class="col-md-6">
-          <h4>
-              <strong>
-                  Cadastrar projeto
-              </strong>
-          </h4>
-          <p>
-              Título do projeto
-          </p>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>
+                <strong>
+                    Cadastrar projeto
+                </strong>
+            </h4>
+            <p>
+                Título do projeto
+            </p>
 
-          <label for="describe"></label>
-          <input type="text" id="describe" name="describe" placeholder="Descrisão do projeto">
+            <label for="describe"></label>
+            <input type="text" id="describe" name="describe" placeholder="Descrisão do projeto">
 
-          <label for="unidade-one"></label>
-          <select id="unidade" name="unidade">
-              <option value="options">Unidade 1 envolvida</option>
-              <option value="options">Unidade 2 envolvida</option>
-              <option value="options">Unidade 3 envolvida</option>
-          </select>
+            <label for="unidade-one"></label>
+            <select id="unidade" name="unidade">
+                <option value="options">Unidade 1 envolvida</option>
+                <option value="options">Unidade 2 envolvida</option>
+                <option value="options">Unidade 3 envolvida</option>
+            </select>
 
-          <label for="others"></label>
-          <select id="others" name="others">
-              <option value="others">Demais unidades</option>
-          </select>
+            <label for="others"></label>
+            <select id="others" name="others">
+                <option value="others">Demais unidades</option>
+            </select>
 
-          <label for="curso"></label>
-          <select id="curso" name="curso">
-              <option value="options">Curso 1 envolvido</option>
-              <option value="options">Curso 2 envolvido</option>
-              <option value="options">Curso 3 envolvido</option>
-          </select>
+            <label for="curso"></label>
+            <select id="curso" name="curso">
+                <option value="options">Curso 1 envolvido</option>
+                <option value="options">Curso 2 envolvido</option>
+                <option value="options">Curso 3 envolvido</option>
+            </select>
 
-          <label for="keywords"></label>
-          <input type="password" id="kwords" name="kwords" placeholder="5 palavras-chave">
-      
+            <label for="keywords"></label>
+            <input type="password" id="kwords" name="kwords" placeholder="5 palavras-chave">
+
         </div>
-        
 
-      <div class="col-md-6">
-        <label for="search"></label>
-        <input type="text" id="search" name="search" placeholder="Buscar colaborador">
-        <div class="row">
-        <div class="col-sm-3"><a href=""><img [src]="upload" id="upload" alt=""></a></div>
-        <div class="col-sm-3"><a href=""><img [src]="imag" id="imag" alt=""></a></div>
-        <div class="col-sm-3"><a href=""><img [src]="adfile" id="adfile" alt=""></a></div>
-        <div class="col-sm-3"><a href=""><img [src]="friends" id="friends" alt=""></a></div>
-      </div>
-       
-      <div ><a href=""><img [src]="plus" id="plus" alt=""></a></div>
-      <div ><a href=""><img [src]="plus" id="plus" alt=""></a></div>
 
-      <div class="alturas">
-      <h4>  
-          <strong>
-              Categorias
-          </strong>
-      </h4>
-        </div>  
-    
-    
-      <div>
-        <div class="row">
-        <form>
-    <div class="col-md-4">  
-        <input type="checkbox" name="option1" value="dgn">  design<br>
-    </div>
-        <div class="col-md-4"> 
-        <input type="checkbox" name="option2" value="amb">  ambiente<br>
-    </div>
-        <div class="col-md-4">  
-        <input type="checkbox" name="option3" value="ges">  gestão<br>
-    </div>
-        <div class="col-md-4">
-        <input type="checkbox" name="option4" value="rob">  robótica<br>
-    </div>
-        <div class="col-md-4">
-        <input type="checkbox" name="option5" value="edu">  educação<br>
-    </div>
-        <div class="col-md-4">
-        <input type="checkbox" name="option6" value="tec">  tecnologia<br>
-    </div>
-        <div class="col-md-4">
-        <input type="checkbox" name="option7" value="inf">  infraestrutura<br>
-    </div>
-        <div class="col-md-4">
-        <input type="checkbox" name="option8" value="sau">  saúde<br>
-    </div>
-      </form>
-    </div>
-</div>
+        <div class="col-md-6">
+            <label for="search"></label>
+            <input type="text" id="search" name="search" placeholder="Buscar colaborador">
+            <div class="row">
+                <div class="col-sm-3"><a href=""><img [src]="upload" id="upload" alt=""></a></div>
+                <div class="col-sm-3"><img [src]="imag" id="imag" alt="" data-toggle="modal" data-target="#modalLogin"></div>
+                <div class="col-sm-3"><a href=""><img [src]="adfile" id="adfile" alt=""></a></div>
+                <div class="col-sm-3"><a href=""><img [src]="friends" id="friends" alt=""></a></div>
+            </div>
 
-      <div><a href=""><img [src]="escudo" id="escudo" alt=""></a></div> <p><strong>Ganhou prêmios?</strong></p>   
-        <div>     
-      <label for="premium"></label>
-          <input type="text" id="premium" name="premium"> 
-  </div>
+            <div><a href=""><img [src]="plus" id="plus" alt=""></a></div>
+            <div><a href=""><img [src]="plus" id="plus" alt=""></a></div>
+
+            <div class="alturas">
+                <h4>
+                    <strong>
+                        Categorias
+                    </strong>
+                </h4>
+            </div>
+
+
+            <div>
+                <div class="row">
+                    <form>
+                        <div class="col-md-4">
+                            <input type="checkbox" name="option1" value="dgn"> design<br>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" name="option2" value="amb"> ambiente<br>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" name="option3" value="ges"> gestão<br>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" name="option4" value="rob"> robótica<br>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" name="option5" value="edu"> educação<br>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" name="option6" value="tec"> tecnologia<br>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" name="option7" value="inf"> infraestrutura<br>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" name="option8" value="sau"> saúde<br>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div><a href=""><img [src]="escudo" id="escudo" alt=""></a></div>
+            <p><strong>Ganhou prêmios?</strong></p>
+            <div>
+                <label for="premium"></label>
+                <input type="text" id="premium" name="premium">
+            </div>
+
+            <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Galeria de fotos e mídias</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                            <div>
+                            <label for="title"></label>
+                            <input type="text" id="title"  name="title"  placeholder="Título de mídia">
+                           
+                            <label for="describe"></label>
+                            <input type="text" id="describe"  name="des" placeholder="Descrição">
+                           
+                            <label for="codigo"></label>
+                            <input type="text" id="cod"  name="cod"  placeholder="href=glasdsadasdasodaojoijhdsah">
+                          
+                        </div>
+                           
