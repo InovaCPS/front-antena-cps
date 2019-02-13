@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { LandingComponent } from './landing-page/landing.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import {ProjectComponent} from './projeto/projeto.component';
+import { ProjectComponent} from './projeto/projeto.component';
+import { AgendaComponent} from './agenda/agenda.component';
  
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'projeto',
     component: ProjectComponent
+  },
+  {
+    path: 'agenda',
+    component: AgendaComponent
   }
 ];
 

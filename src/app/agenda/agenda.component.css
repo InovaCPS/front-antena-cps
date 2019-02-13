@@ -1,0 +1,11 @@
+#logo {
+    width: 100%;
+    max-width: 200px;   
+    height: auto;
+    color: white;   
+ }   
+
+ .letras {
+     margin-left:5%;
+     margin-top: 2%;
+ }

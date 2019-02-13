@@ -13,4 +13,7 @@ export class ProjectComponent {
   escudo = require('../../app/images/escudo.png')
   adfile = require('../../app/images/adfile.png')
   plus = require('../../app/images/plus.jpg')
+  fundo = require('../../app/images/fundo.jpg')
+  friends = require('../../app/images/amigos.png')
+  back = require('../../app/images/atras.jpg')
 }

@@ -1,12 +1,7 @@
 <nav class="navbar navbar-light bg-light">
   <img id="logo" class="navbar-brand mb-0" [src]="logo"></nav>
 
-  <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4"></h1>
-          <p class="lead"> BACKGROUND</p>
-        </div>
-      </div>
+  <div ><a href=""><img [src]="back" id="graf" alt=""></a></div>
 
 <div class="container">
   <div class="row">
@@ -46,37 +41,63 @@
           <input type="password" id="kwords" name="kwords" placeholder="5 palavras-chave">
       
         </div>
+        
 
       <div class="col-md-6">
         <label for="search"></label>
         <input type="text" id="search" name="search" placeholder="Buscar colaborador">
         <div class="row">
-        <div class="col-sm-3"><a href=""><img [src]="upload" id="icon" alt=""></a></div>
-        <div class="col-sm-3"><a href=""><img [src]="imag" id="icon" alt=""></a></div>
-        <div class="col-sm-3"><a href=""><img [src]="adfile" id="icon" alt=""></a></div>
+        <div class="col-sm-3"><a href=""><img [src]="upload" id="upload" alt=""></a></div>
+        <div class="col-sm-3"><a href=""><img [src]="imag" id="imag" alt=""></a></div>
+        <div class="col-sm-3"><a href=""><img [src]="adfile" id="adfile" alt=""></a></div>
+        <div class="col-sm-3"><a href=""><img [src]="friends" id="friends" alt=""></a></div>
       </div>
-        <h4>
-                <div class="col-sm-3"><a href=""><img [src]="plus" id="icon" alt=""></a></div>
+       
+      <div ><a href=""><img [src]="plus" id="plus" alt=""></a></div>
+      <div ><a href=""><img [src]="plus" id="plus" alt=""></a></div>
+
+      <div class="alturas">
+      <h4>  
           <strong>
               Categorias
           </strong>
       </h4>
+        </div>  
+    
     
       <div>
-        <form>  
+        <div class="row">
+        <form>
+    <div class="col-md-4">  
         <input type="checkbox" name="option1" value="dgn">  design<br>
-        <input type="checkbox" name="option2" value="amb">  meio-ambiente<br>
+    </div>
+        <div class="col-md-4"> 
+        <input type="checkbox" name="option2" value="amb">  ambiente<br>
+    </div>
+        <div class="col-md-4">  
         <input type="checkbox" name="option3" value="ges">  gestão<br>
+    </div>
+        <div class="col-md-4">
         <input type="checkbox" name="option4" value="rob">  robótica<br>
+    </div>
+        <div class="col-md-4">
         <input type="checkbox" name="option5" value="edu">  educação<br>
+    </div>
+        <div class="col-md-4">
         <input type="checkbox" name="option6" value="tec">  tecnologia<br>
+    </div>
+        <div class="col-md-4">
         <input type="checkbox" name="option7" value="inf">  infraestrutura<br>
+    </div>
+        <div class="col-md-4">
         <input type="checkbox" name="option8" value="sau">  saúde<br>
+    </div>
       </form>
     </div>
+</div>
 
-      <div class="col-sm-3"><a href=""><img [src]="escudo" id="icon" alt=""></a></div> <p> <strong>Ganhou prêmios?</strong> </p>
+      <div><a href=""><img [src]="escudo" id="escudo" alt=""></a></div> <p><strong>Ganhou prêmios?</strong></p>   
+        <div>     
       <label for="premium"></label>
           <input type="text" id="premium" name="premium"> 
   </div>
-</div>
