@@ -1,27 +1,39 @@
-# InovaAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+# Antena CPS
 
-## Development server
+Este projeto tem como premissa a criação da maior e melhor plataforma de conexão entre alunos e o ecossistema.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A fim de virar uma comunidade, decidimos deixar algumas features disponíveis para que alunos e/ou interessados em colaborar possam ajudar no desenvolvimento, adquirindo experiencia, podendo usar sua contribuição como portfólio!
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Como Você pode Colaborar
 
-## Build
+Se você está a fim de ajudar no desenvolvimento, sempre disponibilizaremos "*bugs*" na aba de **issues do repositorio**, bem como *features* no kanban disponivel em **Projects**, no projeto *Open Source*.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+O Front-End do projeto está sendo construido em Angular CLI e o Back-End em Python e Flask!
+Saiba mais sobre o Back-end clicando [aqui](https://github.com/InovaCPS/back-antena-cps/blob/master/README.md)
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Equipe
 
-## Running end-to-end tests
+A equipe envolvida neste projeto faz parte do INOVA Paula Souza, do CPS. Conheça melhor a equipe clicando [aqui](Equipe.md)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Instruções para montar o projeto:
+*  Para utilizar o Angular CLI é necessário ter o Node.JS instalado
+    ```bash
+    Baixar o [Node.js](https://nodejs.org/en/download/).
+    ```
+*  Com o Node.JS instalado, utilizamos o comando **npm** para instalar o Angular CLI
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    ```bash
+    npm install -g @angular/cli
+    ```
+* Instalando os pacotes necessario do projeto
+    ```bash
+    npm install
+    ```
+* Rode o projeto
+    * Executar:
+    ```bash
+    npm start
+    ```
