@@ -113,15 +113,29 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                            <div>
-                            <label for="title"></label>
-                            <input type="text" id="title"  name="title"  placeholder="Título de mídia">
-                           
-                            <label for="describe"></label>
-                            <input type="text" id="describe"  name="des" placeholder="Descrição">
-                           
-                            <label for="codigo"></label>
-                            <input type="text" id="cod"  name="cod"  placeholder="href=glasdsadasdasodaojoijhdsah">
-                          
+                        <div>
+                            <button (click)="addArquivo()">Adicionar</button>
+
+                            <div *ngFor='let arquivo of arquivos; let i = index'>
+                                <button (click)="deleteArquivo(i)">X</button>
+
+                                <label for="midia"></label>
+                                <input type="file" id="midia"  name="midia" [(ngModel)]="arquivos[i].midia">
+                            
+                                <label for="titulo"></label>
+                                <input type="text" id="titulo" name="titulo" [(ngModel)]="arquivos[i].titulo" placeholder="Título">
+                            
+                                <label for="descricao"></label>
+                                <input type="text" id="descricao" name="descricao" [(ngModel)]="arquivos[i].descricao" placeholder="Descrição">
+
+                                <label for="codigo"></label>
+                                <input type="text" id="codigo" name="codigo" [(ngModel)]="arquivos[i].codigo" placeholder="href=glasdsadasdasodaojoijhdsah">
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                            

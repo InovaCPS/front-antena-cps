@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { projetoServices, Projeto, Arquivo } from './projeto.services';
+
 @Component({
   selector: 'app-projeto',
   templateUrl: './projeto.component.html',
@@ -7,6 +9,23 @@ import { Component } from '@angular/core';
 })
 export class ProjectComponent {
   
+  arquivos: Arquivo[];
+
+  constructor(){
+    this.arquivos = [];
+  }
+
+  addArquivo(){
+    if(this.arquivos.length < 3){
+      let newArquivo: Arquivo = { midia: null, titulo: '', descricao: '', codigo: '' };
+      this.arquivos.push(newArquivo);
+    }
+  }
+
+  deleteArquivo(index){
+    this.arquivos.splice(index, 1);
+  }
+
   logo = require('../../app/images/antena_cps.jpg')
   upload = require('../../app/images/upload.png')
   imag = require('../../app/images/imag.png')

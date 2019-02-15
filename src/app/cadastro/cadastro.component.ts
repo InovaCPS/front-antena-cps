@@ -13,8 +13,8 @@ export class CadastroComponent {
   graf = require('../../app/images/background.png')
   
   apiRoot: string = "http://localhost:8080";
-  name: String;
-  Sname: String;
+  nome: String;
+  sobrenome: String;
   email: String;
   senha: String;
 
@@ -24,7 +24,7 @@ export class CadastroComponent {
     console.log("POST");
     let url = `${this.apiRoot}/cp/parceiro`;
     this.http
-      .post(url, { nome: this.name, sobrenome: this.Sname, email: this.email, senha: this.senha })
+      .post(url, { nome: this.nome, sobrenome: this.sobrenome, email: this.email, senha: this.senha })
       .subscribe(res => console.log("Cadastrado com Sucesso!!!"))         
   }
 }
