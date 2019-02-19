@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container-fluid" [ngStyle]="{ 'background-image': 'url(' + background + ')'}" style="background-size: cover;">>
 <div class="row"></div>
 <div class="row">
@@ -11,16 +12,20 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis lacus risus. Morbi id posuere nisl, sit amet condimentum eros. Suspendisse at velit ligula. Cras vitae commodo mi. Nunc malesuada ipsum nec lacinia convallis. Cras id accumsan eros, ac fringilla sem. Aliquam ut velit massa. Praesent molestie ullamcorper bibendum. Mauris vel quam sit amet ante condimentum ultricies. Etiam vel cursus nibh        
           </p>
           <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-              <img [src]="" alt="">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" style="margin-right: 30px">
+                <iframe width="600" height="315" frameborder="0"
+                  src="https://www.youtube.com/embed/fj99YK7XdFA">
+                </iframe>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-3"></div>
+          </div>
+          <div class="row" id="row-padding">
           </div>   
       </div>
     </div>
   </div>
   <div class="col-md-1"></div>
 </div>
-<div class="row"></div>
+<div class="row" id="row-padding"></div>
 </div>
