@@ -1,4 +1,17 @@
-<nav class="navbar navbar-light bg-light">
-    <img id="logo" class="navbar-brand mb-0" [src]="logo">
-    <button class="btn btn-danger my-2 my-sm-0" data-toggle="modal" data-target="#modalLogin"></button>
-</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar">
+    <div id="item-1">
+        <a class="navbar-brand" href="#"><img [src]="logo" alt="" id="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="#">Sobre</a>
+        <a class="nav-item nav-link" href="#">Parceiros</a>
+        <a class="nav-item nav-link" href="#">Editais</a>
+        <a class="nav-item nav-link" href="#">Contato</a>
+      </div>
+    </div>
+    <div></div>
+  </nav>
