@@ -15,6 +15,7 @@ import { AboutComponent } from './about/about.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProjectComponent} from './projeto/projeto.component';
 import { AgendaComponent} from './agenda/agenda.component';
+import { Agenda1Component} from './agenda/agenda1.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AgendaComponent} from './agenda/agenda.component';
     AboutComponent,
     CarouselComponent,
     ProjectComponent,
-    AgendaComponent
+    AgendaComponent,
+    Agenda1Component
     
   ],
   imports: [

@@ -6,7 +6,8 @@ import { LandingComponent } from './landing-page/landing.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ProjectComponent} from './projeto/projeto.component';
 import { AgendaComponent} from './agenda/agenda.component';
- 
+import { Agenda1Component} from './agenda/agenda1.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'agenda',
     component: AgendaComponent
+  },
+  {
+    path: 'agenda1',
+    component: Agenda1Component
   }
 ];
 
