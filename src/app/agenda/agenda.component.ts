@@ -1,41 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-
-import * as $ from "jquery";
 import 'fullcalendar';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
+import { Component, OnInit } from '@angular/core';
+import { ModalDismissReasons, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import * as $ from 'jquery';
+
+
+//Component do Modal
+@Component({
+    selector: 'ngbd-modal-content',
+    templateUrl: './modal.component.html'
+})
+export class NgbdModalContent {
+    constructor(public activeModal: NgbActiveModal) { }
+}
+
+
+//Component da Agenda
 @Component({
     selector: 'app-agenda',
-    templateUrl:'./agenda.component.html',
+    templateUrl: './agenda.component.html',
     styleUrls: ['./agenda.component.css']
 })
 export class AgendaComponent implements OnInit {
 
     closeResult: string;
-    content: string = `
-   
-    <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Events</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    `
     calendar = require('../images/calendario.png');
-
 
     constructor(
         private modalService: NgbModal,
     ) { }
 
     ngOnInit() {
+        var x = this;
         $('#calendar').fullCalendar({
             locale: 'pt-br',
 
@@ -45,10 +41,7 @@ export class AgendaComponent implements OnInit {
             },
             dayClick: function (date, jsEvent, view) {
 
-                open(this.content)
-                alert('Clicked on: ' + date.format());
-                alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-                alert('Current view: ' + view.name);
+                x.open();
 
                 // cor do fundo
                 $(this).css('background-color', 'gray');
@@ -88,12 +81,9 @@ export class AgendaComponent implements OnInit {
         });
     }
 
-    open(content) {
-        this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-            this.closeResult = `Closed with: ${result}`;
-        }, (reason) => {
-            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        });
+    open() {
+        const modalRef = this.modalService.open(NgbdModalContent, { centered: true });
+        modalRef.componentInstance.name = 'World';
     }
 
     private getDismissReason(reason: any): string {
@@ -101,9 +91,8 @@ export class AgendaComponent implements OnInit {
             return ' aperte o ESC';
         } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
             return ' aperte o backdrop';
-        } else { 
+        } else {
             return `with: ${reason}`;
         }
     }
 }
-
