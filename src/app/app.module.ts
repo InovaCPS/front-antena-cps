@@ -15,11 +15,9 @@ import { AboutComponent } from './about/about.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProjectComponent} from './projeto/projeto.component';
 import { AgendaComponent} from './agenda/agenda.component';
-<<<<<<< HEAD
 import { Agenda1Component} from './agenda/agenda1.component';
-=======
 import { NavbarComponent } from './navbar/navbar.component';
->>>>>>> d1d8f8cac9529544ab131cc86cbbcbbc0823e640
+import { StudentformsComponent} from './studentforms/studentforms.component'
 
 @NgModule({
   declarations: [
@@ -34,11 +32,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     CarouselComponent,
     ProjectComponent,
     AgendaComponent,
-<<<<<<< HEAD
-    Agenda1Component
-=======
-    NavbarComponent
->>>>>>> d1d8f8cac9529544ab131cc86cbbcbbc0823e640
+    Agenda1Component,
+    NavbarComponent,
+    StudentformsComponent
     
   ],
   imports: [

@@ -1,5 +1,7 @@
-<nav class="navbar navbar-light bg-light">
-  <img id="logo" class="navbar-brand mb-0" [src]="logo"></nav>
+<app-navbar></app-navbar>
+
+<div id="fundo"  [ngStyle]="{'background-image': 'url(' + fundo + ')'}">
+
 
 <div class="letras">
   <h4>
@@ -12,7 +14,7 @@
   </p>
 </div>
 
-<div class="card mb-3" style="max-width: 600px; max-height: 200px; left: 8.8%;">
+<div class="card mb-3" style="max-width: 600px; max-height: 200px; left: 28%;">
     <div class="row no-gutters">
       <div class="col-md-4">
         <img src="{{calendar}}" class="imgc" alt="">
@@ -28,7 +30,7 @@
     </div>
   </div>
 
-  <div class="card mb-3" style="max-width: 600px; max-height: 200px; left: 8.8%;">
+  <div class="card mb-3" style="max-width: 600px; max-height: 200px; left: 28%;">
     <div class="row no-gutters">
       <div class="col-md-4">
         <img src="{{calendar}}" class="imgc" alt="">
@@ -44,7 +46,7 @@
     </div>
   </div>
 
-  <div class="card mb-3" style="max-width: 600px; max-height: 200px; left: 8.8%;">
+  <div class="card mb-3" style="max-width: 600px; max-height: 200px; left: 28%;">
     <div class="row no-gutters">
       <div class="col-md-4">
         <img src="{{calendar}}" class="imgc" alt="">
@@ -59,3 +61,4 @@
       </div>
     </div>
   </div>
+</div>

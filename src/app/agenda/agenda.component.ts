@@ -28,7 +28,6 @@ export class AgendaComponent implements OnInit {
         </div>
     </div>
     `
-    logo = require('../images/antena_cps.jpg');
     calendar = require('../images/calendario.png');
 
 
@@ -47,7 +46,6 @@ export class AgendaComponent implements OnInit {
             dayClick: function (date, jsEvent, view) {
 
                 open(this.content)
-
                 alert('Clicked on: ' + date.format());
                 alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
                 alert('Current view: ' + view.name);

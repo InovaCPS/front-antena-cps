@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class DataBindingComponent {
     apiRoot: string = "http://localhost:8080";
 
-    logo = require('../../app/images/antena_cps.jpg')
+    logo = require('../../app/images/antena_logo.png')
     usrn: String;
     pswd: String;
 

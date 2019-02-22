@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+<div id="fundo"  [ngStyle]="{'background-image': 'url(' + fundo + ')'}"></div>
+
+       <h3 style="color: black; display: inline" id="frase" >DADOS DE </h3><h3 id="anten" style="color: red; display: inline">PERFIL</h3> 
+        <p>
+            Preencha com seus dados complementares
+        </p>
+
+           <div>
+          <label for="fname"></label>
+          <input type="text" id="fname1" class="confform" name="fname" [(ngModel)]="nome" placeholder="Nome">
+          <br />
+          <label for="sname"></label>
+          <input type="text" id="sname1" class="confform" name="fname" [(ngModel)]="sobrenome" placeholder="Sobrenome">
+          <br />
+          <label for="email"></label>
+          <input type="text" id="email1" class="confform" name="email" [(ngModel)]="email" placeholder="E-mail">
+          <br />
+          <label for="ra"></label>
+          <input type="text" id="ra1" class="confform" name="ra1" [(ngModel)]="ra" placeholder="R.A.">
+          <br />
+          <label for="genero"></label>
+          <input type="text" id="gen1" class="confform" name="gen" [(ngModel)]="geb" placeholder="Gênero">
+          <br />
+          <br />
+        </div>
+        

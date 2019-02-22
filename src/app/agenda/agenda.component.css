@@ -13,3 +13,7 @@
 .imgc {
     width: 170px;
 }
+
+#fundo {
+    background-size: cover;
+}

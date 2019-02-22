@@ -26,7 +26,6 @@ export class ProjectComponent {
     this.arquivos.splice(index, 1);
   }
 
-  logo = require('../../app/images/antena_cps.jpg')
   upload = require('../../app/images/upload.png')
   imag = require('../../app/images/imag.png')
   escudo = require('../../app/images/escudo.png')

@@ -9,7 +9,6 @@ import { HttpClient } from "@angular/common/http";
 })
 export class CadastroComponent {
   
-  logo = require('../../app/images/antena_cps.jpg')
   graf = require('../../app/images/background.png')
   
   apiRoot: string = "http://localhost:8080";

@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./agenda.component.css']
 })
 export class Agenda1Component {
-  title = '';
-  logo = require('../images/antena_cps.jpg');
     calendar = require('../images/calendario.png');
+    fundo = require('../images/fundo_transparente.png')
 }
