@@ -29,7 +29,9 @@
     background-color: red;
   }
   
-
+  #center{
+    text-align: center;
+  }
 
  #fbcolor{
     border-radius: 50%;
@@ -39,6 +41,7 @@
     background-color: red;
     color:white;
     border-radius: 52%;
+    margin-left: 5px;
  }
   
   
