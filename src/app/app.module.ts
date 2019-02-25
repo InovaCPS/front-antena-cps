@@ -19,6 +19,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProjectComponent } from './projeto/projeto.component';
 import { StudentformsComponent } from './studentforms/studentforms.component';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
 
 @NgModule({
   declarations: [
@@ -37,6 +45,7 @@ import { StudentformsComponent } from './studentforms/studentforms.component';
     NavbarComponent,
     StudentformsComponent,
     NgbdModalContent
+    
   ],
   imports: [
     BrowserModule,
@@ -44,9 +53,13 @@ import { StudentformsComponent } from './studentforms/studentforms.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    SwiperModule
   ],
-  providers: [NgbCarouselConfig],
+  providers: [NgbCarouselConfig, {
+    provide: SWIPER_CONFIG,
+    useValue: DEFAULT_SWIPER_CONFIG
+  }],
   entryComponents: [AgendaComponent, NgbdModalContent],
   bootstrap: [AppComponent]
 })
