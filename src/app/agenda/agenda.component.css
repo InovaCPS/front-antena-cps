@@ -5,15 +5,6 @@
     color: white;   
  }   
 
- .letras {
-     margin-left:5%;
-     margin-top: 8%;
- }
-
-.imgc {
-    width: 170px;
-}
-
 #fundo {
     background-size: cover;
 }
