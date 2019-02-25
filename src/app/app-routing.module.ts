@@ -41,6 +41,10 @@ const routes: Routes = [
   {
     path: 'perfil',
     component: StudentformsComponent
+  },
+  {
+    path: 'collaborator',
+    component: StudentformsComponent
   }
 ];
 
