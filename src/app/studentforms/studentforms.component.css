@@ -1,18 +1,56 @@
-#fundo{
-    margin-top: 9%;;
+#fundo {
+  margin-top: 8%;
+  background-size: cover;
 }
 
-.confform{
-    
-    padding: 5px 10px;
-    margin: 10px 0px;
-    border: 1px solid black;
-    border-radius: 1px;
-    box-sizing: border-box;
-    width: 30%;
-    right: 25%;
-  }
+/* 
+#frase{
+    left: 30%;
+} */
 
-  #fname1 {
-      left: 20%;
-  }
+input,
+select {
+  width: 30%;
+  padding: 8px 14px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 0px;
+  box-sizing: border-box;
+}
+
+#ra {
+  width: 10%;
+}
+
+#rg  {
+  width: 15%;
+}
+#tel {
+  width: 15%;
+}
+#cpf {
+  width: 15%;
+}
+#gen {
+  width: 20%;
+  margin-left: 400px;
+}
+
+#tel {
+  width: 20%;
+  margin-left: 400px;
+ 
+}
+
+#uni {
+  margin-left: 400px;
+}
+
+#cargo{
+    width: 20%;
+}
+
+#empresa {
+    
+}

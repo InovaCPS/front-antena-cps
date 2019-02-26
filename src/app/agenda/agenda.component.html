@@ -19,43 +19,37 @@
   <div class="row">
     <div class="col-md-9" id="calendar"></div>
 
-    <div class="horizontal-container col-md-3" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="stretch"
-      fxFlex="auto">
-      <div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="50%">
+    <div class="vertical-container col-md-3 p-5" style="height: 570px;" fxLayout="column" fxLayoutAlign="stretch"
+      fxFlex="50%">
 
-        <div class="vertical-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="50%">
+      <h4>
+         <a href="/agenda1">Meus Eventos</a> 
+      </h4>
+      
+      <!-- Slide -->
+      <swiper *ngIf="type == 'component' && show" class="swiper-container" style="height: 570px;" fxFlex="auto"
+        [config]="config" [disabled]="disabled">
+        <div *ngFor="let slide of slides" class="swiper-slide">
+          <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
 
-          <div class="content-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
-            <swiper *ngIf="type == 'component' && show" class="swiper-container" fxFlex="auto" [config]="config"
-              [disabled]="disabled" (indexChange)="onIndexChange($event)"
-              (swiperTransitionStart)="onSwiperEvent('transitionStart')"
-              (swiperTransitionEnd)="onSwiperEvent('transitionEnd')">
-              <div *ngFor="let slide of slides" class="swiper-slide">
-                <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
-                  {{ slide }}
+            <!-- Template do card -->
+            <div class="row no-gutters" style="border: 2px solid black">
+                <div class="card-body">
+                  <h4 class="card-title">Evento CPS</h4>
+                  <p class="card-text">{{slide.subtitle}}, <strong>20 de março às 14h</strong></p>
                 </div>
               </div>
-            </swiper>
-
-            <div *ngIf="type == 'directive' && show" class="swiper-container" [disabled]="disabled" [swiper]="config"
-              (indexChange)="onIndexChange($event)" (swiperTransitionStart)="onSwiperEvent('transitionStart')"
-              (swiperTransitionEnd)="onSwiperEvent('transitionEnd')">
-              <div class="swiper-wrapper">
-                <div *ngFor="let slide of slides" class="swiper-slide">
-                  <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
-                    {{ slide }}
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-scrollbar" [hidden]="config.scrollbar === false"></div>
-              <div class="swiper-pagination" [hidden]="config.pagination === false"></div>
-              <div class="swiper-button-prev" [hidden]="config.navigation === false"></div>
-              <div class="swiper-button-next" [hidden]="config.navigation === false"></div>
-            </div>
           </div>
         </div>
+      </swiper>
+     
+      <!-- Botão de proximo e voltar slide -->
+      <div *ngIf="type =='directive' && show" class="swiper-container" [disabled]="disabled" [swiper]="config">
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
+
     </div>
+
   </div>
 </div>
