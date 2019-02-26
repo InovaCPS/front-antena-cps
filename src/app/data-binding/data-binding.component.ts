@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./data-binding.component.css']
 })
 export class DataBindingComponent {
+
     apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
 
     logo = require('../../app/images/antena_logo.png')
@@ -38,5 +39,3 @@ export class DataBindingComponent {
           .subscribe(res => console.log(res))
     }
 }
-
-  'O codigo de login com o google esta dando problema no CORS... como sempre!!!! kkkkkkkk'

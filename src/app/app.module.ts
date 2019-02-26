@@ -1,3 +1,4 @@
+import { CollaboratorComponent } from './collaborator/collaborator.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -22,6 +23,7 @@ import { StudentformsComponent } from './studentforms/studentforms.component';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { RegEventComponent } from './reg-event/reg-event.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -44,7 +46,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     Agenda1Component,
     NavbarComponent,
     StudentformsComponent,
-    NgbdModalContent
+    NgbdModalContent,
+    RegEventComponent,
+    CollaboratorComponent
     
   ],
   imports: [

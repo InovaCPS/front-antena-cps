@@ -7,6 +7,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { ProjectComponent} from './projeto/projeto.component';
 import { AgendaComponent} from './agenda/agenda.component';
 import { Agenda1Component} from './agenda/agenda1.component';
+import { CollaboratorComponent } from './collaborator/collaborator.component';
 import { StudentformsComponent} from './studentforms/studentforms.component';
 
 const routes: Routes = [
@@ -44,7 +45,7 @@ const routes: Routes = [
   },
   {
     path: 'collaborator',
-    component: StudentformsComponent
+    component: CollaboratorComponent
   }
 ];
 
