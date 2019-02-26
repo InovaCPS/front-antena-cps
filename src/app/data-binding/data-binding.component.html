@@ -24,16 +24,19 @@
               <label for="password">Senha</label>
               <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="pswd" placeholder="Senha">
                      
-              <input type="submit" (click)="doPOST()" value="Entrar">
+              <input type="submit" (click)="doPOST()" value="Entrar"><br>
+              <a href="">Esqueceu sua senha ?</a>
                <br />
                <br />
                <br />
 
               <p>
-                Primeiro acesso? Cadastre-se aqui ou continue em:
+                Primeiro acesso? Cadastre-se <a href="/cadastro">aqui</a> ou continue com:
               </p>
-              <button type="button"  size="lg" class="btn btn-primary" id="fbcolor" ><i class="fab fa-facebook-f left"></i></button>
-              <button (click)="lgGoogle()" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button>
+              <div id="center">
+                <button type="button"  size="lg" class="btn btn-primary" id="fbcolor" ><i class="fab fa-facebook-f left"></i></button>
+                <button (click)="lgGoogle()" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button>
+              </div>
             </form>
           </div>
           
