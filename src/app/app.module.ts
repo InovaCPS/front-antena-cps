@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title} from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { AboutComponent } from './about/about.component';
@@ -56,11 +56,14 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     NgbModule,
     SwiperModule
   ],
-  providers: [NgbCarouselConfig, {
+  providers:[NgbCarouselConfig, {
     provide: SWIPER_CONFIG,
     useValue: DEFAULT_SWIPER_CONFIG
-  }],
+  }, 
+    Title],
   entryComponents: [AgendaComponent, NgbdModalContent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+}
