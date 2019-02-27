@@ -36,22 +36,22 @@
                     <strong>Cursos envolvidos</strong>
                     <a (click)="addCurso()"><img [src]="plus" id="plus" alt="#"></a>
                     <div *ngFor="let curso of cursosEnvolvidos; let i = index">
-                        <select name="curso" id="curso">
-                            <option value="1">asdasdada</option>
+                        <select name="curso" [(ngModel)]="cursosEnvolvidos[i]" id="curso">
+                            <option *ngFor="let curso of cursos" value="{{ curso.id }}">{{ curso.nome }}</option>
                         </select>
                         <a (click)="deleteCurso(i)"><img [src]="divide" id="divide" alt="#"></a>
                     </div>
                 </div>
 
                 <label for="kwords"><strong>Palavras chave:</strong></label>
-                <input type="text" id="kwords" name="kwords" [(ngModel)]="projeto.palavrasChave" placeholder="5 palavras separadas por ;">
+                <input type="text" id="kwords" name="kwords" [(ngModel)]="palavrasChave" placeholder="5 palavras separadas por ;">
 
             </div>
             <div class="form-group col-md-6">
                 <div>
                     <img [src]="friends" id="friends" alt="">
                     <label for="search"><strong>Colaboradores:</strong></label>
-                    <input type="text" id="search" name="search" [(ngModel)]="projeto.colaboradores" placeholder="Email dos colaboradores separados por ;">
+                    <input type="text" id="search" name="search" [(ngModel)]="colaboradores" placeholder="Email dos colaboradores separados por ;">
                 </div>
                 <div class="uploadGroup">
                     <div class="uploadFiles"><img [src]="upload" alt=""></div>
@@ -82,7 +82,7 @@
                     </div>
                     <div *ngIf="premiado == true">
                         <label for="links"><strong>Links:</strong></label>
-                        <input type="text" id="links" name="links" [(ngModel)]="projeto.links" placeholder="Links separados por ;">
+                        <input type="text" id="links" name="links" [(ngModel)]="links" placeholder="Links separados por ;">
                     </div>
                 </div>
             </div>

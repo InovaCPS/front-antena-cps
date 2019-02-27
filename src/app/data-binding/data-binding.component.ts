@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class DataBindingComponent {
 
-    apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
+    apiRoot: string = "http://localhost:8080";
 
     logo = require('../../app/images/antena_logo.png')
     usrn: String;
