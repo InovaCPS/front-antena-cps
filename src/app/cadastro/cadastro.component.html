@@ -3,48 +3,59 @@
   document.title = "Cadastro";
 </script>
 <div id="background" class="container-fluid" [ngStyle]="{'background-image': 'url(' + graf + ')'}">
-  
-<div>
-    <h4>
-    <strong>
-            Cadastre-se e seja um antenado! 
-        </strong>
-    </h4>
-    <p>
-        Vai ser rápido! Basta preencher os seguintes dados:
-    </p>
-      
-       
-      <label for="fname"></label>
-      <input type="text" id="fname" class="confform" name="fname" [(ngModel)]="nome" placeholder="Nome">
-      <br />
-      <label for="sname"></label>
-      <input type="text" id="sname" class="confform" name="fname" [(ngModel)]="sobrenome" placeholder="Sobrenome">
-      <br />
-      <label for="email"></label>
-      <input type="text" id="email" class="confform" name="email" [(ngModel)]="email" placeholder="E-mail">
-      <br />
-      <label for="password"></label>
-      <input type="password" id="pssword" class="confform" name="pssword" [(ngModel)]="senha" placeholder="Senha">
-      <br />
-      <label for="confpass"></label>
-      <input type="password" id="confp" class="confform" name="confp" [(ngModel)]="confSenha" placeholder="Confirmar Senha">
-      <br />
-      <br />
-      
-      <input type="submit" (click)="doPOST()"  value="Cadastrar">
+  <div class="padding">
+    <div class="padding">
+      <div class="padding">
+        <div class="padding">
+        <div class="register">
+          <div>
+            <h4>
+              <strong>
+                Cadastre-se e seja um antenado!
+              </strong>
+            </h4>
+          </div>
+          <div>
+            <p>
+              Vai ser rápido! Basta preencher os seguintes dados:
+            </p>
+          </div>
+          <div>
+            <label for="fname"></label>
+            <input type="text" id="fname" class="confform" name="fname" [(ngModel)]="nome" placeholder="Nome">
+            <br />
+            <label for="sname"></label>
+            <input type="text" id="sname" class="confform" name="fname" [(ngModel)]="sobrenome" placeholder="Sobrenome">
+            <br />
+            <label for="email"></label>
+            <input type="text" id="email" class="confform" name="email" [(ngModel)]="email" placeholder="E-mail">
+            <br />
+            <label for="password"></label>
+            <input type="password" id="pssword" class="confform" name="pssword" [(ngModel)]="senha" placeholder="Senha">
+            <br />
+            <label for="confpass"></label>
+            <input type="password" id="confp" class="confform" name="confp" [(ngModel)]="confSenha"
+              placeholder="Confirmar Senha">
+            <br />
+            <br />
 
-      <br />
-      <br />
-      <br />
-
-     <p>
-         <strong>
-       Ou acesse:
-    </strong>
-     </p>
-     <button type="button"  size="lg" class="btn btn-primary" id="fbcolor" ><i class="fab fa-facebook-f left"></i></button>
-   
+            <input type="submit" (click)="doPOST()" value="Cadastrar">
+            <br />
+            <br />
+            <br />
+              <!-- <div>
+              <p>
+                <strong>
+                  Ou acesse:
+                </strong>
+              </p>
+              <button type="button" size="lg" class="btn btn-primary" id="fbcolor"><i
+                class="fab fa-facebook-f left"></i></button>
+              </div> -->
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-  

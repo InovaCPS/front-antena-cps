@@ -9,6 +9,9 @@ import { AgendaComponent} from './agenda/agenda.component';
 import { Agenda1Component} from './agenda/agenda1.component';
 import { CollaboratorComponent } from './collaborator/collaborator.component';
 import { StudentformsComponent} from './studentforms/studentforms.component';
+import { ContactComponent } from './contact/contact.component';
+import { NoticeComponent } from './notice/notice.component';
+import { PartnersComponent } from './partners/partners.component';
 
 const routes: Routes = [
   {
@@ -46,6 +49,18 @@ const routes: Routes = [
   {
     path: 'collaborator',
     component: CollaboratorComponent
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
+  },
+  {
+    path: 'notice',
+    component: NoticeComponent
+  },
+  {
+    path: 'partners',
+    component: PartnersComponent
   }
 ];
 

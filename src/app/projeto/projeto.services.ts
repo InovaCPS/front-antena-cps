@@ -4,7 +4,7 @@ import { getLocaleDayPeriods } from '@angular/common';
 
 @Injectable()
 export class projetoServices{
-    apiRoot: string = "http://localhost:8080";
+    apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
     headers;
     token;
 
