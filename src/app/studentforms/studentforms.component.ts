@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./studentforms.component.css']
 })
 export class StudentformsComponent {
-    fundo = require('../images/fundo_transparente.png')
+  fundo = require('../images/fundo_transparente.png')
+
+  nome: String;
+  sobrenome: String;
+  email: String;
+  ra: String;
+  gen: String;
+  uni: String;
 }

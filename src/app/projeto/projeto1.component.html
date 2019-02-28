@@ -80,7 +80,7 @@
                             <input type="radio" name="premiado" [(ngModel)]="premiado" value="2"><p>Não</p>
                         </div>
                     </div>
-                    <div *ngIf="premiado == true">
+                    <div *ngIf="premiado">
                         <label for="links"><strong>Links:</strong></label>
                         <input type="text" id="links" name="links" [(ngModel)]="links" placeholder="Links separados por ;">
                     </div>

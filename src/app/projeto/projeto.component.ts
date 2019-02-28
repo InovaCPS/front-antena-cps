@@ -11,18 +11,18 @@ import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto } from './
 export class ProjectComponent {
   
   projeto: Projeto;
-  premiado: string;
+  premiado: string = "";
   arquivos: Arquivo[];
-  palavrasChave: string;
-  colaboradores: string;
-  links: string;
+  palavrasChave: string = "";
+  colaboradores: string = "";
+  links: string = "";
 
   unidades: Unidade[];
   unidadesEnvolvidas: Unidade[];
 
   cursos: Curso[];
   cursosEnvolvidos: Curso[];
-  exibirCategorias: boolean;
+  exibirCategorias: boolean = false;
   categorias: Categoria[];
 
   constructor(private projetoServices: projetoServices){
