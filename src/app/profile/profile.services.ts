@@ -41,6 +41,7 @@ export interface Aluno{
     facebook?: string;
     linkedin?: string;
     twitter?: string;
+    youtube?: string;
     escola?: string;
     escola_unidade?: string;
     idade?: string;

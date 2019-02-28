@@ -11,6 +11,7 @@ import { SwiperComponent, SwiperConfigInterface, SwiperDirective } from 'ngx-swi
     templateUrl: './modal.component.html'
 })
 export class NgbdModalContent {
+    calendar = require('../images/calendario.png')
     constructor(public activeModal: NgbActiveModal) { }
 }
 

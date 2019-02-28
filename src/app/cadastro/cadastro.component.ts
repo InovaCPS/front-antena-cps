@@ -11,11 +11,12 @@ export class CadastroComponent {
   
   graf = require('../../app/images/background.png')
   
-  apiRoot: string = "http://localhost:8080";
+  apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
   nome: String;
   sobrenome: String;
   email: String;
   senha: String;
+  confSenha: String;
 
   constructor(private http: HttpClient) {}
 

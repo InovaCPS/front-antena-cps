@@ -12,4 +12,11 @@ export class StudentformsComponent {
     twt = require('../images/twitter.png')
     link = require('../images/linkedin.png')
     // adfile = require('../../app/images/adfile.png')
+
+  nome: String;
+  sobrenome: String;
+  email: String;
+  ra: String;
+  gen: String;
+  uni: String;
 }

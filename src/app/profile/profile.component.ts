@@ -17,7 +17,6 @@ export class ProfileComponent {
     this.profileService.getUserId().subscribe(res => {
       this.profileService.getProfileAluno(res['id']).subscribe((aluno: Aluno) => {
         this.aluno = aluno;
-        console.log(this.aluno);
         if(aluno.foto_perfil){
           this.fotoPerfil = require('CAMINHO DO BUCKET' + aluno.foto_perfil);
         }
