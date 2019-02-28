@@ -10,47 +10,66 @@
 
 input,
 select {
-  width: 30%;
-  padding: 8px 14px;
+  width: 100%;
+  padding: 12px 20px;
   margin: 8px 0;
-  display: inline-block;
-  border: 1px solid black;
-  border-radius: 0px;
   box-sizing: border-box;
 }
 
+#nome{
+  width: 48%;
+}
+
+#sobrenome, #email {
+  width: 97%;
+}
+
+#tel, #genero {
+  width: 40%;
+  margin-left: 45%;
+}
+
 #ra {
-  width: 10%;
+  width: 35%;
 }
 
-#rg  {
-  width: 15%;
+#unidade {
+  margin-left: -30%;
 }
-#tel {
-  width: 15%;
+
+#rg {
+  width: 55%;
 }
+
 #cpf {
-  width: 15%;
-}
-#gen {
-  width: 20%;
-  margin-left: 400px;
+  margin-left: -30%;
+  width: 55%;
 }
 
-#tel {
-  width: 20%;
-  margin-left: 400px;
- 
-}
-
-#uni {
-  margin-left: 400px;
-}
-
-#cargo{
-    width: 20%;
+#cargo {
+  width: 55%;
 }
 
 #empresa {
-    
+  margin-left: -30%;
+}
+
+#face {
+  margin-left: 300%;
+  margin-top: -287%;
+}
+#yout {
+  margin-left: 320%;
+  margin-top: -302%;
+  width: 14%;
+}
+
+#twt {
+  margin-left: 337%;
+  margin-top: -317%;
+}
+
+#link {
+  margin-left: 355%;
+  margin-top: -332%;
 }

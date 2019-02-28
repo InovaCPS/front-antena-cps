@@ -97,7 +97,7 @@ export class AgendaComponent implements OnInit {
     }
 
 
-    //SWIPER
+    //SWIPER(BOTÃO PARA MOVIMENTAR OS CARDS)
     @ViewChild(SwiperComponent) componentRef?: SwiperComponent;
     @ViewChild(SwiperDirective) directiveRef?: SwiperDirective;
 
