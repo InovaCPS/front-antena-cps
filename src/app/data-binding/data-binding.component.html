@@ -1,9 +1,10 @@
+<div>
 <nav class="navbar navbar-light bg-light fixed-top">
   <a href="/"><img id="logo" class="navbar-brand mb-0" [src]="logo"></a>
   <button class="btn btn-danger my-2 my-sm-0" data-toggle="modal" data-target="#modalLogin">ENTRAR</button>
 </nav>
-
-<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+</div>
+<div class="modal" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -19,10 +20,10 @@
           <div>
             <form>
               <label for="email">Email</label>
-              <input type="text" id="username" class="camposform" name="username" [(ngModel)]="usrn"  placeholder="Email">
+              <input type="text" id="username" class="camposform" name="username" [(ngModel)]="usrn"    >
           
               <label for="password">Senha</label>
-              <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="pswd" placeholder="Senha">
+              <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="pswd" >
                      
               <input type="submit" (click)="doPOST()" value="Entrar"><br>
               <a href="">Esqueceu sua senha ?</a>
@@ -31,12 +32,12 @@
                <br />
 
               <p>
-                Primeiro acesso? Cadastre-se <a href="/#/cadastro">aqui</a> ou continue com:
+                Primeiro acesso? Cadastre-se <a href="/#/cadastro" onclick="$('#modalLogin').modal('hide')">aqui</a>.
               </p>
-              <div id="center">
+              <!-- <div id="center">
                 <button type="button"  size="lg" class="btn btn-primary" id="fbcolor" ><i class="fab fa-facebook-f left"></i></button>
                 <button (click)="lgGoogle()" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button>
-              </div>
+              </div> -->
             </form>
           </div>
         </form>

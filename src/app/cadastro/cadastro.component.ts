@@ -27,4 +27,6 @@ export class CadastroComponent {
       .post(url, { nome: this.nome, sobrenome: this.sobrenome, email: this.email, senha: this.senha })
       .subscribe(res => console.log("Cadastrado com Sucesso!!!"))         
   }
+
+  
 }
