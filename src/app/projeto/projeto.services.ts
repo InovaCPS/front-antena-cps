@@ -44,11 +44,11 @@ export interface Projeto{
     descricao: string;
     unidades: Unidade[];
     cursos: Curso[];
-    palavrasChave: string;
-    colaboradores: string;
+    palavrasChave: string[];
+    colaboradores: string[];
     arquivos: Arquivo[], 
     premiado: boolean;
-    links: string;
+    links: string[];
 }
 
 export interface Arquivo{

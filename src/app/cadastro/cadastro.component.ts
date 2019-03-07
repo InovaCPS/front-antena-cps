@@ -16,6 +16,7 @@ export class CadastroComponent {
   sobrenome: String;
   email: String;
   senha: String;
+  confSenha: String;
 
   constructor(private http: HttpClient) {}
 

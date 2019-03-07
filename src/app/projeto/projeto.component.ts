@@ -11,13 +11,18 @@ import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto } from './
 export class ProjectComponent {
   
   projeto: Projeto;
-  premiado: string;
+  premiado: string = "";
   arquivos: Arquivo[];
-  cursos: Curso[];
+  palavrasChave: string = "";
+  colaboradores: string = "";
+  links: string = "";
+
   unidades: Unidade[];
   unidadesEnvolvidas: Unidade[];
+
+  cursos: Curso[];
   cursosEnvolvidos: Curso[];
-  exibirCategorias: boolean;
+  exibirCategorias: boolean = false;
   categorias: Categoria[];
 
   constructor(private projetoServices: projetoServices){
@@ -31,12 +36,12 @@ export class ProjectComponent {
       titulo: "", 
       descricao: "", 
       unidades: this.unidadesEnvolvidas, 
-      cursos: this.cursos, 
-      palavrasChave: "", 
-      colaboradores: "", 
+      cursos: this.cursosEnvolvidos, 
+      palavrasChave: [], 
+      colaboradores: [], 
       arquivos: this.arquivos,
       premiado: false, 
-      links: ""
+      links: []
     }
 
     let categoriaDesign: Categoria = { nome: "design", valor: "dgn", checado: false }
@@ -57,9 +62,9 @@ export class ProjectComponent {
     this.categorias.push(categoriaInfraestrutura);
     this.categorias.push(categoriaSaude);
 
-    // this.projetoServices.getCursos().subscribe((cursos: Curso[]) => {
-    //   this.cursos = cursos;
-    // });
+    this.projetoServices.getCursos().subscribe((cursos: Curso[]) => {
+      this.cursos = cursos;
+    });
 
     this.projetoServices.getUnidades().subscribe((unidades: Unidade[]) => {
       this.unidades = unidades;
@@ -117,6 +122,10 @@ export class ProjectComponent {
     else if(this.premiado == "2"){
       this.projeto.premiado = false;
     }
+
+    this.projeto.palavrasChave = this.palavrasChave.split(";", 5);
+    this.projeto.colaboradores = this.colaboradores.split(";");
+    this.projeto.links = this.links.split(";");
 
     console.clear();
     this.projetoServices.postProjeto(this.projeto);

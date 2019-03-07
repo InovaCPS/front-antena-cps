@@ -11,6 +11,7 @@ import { SwiperComponent, SwiperConfigInterface, SwiperDirective } from 'ngx-swi
     templateUrl: './modal.component.html'
 })
 export class NgbdModalContent {
+    calendar = require('../images/calendario.png')
     constructor(public activeModal: NgbActiveModal) { }
 }
 
@@ -97,7 +98,7 @@ export class AgendaComponent implements OnInit {
     }
 
 
-    //SWIPER
+    //SWIPER(BOTÃO PARA MOVIMENTAR OS CARDS)
     @ViewChild(SwiperComponent) componentRef?: SwiperComponent;
     @ViewChild(SwiperDirective) directiveRef?: SwiperDirective;
 

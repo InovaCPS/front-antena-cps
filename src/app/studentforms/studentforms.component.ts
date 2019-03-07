@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class StudentformsComponent {
     fundo = require('../images/fundo_transparente.png')
+    face = require('../images/fb.png')
+    yout = require('../images/youtube.png')
+    twt = require('../images/twitter.png')
+    link = require('../images/linkedin.png')
+    // adfile = require('../../app/images/adfile.png')
+
+  nome: String;
+  sobrenome: String;
+  email: String;
+  ra: String;
+  gen: String;
+  uni: String;
 }
