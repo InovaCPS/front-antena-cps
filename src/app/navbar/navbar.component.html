@@ -1,17 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar">
-    <div id="item-1">
-        <a class="navbar-brand" href="/"><img [src]="logo" alt="" id="logo"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/about">Sobre</a>
-        <a class="nav-item nav-link" href="/partners">Parceiros</a>
-        <a class="nav-item nav-link" href="/notice">Editais</a>
-        <a class="nav-item nav-link" href="/contact">Contato</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top" id="navbar">
+      <div id="item-1 " >
+        <a href="/"><img [src]="logo" alt="" id="logo"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
       </div>
-    </div>
-    <div></div>
-  </nav>
+
+      <div class="col-md-6 navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link col-md-4 " href="#/inicio">Início</a>
+          <a class="nav-item nav-link col-md-4 " href="#/agenda">Agenda</a>
+          <a class="nav-item nav-link col-md-4 " href="#/notice">Parceiros</a>
+          <a class="nav-item nav-link col-md-4 " href="#/contact">Contato</a> 
+        </div>        
+
+      </div>
+      <div class="dropdown show col-md-2">
+          <a class="dropdown-toggle"role="button" id="dropdownMenuLink" data-toggle="dropdown">
+            Olá, <b> Aluno (a)</b>
+          </a>
+          
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#/aluno">Perfil</a>
+            <a class="dropdown-item" href="#">Configurações</a>
+            <a class="dropdown-item" href="#">Sair</a>
+          </div>
+        </div>
+      
+      <div></div>
+</nav>

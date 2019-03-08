@@ -25,7 +25,7 @@
               <label for="password">Senha</label>
               <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="pswd" >
                      
-              <input type="submit" (click)="doPOST()" value="Entrar"><br>
+              <input type="submit" (click)="doPOST()" onclick="$('#modalLogin').modal('hide')" value="Entrar"><br>
               <a href="">Esqueceu sua senha ?</a>
                <br />
                <br />

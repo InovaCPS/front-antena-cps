@@ -25,9 +25,9 @@ export class profileService{
 }
 
 export interface Aluno{
-    ra: string;
-    nome: string;
-    sobrenome: string;
+    ra?: string;
+    nome?: string;
+    sobrenome?: string;
     email?: string;
     cpf?: string;
     rg?: string;
