@@ -27,6 +27,8 @@ import { ContactComponent } from './contact/contact.component';
 import { NoticeComponent } from './notice/notice.component';
 import { PartnersComponent } from './partners/partners.component';
 
+import { MustMatchDirective } from './cadastro/_helpers/must-match.directive';
+
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -93,7 +95,8 @@ const routes: Routes = [
     CollaboratorComponent,
     ContactComponent,
     NoticeComponent,
-    PartnersComponent
+    PartnersComponent,
+    MustMatchDirective
     
   ],
   imports: [

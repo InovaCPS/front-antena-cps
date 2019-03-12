@@ -7,53 +7,66 @@
     <div class="padding">
       <div class="padding">
         <div class="padding">
-        <div class="register">
-          <div>
-            <h4>
-              <strong>
-                Cadastre-se e seja um antenado!
-              </strong>
-            </h4>
-          </div>
-          <div>
-            <p>
-              Vai ser rápido! Basta preencher os seguintes dados:
-            </p>
-          </div>
-          <div>
-            <label for="fname"></label>
-            <input type="text" id="fname" class="confform" name="fname" [(ngModel)]="nome" placeholder="Nome">
-            <br />
-            <label for="sname"></label>
-            <input type="text" id="sname" class="confform" name="fname" [(ngModel)]="sobrenome" placeholder="Sobrenome">
-            <br />
-            <label for="email"></label>
-            <input type="text" id="email" class="confform" name="email" [(ngModel)]="email" placeholder="E-mail">
-            <br />
-            <label for="password"></label>
-            <input type="password" id="pssword" class="confform" name="pssword" [(ngModel)]="senha" placeholder="Senha">
-            <br />
-            <label for="confpass"></label>
-            <input type="password" id="confp" class="confform" name="confp" [(ngModel)]="confSenha"
-              placeholder="Confirmar Senha">
-            <br />
-            <br />
-
-            <input type="submit" (click)="doPOST()" value="Cadastrar">
-            <br />
-            <br />
-            <br />
-              <!-- <div>
-              <p>
+          <div class="register">
+            <div>
+              <h4>
                 <strong>
-                  Ou acesse:
+                  Cadastre-se e seja um antenado!
                 </strong>
+              </h4>
+            </div>
+            <div>
+              <p>
+                Vai ser rápido! Basta preencher os seguintes dados:
               </p>
-              <button type="button" size="lg" class="btn btn-primary" id="fbcolor"><i
-                class="fab fa-facebook-f left"></i></button>
-              </div> -->
+            </div>
+            <div class="col-5">
+                <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" [mustMatch]="['password', 'confirmPassword']" novalidate>
+                    <div class="form-group">
+                        <label for="firstName">Nome</label>
+                        <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+                        <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                            <div *ngIf="firstName.errors.required">Digite seu nome.</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Sobrenome</label>
+                        <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
+                        <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                            <div *ngIf="lastName.errors.required">Digite seu sobrenome.</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+                        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                            <div *ngIf="email.errors.required">Digite seu email.</div>
+                            <div *ngIf="email.errors.email">Digite um email válido.</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
+                        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                            <div *ngIf="password.errors.required">Digite sua senha.</div>
+                            <div *ngIf="password.errors.minlength">A senha deve conter 6 dígitos.</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar senha</label>
+                        <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required />
+                        <div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
+                            <div *ngIf="confirmPassword.errors.required">Confirme sua senha.</div>
+                            <div *ngIf="confirmPassword.errors.mustMatch">AS senhas devem ser iguais</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Cadastrar</button>
+                    </div>
+                </form>
+            </div> 
+            <!-- {{f.value | json}}  -->
           </div>
-        </div>
         </div>
       </div>
     </div>
