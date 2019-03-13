@@ -46,7 +46,8 @@ const routes: Routes = [
   },
   {
     path: 'cadastro',
-    component: CadastroComponent     
+    component: CadastroComponent,
+    data: {tittle: 'Cadastro'}   
   },   
   {
     path: 'about',

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser'
 
 import { profileService, Aluno } from './profile.services';
 
@@ -8,12 +9,14 @@ import { profileService, Aluno } from './profile.services';
   styleUrls: ['./profile.component.css'], 
   providers: [profileService]
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
 
+  title = 'Perfil - AntenaCPS'
   aluno: Aluno;
   fotoPerfil: string;
 
-  constructor(private profileService: profileService){
+  constructor(private profileService: profileService,
+              public titleService: Title){
     this.profileService.getUserId().subscribe(res => {
       this.profileService.getProfileAluno(res['id']).subscribe((aluno: Aluno) => {
         this.aluno = aluno;
@@ -37,5 +40,11 @@ export class ProfileComponent {
   tw = require('../../app/images/twitter.png')
   li = require('../../app/images/linkedin.png')
   yt = require('../../app/images/youtube.png')
+
+  ngOnInit(){
+
+    this.titleService.setTitle(this.title)
+
+  }
 
 }
