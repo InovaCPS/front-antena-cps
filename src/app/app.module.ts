@@ -26,6 +26,8 @@ import { RegEventComponent } from './reg-event/reg-event.component';
 import { ContactComponent } from './contact/contact.component';
 import { NoticeComponent } from './notice/notice.component';
 import { PartnersComponent } from './partners/partners.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule} from '@angular/material';
 
 import { MustMatchDirective } from './cadastro/_helpers/must-match.directive';
 
@@ -72,6 +74,13 @@ const routes: Routes = [
   {
     path: 'collaborator',
     component: StudentformsComponent
+  },
+  {
+    path: 'contact',
+    component: StudentformsComponent
+  },{
+    path: 'notice',
+    component: StudentformsComponent
   }
 ];
 
@@ -97,8 +106,9 @@ const routes: Routes = [
     ContactComponent,
     NoticeComponent,
     PartnersComponent,
-    MustMatchDirective
-    
+    MustMatchDirective,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   imports: [
     BrowserModule,
