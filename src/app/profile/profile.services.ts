@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class profileService{
-    apiRoot: string = "http://localhost:8080";
+    apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
     headers;
     token;
 
@@ -29,6 +29,7 @@ export interface Aluno{
     nome?: string;
     sobrenome?: string;
     email?: string;
+    senha?: string;
     cpf?: string;
     rg?: string;
     foto_perfil?: string;
