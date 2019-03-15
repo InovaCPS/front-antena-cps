@@ -26,6 +26,7 @@ export class profileService{
 
 export interface Aluno{
     ra?: string;
+    matricula?: string;
     nome?: string;
     sobrenome?: string;
     email?: string;
