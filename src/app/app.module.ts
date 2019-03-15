@@ -26,10 +26,8 @@ import { RegEventComponent } from './reg-event/reg-event.component';
 import { ContactComponent } from './contact/contact.component';
 import { NoticeComponent } from './notice/notice.component';
 import { PartnersComponent } from './partners/partners.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule} from '@angular/material';
-
 import { MustMatchDirective } from './cadastro/_helpers/must-match.directive';
+import { ReleaseNotesComponent } from './release-notes/release-notes.component';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -78,9 +76,14 @@ const routes: Routes = [
   {
     path: 'contact',
     component: StudentformsComponent
-  },{
+  },
+  {
     path: 'notice',
     component: StudentformsComponent
+  },
+  {
+    path: 'release_notes',
+    component: ReleaseNotesComponent
   }
 ];
 
@@ -107,8 +110,8 @@ const routes: Routes = [
     NoticeComponent,
     PartnersComponent,
     MustMatchDirective,
-    BrowserAnimationsModule,
-    MatDialogModule
+    ReleaseNotesComponent
+    
   ],
   imports: [
     BrowserModule,

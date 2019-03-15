@@ -1,0 +1,39 @@
+
+.jumbotron {
+    background-image: url("../images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#conteudoEsq {
+	margin-top: 50px;
+    float: left;
+    width: 40%; 
+    padding-left: 120px;
+
+
+}
+
+#conteudoDir {
+    float: right;
+    margin-top: 50px;
+    width: 60%;
+    padding-right: 120px;
+    padding-left: 80px;
+}
+
+footer.fixar-rodape{
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    position: relative;
+    width: 100%;
+}
+
+#brasao{
+    max-width: 220px ;
+    width: 100% ;
+    height: auto; 
+    position: relative;
+    right: -180%;
+}

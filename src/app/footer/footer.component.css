@@ -5,3 +5,12 @@
     position: relative;
     right: -500%;
 }
+
+
+#release{
+    text-align: center;
+}
+
+a #release{
+    color: inherit;
+}
