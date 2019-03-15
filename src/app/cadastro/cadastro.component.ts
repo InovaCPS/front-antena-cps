@@ -1,7 +1,10 @@
-import { AppComponent } from './../app.component';
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit, ViewChild  } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Title }     from '@angular/platform-browser';
+
+import { ModalSuccessComponent } from './modal-success/modal-success.component';
+import { ModalFailComponent } from './modal-fail/modal-fail.component';
+
 
 
 @Component({
@@ -10,6 +13,10 @@ import { Title }     from '@angular/platform-browser';
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent implements OnInit {
+
+  @ViewChild('modalSuccess') modalSuccess : ModalSuccessComponent;
+  @ViewChild('modalFail') modalFail : ModalFailComponent;
+  resposta: string;
   data: any;
   title = 'Cadastro - AntenaCPS';
   model: any = {};
@@ -32,9 +39,26 @@ export class CadastroComponent implements OnInit {
 
 
   doPOST() {
+    
     let url = `${this.apiRoot}/cp/parceiro`;
     this.http
       .post(url, { nome: this.model.firstName, sobrenome: this.model.lastName, email: this.model.email, senha: this.model.password })
-      .subscribe(res => console.log(res['Mensagem']))
-  } 
+      .subscribe(res =>{
+        this.resposta = res['Mensagem'];
+        console.log(this.resposta)
+      } )
+        if(this.resposta == "Adicionado com sucesso!"){
+            alert(this.model.mensagem)
+        }
+        else{
+          alert(this.model.mensagem)
+        }
+      } 
+      showModalSuccess() {
+        this.modalSuccess.show();
+      }
+      showModalFail(){
+        this.modalFail.show();
+      }
 }
+

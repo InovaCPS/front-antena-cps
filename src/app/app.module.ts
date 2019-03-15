@@ -28,6 +28,8 @@ import { NoticeComponent } from './notice/notice.component';
 import { PartnersComponent } from './partners/partners.component';
 import { MustMatchDirective } from './cadastro/_helpers/must-match.directive';
 import { ReleaseNotesComponent } from './release-notes/release-notes.component';
+import { ModalSuccessComponent } from './cadastro/modal-success/modal-success.component';
+import { ModalFailComponent } from './cadastro/modal-fail/modal-fail.component';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -110,7 +112,9 @@ const routes: Routes = [
     NoticeComponent,
     PartnersComponent,
     MustMatchDirective,
-    ReleaseNotesComponent
+    ReleaseNotesComponent,
+    ModalSuccessComponent,
+    ModalFailComponent
     
   ],
   imports: [
