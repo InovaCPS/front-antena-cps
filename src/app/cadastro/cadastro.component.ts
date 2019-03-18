@@ -33,8 +33,8 @@ export class CadastroComponent implements OnInit {
   }
 
   onSubmit() {
+    this.openModal()
     this.doPOST()
-    
   }
 
 
@@ -47,13 +47,16 @@ export class CadastroComponent implements OnInit {
         this.resposta = res['Mensagem'];
         console.log(this.resposta)
       } )
-        if(this.resposta == "Adicionado com sucesso!"){
-            alert(this.model.mensagem)
-        }
-        else{
-          alert(this.model.mensagem)
-        }
       } 
+      openModal(){
+        if(this.resposta == "Adicionado com sucesso!"){
+          alert(this.resposta)
+      }
+      else{
+        alert(this.resposta)
+      }
+      }
+
       showModalSuccess() {
         this.modalSuccess.show();
       }
