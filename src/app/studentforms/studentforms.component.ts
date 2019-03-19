@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { profileService, Aluno } from '../profile/profile.services';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,13 +19,15 @@ export class StudentformsComponent {
     link = require('../images/linkedin.png')
     datajson;
     aluno: Aluno;
-    apiRoot: string = "http://localhost:8080";
+    
+    apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
 
     nome: string;
     sobrenome: string;
     email: string;
     telefone: string;
-    ra: string;
+    RA: string;
+    matricula: string;
     escola: string;
     rg: string;
     cpf: string;
@@ -37,31 +40,37 @@ export class StudentformsComponent {
     linkedin: string;
     twitter: string;
     youtube: string;
+    genero: string;
+    senha: string;
     token;
+
+    
 
     // adfile = require('../../app/images/adfile.png')
 
-    constructor(private profileService: profileService, private http: HttpClient){
+    constructor(private profileService: profileService, private http: HttpClient, private router: Router){
         this.profileService.getUserId().subscribe(res => {
           this.profileService.getProfileAluno(res['id']).subscribe((aluno: Aluno) => {
             this.aluno = aluno; 
             this.nome = this.aluno.nome;  
             this.sobrenome = this.aluno.sobrenome;
-            this.email = this.aluno.email;
+            this.genero = this.aluno.genero;
+            this.email = this.aluno.email; 
+            this.senha = "1234";
             this.telefone = this.aluno.telefone;
-            this.ra = this.aluno.ra,
+            this.RA = this.aluno.ra,
+            this.matricula = "",
             this.escola = this.aluno.escola,
             this.rg = this.aluno.rg,
             this.cpf = this.aluno.cpf,
             this.cargo = this.aluno.cargo,
             this.local_trabalho = this.aluno.local_trabalho, 
-            this.foto_perfil = this.aluno.foto_perfil,
-            this.dt_nascimento = this.aluno.dt_nascimento,
-            this.lattes = this.aluno.lattes,
-            this.facebook = this.aluno.facebook,
-            this.linkedin = this.aluno.linkedin,
-            this.twitter = this.aluno.twitter,
-            this.youtube = this.aluno.youtube      
+            this.foto_perfil = "",
+            this.dt_nascimento = '',
+            this.lattes = "",
+            this.facebook = "",
+            this.linkedin = "",
+            this.twitter = ""
           });
           this.token = JSON.parse(localStorage.getItem('token'));
         })
@@ -73,10 +82,13 @@ export class StudentformsComponent {
         this.datajson ={ 
           nome: this.nome, 
           sobrenome: this.sobrenome, 
-          email: this.email, 
+          email: this.email,
+          senha: this.senha, 
           telefone: this.telefone,
-          ra: this.ra,
-          escola: this.escola,
+          genero: this.genero,
+          matricula: this.matricula,
+          RA: this.RA,
+          unidade: 1,
           rg: this.rg,
           cpf: this.cpf,
           cargo: this.cargo,
@@ -86,13 +98,14 @@ export class StudentformsComponent {
           lattes: this.lattes,
           facebook: this.facebook,
           linkedin: this.linkedin,
-          twitter: this.twitter,
-          youtube: this.youtube
+          twitter: this.twitter
         }
         console.log(this.datajson);
         this.http
           .put(url, this.datajson,{headers: new HttpHeaders({'token': this.token.token})})
-          .subscribe(res => console.log(res["Mensagem"]))         
+          .subscribe(res => console.log(res["Mensagem"]))
+          this.router.navigate(['/aluno']); 
+          'window.location.reload()'  
       }
     
 

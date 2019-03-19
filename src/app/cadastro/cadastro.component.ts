@@ -33,8 +33,8 @@ export class CadastroComponent implements OnInit {
   }
 
   onSubmit() {
-    this.openModal()
     this.doPOST()
+    this.openModal()
   }
 
 
