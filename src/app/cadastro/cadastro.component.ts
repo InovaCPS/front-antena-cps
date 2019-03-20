@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Title }     from '@angular/platform-browser';
-
-import { ModalSuccessComponent } from './modal-success/modal-success.component';
-import { ModalFailComponent } from './modal-fail/modal-fail.component';
-
+import { map } from "rxjs/operators";
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -13,9 +12,8 @@ import { ModalFailComponent } from './modal-fail/modal-fail.component';
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent implements OnInit {
-
-  @ViewChild('modalSuccess') modalSuccess : ModalSuccessComponent;
-  @ViewChild('modalFail') modalFail : ModalFailComponent;
+  showModal = true ;
+  
   resposta: string;
   data: any;
   title = 'Cadastro - AntenaCPS';
@@ -26,7 +24,8 @@ export class CadastroComponent implements OnInit {
 
 
   constructor(private http: HttpClient,
-              public titleService: Title  ) {}
+              public titleService: Title,
+              private router: Router  ) {}
 
   ngOnInit(){
     this.titleService.setTitle(this.title)
@@ -34,7 +33,6 @@ export class CadastroComponent implements OnInit {
 
   onSubmit() {
     this.doPOST()
-    this.openModal()
   }
 
 
@@ -45,23 +43,33 @@ export class CadastroComponent implements OnInit {
       .post(url, { nome: this.model.firstName, sobrenome: this.model.lastName, email: this.model.email, senha: this.model.password })
       .subscribe(res =>{
         this.resposta = res['Mensagem'];
-        console.log(this.resposta)
-      } )
-      } 
-      openModal(){
         if(this.resposta == "Adicionado com sucesso!"){
-          alert(this.resposta)
-      }
-      else{
-        alert(this.resposta)
-      }
-      }
+          Swal.fire({
+            title: 'Cadastro realizado com sucesso!',
+            text: '',
+            type: 'success',
+            confirmButtonText: 'Continuar',
+            onClose: () =>{
+              this.postLoggin()
+            }
+          })
+        }
+        else{
+          Swal.fire({
+            title: 'Erro!',
+            text: 'Email já cadastrado.',
+            type: 'error',
+            confirmButtonText: 'Digite outro email.'
+          })
+        }
+      } )
+  } 
+  postLoggin(){   
+    let urlLogin = `${this.apiRoot}/login`;
+    this.http.post(urlLogin, { username: this.model.name, password: this.model.password })
+    .pipe(map(response => { localStorage.setItem('token', JSON.stringify(response)) }))
+    .subscribe(res => console.log("Bem Vindo!!!"))
+    this.router.navigate(['/aluno']);   
+  }
 
-      showModalSuccess() {
-        this.modalSuccess.show();
-      }
-      showModalFail(){
-        this.modalFail.show();
-      }
 }
-
