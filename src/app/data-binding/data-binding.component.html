@@ -16,16 +16,15 @@
       <div class="modal-body">
         <div>
         </div>
-        <form>
           <div>
-            <form>
+            <form (ngSubmit)="onSubmit()" #frm="ngForm" >
               <label for="email">Email</label>
-              <input type="text" id="username" class="camposform" name="email" [(ngModel)]="model.email"    >
+              <input type="text" id="username" class="camposform" name="email" [(ngModel)]="model.email" required   >
           
               <label for="password">Senha</label>
-              <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="model.password" >
+              <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="model.password" required>
                      
-              <input type="submit" (click)="doPOST()" onclick="$('#modalLogin').modal('hide')" value="Entrar"><br>
+              <button class="btn btn-danger" type="submit" onclick="$('#modalLogin').modal('hide')" [disabled]="frm.invalid" >Entrar</button><br>
               <a href="">Esqueceu sua senha ?</a>
                <br />
                <br />     
@@ -40,7 +39,6 @@
               </div> -->
             </form>
           </div>
-        </form>
       </div>
       <div class="modal-footer">
       </div>

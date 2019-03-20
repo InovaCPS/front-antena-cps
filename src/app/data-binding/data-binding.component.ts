@@ -1,9 +1,7 @@
-import Swal from 'sweetalert2';
-
 import { Component } from "@angular/core";
-import { map } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -12,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./data-binding.component.css']
 })
 export class DataBindingComponent {
-    resposta: string;
+    resposta: any;
     apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
 
     logo = require('../../app/images/antena_logo.png')
@@ -20,27 +18,32 @@ export class DataBindingComponent {
     model: any = {};
 
     constructor(private http: HttpClient, private router: Router) {}
-
+    onSubmit(){
+      this.doPOST();
+    }
     doPOST() {
         console.log("POST");
         let url = `${this.apiRoot}/login`;
         this.http
           .post(url, { username: this.model.email, password: this.model.password })
-          .pipe(map(response => { localStorage.setItem('token', JSON.stringify(response)) }))
           .subscribe(res =>{
-            this.resposta = res['Mensagem'];
-            if(this.resposta == 'Não foi possivel verificar'){
+            this.resposta = res;
+            if(this.resposta['Mensagem'] == 'Não foi possivel verificar'){
               Swal.fire({
-                title: 'Erro!',
-                text: 'Email ou senha inválidos.',
+                title: 'Email ou senha incorretos',
+                text: '',
                 type: 'error',
-                confirmButtonText: 'OK.'
+                confirmButtonText: 'Tentar novamente'
               })
             }
             else{
-              this.router.navigate(['/aluno']); 
+              console.log("email senha certa")
+              localStorage.setItem('token', JSON.stringify(this.resposta))
+              this.router.navigate(['/aluno']);    
             }
-          })           
+          })
+ 
+          
     }
 
     lgGoogle(){
