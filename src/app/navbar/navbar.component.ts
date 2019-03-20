@@ -9,4 +9,7 @@ export class NavbarComponent {
 
   logo = require('../../app/images/antena_logo.png')
 
+  logOff(){
+    localStorage.removeItem('token');
+  }
 }

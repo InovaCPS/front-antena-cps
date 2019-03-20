@@ -20,15 +20,15 @@
           <div>
             <form>
               <label for="email">Email</label>
-              <input type="text" id="username" class="camposform" name="userName" [(ngModel)]="usr"    >
+              <input type="text" id="username" class="camposform" name="email" [(ngModel)]="model.email"    >
           
               <label for="password">Senha</label>
-              <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="psw" >
+              <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="model.password" >
                      
               <input type="submit" (click)="doPOST()" onclick="$('#modalLogin').modal('hide')" value="Entrar"><br>
               <a href="">Esqueceu sua senha ?</a>
                <br />
-               <br />
+               <br />     
                <br />
 
               <p>

@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 
 import { Component } from "@angular/core";
 import { map } from "rxjs/operators";
@@ -11,12 +12,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./data-binding.component.css']
 })
 export class DataBindingComponent {
-
+    resposta: string;
     apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
 
     logo = require('../../app/images/antena_logo.png')
-    usrn: String;
-    pswd: String;
+
+    model: any = {};
 
     constructor(private http: HttpClient, private router: Router) {}
 
@@ -24,11 +25,22 @@ export class DataBindingComponent {
         console.log("POST");
         let url = `${this.apiRoot}/login`;
         this.http
-          .post(url, { username: this.usrn, password: this.pswd })
+          .post(url, { username: this.model.email, password: this.model.password })
           .pipe(map(response => { localStorage.setItem('token', JSON.stringify(response)) }))
-          .subscribe(res => console.log("Bem Vindo!!!"))
-          this.router.navigate(['/aluno']);    
-          
+          .subscribe(res =>{
+            this.resposta = res['Mensagem'];
+            if(this.resposta == 'Não foi possivel verificar'){
+              Swal.fire({
+                title: 'Erro!',
+                text: 'Email ou senha inválidos.',
+                type: 'error',
+                confirmButtonText: 'OK.'
+              })
+            }
+            else{
+              this.router.navigate(['/aluno']); 
+            }
+          })           
     }
 
     lgGoogle(){
