@@ -14,7 +14,7 @@ import Swal from 'sweetalert2'
 export class CadastroComponent implements OnInit {
   showModal = true ;
   
-  resposta: string;
+  resposta: any;
   data: any;
   title = 'Cadastro - AntenaCPS';
   model: any = {};
@@ -43,11 +43,11 @@ export class CadastroComponent implements OnInit {
       .post(url, { nome: this.model.firstName, sobrenome: this.model.lastName, email: this.model.email, senha: this.model.password })
       .subscribe(res =>{
         this.resposta = res['Mensagem'];
-        if(this.resposta == "Adicionado com sucesso!"){
+        if(this.resposta == "Cadastrado com sucesso!"){
           Swal.fire({
             title: 'Cadastro realizado com sucesso!',
             text: '',
-            type: 'success',
+            type: 'success',    
             confirmButtonText: 'Continuar',
             onClose: () =>{
               this.postLoggin()
@@ -56,19 +56,20 @@ export class CadastroComponent implements OnInit {
         }
         else{
           Swal.fire({
-            title: 'Erro!',
+            title: '',
             text: 'Email já cadastrado.',
             type: 'error',
-            confirmButtonText: 'Digite outro email.'
+            confirmButtonText: 'OK'
           })
         }
       } )
   } 
   postLoggin(){   
     let urlLogin = `${this.apiRoot}/login`;
-    this.http.post(urlLogin, { username: this.model.name, password: this.model.password })
-    .pipe(map(response => { localStorage.setItem('token', JSON.stringify(response)) }))
-    .subscribe(res => console.log("Bem Vindo!!!"))
+    this.http.post(urlLogin, { username: this.model.email, password: this.model.password })
+    .subscribe(res => { 
+      this.resposta = res;
+      localStorage.setItem('token', JSON.stringify(this.resposta)) })
     this.router.navigate(['/aluno']);   
   }
 

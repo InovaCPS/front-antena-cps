@@ -57,7 +57,7 @@
                         <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required />
                         <div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
                             <div *ngIf="confirmPassword.errors.required">Confirme sua senha.</div>
-                            <div *ngIf="confirmPassword.errors.mustMatch">Assenhas devem ser iguais</div>
+                            <div *ngIf="confirmPassword.errors.mustMatch">As senhas devem ser iguais.</div>
                         </div>
                     </div>
                     <div class="form-group">

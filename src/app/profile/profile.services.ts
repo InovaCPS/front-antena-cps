@@ -47,4 +47,5 @@ export interface Aluno{
     escola?: string;
     escola_unidade?: string;
     idade?: string;
+    tipo?: string;
 }

@@ -30,10 +30,24 @@ export class DataBindingComponent {
             this.resposta = res;
             if(this.resposta['Mensagem'] == 'Não foi possivel verificar'){
               Swal.fire({
-                title: 'Email ou senha incorretos',
+                title: 'Email nao cadastrado.',
                 text: '',
                 type: 'error',
-                confirmButtonText: 'Tentar novamente'
+                confirmButtonText: 'Faça cadastro.',
+                onClose: () => {
+                    
+                }
+              })
+            }
+            else if(this.resposta['Mensagem'] == 'Senha Incorreta!'){
+              Swal.fire({
+                title: 'Senha incorreta.',
+                text: '',
+                type: 'error',
+                confirmButtonText: 'Tente novamente.',
+                onClose: () => {
+                    
+                }
               })
             }
             else{
