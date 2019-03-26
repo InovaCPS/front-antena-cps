@@ -67,10 +67,12 @@ export class CadastroComponent implements OnInit {
   postLoggin(){   
     let urlLogin = `${this.apiRoot}/login`;
     this.http.post(urlLogin, { username: this.model.email, password: this.model.password })
-    .subscribe(res => { 
+    .subscribe(res =>{ 
       this.resposta = res;
-      localStorage.setItem('token', JSON.stringify(this.resposta)) })
-    this.router.navigate(['/aluno']);   
+      localStorage.setItem('token', JSON.stringify(this.resposta)) 
+      this.router.navigate(['/aluno']);  
+    })
+   
   }
 
 }

@@ -30,12 +30,12 @@ export class DataBindingComponent {
             this.resposta = res;
             if(this.resposta['Mensagem'] == 'Não foi possivel verificar'){
               Swal.fire({
-                title: 'Email nao cadastrado.',
+                title: 'E-mail não cadastrado.',
                 text: '',
                 type: 'error',
-                confirmButtonText: 'Faça cadastro.',
+                confirmButtonText: 'Faça o cadastro.',
                 onClose: () => {
-                    
+                  this.router.navigate(['/cadastro']); 
                 }
               })
             }
@@ -51,7 +51,6 @@ export class DataBindingComponent {
               })
             }
             else{
-              console.log("email senha certa")
               localStorage.setItem('token', JSON.stringify(this.resposta))
               this.router.navigate(['/aluno']);    
             }
