@@ -4,6 +4,7 @@
 </script>
 <div id="background" class="container-fluid" [ngStyle]="{'background-image': 'url(' + graf + ')'}">
   <div class="padding">
+      <button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#modalLogin">Open Modal</button>
     <div class="padding">
       <div class="padding">
         <div class="padding">
@@ -38,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+                        <input id="email" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
                         <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
                             <div *ngIf="email.errors.required">Digite seu email.</div>
                             <div *ngIf="email.errors.email">Digite um email válido.</div>
@@ -67,25 +68,6 @@
             </div> 
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" [ngbCollapse]="showModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Pronto!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Cadastro realizado com sucesso.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal"><a href="#/aluno">OK</a></button>
       </div>
     </div>
   </div>

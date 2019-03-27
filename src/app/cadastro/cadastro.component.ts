@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from "@angular/common/http";
 import { Title }     from '@angular/platform-browser';
-import { map } from "rxjs/operators";
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -13,7 +13,8 @@ import Swal from 'sweetalert2'
 })
 export class CadastroComponent implements OnInit {
   showModal = true ;
-  
+  @ViewChild('email') email: ElementRef;
+
   resposta: any;
   data: any;
   title = 'Cadastro - AntenaCPS';
@@ -25,7 +26,9 @@ export class CadastroComponent implements OnInit {
 
   constructor(private http: HttpClient,
               public titleService: Title,
-              private router: Router  ) {}
+              private router: Router,  
+              @Inject(PLATFORM_ID) 
+              private platformId: Object) {}
 
   ngOnInit(){
     this.titleService.setTitle(this.title)
@@ -57,10 +60,19 @@ export class CadastroComponent implements OnInit {
         else{
           Swal.fire({
             title: '',
-            text: 'Email já cadastrado.',
+            text: 'Email já cadastrado',
             type: 'error',
-            confirmButtonText: 'OK'
-          })
+            showCancelButton: true,
+            confirmButtonText: 'Tentar Novamente',
+            cancelButtonText: 'Fazer Login',
+          }).then((result) =>{
+            if(result.value){
+              document.getElementById('email').focus();
+            }
+            else if( result.dismiss === Swal.DismissReason.cancel){
+              document.getElementById('openModalButton').click();
+            }
+          }) 
         }
       } )
   } 
@@ -70,9 +82,16 @@ export class CadastroComponent implements OnInit {
     .subscribe(res =>{ 
       this.resposta = res;
       localStorage.setItem('token', JSON.stringify(this.resposta)) 
-      this.router.navigate(['/aluno']);  
+      this.router.navigate(['/aluno']);   
     })
    
   }
+
+  setFocus(id: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      this[id].nativeElement.focus();
+    }
+  }
+
 
 }

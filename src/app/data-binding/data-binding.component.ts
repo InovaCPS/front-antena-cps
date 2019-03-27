@@ -33,11 +33,18 @@ export class DataBindingComponent {
                 title: 'E-mail não cadastrado.',
                 text: '',
                 type: 'error',
-                confirmButtonText: 'Faça o cadastro.',
-                onClose: () => {
+                confirmButtonText: 'Faça o cadastro',
+                showCancelButton: true,
+                cancelButtonText: 'Tentar novamente',
+              }).then((result)=>{
+                if (result.value){
                   this.router.navigate(['/cadastro']); 
                 }
+                else if( result.dismiss === Swal.DismissReason.cancel){
+                  document.getElementById('openModal').click();
+                }
               })
+
             }
             else if(this.resposta['Mensagem'] == 'Senha Incorreta!'){
               Swal.fire({
