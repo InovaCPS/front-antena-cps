@@ -12,15 +12,51 @@ import Swal from 'sweetalert2';
 export class DataBindingComponent {
     resposta: any;
     apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
-
+    emailPassword: string;
     logo = require('../../app/images/antena_logo.png')
 
     model: any = {};
+    
+    urlPassword = '${this.apiRoot}/cp/forgot_password'
 
     constructor(private http: HttpClient, private router: Router) {}
+    submitPassword(){
+      let url = `${this.apiRoot}/cp/forgot_password`
+      this.http.post(url, {email:this.model.email})
+        .subscribe(res=>{
+          this.resposta = res;
+          if(this.resposta['Mensagem'] == 'E-mail enviado com sucesso!'){
+            Swal.fire({
+              title:'E-mail para recuperação de senha enviado.',
+              html: '<p> O e-mail foi enviado para ' + this.model.email + ' e contem as instruções para a redefinição de senha.</p>',
+              confirmButtonText: 'OK',
+              onClose: () =>{
+                document.getElementById('openModal').click();
+              }
+            })
+          }
+          else{
+            Swal.fire({
+              title:'E-mail não cadastrado',
+              text:' O e-mail ' + this.model.email + ' não foi encontrado nos nossos registros.',
+              showCancelButton: true,
+              cancelButtonText: 'Tentar novamente',
+              confirmButtonText: 'Cancelar'
+            }).then((result) =>{
+              if(result.value){
+                document.getElementById('clickPassword').click();
+              }
+              else if( result.dismiss === Swal.DismissReason.cancel){
+                document.getElementById('email').focus();
+              }
+            }) 
+          }
+        })
+    }
     onSubmit(){
       this.doPOST();
     }
+
     doPOST() {
         console.log("POST");
         let url = `${this.apiRoot}/login`;
@@ -61,11 +97,14 @@ export class DataBindingComponent {
               localStorage.setItem('token', JSON.stringify(this.resposta))
               this.router.navigate(['/aluno']);    
             }
-          })
- 
-          
+          })          
     }
+    clickPassword(){
+      document.getElementById('sendPassword').click()
+    }
+    rePassword(){
 
+    }
     lgGoogle(){
         console.log("GET");
         let url = `${this.apiRoot}/login/google`;

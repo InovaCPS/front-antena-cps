@@ -16,7 +16,6 @@ export class CadastroComponent implements OnInit {
   @ViewChild('email') email: ElementRef;
 
   resposta: any;
-  data: any;
   title = 'Cadastro - AntenaCPS';
   model: any = {};
   graf = require('../../app/images/background.png')
@@ -46,7 +45,7 @@ export class CadastroComponent implements OnInit {
       .post(url, { nome: this.model.firstName, sobrenome: this.model.lastName, email: this.model.email, senha: this.model.password })
       .subscribe(res =>{
         this.resposta = res['Mensagem'];
-        if(this.resposta == "Cadastrado com sucesso!"){
+        if(this.resposta == "E-mail enviado com sucesso!"){
           Swal.fire({
             title: 'Cadastro realizado com sucesso!',
             text: '',

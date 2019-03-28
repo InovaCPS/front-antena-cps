@@ -3,8 +3,7 @@
   <a href="/"><img id="logo" class="navbar-brand mb-0" [src]="logo"></a>
   <button class="btn btn-danger my-2 my-sm-0" id="openModal" data-toggle="modal" data-target="#modalLogin">ENTRAR</button>
 </nav>
-</div>
-<div class="modal" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -25,7 +24,7 @@
               <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="model.password" required>
                      
               <button class="btn btn-lg btn-danger" type="submit" onclick="$('#modalLogin').modal('hide')" [disabled]="frm.invalid" >Entrar</button><br>
-              <a href="">Esqueceu sua senha ?</a>
+              <a data-toggle="modal" id="clickPassword" data-target="#passwordModal" onClick="$('#modalLogin').modal('hide')" href="#0">Esqueceu sua senha ?</a>
                <br />
                <br />     
                <br />
@@ -44,5 +43,39 @@
       </div>
     </div>
   </div>
+</div>
+<div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;">PREENCHA O SEU EMAIL NO CAMPO ABAIXO PARA RECUPERAR SUA SENHA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form name="form" (ngSubmit)="frm.form.valid && submitPassword()" #frm="ngForm" novalidate>
+            <label for="email">E-mail</label>
+            <input id="email" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': frm.submitted && email.invalid }" required email />
+            <div *ngIf="frm.submitted && email.invalid" class="invalid-feedback">
+                <div *ngIf="email.errors.required">Digite seu email.</div>
+                <div *ngIf="email.errors.email">Digite um email válido.</div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger" hidden id="sendPassword">enviar</button>
+            </div>
+        </form>
+      </div>
+      <div style="text-align: center">
+        <h6>Ainda não é um Antenadx?<a href="/#/cadastro" data-dismiss="modal"> Clique aqui</a></h6>
+        <h6 id="back-login"><a data-target="#modalLogin" data-toggle="modal" data-dismiss="modal" href="#0">Voltar para o login</a></h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="clickPassword()" data-dismiss="modal" >Recuperar senha</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
