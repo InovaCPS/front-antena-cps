@@ -59,7 +59,7 @@
 
  }
   
-#btt {
-  background-color: red;
+.btn btn-danger {
+  margin-left: 30%;
 }
  
