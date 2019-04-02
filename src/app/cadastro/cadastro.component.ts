@@ -29,10 +29,10 @@ export class CadastroComponent implements OnInit {
               @Inject(PLATFORM_ID) 
               private platformId: Object) {}
 
-                face = require('../../app/images/fb.png')
-                tw = require('../../app/images/twitter.png')
-                li = require('../../app/images/linkedin.png')
-                yt = require('../../app/images/youtube.png')
+                facebook = require('../../app/images/fbAccessBt.png')
+                google = require('../../app/images/gglAccessBt.png')
+                linkedin = require('../../app/images/inAccessBt.png')
+                // yt = require('../../app/images/youtube.png')
 
   ngOnInit(){
     this.titleService.setTitle(this.title)
