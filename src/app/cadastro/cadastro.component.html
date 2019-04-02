@@ -23,7 +23,7 @@
             </div>
             <div class="row">
             <div class="col-2"></div>
-            <div class="col-8">
+            <div class="col-8"> 
                 <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" [mustMatch]="['password', 'confirmPassword']" novalidate>
                   <div class="row">
                     <div class="col-6">
@@ -69,18 +69,30 @@
                     </div>
                      <div class="col-14">
                     <div class="form-group">
-                        <label for="confirmPassword">Você é?</label>
-                        <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required />
-                        <div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
-                        </div>
+                        <label for="option">Você é:</label>
+                        <select class="form-control">
+                            <option value="Aluno">Aluno</option>
+                            <option value="Professor">Professor</option>
+                            <option value="Gestor">Gestor</option>
+                            <option value="Colaborador">Colaborador</option>
+                          </select>
                       </div>
                     </div>
                         <div class="form-group">
                         <button class="btn btn-danger">ENTRAR</button>
                     </div>
-                    <div>
+                    <div id="palavras">
+                      <p>
+                        ou cadastre:
+                      </p>
+                    </div>
+                    <div id="frases">
                         <h5>
+                          <br />
+                          <br />
                             Já é cadastrado? Acesse aqui!
+                            <br />
+                            <br />
                         </h5>
                       </div>
                 </form>
