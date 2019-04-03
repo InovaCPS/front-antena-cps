@@ -14,6 +14,9 @@ export class DataBindingComponent {
     apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
     emailPassword: string;
     logo = require('../../app/images/antena_logo.png')
+    facebook = require('../../app/images/fbAccessBt.png')
+    google = require('../../app/images/gglAccessBt.png')
+    linkedin = require('../../app/images/inAccessBt.png')
 
     model: any = {};
     
