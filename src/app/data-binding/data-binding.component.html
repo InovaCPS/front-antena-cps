@@ -9,36 +9,78 @@
 <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Entrar</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>      
+      <div>
+        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 16%; margin-top: 5%"><b>BEM VINDO DE VOLTA, ANTENADX!</b></h5>
+          <h6 class="modal-title" id="exampleModalLongTitle2" style="margin-left: 38%">Acesse sua conta</h6>
       </div>
+       
+
       <div class="modal-body">
         <div>
         </div>
           <div>
             <form (ngSubmit)="onSubmit()" #frm="ngForm" >
+<<<<<<< HEAD
               <label for="email">Email</label>
               <input type="email" id="username" class="camposform" name="email" [(ngModel)]="model.email" required   >
           
               <label for="password">Senha</label>
+=======
+              <label id="labelEmail" for="email">Email</label>
+              <br/>
+              <input type="text" id="username" class="camposform" name="email" [(ngModel)]="model.email" required   >
+              
+              <br/> <br/>
+              
+              <label id="labelSenha" for="password">Senha</label>
+              <br/>
+>>>>>>> 031ed9118a4c41fefda39cfd9abf1e4e18014cf4
               <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="model.password" required>
-                     
-              <button class="btn btn-lg btn-danger" type="submit" onclick="$('#modalLogin').modal('hide')" [disabled]="frm.invalid" >Entrar</button><br>
-              <a data-toggle="modal" id="clickPassword" data-target="#passwordModal" onClick="$('#modalLogin').modal('hide')" href="#0">Esqueceu sua senha?</a>
-               <br />
-               <br />     
-               <br />
+               
+              <label id="ouAcesse"> Ou acesse: </label>
 
-              <p>
+              <button id="btnEntrar" class="btn btn-lg btn-danger" type="submit" onclick="$('#modalLogin').modal('hide')" [disabled]="frm.invalid" ><b>ENTRAR</b></button><br>
+              <a data-toggle="modal" id="clickPassword" data-target="#passwordModal" onClick="$('#modalLogin').modal('hide')" href="#0" style="font-size: 12px; margin-left: 7%">Esqueceu sua senha?</a>
+              
+       
+              <div  id="iconF">   
+              <a href=""><img [src]="facebook" style="max-width: 27px" alt=""></a>
+              </div>
+              <div  id="iconL">
+              <a href=""><img [src]="linkedin" style="max-width: 27px" alt=""></a>
+              </div>
+              <div  id="iconG">
+              <a href=""><img [src]="google" style="max-width: 27px" alt=""></a>
+              </div>
+
+
+
+              <br/> <br/>
+
+              <div id="primeiroAcesso">
+                <p>
                 Primeiro acesso? Cadastre-se <a href="/#/cadastro" onclick="$('#modalLogin').modal('hide')">aqui</a>.
+<<<<<<< HEAD
               </p>
               <div id="center">
                 <button type="button"  size="lg" class="btn btn-primary" id="fbcolor"   (click)="submitLogin()"><i class="fab fa-facebook-f left"></i></button>
                 <!-- <button (click)="lgGoogle()" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button> -->
               </div>
+=======
+                </p>
+              </div>
+
+              <div>
+                  <button type="text" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 80%; font-size: 10px">
+                      <u>< VOLTAR</u>
+                  </button>      
+              </div>
+              <!-- <div id="center">
+                <button type="button"  size="lg" class="btn btn-primary" id="fbcolor" ><i class="fab fa-facebook-f left"></i></button>
+                <button (click)="lgGoogle()" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button>
+              </div> --> 
+
+>>>>>>> 031ed9118a4c41fefda39cfd9abf1e4e18014cf4
             </form>
           </div>
       </div>

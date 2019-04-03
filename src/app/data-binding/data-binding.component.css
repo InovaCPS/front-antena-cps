@@ -44,9 +44,80 @@
     margin-left: 5px;
  }
   
- #modal-content  {
-  -webkit-border-radius: 0px !important;
-  -moz-border-radius: 0px !important;
-  border-radius: 0px !important; 
+ .modal-content  {
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px; 
+  
 }
 
+#username {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  width: 85%;
+  margin-left: 5%
+}
+
+#password {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  width: 85%;
+  margin-left: 5%;
+
+}
+
+#labelEmail {
+  margin-left: 8%;
+  font-size: 15px;
+}
+
+#labelSenha {
+  margin-left: 8%;
+  font-size: 15px;  
+
+}
+
+#btnEntrar {
+  width: 140px;
+  margin-top: 5%;
+  margin-left: -82%;
+  font-size: 15px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+
+#ouAcesse {
+  margin-left: 70%;
+}
+
+
+
+#iconF{
+  margin-left: 70%;
+  width: 1px;
+  height: 1px;
+  margin-top: -45px;
+}
+
+#iconL{
+  margin-left: 84%;
+  width: 1px;
+  height: 1px;
+ 
+}
+
+#iconG{
+  margin-left: 77%;
+  width: 1px;
+  height: 1px;
+ 
+}
+
+#primeiroAcesso {
+  margin-left: 22%;
+  margin-top: 5%
+
+}
