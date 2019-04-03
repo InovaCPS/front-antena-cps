@@ -1,7 +1,4 @@
 <app-data-binding></app-data-binding>
-<script>
-  document.title = "Cadastro";
-</script>
 <div id="background" class="container-fluid" [ngStyle]="{'background-image': 'url(' + graf + ')'}">
   <div class="padding">
       <button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#modalLogin">Open Modal</button>
@@ -23,7 +20,7 @@
             </div>
             <div class="row">
             <div class="col-2"></div>
-            <div class="col-8">
+            <div class="col-8"> 
                 <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" [mustMatch]="['password', 'confirmPassword']" novalidate>
                   <div class="row">
                     <div class="col-6">
@@ -46,7 +43,7 @@
                     </div>
                   </div> 
                   <div class="row">
-                    <div class="col-6">
+                  <div class="col-6"> 
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input id="email" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
@@ -54,9 +51,9 @@
                             <div *ngIf="email.errors.required">Digite seu email.</div>
                             <div *ngIf="email.errors.email">Digite um email válido.</div>
                         </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-6">
+                    <div class="col-6"> 
                     <div class="form-group">
                         <label for="password">Senha</label>
                         <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
@@ -65,19 +62,41 @@
                             <div *ngIf="password.errors.minlength">A senha deve conter 6 dígitos.</div>
                         </div>
                     </div>
-                  </div>
-                  </div>
-                    <div class="form-group">
-                        <label for="confirmPassword">Confirmar senha</label>
-                        <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required />
-                        <div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
-                            <div *ngIf="confirmPassword.errors.required">Confirme sua senha.</div>
-                            <div *ngIf="confirmPassword.errors.mustMatch">As senhas devem ser iguais.</div>
-                        </div>
+                     </div>
                     </div>
+                     <div class="col-14">
                     <div class="form-group">
-                        <button class="btn btn-danger" >Cadastrar</button>
+                        <label for="option">Você é:</label>
+                        <select class="form-control">
+                            <option value="Aluno">Aluno</option>
+                            <option value="Professor">Professor</option>
+                            <option value="Gestor">Gestor</option>
+                            <option value="Colaborador">Colaborador</option>
+                          </select>
+                      </div>
                     </div>
+                        <div class="form-group">
+                        <button class="btn btn-danger">ENTRAR</button><div>
+                            <div  id="icon"><a href=""><img [src]="facebook" style="max-width: 27px" alt=""></a></div>
+                            <div  id="icon1"><a href=""><img [src]="linkedin" style="max-width: 27px" alt=""></a></div>
+                            <div  id="icon2"><a href=""><img [src]="google" style="max-width: 27px" alt=""></a></div>
+                            <!-- <div class="col-sm-3" id="icon"><a href=""><img [src]="shield" alt=""></a></div> -->
+                        </div> 
+                    </div>
+                    <div id="palavras">
+                      <p>
+                        ou cadastre:
+                      </p>
+                    </div>
+                    <div id="frases">
+                        <h5>
+                          <br />
+                          <br />
+                            Já é cadastrado? Acesse aqui!
+                            <br />
+                            <br />
+                        </h5>
+                      </div>
                 </form>
             </div> 
             <div class="col-2"></div>

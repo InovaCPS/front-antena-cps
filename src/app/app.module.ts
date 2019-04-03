@@ -28,6 +28,8 @@ import { NoticeComponent } from './notice/notice.component';
 import { PartnersComponent } from './partners/partners.component';
 import { MustMatchDirective } from './cadastro/_helpers/must-match.directive';
 import { ReleaseNotesComponent } from './release-notes/release-notes.component';
+import { RePasswordComponent } from './cadastro/re-password/re-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -71,7 +73,7 @@ const routes: Routes = [
   },
   {
     path: 'collaborator',
-    component: StudentformsComponent
+    component: CollaboratorComponent
   },
   {
     path: 'contact',
@@ -79,11 +81,15 @@ const routes: Routes = [
   },
   {
     path: 'notice',
-    component: StudentformsComponent
+    component: NoticeComponent
   },
   {
     path: 'release_notes',
     component: ReleaseNotesComponent
+  },
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent
   }
 ];
 
@@ -110,7 +116,9 @@ const routes: Routes = [
     NoticeComponent,
     PartnersComponent,
     MustMatchDirective,
-    ReleaseNotesComponent
+    ReleaseNotesComponent,
+    RePasswordComponent,
+    ChangePasswordComponent
     
   ],
   imports: [

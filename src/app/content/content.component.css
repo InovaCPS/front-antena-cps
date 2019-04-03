@@ -23,3 +23,21 @@ h1 {
 #propg{
     margin-left: 14%;
 }
+
+.fundo {
+    background-image: url(../images/fundo.jpg);
+    background-size: cover;
+    height: 450px;
+    margin-top: 2%;
+}
+
+.btnEntrar {
+    margin-top: 17%;
+    margin-left: 42%;
+
+}
+
+#home {
+    margin-left: 40%;
+
+}

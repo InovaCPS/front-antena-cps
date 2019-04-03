@@ -59,7 +59,36 @@
 
  }
   
-#btt {
-  background-color: red;
+.btn btn-danger {
+  margin-left: 30%;
+}
+
+#icon
+{
+  margin-left: 640px;
+  width: 1px;
+  height: 1px;
+  margin-top: -30px;
 }
  
+#palavras {
+  margin-left: 640px;
+  margin-top: -43px;
+}
+
+#icon1
+{
+  margin-left: 670px;
+  width: 1px;
+  height: 1px;
+ 
+}
+
+#icon2
+{
+  margin-left: 700px;
+  width: 1px;
+  height: 1px;
+ 
+}
+

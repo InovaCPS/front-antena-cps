@@ -1,8 +1,11 @@
 <div>
 <nav class="navbar navbar-light bg-light fixed-top">
   <a href="/"><img id="logo" class="navbar-brand mb-0" [src]="logo"></a>
-  <button class="btn btn-danger my-2 my-sm-0" id="openModal" data-toggle="modal" data-target="#modalLogin">ENTRAR</button>
+  <button hidden class="btn btn-danger my-2 my-sm-0" id="openModal" data-toggle="modal" data-target="#modalLogin">ENTRAR</button>
 </nav>
+
+
+
 <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -24,7 +27,7 @@
               <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="model.password" required>
                      
               <button class="btn btn-lg btn-danger" type="submit" onclick="$('#modalLogin').modal('hide')" [disabled]="frm.invalid" >Entrar</button><br>
-              <a data-toggle="modal" id="clickPassword" data-target="#passwordModal" onClick="$('#modalLogin').modal('hide')" href="#0">Esqueceu sua senha ?</a>
+              <a data-toggle="modal" id="clickPassword" data-target="#passwordModal" onClick="$('#modalLogin').modal('hide')" href="#0">Esqueceu sua senha?</a>
                <br />
                <br />     
                <br />
