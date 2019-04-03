@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   templateUrl: './data-binding.component.html',
   styleUrls: ['./data-binding.component.css']
 })
-export class DataBindingComponent {
+export class DataBindingComponent implements OnInit{
     resposta: any;
     apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
     emailPassword: string;
@@ -20,6 +20,10 @@ export class DataBindingComponent {
     urlPassword = '${this.apiRoot}/cp/forgot_password'
 
     constructor(private http: HttpClient, private router: Router) {}
+
+    ngOnInit() {
+    }
+    
     submitPassword(){
       let url = `${this.apiRoot}/cp/forgot_password`
       this.http.post(url, {email:this.model.email})
@@ -111,5 +115,9 @@ export class DataBindingComponent {
         this.http
           .get(url)
           .subscribe(res => console.log(res))
+    }
+
+    teste(){
+      this.router.navigate(['/cadastro']); 
     }
 }
