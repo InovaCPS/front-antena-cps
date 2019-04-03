@@ -20,12 +20,6 @@
         </div>
           <div>
             <form (ngSubmit)="onSubmit()" #frm="ngForm" >
-<<<<<<< HEAD
-              <label for="email">Email</label>
-              <input type="email" id="username" class="camposform" name="email" [(ngModel)]="model.email" required   >
-          
-              <label for="password">Senha</label>
-=======
               <label id="labelEmail" for="email">Email</label>
               <br/>
               <input type="text" id="username" class="camposform" name="email" [(ngModel)]="model.email" required   >
@@ -34,7 +28,6 @@
               
               <label id="labelSenha" for="password">Senha</label>
               <br/>
->>>>>>> 031ed9118a4c41fefda39cfd9abf1e4e18014cf4
               <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="model.password" required>
                
               <label id="ouAcesse"> Ou acesse: </label>
@@ -60,13 +53,6 @@
               <div id="primeiroAcesso">
                 <p>
                 Primeiro acesso? Cadastre-se <a href="/#/cadastro" onclick="$('#modalLogin').modal('hide')">aqui</a>.
-<<<<<<< HEAD
-              </p>
-              <div id="center">
-                <button type="button"  size="lg" class="btn btn-primary" id="fbcolor"   (click)="submitLogin()"><i class="fab fa-facebook-f left"></i></button>
-                <!-- <button (click)="lgGoogle()" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button> -->
-              </div>
-=======
                 </p>
               </div>
 
@@ -80,7 +66,6 @@
                 <button (click)="lgGoogle()" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button>
               </div> --> 
 
->>>>>>> 031ed9118a4c41fefda39cfd9abf1e4e18014cf4
             </form>
           </div>
       </div>
