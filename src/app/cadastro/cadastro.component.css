@@ -73,7 +73,7 @@
  
 #palavras {
   margin-left: 640px;
-  margin-top: -43px;
+  margin-top: -49px;
 }
 
 #icon1
@@ -94,5 +94,16 @@
 
 #return {
   margin-right: 700px;
+  font-size: 3px;
   
+}
+
+#btnEntrar {
+  width: 140px;
+  margin-top: 5%;
+  margin-left: -82%;
+  font-size: 15px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
 }

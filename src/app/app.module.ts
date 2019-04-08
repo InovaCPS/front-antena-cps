@@ -88,7 +88,7 @@ const routes: Routes = [
     component: ReleaseNotesComponent
   },
   {
-    path: 'change-password',
+    path: 'change-password/:token',
     component: ChangePasswordComponent
   }
 ];

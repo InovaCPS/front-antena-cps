@@ -120,6 +120,14 @@ export class DataBindingComponent implements OnInit{
           .subscribe(res => console.log(res))
     }
 
+    lgFacebook(){
+      console.log("GET");
+      let url = `${this.apiRoot}/login/facebook`;
+      this.http
+        .get(url)
+        .subscribe(res => console.log(res))
+  }
+
     teste(){
       this.router.navigate(['/cadastro']); 
     }
