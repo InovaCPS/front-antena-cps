@@ -45,11 +45,11 @@
                   <div class="row">
                   <div class="col-6"> 
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">E-mail</label>
                         <input id="email" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
                         <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                            <div *ngIf="email.errors.required">Digite seu email.</div>
-                            <div *ngIf="email.errors.email">Digite um email válido.</div>
+                            <div *ngIf="email.errors.required">Digite seu e-mail.</div>
+                            <div *ngIf="email.errors.email">Digite um e-mail válido.</div>
                         </div>
                       </div>
                     </div>

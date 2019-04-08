@@ -20,13 +20,7 @@
         </div>
           <div>
             <form (ngSubmit)="onSubmit()" #frm="ngForm" >
-<<<<<<< HEAD
-              <label for="email">Email</label>
-              <input type="email" id="username" class="camposform" name="email" [(ngModel)]="model.email" required   >
-          
-              <label for="password">Senha</label>
-=======
-              <label id="labelEmail" for="email">Email</label>
+              <label id="labelEmail" for="email">E-mail</label>
               <br/>
               <input type="text" id="username" class="camposform" name="email" [(ngModel)]="model.email" required   >
               
@@ -34,7 +28,6 @@
               
               <label id="labelSenha" for="password">Senha</label>
               <br/>
->>>>>>> 031ed9118a4c41fefda39cfd9abf1e4e18014cf4
               <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="model.password" required>
                
               <label id="ouAcesse"> Ou acesse: </label>
@@ -60,19 +53,12 @@
               <div id="primeiroAcesso">
                 <p>
                 Primeiro acesso? Cadastre-se <a href="/#/cadastro" onclick="$('#modalLogin').modal('hide')">aqui</a>.
-<<<<<<< HEAD
-              </p>
-              <div id="center">
-                <button type="button"  size="lg" class="btn btn-primary" id="fbcolor"   (click)="submitLogin()"><i class="fab fa-facebook-f left"></i></button>
-                <!-- <button (click)="lgGoogle()" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button> -->
-              </div>
-=======
                 </p>
               </div>
 
               <div>
                   <button type="text" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 80%; font-size: 10px">
-                      <u>< VOLTAR</u>
+                      <u>VOLTAR</u>
                   </button>      
               </div>
               <!-- <div id="center">
@@ -80,7 +66,6 @@
                 <button (click)="lgGoogle()" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button>
               </div> --> 
 
->>>>>>> 031ed9118a4c41fefda39cfd9abf1e4e18014cf4
             </form>
           </div>
       </div>
@@ -93,7 +78,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;">PREENCHA O SEU EMAIL NO CAMPO ABAIXO PARA RECUPERAR SUA SENHA</h5>
+        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;">PREENCHA O SEU E-MAIL NO CAMPO ABAIXO PARA RECUPERAR SUA SENHA</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -103,11 +88,11 @@
             <label for="email">E-mail</label>
             <input id="email" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': frm.submitted && email.invalid }" required email />
             <div *ngIf="frm.submitted && email.invalid" class="invalid-feedback">
-                <div *ngIf="email.errors.required">Digite seu email.</div>
-                <div *ngIf="email.errors.email">Digite um email válido.</div>
+                <div *ngIf="email.errors.required">Digite seu e-mail.</div>
+                <div *ngIf="email.errors.email">Digite um e-mail válido.</div>
             </div>
             <div class="form-group">
-                <button class="btn btn-danger" hidden id="sendPassword">enviar</button>
+                <button class="btn btn-danger" hidden id="sendPassword">Enviar</button>
             </div>
         </form>
       </div>

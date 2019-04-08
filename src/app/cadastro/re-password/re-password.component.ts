@@ -28,13 +28,11 @@ export class RePasswordComponent implements OnInit {
     this.doPost();
   }
 
-  313
-
   doPost(){
     this.model.test = 313;
     let url = `${this.apiRoot}/cp/reset_password`;
     this.http
-      .put(url, {id_geral: this.model.test, senha: this.model.password })
+      .put(url, {id_geral: this.model.id, senha: this.model.password })
       .subscribe(res =>{
         this.resposta = res['Mensagem'];
         if(this.resposta == "Senha alterado com sucesso!"){
