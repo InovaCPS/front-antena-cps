@@ -1,97 +1,123 @@
-<app-navbar></app-navbar>
+<div class="background">
+    <app-navbar></app-navbar>
+    <div class="container" style="margin-top: 100px">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row" id="icons">
+                    <div class="col-sm-3" id="icon"><a href=""><img [src]="trof" alt=""></a></div>
+                    <div class="col-sm-3" id="icon"><a href=""><img [src]="calendar" alt=""></a></div>
+                    <div class="col-sm-3" id="icon"><a href=""><img [src]="friends" alt=""></a></div>
+                    <div class="col-sm-3" id="icon"><a href=""><img [src]="shield" alt=""></a></div>
+                </div>
+            </div>
+            <div class="col-md-4" id="profile">
+                <div class="row" id="name">
+                    <h1>{{ aluno.nome }} {{ aluno.sobrenome }}</h1>
+                </div>
+                <div>
+                    <img id="profile-pic" [src]="fotoPerfil" alt="">
+                </div>
+                <div style="text-align: center">
+                    <div class="row" style="margin-top: -5px;">{{ aluno.escola }}</div>
+                    <div *ngIf="aluno.idade != ''" class="row" style="margin-top: -5px;">{{ aluno.idade }} anos</div>
+                    <div class="row" style="margin-top: -5px;">Estudante</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-sm-3" id="icons-social">
+                        <a target="_blank"><img [src]="facebook" alt=""></a>
+                    </div>
+                    <div class="col-sm-3" id="icons-social">
+                        <a target="_blank"><img [src]="twitter" alt=""></a>
+                    </div>
+                    <div class="col-sm-3" id="icons-social">
+                        <a target="_blank"><img [src]="linkedin" alt=""></a>
+                    </div>
+                    <div class="col-sm-3" id="icons-social">
+                        <a target="_blank"><img [src]="youtube" alt=""></a>
+                    </div>
+                    <div class="col-sm-3" id="icons-social">
+                        <a target="_blank"><img [src]="instagram" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="portfolio">
+            <div id="port">
+                <h4>Meu Portfólio</h4>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <div class="row blog">
+                        <div class="col-md-12">
+                            <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#blogCarousel" data-slide-to="1"></li>
+                                </ol>
 
-<div class="">
-  <img id="bg-profile" [src]="bg" class="img-fluid" alt="Responsive image">
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="row" id="icons">
-        <div class="col-sm-3" id="icon"><a href=""><img [src]="test" alt=""></a></div>
-        <div class="col-sm-3" id="icon"><a href=""><img [src]="calendar" alt=""></a></div>
-        <div class="col-sm-3" id="icon"><a href=""><img [src]="friends" alt=""></a></div>
-        <div class="col-sm-3" id="icon"><a href=""><img [src]="shield" alt=""></a></div>
-      </div>
-    </div>
-    <div class="col-md-4" id="profile">
-        <img id="profile-pic" [src]="fotoPerfil" alt="">
-    </div>
-    <div class="col-md-4">
-      <div class="row" id="name"><h1>{{ aluno.nome }} {{ aluno.sobrenome }}</h1></div>
-      <div class="row" style="margin-top: -5px;">{{ aluno.escola }}</div>
-      <div *ngIf="aluno.idade != ''" class="row" style="margin-top: -5px;">{{ aluno.idade }} anos</div>
-      <div class="row" style="margin-top: -5px;">Estudante</div>
-      <div class="row" style="margin-top: 5px;">
-        <div *ngIf="aluno.facebook != null" class="col-sm-3" id="icons-social"><a href="http://{{ aluno.facebook }}" target="_blank"><img [src]="fb" alt=""></a></div>  
-        <div *ngIf="aluno.twitter != null" class="col-sm-3" id="icons-social"><a href="http://{{ aluno.twitter }}" target="_blank"><img [src]="tw" alt=""></a></div>
-        <div *ngIf="aluno.linkedin != null" class="col-sm-3" id="icons-social"><a href="http://{{ aluno.linkedin }}" target="_blank"><img [src]="li" alt=""></a></div>
-        <div *ngIf="aluno.youtube != null" class="col-sm-3" id="icons-social"><a href="http://{{ aluno.youtube }}" target="_blank"><img [src]="yt" alt=""></a></div>
-      </div>
-    </div>
-  </div>
-  <div class="row" id="portfolio">
-    <h1>Meu Portfólio</h1>
-    <div class="row">
-        <div class="container">
-            <div class="row blog">
-                <div class="col-md-12">
-                    <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#blogCarousel" data-slide-to="1"></li>
-                        </ol>
+                                <!-- Carousel items -->
+                                <div class="carousel-inner">
 
-                        <!-- Carousel items -->
-                        <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <a href="#">
+                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                        style="max-width:100%;">
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <a href="#">
+                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                        style="max-width:100%;">
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <a href="#">
+                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                        style="max-width:100%;">
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <a href="#">
+                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                        style="max-width:100%;">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!--.row-->
+                                    </div>
+                                    <!--.item-->
 
-                            <div class="carousel-item active">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <a href="#">
-                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="#">
-                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="#">
-                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="#">
-                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
-                                        </a>
-                                    </div>
-                                </div>
-                                <!--.row-->
-                            </div>
-                            <!--.item-->
-
-                            <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <a href="#">
-                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="#">
-                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="#">
-                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="#">
-                                            <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
-                                        </a>
+                                    <div class="carousel-item">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <a href="#">
+                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                        style="max-width:100%;">
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <a href="#">
+                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                        style="max-width:100%;">
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <a href="#">
+                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                        style="max-width:100%;">
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <a href="#">
+                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                        style="max-width:100%;">
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -102,5 +128,3 @@
         </div>
     </div>
 </div>
-
-

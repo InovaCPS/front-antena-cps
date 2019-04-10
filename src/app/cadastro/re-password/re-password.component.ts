@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-re-password',
@@ -10,17 +11,19 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./re-password.component.css']
 })
 export class RePasswordComponent implements OnInit {
-
   resposta: any;
   model: any = {};
+  date;
   title = 'Redefinir Senha - Antena CPS';
   constructor(public titleService: Title,
               private http: HttpClient,
-              private route: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              private router: Router) { 
+              }
 
   apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
   ngOnInit() {
-    this.model.id = this.route.snapshot.paramMap.get("id")
+    this.date = this.activatedRoute.snapshot.params['token']
   }
 
 
@@ -28,13 +31,10 @@ export class RePasswordComponent implements OnInit {
     this.doPost();
   }
 
-  313
-
   doPost(){
-    this.model.test = 313;
     let url = `${this.apiRoot}/cp/reset_password`;
     this.http
-      .put(url, {id_geral: this.model.test, senha: this.model.password })
+      .put(url, {token: this.date, senha: this.model.password })
       .subscribe(res =>{
         this.resposta = res['Mensagem'];
         if(this.resposta == "Senha alterado com sucesso!"){
@@ -44,7 +44,8 @@ export class RePasswordComponent implements OnInit {
             type: 'success',    
             confirmButtonText: 'Continuar',
             onClose: () =>{
-              this.openModalLogin();
+              this.router.navigate(['']); 
+              //this.openModalLogin();
             }
           })
         }

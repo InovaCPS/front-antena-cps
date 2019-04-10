@@ -31,10 +31,16 @@ h1 {
     margin-top: 2%;
 }
 
-.btnEntrar {
+.Entrar {
     margin-top: 17%;
     margin-left: 42%;
 
+}
+
+#openModal{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
 
 #home {
