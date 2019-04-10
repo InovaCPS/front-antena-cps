@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
     })
   }
   
-  bg = require('../../assets/background_4k.jpg')
+  bg = require('../../assets/background_4K.jpg')
   profile = require('../../app/images/profile-pic.jpg')
   shield = require('../../assets/iconPROJ.png')
   calendar = require('../../assets/iconEVENT.png')
