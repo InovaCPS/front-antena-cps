@@ -1,111 +1,246 @@
 <div>
-<nav class="navbar navbar-light bg-light fixed-top">
-  <a href="/"><img id="logo" class="navbar-brand mb-0" [src]="logo"></a>
-  <button hidden class="btn btn-danger my-2 my-sm-0" id="openModal" data-toggle="modal" data-target="#modalLogin">ENTRAR</button>
-</nav>
+  <nav class="navbar navbar-light bg-light fixed-top">
+    <a href="/"><img id="logo" class="navbar-brand mb-0" [src]="logo"/></a>
+    <button
+      hidden
+      class="btn btn-danger my-2 my-sm-0"
+      id="openModal"
+      data-toggle="modal"
+      data-target="#modalLogin"
+    >
+      ENTRAR
+    </button>
+  </nav>
 
-
-
-<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div>
-        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 16%; margin-top: 5%"><b>BEM VINDO DE VOLTA, ANTENADX!</b></h5>
-          <h6 class="modal-title" id="exampleModalLongTitle2" style="margin-left: 38%">Acesse sua conta</h6>
-      </div>
-       
-
-      <div class="modal-body">
+  <div
+    class="modal fade"
+    id="modalLogin"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
         <div>
+          <h5
+            class="modal-title"
+            id="exampleModalLongTitle"
+            style="margin-left: 16%; margin-top: 5%"
+          >
+            <b>BEM VINDO DE VOLTA, ANTENADX!</b>
+          </h5>
+          <h6
+            class="modal-title"
+            id="exampleModalLongTitle2"
+            style="margin-left: 38%"
+          >
+            Acesse sua conta
+          </h6>
         </div>
+
+        <div class="modal-body">
+          <div></div>
           <div>
-            <form (ngSubmit)="onSubmit()" #frm="ngForm" >
+            <form (ngSubmit)="onSubmit()" #frm="ngForm">
               <label id="labelEmail" for="email">E-mail</label>
-              <br/>
-              <input type="text" id="username" class="camposform" name="email" [(ngModel)]="model.email" required   >
-              
-              <br/> <br/>
-              
+              <br />
+              <input
+                type="text"
+                id="username"
+                class="camposform"
+                name="email"
+                [(ngModel)]="model.email"
+                required
+              />
+
+              <br />
+              <br />
+
               <label id="labelSenha" for="password">Senha</label>
-              <br/>
-              <input type="password" id="password" class="camposform" name="password"  [(ngModel)]="model.password" required>
-               
-              <label id="ouAcesse"> Ou acesse: </label>
+              <br />
+              <input
+                type="password"
+                id="password"
+                class="camposform"
+                name="password"
+                [(ngModel)]="model.password"
+                required
+              />
 
-              <button id="btnEntrar" class="btn btn-lg btn-danger" type="submit" onclick="$('#modalLogin').modal('hide')" [disabled]="frm.invalid" ><b>ENTRAR</b></button><br>
-              <a data-toggle="modal" id="clickPassword" data-target="#passwordModal" onClick="$('#modalLogin').modal('hide')" href="#0" style="font-size: 12px; margin-left: 7%">Esqueceu sua senha?</a>
-              
-       
-              <div  id="iconF">   
-              <a href=""><img [src]="facebook" (click)="lgFacebook()" style="max-width: 27px" alt=""></a>
+              <label id="ouAcesse"> Ou acesse: </label> 
+
+              <button
+                id="btnEntrar"
+                class="btn btn-lg btn-danger"
+                type="submit"
+                onclick="$('#modalLogin').modal('hide')"
+                [disabled]="frm.invalid"
+              >
+                <b>ENTRAR</b></button
+              ><br />
+              <a
+                data-toggle="modal"
+                id="clickPassword"
+                data-target="#passwordModal"
+                onClick="$('#modalLogin').modal('hide')"
+                href="#0"
+                style="font-size: 12px; margin-left: 7%"
+                >Esqueceu sua senha?</a
+              >
+
+              <div id="iconF">  
+                <a
+                  ><img
+                    id="facebookImage"
+                    [src]="facebook"
+                    (click)="lgFacebook()"
+                    style="max-width: 27px"
+                    alt=""
+                /></a>
               </div>
-              <div  id="iconL">
-              <a href=""><img [src]="linkedin" style="max-width: 27px" alt=""></a>
+              <div id="iconL">
+                <a><img id="linkedinImage" [src]="linkedin" style="max-width: 27px" alt=""/></a>
               </div>
-              <div  id="iconG">
-              <a href=""><img [src]="google"(click)="lgGoogle()" style="max-width: 27px" alt=""></a>
+              <div id="iconG">
+                <a
+                  ><img
+                    id="googleImage"
+                    [src]="google"
+                    (click)="lgGoogle()"
+                    style="max-width: 27px"
+                    alt=""
+                /></a>
               </div>
 
-
-
-              <br/> <br/>
+              <br />
+              <br />
 
               <div id="primeiroAcesso">
                 <p>
-                Primeiro acesso? Cadastre-se <a href="/#/cadastro" onclick="$('#modalLogin').modal('hide')">aqui</a>.
+                  Primeiro acesso? Cadastre-se
+                  <a href="/#/cadastro" onclick="$('#modalLogin').modal('hide')"
+                    >aqui</a
+                  >.
                 </p>
               </div>
 
               <div>
-                  <button type="text" class="close" data-dismiss="modal" aria-label="Close" style="margin-right: 80%; font-size: 10px">
-                      <u>VOLTAR</u>
-                  </button>      
+                <button
+                  type="text"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  style="margin-right: 80%; font-size: 10px"
+                >
+                  <u>VOLTAR</u>
+                </button>
               </div>
               <!-- <div id="center">
-                <button type="button"  size="lg" class="btn btn-primary" id="fbcolor" ><i class="fab fa-facebook-f left"></i></button>
-                <button (click)="lgGoogle()" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button>
-              </div> --> 
-
+                  <button type="button"  size="lg" class="btn btn-primary" id="fbcolor" ><i class="fab fa-facebook-f left"></i></button>
+                  <button (click)="lgGoogle()" size="lg"  class="btn btn-secundary" id="ggcolor" >G</button>
+                </div> -->
             </form>
           </div>
-      </div>
-      <div class="modal-footer">
+        </div>
+        <div class="modal-footer"></div>
       </div>
     </div>
   </div>
-</div>
-<div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;">PREENCHA O SEU E-MAIL NO CAMPO ABAIXO PARA RECUPERAR SUA SENHA</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form name="form" (ngSubmit)="frm.form.valid && submitPassword()" #frm="ngForm" novalidate>
+  <div
+    class="modal fade"
+    id="passwordModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="passwordModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5
+            class="modal-title"
+            id="exampleModalLabel"
+            style="text-align: center;"
+          >
+            PREENCHA O SEU E-MAIL NO CAMPO ABAIXO PARA RECUPERAR SUA SENHA
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form
+            name="form"
+            (ngSubmit)="frm.form.valid && submitPassword()"
+            #frm="ngForm"
+            novalidate
+          >
             <label for="email">E-mail</label>
-            <input id="email" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': frm.submitted && email.invalid }" required email />
-            <div *ngIf="frm.submitted && email.invalid" class="invalid-feedback">
-                <div *ngIf="email.errors.required">Digite seu e-mail.</div>
-                <div *ngIf="email.errors.email">Digite um e-mail válido.</div>
+            <input
+              id="email"
+              type="email"
+              class="form-control"
+              name="email"
+              [(ngModel)]="model.email"
+              #email="ngModel"
+              [ngClass]="{ 'is-invalid': frm.submitted && email.invalid }"
+              required
+              email
+            />
+            <div
+              *ngIf="frm.submitted && email.invalid"
+              class="invalid-feedback"
+            >
+              <div *ngIf="email.errors.required">Digite seu e-mail.</div>
+              <div *ngIf="email.errors.email">Digite um e-mail válido.</div>
             </div>
             <div class="form-group">
-                <button class="btn btn-danger" hidden id="sendPassword">Enviar</button>
+              <button class="btn btn-danger" hidden id="sendPassword">
+                Enviar
+              </button>
             </div>
-        </form>
-      </div>
-      <div style="text-align: center">
-        <h6>Ainda não é um Antenadx?<a href="/#/cadastro" (click)="teste()" data-dismiss="modal"> Clique aqui</a></h6>
-        <h6 id="back-login"><a data-target="#modalLogin" data-toggle="modal" data-dismiss="modal" href="#0">Voltar para o login</a></h6>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="clickPassword()" data-dismiss="modal" >Recuperar senha</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          </form>
+        </div>
+        <div style="text-align: center">
+          <h6>
+            Ainda não é um Antenadx?<a
+              href="/#/cadastro"
+              (click)="teste()"
+              data-dismiss="modal"
+            >
+              Clique aqui</a
+            >
+          </h6>
+          <h6 id="back-login">
+            <a
+              data-target="#modalLogin"
+              data-toggle="modal"
+              data-dismiss="modal"
+              href="#0"
+              >Voltar para o login</a
+            >
+          </h6>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="clickPassword()"
+            data-dismiss="modal"
+          >
+            Recuperar senha
+          </button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cancelar
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
-

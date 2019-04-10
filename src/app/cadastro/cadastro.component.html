@@ -28,7 +28,7 @@
                         <label for="firstName">Nome</label>
                         <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
                         <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
-                            <div *ngIf="firstName.errors.required">Digite seu nome.</div>
+                            <div *ngIf="firstName.errors.required">Digite seu nome </div>
                         </div>
                     </div>
                   </div>
@@ -37,7 +37,7 @@
                         <label for="lastName">Sobrenome</label>
                         <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
                         <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
-                            <div *ngIf="lastName.errors.required">Digite seu sobrenome.</div>
+                            <div *ngIf="lastName.errors.required">Digite seu sobrenome</div>
                           </div>
                         </div>
                     </div>
@@ -48,8 +48,8 @@
                         <label for="email">E-mail</label>
                         <input id="email" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
                         <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                            <div *ngIf="email.errors.required">Digite seu e-mail.</div>
-                            <div *ngIf="email.errors.email">Digite um e-mail válido.</div>
+                            <div *ngIf="email.errors.required">Digite seu email</div>
+                            <div *ngIf="email.errors.email">Digite um email válido</div>
                         </div>
                       </div>
                     </div>
@@ -58,8 +58,8 @@
                         <label for="password">Senha</label>
                         <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
                         <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
-                            <div *ngIf="password.errors.required">Digite sua senha.</div>
-                            <div *ngIf="password.errors.minlength">A senha deve conter 6 dígitos.</div>
+                            <div *ngIf="password.errors.required">Digite sua senha</div>
+                            <div *ngIf="password.errors.minlength">A senha deve conter 6 dígitos</div>
                         </div>
                     </div>
                      </div>
