@@ -14,7 +14,7 @@ import { FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider } fro
 
 export class DataBindingComponent implements OnInit {
   resposta: any;
-  apiRoot: string = "http://localhost:8080";
+  apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
   emailPassword: string;
   logo = require('../../app/images/antena_logo.png')
   facebook = require('../../app/images/fbAccessBt.png')
@@ -114,17 +114,12 @@ export class DataBindingComponent implements OnInit {
       })
   }
   clickPassword() {
-    document.getElementById('sendPassword').click()
+    document.getElementById('sendPassword').click();
   }
-  rePassword() {
-
+  closeModalLogin(){
+    document.getElementById('closeModalLogin').click();
   }
   lgGoogle() {
-    // console.log("GET");
-    // let url = `${this.apiRoot}/login/google`;
-    // this.http
-    //   .get(url)
-    //   .subscribe(res => console.log(res))
 
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
       .then((userGoogle) => {
@@ -133,7 +128,8 @@ export class DataBindingComponent implements OnInit {
         this.http
           .post(url, this.dataGooogle)
           .subscribe(res => {
-            localStorage.setItem('token', JSON.stringify(res))
+            this.closeModalLogin();
+            localStorage.setItem('token', JSON.stringify(res));
             this.router.navigate(['/aluno']);
       })        
       })
