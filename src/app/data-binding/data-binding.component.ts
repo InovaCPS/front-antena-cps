@@ -14,7 +14,7 @@ import { FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider } fro
 
 export class DataBindingComponent implements OnInit {
   resposta: any;
-  apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
+  apiRoot: string = "http://localhost:8080";
   emailPassword: string;
   logo = require('../../app/images/antena_logo.png')
   facebook = require('../../app/images/fbAccessBt.png')
@@ -25,6 +25,7 @@ export class DataBindingComponent implements OnInit {
   model: any = {};
 
   urlPassword = '${this.apiRoot}/cp/forgot_password'
+  dataGooogle;
 
   constructor(
     private http: HttpClient,
@@ -127,7 +128,14 @@ export class DataBindingComponent implements OnInit {
 
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
       .then((userGoogle) => {
-        console.log(userGoogle);
+        this.dataGooogle = userGoogle
+        let url = `${this.apiRoot}/login/google`;
+        this.http
+          .post(url, this.dataGooogle)
+          .subscribe(res => {
+            localStorage.setItem('token', JSON.stringify(res))
+            this.router.navigate(['/aluno']);
+      })        
       })
       .catch((err) => {
         console.log(err);
@@ -138,7 +146,10 @@ export class DataBindingComponent implements OnInit {
     let url = `${this.apiRoot}/login/facebook`;
     this.http
       .get(url)
-      .subscribe(res => console.log(res))
+      .subscribe(res => {
+        console.log(res)
+        localStorage.setItem('token', JSON.stringify(res))
+      })
   }
   signOut(): void {
     this.authService.signOut();
