@@ -35,12 +35,13 @@ export class ProfileComponent implements OnInit {
   shield = require('../../assets/iconPROJ.png')
   calendar = require('../../assets/iconEVENT.png')
   friends = require('../../assets/iconXP.png')
-  trof = require('../../assets/iconAWARDS.png')  
-  facebook = require('../../assets/iconFace.png')
+  trof = require('../../assets/iconAWARDS.png')
+  github = require('../../assets/iconGithub.png')  
+  facebook = require('../../assets/iconFacebook.png')
   twitter = require('../../assets/iconTwitter.png')
   linkedin = require('../../assets/iconLinkedin.png')
-  youtube = require('../../assets/iconYT.png')
-  instagram = require('../../assets/iconInsta.png')
+  youtube = require('../../assets/iconYoutube.png')
+  instagram = require('../../assets/iconInstagram.png')
 
   ngOnInit(){
     this.titleService.setTitle(this.title)
