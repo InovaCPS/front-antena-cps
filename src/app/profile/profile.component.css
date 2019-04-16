@@ -52,6 +52,11 @@
 
 }
 
+.portfolio-item{
+    max-width: 200px;
+    max-height: 200px;
+}
+
 .blog .carousel-indicators {
 	left: 0;
 	top: auto;
