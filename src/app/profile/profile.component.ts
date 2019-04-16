@@ -44,8 +44,12 @@ export class ProfileComponent implements OnInit {
   instagram = require('../../assets/iconInstagram.png')
 
   ngOnInit(){
-    this.titleService.setTitle(this.title)
+    this.titleService.setTitle(this.title);
+  }
 
+
+  clickModalAvatar(){
+    document.getElementById('openModalAvatar').click();
   }
 
 }

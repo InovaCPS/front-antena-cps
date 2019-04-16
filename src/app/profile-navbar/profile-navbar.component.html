@@ -16,15 +16,11 @@
 
   </div>
   <div class="dropdown show col-md-2">
-      <a class="dropdown-toggle"role="button" id="dropdownMenuLink" data-toggle="dropdown" style="color: white;">
-        Olá, <b> Aluno (a)</b>
-      </a>
-      
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="#/aluno">Perfil</a>
-        <a class="dropdown-item" href="#">Configurações</a>
-        <a class="dropdown-item" href="#" (click)="logOff()" >Sair</a>
-      </div>
-    </div>
+    <div class="navbar-nav">
+      <a class="nav-item nav-link col-md-4 " href="#0"><img [src]="iconAlert" alt=""></a>
+      <a class="nav-item nav-link col-md-4 " href="#0"><img [src]="iconMsg" alt=""></a>
+      <a class="nav-item nav-link col-md-4 " (click)="logOff()" href="#"><img [src]="iconMsg" alt="" ></a>
+    </div>   
+  </div>
 
 </nav>
