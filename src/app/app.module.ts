@@ -2,7 +2,7 @@ import { CollaboratorComponent } from './collaborator/collaborator.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule, Title} from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { AboutComponent } from './about/about.component';
@@ -32,25 +32,28 @@ import { RePasswordComponent } from './cadastro/re-password/re-password.componen
 import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider } from "angularx-social-login";
+
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
   slidesPerView: 'auto'
 };
 
 const routes: Routes = [
-  { 
-    path: '', 
-    component: LandingComponent 
+  {
+    path: '',
+    component: LandingComponent
   },
   {
-      path: 'aluno',
-      component: ProfileComponent
+    path: 'aluno',
+    component: ProfileComponent
   },
   {
     path: 'cadastro',
     component: CadastroComponent,
-    data: {tittle: 'Cadastro'}   
-  },   
+    data: { tittle: 'Cadastro' }
+  },
   {
     path: 'about',
     component: AboutComponent
@@ -93,6 +96,25 @@ const routes: Routes = [
   }
 ];
 
+const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("57425847163-gjo1lbmq3taatobtamhqmv369fkft8qp.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("Facebook-App-Id")
+  },
+  {
+    id: LinkedInLoginProvider.PROVIDER_ID,
+    provider: new LinkedInLoginProvider("77la04e8njxj0s", false, 'pt_BR')
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -119,7 +141,7 @@ const routes: Routes = [
     ReleaseNotesComponent,
     RePasswordComponent,
     ChangePasswordComponent
-    
+
   ],
   imports: [
     BrowserModule,
@@ -130,16 +152,24 @@ const routes: Routes = [
       { enableTracing: true, useHash: true }
     ),
     NgbModule,
-    SwiperModule
+    SwiperModule,
+    SocialLoginModule
   ],
-  providers:[NgbCarouselConfig, {
-    provide: SWIPER_CONFIG,
-    useValue: DEFAULT_SWIPER_CONFIG
-  }, 
-    Title],
+  providers: [
+    Title,
+    NgbCarouselConfig,
+    {
+      provide: SWIPER_CONFIG,
+      useValue: DEFAULT_SWIPER_CONFIG
+    },
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+  ],
   entryComponents: [AgendaComponent, NgbdModalContent],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
 
 }
