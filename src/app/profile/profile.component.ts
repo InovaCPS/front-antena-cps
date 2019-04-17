@@ -43,8 +43,20 @@ export class ProfileComponent implements OnInit {
   youtube = require('../../assets/iconYoutube.png')
   instagram = require('../../assets/iconInstagram.png')
 
+  imgTeste = require("../../assets/imgTeste.jpg")
+  addImg = require("../../assets/addImg.png")
+
   ngOnInit(){
     this.titleService.setTitle(this.title);
+    this.profileService.getUserId().subscribe(res => {
+      this.profileService.getProfileAluno(res['id']).subscribe((aluno: Aluno) => {
+        this.aluno = aluno;
+        alert(JSON.stringify(aluno))
+        if(aluno.termos != "True"){
+          document.getElementById('openModalFirst').click();
+        }
+      });
+    })
   }
 
 
