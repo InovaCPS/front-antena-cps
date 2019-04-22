@@ -1,8 +1,3 @@
-<app-navbar></app-navbar>
-
-
-  
-
 <div id="fundo" [ngStyle]="{ 'background-image': 'url(' + fundo + ')' }">
 
   <div class="container">
@@ -114,16 +109,57 @@
     <input type="submit" value="Salvar" (click)="doPUT()" id="button1" />
   </div>
 </div>
+     
 
-<div class="col-sm-3">
-    <a href=""><img [src]="face" id="face" alt=""/></a>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">CONFIGURAÇÃO DE PERFIL</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">< VOLTAR</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+          <div>
+            <h6>Preencha os seus dados complementares</h6>
+          </div>
+          <form action="">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="">Nome</label>
+                <input type="email" class="form-control" id="" placeholder="">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="">Sobrenome</label>
+                <input type="text" class="form-control" id="" placeholder="">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="">R.A</label>
+                <input type="email" class="form-control" id="" placeholder="">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="">Unidade</label>
+                <select id="" class="form-control">
+                    <option selected>Fatec Praia Grande...</option>
+                    <option>...</option>
+                  </select>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">SALVAR</button>
+          <button type="button" class="btn btn-danger">PRÓXIMO</button>
+          <button type="button" class="btn btn-dark btn-sm">O QUE SÃO MANAS ?</button>
+        </div>
+      </div>
+    </div>  
   </div>
-  <div class="col-sm-3">
-    <a href=""><img [src]="yout" id="yout" alt=""/></a>
-  </div>
-  <div class="col-sm-3">
-    <a href=""><img [src]="twt" id="twt" alt=""/></a>
-  </div>
-  <div class="col-sm-3">
-    <a href=""><img [src]="link" id="link" alt=""/></a>
-  </div>     
