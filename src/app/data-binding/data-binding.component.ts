@@ -153,4 +153,5 @@ export class DataBindingComponent implements OnInit {
   teste() {
     this.router.navigate(['/cadastro']);
   }
+  
 }
