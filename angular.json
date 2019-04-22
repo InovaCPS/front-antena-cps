@@ -27,7 +27,7 @@
               "node_modules/fullcalendar/dist/fullcalendar.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": ["node_modules/jquery/dist/jquery.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {
