@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar">
       <div id="item-1 " >
-        <a href="/"><img [src]="logo" alt="" id="logo"></a>
+        <img [src]="logo" alt="" id="logo">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -8,7 +8,7 @@
 
       <div class="col-md-6 navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link col-md-4 " href="#/">Início</a>
+          <a class="nav-item nav-link col-md-4 " href="#/aluno">Início</a>
           <a class="nav-item nav-link col-md-4 " href="#/agenda">Agenda</a>
           <a class="nav-item nav-link col-md-4 " href="#/notice">Parceiros</a>
           <a class="nav-item nav-link col-md-4 " href="#/contact">Contato</a> 
@@ -17,12 +17,12 @@
       </div>
       <div class="dropdown show col-md-2">
           <a class="dropdown-toggle"role="button" id="dropdownMenuLink" data-toggle="dropdown" style="color: black;">
-            Olá, <b> Aluno (a)</b>
+            Olá, <b>Aluno(a)</b>
           </a>
           
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="#/aluno">Perfil</a>
-            <a class="dropdown-item" href="#">Configurações</a>
+            <a class="dropdown-item" href="#/perfil">Configurações</a>
             <a class="dropdown-item" href="#" (click)="logOff()" >Sair</a>
           </div>
         </div>

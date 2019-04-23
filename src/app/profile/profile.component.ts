@@ -72,6 +72,10 @@ export class ProfileComponent implements OnInit {
     document.getElementById('buttonPopover').click();
   }
 
+  logOff(){
+    localStorage.removeItem('token');
+  }
+
   ngOnInit(){
     this.titleService.setTitle(this.title);
     this.profileService.getUserId().subscribe(res => {
