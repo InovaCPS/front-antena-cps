@@ -140,11 +140,11 @@ export class DataBindingComponent implements OnInit {
 
   lgLinkedin(){
     this.authService.signIn(LinkedInLoginProvider.PROVIDER_ID)
-      .then(()) => {
-        console.log();
+      .then((userData) => {
+        console.log(userData);
       } 
       
-  }
+      )}
   lgFacebook() {
     console.log("GET");
     let url = `${this.apiRoot}/login/facebook`;
