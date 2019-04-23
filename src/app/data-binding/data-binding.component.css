@@ -127,3 +127,15 @@
   width: 1px;
   height: 1px;
 }
+
+#googleImage:hover{
+  cursor: pointer;
+}
+
+#facebookImage:hover{
+  cursor: pointer;
+}
+
+#linkedinImage:hover{
+  cursor: pointer;
+}

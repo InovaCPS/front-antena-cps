@@ -29,12 +29,17 @@
     width: 100px;
 }
 #icons-social{
-    margin-left: -30px; 
+    margin-left: -40px; 
 }
 
 #name{
-
+    color: greenyellow;
     font-weight: bold;
+}
+#user-info{
+    margin-top: 20px;
+    text-align: center;
+    color: white;
 }
 
 #portfolio{
@@ -45,6 +50,11 @@
 #port{
     color: white;
 
+}
+
+.portfolio-item{
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .blog .carousel-indicators {
@@ -64,4 +74,29 @@
 
 .blog .carousel-indicators .active {
 background: #707070;
+}
+
+#border {
+    border-style: dotted;
+    border-color: transparent;
+}
+
+.padding{
+    padding: 20px;
+}
+
+.social-icons{
+    max-width: 50px;
+    cursor: pointer;
+}
+
+#profile-image img{
+    display: block;
+    margin: auto;
+}
+
+#profile-image a{
+    position: absolute;
+    top: 71%;
+    left: 45%;
 }

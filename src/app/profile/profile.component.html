@@ -1,9 +1,9 @@
-<div class="background">
-    <app-navbar></app-navbar>
-    <div class="container" style="margin-top: 100px">
+<div class="background" id="border">
+    <app-profile-navbar style="background-color: transparent"></app-profile-navbar>
+    <div class="container" style="margin-top: 300px">
         <div class="row">
             <div class="col-md-4">
-                <div class="row" id="icons">
+                <div class="row" id="icons"style="margin-top: 80px">
                     <div class="col-sm-3" id="icon"><a href=""><img [src]="trof" alt=""></a></div>
                     <div class="col-sm-3" id="icon"><a href=""><img [src]="calendar" alt=""></a></div>
                     <div class="col-sm-3" id="icon"><a href=""><img [src]="friends" alt=""></a></div>
@@ -11,51 +11,53 @@
                 </div>
             </div>
             <div class="col-md-4" id="profile">
-                <div class="row" id="name">
+                <div class="" id="name" style="text-align: center;">
                     <h1>{{ aluno.nome }} {{ aluno.sobrenome }}</h1>
                 </div>
-                <div>
+                <div id="profile-image">
                     <img id="profile-pic" [src]="fotoPerfil" alt="">
+                    <a href="#0" s
+                    ><i class="fas fa-cog fa-3x"></i></a>
                 </div>
-                <div style="text-align: center">
-                    <div class="row" style="margin-top: -5px;">{{ aluno.escola }}</div>
-                    <div *ngIf="aluno.idade != ''" class="row" style="margin-top: -5px;">{{ aluno.idade }} anos</div>
-                    <div class="row" style="margin-top: -5px;">Estudante</div>
+                <div id="user-info">
+                    <div class="" style="margin-top: -5px;" >{{ aluno.escola }}</div>
+                    <div *ngIf="aluno.idade != ''" class="" style="margin-top: -5px;">{{ aluno.idade }} anos</div>
+                    <div class="" style="margin-top: -5px;">Estudante</div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="row" style="margin-top: 5px;">
-                    <div class="col-sm-3" id="icons-social">
-                        <a target="_blank"><img [src]="facebook" alt=""></a>
+            <div class="col-md-4" >
+                <div class="row" style="margin-top: 110px;">
+                    <div class="col-sm-3" id="">
+                        <a target="_blank"><img class="social-icons" [src]="github" alt=""></a>
+                    </div>
+                    <div class="col-sm-3 " id="icons-social">
+                        <a target="_blank"><img class="social-icons" [src]="facebook" alt=""></a>
                     </div>
                     <div class="col-sm-3" id="icons-social">
-                        <a target="_blank"><img [src]="twitter" alt=""></a>
+                        <a target="_blank"><img class="social-icons" [src]="twitter" alt=""></a>
                     </div>
                     <div class="col-sm-3" id="icons-social">
-                        <a target="_blank"><img [src]="linkedin" alt=""></a>
+                        <a target="_blank"><img class="social-icons" [src]="linkedin" alt=""></a>
                     </div>
                     <div class="col-sm-3" id="icons-social">
-                        <a target="_blank"><img [src]="youtube" alt=""></a>
+                        <a target="_blank"><img class="social-icons" [src]="youtube" alt=""></a>
                     </div>
                     <div class="col-sm-3" id="icons-social">
-                        <a target="_blank"><img [src]="instagram" alt=""></a>
+                        <a target="_blank"><img class="social-icons" [src]="instagram" alt=""></a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row" id="portfolio">
-            <div id="port">
+            <div id="port" class="row">
                 <h4>Meu Portfólio</h4>
             </div>
-            <div class="row">
+        </div>
+            <div class="row" id="border">
                 <div class="container">
                     <div class="row blog">
                         <div class="col-md-12">
                             <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#blogCarousel" data-slide-to="1"></li>
-                                </ol>
 
                                 <!-- Carousel items -->
                                 <div class="carousel-inner">
@@ -64,25 +66,25 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <a href="#">
-                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                    <img class="portfolio-item" src="http://placehold.it/250x250" alt="Image"
                                                         style="max-width:100%;">
                                                 </a>
                                             </div>
                                             <div class="col-md-3">
                                                 <a href="#">
-                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                    <img class="portfolio-item" src="http://placehold.it/250x250" alt="Image"
                                                         style="max-width:100%;">
                                                 </a>
                                             </div>
                                             <div class="col-md-3">
                                                 <a href="#">
-                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                    <img class="portfolio-item" src="http://placehold.it/250x250" alt="Image"
                                                         style="max-width:100%;">
                                                 </a>
                                             </div>
                                             <div class="col-md-3">
                                                 <a href="#">
-                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                    <img class="portfolio-item" src="http://placehold.it/250x250" alt="Image"
                                                         style="max-width:100%;">
                                                 </a>
                                             </div>
@@ -95,25 +97,25 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <a href="#">
-                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                    <img class="portfolio-item" src="http://placehold.it/250x250" alt="Image"
                                                         style="max-width:100%;">
                                                 </a>
                                             </div>
                                             <div class="col-md-3">
                                                 <a href="#">
-                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                    <img class="portfolio-item" src="http://placehold.it/250x250" alt="Image"
                                                         style="max-width:100%;">
                                                 </a>
                                             </div>
                                             <div class="col-md-3">
                                                 <a href="#">
-                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                    <img class="portfolio-item" src="http://placehold.it/250x250" alt="Image"
                                                         style="max-width:100%;">
                                                 </a>
                                             </div>
                                             <div class="col-md-3">
                                                 <a href="#">
-                                                    <img src="http://placehold.it/250x250" alt="Image"
+                                                    <img class="portfolio-item" src="http://placehold.it/250x250" alt="Image"
                                                         style="max-width:100%;">
                                                 </a>
                                             </div>
@@ -126,5 +128,6 @@
                 </div>
             </div>
         </div>
+        <div class="padding"></div>
+        <div class="padding"></div>
     </div>
-</div>

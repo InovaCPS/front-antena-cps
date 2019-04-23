@@ -68,7 +68,7 @@
                 required
               />
 
-              <label id="ouAcesse"> Ou acesse: </label>
+              <label id="ouAcesse"> Ou acesse: </label> 
 
               <button
                 id="btnEntrar"
@@ -88,10 +88,11 @@
                 style="font-size: 12px; margin-left: 7%"
                 >Esqueceu sua senha?</a
               >
-
-              <div id="iconF">
+              <button id="closeModalLogin" data-dismiss="modal" hidden>sdadadadasd</button>
+              <div id="iconF">  
                 <a
                   ><img
+                    id="facebookImage"
                     [src]="facebook"
                     (click)="lgFacebook()"
                     style="max-width: 27px"
@@ -99,16 +100,12 @@
                 /></a>
               </div>
               <div id="iconL">
-                <a><img 
-                    [src]="linkedin"
-                    (click)="lgLinkedin()" 
-                    style="max-width: 27px" 
-                    alt=""
-                    /></a>
+                <a><img id="linkedinImage" [src]="linkedin" style="max-width: 27px" alt=""/></a>
               </div>
               <div id="iconG">
                 <a
                   ><img
+                    id="googleImage"
                     [src]="google"
                     (click)="lgGoogle()"
                     style="max-width: 27px"

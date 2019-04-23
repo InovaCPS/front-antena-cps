@@ -30,17 +30,18 @@ export class ProfileComponent implements OnInit {
     })
   }
   
-  bg = require('../../assets/background_4K.jpg')
+  //bg = require('../../assets/background_4k.jpg')
   profile = require('../../app/images/profile-pic.jpg')
   shield = require('../../assets/iconPROJ.png')
   calendar = require('../../assets/iconEVENT.png')
   friends = require('../../assets/iconXP.png')
-  trof = require('../../assets/iconAWARDS.png')  
-  facebook = require('../../assets/iconFace.png')
+  trof = require('../../assets/iconAWARDS.png')
+  github = require('../../assets/iconGithub.png')  
+  facebook = require('../../assets/iconFacebook.png')
   twitter = require('../../assets/iconTwitter.png')
   linkedin = require('../../assets/iconLinkedin.png')
-  youtube = require('../../assets/iconYT.png')
-  instagram = require('../../assets/iconInsta.png')
+  youtube = require('../../assets/iconYoutube.png')
+  instagram = require('../../assets/iconInstagram.png')
 
   ngOnInit(){
     this.titleService.setTitle(this.title)

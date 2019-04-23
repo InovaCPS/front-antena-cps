@@ -25,6 +25,7 @@ export class DataBindingComponent implements OnInit {
   model: any = {};
 
   urlPassword = '${this.apiRoot}/cp/forgot_password'
+  dataGooogle;
 
   constructor(
     private http: HttpClient,
@@ -113,21 +114,24 @@ export class DataBindingComponent implements OnInit {
       })
   }
   clickPassword() {
-    document.getElementById('sendPassword').click()
+    document.getElementById('sendPassword').click();
   }
-  rePassword() {
-
+  closeModalLogin(){
+    document.getElementById('closeModalLogin').click();
   }
   lgGoogle() {
-    // console.log("GET");
-    // let url = `${this.apiRoot}/login/google`;
-    // this.http
-    //   .get(url)
-    //   .subscribe(res => console.log(res))
 
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
       .then((userGoogle) => {
-        console.log(userGoogle);
+        this.dataGooogle = userGoogle
+        let url = `${this.apiRoot}/login/google`;
+        this.http
+          .post(url, this.dataGooogle)
+          .subscribe(res => {
+            this.closeModalLogin();
+            localStorage.setItem('token', JSON.stringify(res));
+            this.router.navigate(['/aluno']);
+      })        
       })
       .catch((err) => {
         console.log(err);
@@ -146,7 +150,10 @@ export class DataBindingComponent implements OnInit {
     let url = `${this.apiRoot}/login/facebook`;
     this.http
       .get(url)
-      .subscribe(res => console.log(res))
+      .subscribe(res => {
+        console.log(res)
+        localStorage.setItem('token', JSON.stringify(res))
+      })
   }
   signOut(): void {
     this.authService.signOut();
