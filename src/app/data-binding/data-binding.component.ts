@@ -117,7 +117,7 @@ export class DataBindingComponent implements OnInit {
     document.getElementById('sendPassword').click();
   }
   closeModalLogin(){
-    document.getElementById('closeModalLogin').click();
+    document.getElementById('close-modal-login').click();
   }
   lgGoogle() {
 
@@ -161,4 +161,5 @@ export class DataBindingComponent implements OnInit {
   teste() {
     this.router.navigate(['/cadastro']);
   }
+
 }

@@ -11,7 +11,7 @@
       ENTRAR
     </button>
   </nav>
-
+</div>
   <div
     class="modal fade"
     id="modalLogin"
@@ -74,7 +74,7 @@
                 id="btnEntrar"
                 class="btn btn-lg btn-danger"
                 type="submit"
-                onclick="$('#modalLogin').modal('hide')"
+                (click)="closeModalLogin()"
                 [disabled]="frm.invalid"
               >
                 <b>ENTRAR</b></button
@@ -83,12 +83,11 @@
                 data-toggle="modal"
                 id="clickPassword"
                 data-target="#passwordModal"
-                onClick="$('#modalLogin').modal('hide')"
+                (click)="closeModalLogin()"
                 href="#0"
                 style="font-size: 12px; margin-left: 7%"
                 >Esqueceu sua senha?</a
               >
-              <button id="closeModalLogin" data-dismiss="modal" hidden>sdadadadasd</button>
               <div id="iconF">  
                 <a
                   ><img
@@ -119,7 +118,7 @@
               <div id="primeiroAcesso">
                 <p>
                   Primeiro acesso? Cadastre-se
-                  <a href="/#/cadastro" onclick="$('#modalLogin').modal('hide')"
+                  <a href="/#/cadastro" (click)="closeModalLogin()"
                     >aqui</a
                   >.
                 </p>
@@ -127,6 +126,7 @@
 
               <div>
                 <button
+                  id="close-modal-login"
                   type="text"
                   class="close"
                   data-dismiss="modal"
@@ -243,4 +243,4 @@
       </div>
     </div>
   </div>
-</div>
+

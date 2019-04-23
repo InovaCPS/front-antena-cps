@@ -34,7 +34,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider } from "angularx-social-login";
-import { ProfileNavbarComponent } from './profile-navbar/profile-navbar.component';
+import { ProfileNavbarComponent } from './profile-navbar/profile-navbar.component';;
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',

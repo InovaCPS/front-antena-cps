@@ -35,4 +35,7 @@ export class ProfileNavbarComponent implements OnInit {
   logOff(){
     localStorage.removeItem('token');
   }
+
+  iconAlert = require("../../assets/alertIcon.png");
+  iconMsg = require("../../assets/msgIcon.png");
 }
