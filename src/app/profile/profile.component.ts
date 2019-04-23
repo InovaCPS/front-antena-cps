@@ -64,11 +64,11 @@ export class ProfileComponent implements OnInit {
 
  
   submitTerms(){
-    // let url = `${this.apiRoot}/cp/parceiro/termo`
-    // this.http.put(url, { termos: this.Agree},{headers: new HttpHeaders({'token': this.token.token})})
-    // .subscribe( res => {
-    //   console.log(res)
-    // })
+    let url = `${this.apiRoot}/cp/parceiro/termo`
+    this.http.put(url, { termos: this.Agree},{headers: new HttpHeaders({'token': this.token.token})})
+    .subscribe( res => {
+      console.log(res)
+    })
     document.getElementById('buttonPopover').click();
   }
 
