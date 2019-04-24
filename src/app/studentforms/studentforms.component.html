@@ -133,22 +133,22 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="">Nome</label>
-                <input type="email" class="form-control" id="" placeholder="">
+                <input type="email" class="form-control" id="" name="nome1" placeholder="{{ aluno.nome }}" [(ngModel)]="nome" value="{{ aluno.nome }}" >
               </div>
               <div class="form-group col-md-6">
                 <label for="">Sobrenome</label>
-                <input type="text" class="form-control" id="" placeholder="">
+                <input type="text" class="form-control" id="" name="sobrenome1" placeholder="{{ aluno.sobrenome }}" [(ngModel)]="sobrenome" value="{{ aluno.sobrenome }}">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="">R.A</label>
-                <input type="text" class="form-control" id="" placeholder="">
+                <input type="text" class="form-control" id="" name="ra1" placeholder="{{ aluno.RA }}" value="{{ aluno.RA }}" [(ngModel)]="RA">
               </div>
               <div class="form-group col-md-6">
                 <label for="">Unidade</label>
                 <select id="" class="form-control">
-                    <option selected>Selecione</option>
+                    <option selected>{{ aluno.escola}}</option>
                     <option>...</option>
                   </select>
               </div>
@@ -156,11 +156,11 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="">E-mail</label>
-                <input type="email" class="form-control" id="" placeholder="">
+                <input type="email" class="form-control" id="" name="email1" placeholder="{{ aluno.email }}" value="{{ aluno.email }}" [(ngModel)]="email">
               </div>
               <div class="form-group col-md-4">
                 <label for="">Telefone</label>
-                <input type="text" class="form-control" id="" placeholder="">
+                <input type="text" class="form-control" id="" name="telefone1" placeholder="{{ aluno.telefone }}" value="{{ aluno.telefone }}" [(ngModel)]="telefone">
               </div>
               <div class="form-group col-md-4">
                 <label for="">Gênero</label>
@@ -168,18 +168,18 @@
                   <option value="">Masculino</option>
                   <option value="">Feminino</option>
                   <option value="">Outros</option>
-                  <option value="" selected>Selecione</option>
+                  <option value="" selected>{{ aluno.genero }}</option>
                 </select>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="">RG</label>
-                <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" name="rg1" placeholder="{{ aluno.rg }}" value="{{ aluno.rg }}" [(ngModel)]="rg">
               </div>
               <div class="form-group col-md-4">
                 <label for="">CPF</label>
-                <input type="text" class="form-control" id="" placeholder="">
+                <input type="text" class="form-control" id="" name="cpf1" placeholder="{{ aluno.cpf }}" value="{{ aluno.cpf }}" [(ngModel)]="cpf">
               </div>
               <div class="form-group col-md-4">
                 <label for="">Suas Redes Sociais</label>
@@ -200,11 +200,11 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="">Cargo</label>
-                <input type="text" class="form-control" id="" placehoder="">
+                <input type="text" class="form-control" id="" name="cargo1" placeholder="{{ aluno.cargo }}" value="{{ aluno.cargo }}" [(ngModel)]="cargo">
               </div>
               <div class="form-group col-md-6">
                 <label for="">Empresa</label>
-                <input type="text" class="form-control" id="" placeholder="">
+                <input type="text" class="form-control" id="" name="local1" placeholder="{{ aluno.local_trabalho }}" value="{{ aluno.local_trabalho }}" [(ngModel)]="local_trabalho">
               </div>
             </div>
           </form>
