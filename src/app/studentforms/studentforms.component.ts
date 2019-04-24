@@ -86,6 +86,10 @@ export class StudentformsComponent {
         })
       }
 
+      fechar() {
+        this.router.navigate(['/aluno']);
+      }
+
       doPUT() {
         console.log("PUT");
         let url = `${this.apiRoot}/cp/parceiro`;
