@@ -37,6 +37,7 @@ export class ProfileNavbarComponent implements OnInit {
 
   }
   logOff() {
+    localStorage.removeItem('token');
     this.router.navigate(['/']);
   }
 }
