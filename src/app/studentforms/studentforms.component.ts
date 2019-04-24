@@ -18,6 +18,15 @@ export class StudentformsComponent {
     yout = require('../images/youtube.png')
     twt = require('../images/twitter.png')
     link = require('../images/linkedin.png')
+    logoFacebook = require('../../assets/facebook-logo.png');
+    logoTwitter = require('../../assets/twitter-logo.png');
+    logoLinkedin = require('../../assets/linkedin-logo.png');
+    logoGoogle = require('../../assets/google-logo.png');
+    logoPinterest = require('../../assets/pinterest-logo.png');
+    logoGithub = require('../../assets/github-logo.png');
+    logoInstagram = require('../../assets/instagram-logo.png');
+    logoYoutube = require('../../assets/youtube-logo.png');
+
     datajson;
     aluno: Aluno;
     

@@ -1,7 +1,5 @@
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 
-import * as $ from 'jquery';
-
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 

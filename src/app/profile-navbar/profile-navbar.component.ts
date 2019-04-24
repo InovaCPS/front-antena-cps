@@ -20,6 +20,7 @@ export class ProfileNavbarComponent implements OnInit {
   logo = require('../../app/images/antena_logo.png');
   iconAlert = require('../../assets/alertIcon.png');
   iconMsg = require('../../assets/msgIcon.png');
+  // iconLogoff = require('');
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

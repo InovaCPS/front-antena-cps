@@ -111,17 +111,17 @@
 </div>
      
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalProfile">
     Launch demo modal
   </button>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalProfileLabe" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">CONFIGURAÇÃO DE PERFIL</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">< VOLTAR</span>
+            <span aria-hidden="true" id="close-modal-profile">< VOLTAR</span>
           </button>
         </div>
         <div class="modal-body">
@@ -143,14 +143,68 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="">R.A</label>
-                <input type="email" class="form-control" id="" placeholder="">
+                <input type="text" class="form-control" id="" placeholder="">
               </div>
               <div class="form-group col-md-6">
                 <label for="">Unidade</label>
                 <select id="" class="form-control">
-                    <option selected>Fatec Praia Grande...</option>
+                    <option selected>Selecione</option>
                     <option>...</option>
                   </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="">E-mail</label>
+                <input type="email" class="form-control" id="" placeholder="">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="">Telefone</label>
+                <input type="text" class="form-control" id="" placeholder="">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="">Gênero</label>
+                <select name="" id="" class="form-control">
+                  <option value="">Masculino</option>
+                  <option value="">Feminino</option>
+                  <option value="">Outros</option>
+                  <option value="" selected>Selecione</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="">RG</label>
+                <input type="text" class="form-control" id="" placeholder="">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="">CPF</label>
+                <input type="text" class="form-control" id="" placeholder="">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="">Suas Redes Sociais</label>
+                <div class="row">
+                  <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoFacebook" alt=""></a></div>
+                  <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoGithub" alt=""></a></div>
+                  <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoGoogle" alt=""></a></div>
+                  <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoInstagram" alt=""></a></div>
+                </div>
+                <div class="row" style="margin-top:5%;">
+                    <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoLinkedin" alt=""></a></div>
+                    <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoTwitter" alt=""></a></div>
+                    <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoYoutube" alt=""></a></div>
+                    <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoPinterest" alt=""></a></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="">Cargo</label>
+                <input type="text" class="form-control" id="" placehoder="">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="">Empresa</label>
+                <input type="text" class="form-control" id="" placeholder="">
               </div>
             </div>
           </form>
@@ -158,8 +212,30 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">SALVAR</button>
           <button type="button" class="btn btn-danger">PRÓXIMO</button>
-          <button type="button" class="btn btn-dark btn-sm">O QUE SÃO MANAS ?</button>
+          <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#modalMana" data-dismiss="modal">O QUE SÃO MANAS ?</button>
         </div>
       </div>
     </div>  
+  </div>
+
+
+  <div class="modal fade" id="modalMana" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sobre Manas</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor metus, dapibus eu tincidunt sit amet, cursus et risus. Donec congue lacus sit amet elit malesuada mattis. Morbi urna metus, ornare id sapien et, mollis maximus neque. Fusce mattis euismod mattis. Donec libero felis, consectetur id neque quis, dignissim tempor ipsum. Aliquam et eros sed sapien fermentum malesuada eget et nisi. Nullam a sagittis erat. Pellentesque est ex, gravida quis sapien et, eleifend semper lacus. Aenean facilisis eu justo hendrerit lobortis. Donec quis ipsum sed velit dignissim maximus nec eu eros. Duis nec sapien eu ante tempus viverra nec in dolor. Maecenas in dui massa. In et finibus eros. Donec bibendum tortor massa, sed fringilla ex vehicula at. Pellentesque sed cursus erat, pellentesque consectetur mi. Integer auctor lobortis diam ut imperdiet.
+
+            Morbi sit amet dapibus leo. Etiam bibendum at velit vitae fermentum. Fusce cursus quis lacus sit amet dignissim. Mauris ac risus volutpat, pulvinar turpis nec, malesuada erat. Curabitur quis euismod lorem. In at leo sit amet neque tincidunt varius ut vel turpis. Integer in sem in lectus dapibus bibendum vitae ut enim. Vivamus fringilla eleifend lacus ut suscipit.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">Voltar</button>
+        </div>
+      </div>
+    </div>
   </div>

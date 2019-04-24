@@ -81,3 +81,7 @@ select {
   background-color: red;
   color: white;
 }
+
+.social-logo{
+  max-width: 30px;
+}
