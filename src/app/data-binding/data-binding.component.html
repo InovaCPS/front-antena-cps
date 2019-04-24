@@ -231,7 +231,7 @@
           <button
             type="button"
             class="btn btn-primary"
-            (click)="clickPassword()"
+            [disabled]="(email.value == '' || email.invalid)"(click)="clickPassword()"
             data-dismiss="modal"
           >
             Recuperar senha

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
   <div id="item-1 " >
-    <a href="/"><img [src]="logo" alt="" id="logo"></a>
+    <img [src]="logo" alt="" id="logo">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -8,7 +8,7 @@
 
   <div class="col-md-6 navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link col-md-4 " href="#/">Início</a>
+      <a class="nav-item nav-link col-md-4 " href="#/aluno">Início</a>
       <a class="nav-item nav-link col-md-4 " href="#/agenda">Agenda</a>
       <a class="nav-item nav-link col-md-4 " href="#/notice">Parceiros</a>
       <a class="nav-item nav-link col-md-4 " href="#/contact">Contato</a> 
@@ -17,10 +17,34 @@
   </div>
   <div class="dropdown show col-md-2">
     <div class="navbar-nav">
-      <a class="nav-item nav-link col-md-4 " href="#0"><img [src]="iconAlert" alt=""></a>
-      <a class="nav-item nav-link col-md-4 " href="#0"><img [src]="iconMsg" alt=""></a>
-      <a class="nav-item nav-link col-md-4 " (click)="logOff()" href="#"><img [src]="iconMsg" alt="" ></a>
+      <a class="nav-item nav-link col-md-4 " ><img [src]="iconAlert" alt=""></a>
+      <a class="nav-item nav-link col-md-4 " ><img [src]="iconMsg" alt=""></a>
+      <a class="nav-item nav-link col-md-4 " href="#modalSair" data-toggle="modal" data-target="#modalSair" class="nav-link"><img [src]="iconMsg" alt="" ></a>
     </div>   
   </div>
 
 </nav>
+
+<div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Deseja encerrar esta sessão do Antena CPS?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Você poderá retornar facilmente depois usando o seu login social ou o seu e-mail.
+      </div>
+      <div class="modal-footer">
+        <div class="mr-auto">
+          <button class="btn btn-danger" data-dismiss="modal" (click)="logOff()">Encerrar</button>          
+        </div>
+        <div>
+          <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

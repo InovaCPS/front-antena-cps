@@ -4,10 +4,10 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="row" id="icons"style="margin-top: 80px">
-                    <div class="col-sm-3" id="icon"><a href=""><img [src]="trof" alt=""></a></div>
-                    <div class="col-sm-3" id="icon"><a href=""><img [src]="calendar" alt=""></a></div>
-                    <div class="col-sm-3" id="icon"><a href=""><img [src]="friends" alt=""></a></div>
-                    <div class="col-sm-3" id="icon"><a href=""><img [src]="shield" alt=""></a></div>
+                    <div class="col-sm-3" id="icon"><a target="__blank"><img [src]="trof" alt=""></a></div>
+                    <div class="col-sm-3" id="icon"><a href="#/agenda"><img [src]="calendar" alt=""></a></div>
+                    <div class="col-sm-3" id="icon"><a target="_blank"><img [src]="friends" alt=""></a></div>
+                    <div class="col-sm-3" id="icon"><a target="_blank"><img [src]="shield" alt=""></a></div>
                 </div>
             </div>
             <div class="col-md-4" id="profile">
@@ -65,14 +65,14 @@
                                     <div class="carousel-item active">
                                         <div class="row">
                                             <div class="col">
-                                                <a href="#">
+                                                <a target="_blank">
                                                     <img class="portfolio-item" [src]="imgTeste" alt="Image"
                                                         style="max-width:100%;">
                                                         <h3 style="color: orange; margin-top: -20%"> Teste portfolio</h3>
                                                 </a>
                                             </div>
                                             <div class="col">
-                                                <a href="#">
+                                                <a target="_blank">
                                                     <img class="portfolio-item" [src]="addImg" alt="Image"
                                                         style="max-width:100%;">
                                                 </a>
@@ -146,19 +146,17 @@
           </div>
         </div>
 
-    
-
-      <div class="modal fade" id="modalFirst" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modalFirst" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Olá {{ aluno.nome }}!</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Olá, {{ aluno.nome }}!</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                    Bem vindo ao ANTENA CPS! Este é seu primeiro acesso por aqui. Para continuar, você deve ler e aceitar os nossos <a href="../../assets/terms.pdf" data-toggle="modal" target="__blank" >Termos de Uso e Política de Privacidade e Segurança</a>.
+                    Bem-vindo ao ANTENA CPS! Este é seu primeiro acesso por aqui. Para continuar, você deve ler e aceitar os nossos <a href="../../assets/terms.pdf" data-toggle="modal" target="__blank" >Termos de Uso e Política de Privacidade e Segurança</a>.
                 </div>
                 <div class="modal-footer">
                   <div class="mr-auto">
