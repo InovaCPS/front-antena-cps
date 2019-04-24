@@ -5,7 +5,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">CONFIGURAÇÃO DE PERFIL</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" id="close-modal-profile" style="font-size: 15px">< VOLTAR</span>
+            <span aria-hidden="true" id="close-modal-profile" style="font-size: 15px">VOLTAR</span>
           </button>
         </div>
         <div class="modal-body">
@@ -52,7 +52,7 @@
                   <option value="">Masculino</option>
                   <option value="">Feminino</option>
                   <option value="">Outros</option>
-                  <option value="" selected>{{ aluno.genero }}</option>
+                  <option value="" disabled selected hidden>{{ aluno.genero }}</option>
                 </select>
               </div>
             </div>
@@ -96,7 +96,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalSalvar" data-dismiss="modal" (click)="doPUT()">SALVAR</button>
           <button type="button" class="btn btn-danger" (click)="doPUT()">PRÓXIMO</button>
-          <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#modalMana" data-dismiss="modal">O QUE SÃO MANAS ?</button>
+          <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#modalMana" data-dismiss="modal">O que são Manas?</button>
         </div>
       </div>
     </div>  
@@ -126,21 +126,18 @@
             <button class="btn btn-primary" data-dismiss="modal" (click)="fechar()">FECHAR</button>          
           </div>
           <div>
-            <button class="btn btn-danger" data-toggle="modal" data-target="#modalMana1" data-dismiss="modal"><h6>PRÓXIMO</h6></button>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#modalMana1" data-dismiss="modal">PRÓXIMO</button>
           </div>
         </div> 
       </div>
     </div>
   </div>
 
-  <div class="modal fade" id="modalMana" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalMana" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sobre Manas</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <h5 class="modal-title" id="exampleModalLabel">SOBRE MANAS</h5>
         </div>
         <div class="modal-body">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor metus, dapibus eu tincidunt sit amet, cursus et risus. Donec congue lacus sit amet elit malesuada mattis. Morbi urna metus, ornare id sapien et, mollis maximus neque. Fusce mattis euismod mattis. Donec libero felis, consectetur id neque quis, dignissim tempor ipsum. Aliquam et eros sed sapien fermentum malesuada eget et nisi. Nullam a sagittis erat. Pellentesque est ex, gravida quis sapien et, eleifend semper lacus. Aenean facilisis eu justo hendrerit lobortis. Donec quis ipsum sed velit dignissim maximus nec eu eros. Duis nec sapien eu ante tempus viverra nec in dolor. Maecenas in dui massa. In et finibus eros. Donec bibendum tortor massa, sed fringilla ex vehicula at. Pellentesque sed cursus erat, pellentesque consectetur mi. Integer auctor lobortis diam ut imperdiet.
@@ -148,21 +145,18 @@
             Morbi sit amet dapibus leo. Etiam bibendum at velit vitae fermentum. Fusce cursus quis lacus sit amet dignissim. Mauris ac risus volutpat, pulvinar turpis nec, malesuada erat. Curabitur quis euismod lorem. In at leo sit amet neque tincidunt varius ut vel turpis. Integer in sem in lectus dapibus bibendum vitae ut enim. Vivamus fringilla eleifend lacus ut suscipit.
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">Voltar</button>
+          <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">VOLTAR</button>
         </div>
       </div>
     </div>
   </div>
 
 
-  <div class="modal fade" id="modalMana1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalMana1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">CONFIGURAÇÃO DE MANAS</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
         <div class="modal-body">
           <h6> A partir das suas características, definiremos os seus Manas </h6>
@@ -182,9 +176,13 @@
           </div> 
           
         <div class="modal-footer">
+<<<<<<< HEAD
+          <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">VOLTAR</button>
+=======
           <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">Salvar</button>
           <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">Próximo</button>
           <!-- <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">Voltar</button> -->
+>>>>>>> 965f07dbee52bfd8ce7a65aa9d5d789409639967
         </div>
       </div>
     </div>
