@@ -1,25 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
-  <div id="item-1 " >
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top flex" id="navbar">
+  <div class="flex-item-1 item-1" >
     <img [src]="logo" alt="" id="logo">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
   </div>
 
-  <div class="col-md-6 navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link col-md-4 " href="#/aluno">Início</a>
-      <a class="nav-item nav-link col-md-4 " href="#/agenda">Agenda</a>
-      <a class="nav-item nav-link col-md-4 " href="#/notice">Parceiros</a>
-      <a class="nav-item nav-link col-md-4 " href="#/contact">Contato</a> 
+  <div class=" navbar-collapse flex-item-1 item-2" id="navbarNavAltMarkup">
+    <div class="navbar-nav" style="text-align: center;">
+      <a class="nav-item nav-link" href="#/aluno">PÁGINA INICIAL</a>
+      <a class="nav-item nav-link" href="#/aluno">PORTFÓLIO</a>
+      <a class="nav-item nav-link" href="#/agenda">EVENTOS</a>
+      <a class="nav-item nav-link" href="#/notice">NOTÍCIAS</a>
+      <a class="nav-item nav-link" href="#/contact">PRÊMIOS</a> 
     </div>        
 
   </div>
-  <div class="dropdown show col-md-2">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link col-md-4 " ><img [src]="iconAlert" alt=""></a>
-      <a class="nav-item nav-link col-md-4 " ><img [src]="iconMsg" alt=""></a>
-      <a class="nav-item nav-link col-md-4 " href="#modalSair" data-toggle="modal" data-target="#modalSair" class="nav-link"><img [src]="iconMsg" alt="" ></a>
+  <div class="dropdown show flex-item-1 item-1">
+    <div class="navbar-nav" style="position: relative; float: right;">
+      <a class="nav-item nav-link" ><img [src]="iconAlert" alt=""></a>
+      <a class="nav-item nav-link" ><img [src]="iconMsg" alt=""></a>
+      <a class="nav-item nav-link" href="#modalSair" data-toggle="modal" data-target="#modalSair" class="nav-link"><img [src]="iconLogoff" alt="" ></a>
     </div>   
   </div>
 

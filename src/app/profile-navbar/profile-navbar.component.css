@@ -3,9 +3,26 @@
 }
 
 #logo {
-    width: 70%;
+    width: 50%;
 }
 
 #navbar{
     background-color: transparent;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.flex-item-1{
+    flex: 1;
+}
+
+.item-1 {
+    flex-grow: 1;
+}
+
+.item-2{
+    flex-grow: 2;
 }
