@@ -17,10 +17,10 @@ export class ProfileNavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  logo = require('../../app/images/antena_logo.png');
+  logo = require('../../assets/logo-antena-white.png');
   iconAlert = require('../../assets/alertIcon.png');
   iconMsg = require('../../assets/msgIcon.png');
-  //iconLogoff = require('../../assets/logoffIcon.png');
+  iconLogoff = require('../../assets/logoffIcon.png');
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -37,6 +37,7 @@ export class ProfileNavbarComponent implements OnInit {
 
   }
   logOff() {
+    localStorage.removeItem('token');
     this.router.navigate(['/']);
   }
 }
