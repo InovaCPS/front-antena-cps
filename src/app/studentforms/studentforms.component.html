@@ -27,7 +27,7 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="">R.A</label>
-                <input type="text" class="form-control" id="" name="ra1" placeholder="{{ aluno.ra }}" value="{{ aluno.ra }}" [(ngModel)]="RA">
+                <input type="text" class="form-control" id="" name="ra1" placeholder="{{ aluno.RA }}" value="{{ aluno.RA }}" [(ngModel)]="RA">
               </div>
               <div class="form-group col-md-6">
                 <label for="">Unidade</label>
@@ -63,7 +63,7 @@
               </div>
               <div class="form-group col-md-4">
                 <label for="">CPF</label>
-                <input type="text" class="form-control" minlength="11" maxlength="11" mask="000.000.000-00" id="" name="cpf1" placeholder="{{ aluno.cpf }}" value="{{ aluno.cpf }}" [(ngModel)]="cpf">
+                <input type="text" class="form-control" id="" name="cpf1" placeholder="{{ aluno.cpf }}" value="{{ aluno.cpf }}" [(ngModel)]="cpf">
               </div>
               <div class="form-group col-md-4">
                 <label for="">Suas Redes Sociais</label>
@@ -151,7 +151,6 @@
     </div>
   </div>
 
-
   <div class="modal fade" id="modalMana1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -174,8 +173,7 @@
           <div class="slider-wrapper">
             <input type="range" min="0" max="10" value="7" step="1">
           </div> 
-         
-          
+           
         <div class="modal-footer">
           <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">Salvar</button>
           <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">Próximo</button>
