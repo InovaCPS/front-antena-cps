@@ -1,127 +1,11 @@
-<div id="fundo" [ngStyle]="{ 'background-image': 'url(' + fundo + ')' }">
 
-  <div class="container">
-    <h3 style="color: black; display: inline" id="frase">DADOS DE</h3>
-    <h3 id="anten" style="color: red; display: inline"> PERFIL</h3>
-    <p>
-      Preencha com seus dados complementares
-    </p>
-
-    <h6><strong>Dados Pessoais</strong></h6>
-
-    <div class="form-row">
-      <div class="col">
-        <label for="fname"></label>
-        <input type="text" id="nome" name="nome1" [(ngModel)]="nome" value="{{ aluno.nome }}" required />
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col">
-        <label for="sname"></label>
-        <input type="text" id="sobrenome" name="sobrenome1" [(ngModel)]="sobrenome" value="{{ aluno.sobrenome }}" />
-      </div>
-      <div class="col">
-        <label for="genero"></label>          
-        <div *ngIf="aluno.genero; else semGenero">
-          <input type="text" id="genero" name="genero1" [(ngModel)]="genero" value="{{ aluno.genero }}" />
-        </div>
-        <ng-template #semGenero>
-          <input type="text" id="genero" name="genero1" [(ngModel)]="genero" placeholder="Gênero" />
-        </ng-template>          
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col">
-        <label for="email1"></label>
-        <input type="text" id="email1" name="email1" [(ngModel)]="email" value="{{ aluno.email }}" />
-      </div>
-    
-      <div class="col" >
-        <label for="telefone"></label>
-        <div *ngIf="aluno.telefone; else semTel">
-           <input type="text" id="tel" name="tel1" [(ngModel)]="telefone"  value="{{ aluno.telefone }}" />
-        </div>
-        <ng-template #semTel>
-          <input type="text" id="tel" name="tel1" [(ngModel)]="telefone" placeholder="(11) XXXXX-XXXX" />
-        </ng-template>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col">
-        <label for="ra"></label>
-        <input type="text" id="ra" name="ra1" [(ngModel)]="RA"  value="{{ aluno.ra }}" />
-      </div>
-      <div class="col">
-        <label for="unidae"></label>
-        <input type="text" id="unidade" name="unidade1"  [(ngModel)]="escola" value="{{ aluno.escola }}" disabled />
-      </div>
-    </div>
-    
-    <h6><strong>Documentos</strong></h6>
-
-    <div class="form-row">
-      <div class="col">
-        <label for="rg"></label>
-        <div *ngIf="aluno.rg; else semRG">
-          <input type="text"  id="rg" name="rg1" [(ngModel)]="rg"  value="{{ aluno.rg }}" />
-        </div>
-        <ng-template #semRG>
-          <input type="text" id="rg" name="rg1" [(ngModel)]="rg"  placeholder="R.G" />
-        </ng-template>
-      </div>
-      <div class="col">
-        <label for="cpf"></label>
-        <div *ngIf="aluno.cpf; else semCPF">
-          <input type="text"  id="cpf" name="cpf1" [(ngModel)]="cpf"  value="{{ aluno.cpf }}" />
-        </div>
-        <ng-template #semCPF>
-          <input type="text" id="cpf" name="cpf1" [(ngModel)]="cpf"  placeholder="CPF" />
-        </ng-template>
-      </div>
-    </div>
-
-    <h6><strong>Dados Profissionais</strong></h6>
-
-    <div class="form-row">
-      <div class="col">
-        <label for="cargo"></label>
-        <div *ngIf="aluno.cargo; else semCargo">
-          <input type="text"  id="cargo" name="cargo1" [(ngModel)]="cargo"  value="{{ aluno.cargo }}" />
-        </div>
-        <ng-template #semCargo>
-          <input type="text" id="cargo" name="cargo1" [(ngModel)]="cargo"  placeholder="Cargo" />
-        </ng-template>
-      </div>
-      <div class="col">
-        <label for="empresa"></label>
-        <div *ngIf="aluno.local_trabalho; else semEmpresa">
-          <input type="text"   id="empresa" name="empresa1" [(ngModel)]="local_trabalho" value="{{ aluno.local_trabalho }}" />
-        </div>
-        <ng-template #semEmpresa>
-          <input type="text" id="empresa" name="empresa1" [(ngModel)]="local_trabalho"  placeholder="Empresa" />
-        </ng-template>
-      </div>
-    </div>
-      
-    <input type="submit" value="Salvar" (click)="doPUT()" id="button1" />
-  </div>
-</div>
-     
-
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalProfileLabe" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">CONFIGURAÇÃO DE PERFIL</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">< VOLTAR</span>
+            <span aria-hidden="true" id="close-modal-profile" style="font-size: 15px">VOLTAR</span>
           </button>
         </div>
         <div class="modal-body">
@@ -133,33 +17,173 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="">Nome</label>
-                <input type="email" class="form-control" id="" placeholder="">
+                <input type="email" class="form-control" id="" name="nome1" placeholder="{{ aluno.nome }}" [(ngModel)]="nome" value="{{ aluno.nome }}" >
               </div>
               <div class="form-group col-md-6">
                 <label for="">Sobrenome</label>
-                <input type="text" class="form-control" id="" placeholder="">
+                <input type="text" class="form-control" id="" name="sobrenome1" placeholder="{{ aluno.sobrenome }}" [(ngModel)]="sobrenome" value="{{ aluno.sobrenome }}">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="">R.A</label>
-                <input type="email" class="form-control" id="" placeholder="">
+                <input type="text" class="form-control" id="" name="ra1" placeholder="{{ aluno.ra }}" value="{{ aluno.ra }}" [(ngModel)]="RA">
               </div>
               <div class="form-group col-md-6">
                 <label for="">Unidade</label>
                 <select id="" class="form-control">
-                    <option selected>Fatec Praia Grande...</option>
+                    <option selected>{{ aluno.escola}}</option>
                     <option>...</option>
                   </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="">E-mail</label>
+                <input type="email" class="form-control" id="" name="email1" placeholder="{{ aluno.email }}" value="{{ aluno.email }}" [(ngModel)]="email">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="">Telefone</label>
+                <input type="text" class="form-control" id="" name="telefone1" placeholder="{{ aluno.telefone }}" value="{{ aluno.telefone }}" [(ngModel)]="telefone">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="">Gênero</label>
+                <select name="" id="" class="form-control">
+                  <option value="">Masculino</option>
+                  <option value="">Feminino</option>
+                  <option value="">Outros</option>
+                  <option value="" disabled selected hidden>{{ aluno.genero }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="">RG</label>
+              <input type="text" class="form-control" id="" name="rg1" placeholder="{{ aluno.rg }}" value="{{ aluno.rg }}" [(ngModel)]="rg">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="">CPF</label>
+                <input type="text" class="form-control" minlength="11" maxlength="11" mask="000.000.000-00" id="" name="cpf1" placeholder="{{ aluno.cpf }}" value="{{ aluno.cpf }}" [(ngModel)]="cpf">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="">Suas Redes Sociais</label>
+                <div class="row">
+                  <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoFacebook" alt=""></a></div>
+                  <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoGithub" alt=""></a></div>
+                  <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoGoogle" alt=""></a></div>
+                  <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoInstagram" alt=""></a></div>
+                </div>
+                <div class="row" style="margin-top:5%;">
+                    <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoLinkedin" alt=""></a></div>
+                    <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoTwitter" alt=""></a></div>
+                    <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoYoutube" alt=""></a></div>
+                    <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoPinterest" alt=""></a></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="">Cargo</label>
+                <input type="text" class="form-control" id="" name="cargo1" placeholder="{{ aluno.cargo }}" value="{{ aluno.cargo }}" [(ngModel)]="cargo">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="">Empresa</label>
+                <input type="text" class="form-control" id="" name="local1" placeholder="{{ aluno.local_trabalho }}" value="{{ aluno.local_trabalho }}" [(ngModel)]="local_trabalho">
               </div>
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">SALVAR</button>
-          <button type="button" class="btn btn-danger">PRÓXIMO</button>
-          <button type="button" class="btn btn-dark btn-sm">O QUE SÃO MANAS ?</button>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalSalvar" data-dismiss="modal" (click)="doPUT()">SALVAR</button>
+          <button type="button" class="btn btn-danger" (click)="doPUT()">PRÓXIMO</button>
+          <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#modalMana" data-dismiss="modal">O que são Manas?</button>
         </div>
       </div>
     </div>  
   </div>
+
+  <div class="modal fade" id="modalSalvar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">PERFIL ATUALIZADO</h5>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+            <div>
+                <h6>Uhuu! Seu perfil foi atualizado!</h6>
+            </div>
+            <br/>
+              <h6>Agora você deve fazer uma <b>escolha:</b> Clique no </h6>
+              <h6 style="color: blue; display: inline"><b>botão azul </b></h6>
+              <h6 style="display: inline"> e o cadastro termina. Você vai acordar na sua escola ou faculdade e acreditará no que quer acreditar. Mas se clicar no </h6>
+              <h6 style="color: red; display: inline"><b>botão vermelho</b></h6>
+              <h6 style="display: inline">, você fica no Antena, configura os seus Manas e nós te levaremos a uma experiência gamificada, de autoconhecimento pessoal e profissional.</h6>
+              <br/><br/>
+              <h6 style="color: rgb(182, 2, 2)"><b>Lembre-se:</b> tudo o que oferecemos é uma rede de projetos e colaboração. Nada mais.</h6>
+        </div>
+        <div class="modal-footer">
+          <div class="mr-auto">
+            <button class="btn btn-primary" data-dismiss="modal" (click)="fechar()">FECHAR</button>          
+          </div>
+          <div>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#modalMana1" data-dismiss="modal">PRÓXIMO</button>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalMana" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">SOBRE MANAS</h5>
+        </div>
+        <div class="modal-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor metus, dapibus eu tincidunt sit amet, cursus et risus. Donec congue lacus sit amet elit malesuada mattis. Morbi urna metus, ornare id sapien et, mollis maximus neque. Fusce mattis euismod mattis. Donec libero felis, consectetur id neque quis, dignissim tempor ipsum. Aliquam et eros sed sapien fermentum malesuada eget et nisi. Nullam a sagittis erat. Pellentesque est ex, gravida quis sapien et, eleifend semper lacus. Aenean facilisis eu justo hendrerit lobortis. Donec quis ipsum sed velit dignissim maximus nec eu eros. Duis nec sapien eu ante tempus viverra nec in dolor. Maecenas in dui massa. In et finibus eros. Donec bibendum tortor massa, sed fringilla ex vehicula at. Pellentesque sed cursus erat, pellentesque consectetur mi. Integer auctor lobortis diam ut imperdiet.
+
+            Morbi sit amet dapibus leo. Etiam bibendum at velit vitae fermentum. Fusce cursus quis lacus sit amet dignissim. Mauris ac risus volutpat, pulvinar turpis nec, malesuada erat. Curabitur quis euismod lorem. In at leo sit amet neque tincidunt varius ut vel turpis. Integer in sem in lectus dapibus bibendum vitae ut enim. Vivamus fringilla eleifend lacus ut suscipit.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">VOLTAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modalMana1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">CONFIGURAÇÃO DE MANAS</h5>
+        </div>
+        <div class="modal-body">
+          <h6> A partir das suas características, definiremos os seus Manas </h6>
+          <h6 style="color:darkkhaki; display: inline"><b>Deslize o botão redondo nas barras horizontais abaixo para definir seu nível de afinidade com cada afirmação, onde 0 significa nenhuma afinidade e 10 significa total afinidade:</b></h6>
+          <br /> <br />
+          <div class="slider-wrapper">
+          <h6>Adoro lidar com objetos, sua localização e visão sob diferentes perspectivas.</h6> 
+            <input type="range" min="0" max="10" value="7" step="1">
+          </div> 
+          <h6>Tenho capacidade de usar fórmulas e criar raciocínios lógicos, interpretando símbolos</h6> 
+          <div class="slider-wrapper">
+            <input type="range" min="0" max="10" value="7" step="1">
+          </div> 
+          <h6>Tenho facilidade e me sinto bem quando tenho que lidar com outras pessoas</h6> 
+          <div class="slider-wrapper">
+            <input type="range" min="0" max="10" value="7" step="1">
+          </div> 
+          
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">Salvar</button>
+          <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">Próximo</button>
+          <!-- <button type="button" class="btn btn-dark" data-dismiss="modal" data-toggle="modal" data-target="#modalProfile">Voltar</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+

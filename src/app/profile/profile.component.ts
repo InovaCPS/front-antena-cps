@@ -1,7 +1,5 @@
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 
-import * as $ from 'jquery';
-
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
@@ -72,11 +70,16 @@ export class ProfileComponent implements OnInit {
     document.getElementById('buttonPopover').click();
   }
 
+  logOff(){
+    localStorage.removeItem('token');
+  }
+
   ngOnInit(){
     this.titleService.setTitle(this.title);
     this.profileService.getUserId().subscribe(res => {
       this.profileService.getProfileAluno(res['id']).subscribe((aluno: Aluno) => {
         this.aluno = aluno;
+        alert(JSON.stringify(this.aluno))
         if(aluno.termos != "True"){
           document.getElementById('openModalFirst').click();
         }
