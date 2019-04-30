@@ -100,3 +100,10 @@ background: #707070;
     top: 71%;
     left: 45%;
 }
+
+#btn-recursos {
+    width: 150px;
+    height: 90px;
+    border-radius: 8px;
+    text-align: center;
+  }
