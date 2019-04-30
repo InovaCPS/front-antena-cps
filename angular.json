@@ -27,7 +27,9 @@
               "node_modules/fullcalendar/dist/fullcalendar.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/avatar.js"
+            ]
           },
           "configurations": {
             "production": {

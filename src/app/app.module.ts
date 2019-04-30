@@ -30,11 +30,12 @@ import { MustMatchDirective } from './cadastro/_helpers/must-match.directive';
 import { ReleaseNotesComponent } from './release-notes/release-notes.component';
 import { RePasswordComponent } from './cadastro/re-password/re-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AvatarCreationComponent } from './avatar-creation/avatar-creation.component';
 
 
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider } from "angularx-social-login";
-import { ProfileNavbarComponent } from './profile-navbar/profile-navbar.component';;
+import { ProfileNavbarComponent } from './profile-navbar/profile-navbar.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -94,6 +95,10 @@ const routes: Routes = [
   {
     path: 'change-password/:token',
     component: ChangePasswordComponent
+  },
+  {
+    path: 'avatar_creation',
+    component: AvatarCreationComponent
   }
 ];
 
@@ -108,7 +113,7 @@ const config = new AuthServiceConfig([
   },
   {
     id: LinkedInLoginProvider.PROVIDER_ID,
-    provider: new LinkedInLoginProvider("LinkedIn-client-Id", false, 'pt_BR')
+    provider: new LinkedInLoginProvider("77la04e8njxj0s", false, 'pt_BR')
   }
 ]);
 
@@ -142,8 +147,8 @@ export function provideConfig() {
     ReleaseNotesComponent,
     RePasswordComponent,
     ChangePasswordComponent,
-    ProfileNavbarComponent
-
+    ProfileNavbarComponent,
+    AvatarCreationComponent
   ],
   imports: [
     BrowserModule,

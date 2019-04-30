@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
-import { AuthService } from "angularx-social-login";
+import { AuthService, SocialUser } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider } from "angularx-social-login";
 
 @Component({
@@ -137,6 +137,14 @@ export class DataBindingComponent implements OnInit {
         console.log(err);
       });
   }
+
+  lgLinkedin(){
+    this.authService.signIn(LinkedInLoginProvider.PROVIDER_ID)
+      .then((userData) => {
+        console.log(userData);
+      } 
+      
+      )}
   lgFacebook() {
     console.log("GET");
     let url = `${this.apiRoot}/login/facebook`;
