@@ -1,126 +1,152 @@
-<app-navbar></app-navbar>
-
-<div><img [src]="back" id="graf" alt=""></div>
-
-<div class="container" id="container">
-    <div class="form-row">
-        <form method="POST" (submit)="cadastrarProjeto()" enctype="multipart/form-data">
-            <div class="form-group col-md-6">
-                <h4>
-                    <strong>
-                        Cadastrar projeto
-                    </strong>
-                </h4>
-                <strong>
-                    Título do projeto
-                </strong><br>
-
-                <label for="title"></label>
-                <input type="text" id="title" name="title" [(ngModel)]="projeto.titulo" placeholder="Título do projeto">
-
-                <label for="describe"></label>
-                <input type="text" id="describe" name="describe" [(ngModel)]="projeto.descricao" placeholder="Descrição do projeto">
-
-                <div id="unidades">
-                    <strong>Unidades envolvidas</strong>
-                    <a (click)="addUnidade()"><img [src]="plus" id="plus" alt="#"></a>
-                    <div *ngFor="let unidadeEnvolvida of unidadesEnvolvidas; let i = index">
-                        <select name="unidade" [(ngModel)]="unidadesEnvolvidas[i]" id="unidade">
-                            <option *ngFor="let unidade of unidades" value="{{ unidade.id }}">{{ unidade.nome }}</option>                 
-                        </select>
-                        <a (click)="deleteUnidade(i)"><img [src]="divide" id="divide" alt="#"></a>
-                    </div>
-                </div>
-
-                <div id="cursos">
-                    <strong>Cursos envolvidos</strong>
-                    <a (click)="addCurso()"><img [src]="plus" id="plus" alt="#"></a>
-                    <div *ngFor="let curso of cursosEnvolvidos; let i = index">
-                        <select name="curso" [(ngModel)]="cursosEnvolvidos[i]" id="curso">
-                            <option *ngFor="let curso of cursos" value="{{ curso.id }}">{{ curso.nome }}</option>
-                        </select>
-                        <a (click)="deleteCurso(i)"><img [src]="divide" id="divide" alt="#"></a>
-                    </div>
-                </div>
-
-                <label for="kwords"><strong>Palavras chave:</strong></label>
-                <input type="text" id="kwords" name="kwords" [(ngModel)]="palavrasChave" placeholder="5 palavras separadas por ;">
-
-            </div>
-            <div class="form-group col-md-6">
-                <div>
-                    <img [src]="friends" id="friends" alt="">
-                    <label for="search"><strong>Colaboradores:</strong></label>
-                    <input type="text" id="search" name="search" [(ngModel)]="colaboradores" placeholder="Email dos colaboradores separados por ;">
-                </div>
-                <div class="uploadGroup">
-                    <div class="uploadFiles"><img [src]="upload" alt=""></div>
-                    <div class="uploadFiles"><img [src]="imag" alt="" data-toggle="modal" data-target="#modalLogin"></div>
-                    <div class="uploadFiles"><img [src]="adfile" alt=""></div>
-                </div>
-
-                <div>
-                    <strong id="categorias">Categorias</strong>
-                    <button type="button" (click)="exibirEsconderCategorias()">Exibir</button>
-                    <div *ngIf="exibirCategorias == true" class="row">
-                        <div class="col-md-4" *ngFor="let categoria of categorias; let i = index">
-                            <input type="checkbox" value="{{ categoria.valor }}" [(ngModel)]="categorias[i].checado" name="checado">{{ categoria.nome }} <br>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="premiacao">
-                    <div style="display: inline;">
-                        <a href=""><img [src]="escudo" id="escudo" alt=""></a>
-                        <strong>Ganhou prêmios?</strong><br>
-                        <div id="premiado">
-                            <input type="radio" name="premiado" [(ngModel)]="premiado" value="1"><p>Sim</p>
-                        </div>
-                        <div id="premiado">
-                            <input type="radio" name="premiado" [(ngModel)]="premiado" value="2"><p>Não</p>
-                        </div>
-                    </div>
-                    <div *ngIf="premiado">
-                        <label for="links"><strong>Links:</strong></label>
-                        <input type="text" id="links" name="links" [(ngModel)]="links" placeholder="Links separados por ;">
-                    </div>
-                </div>
-            </div>
-            <input type="submit" value="Cadastrar">
-        </form>
-    </div>
-</div>
-
-<!-- MODAL DE ARQUIVOS -->
-<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="modalProfileLabe"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Galeria de fotos e mídias</h5>
+                <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE PROJETO</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true" id="close-modal-profile" style="font-size: 15px"> VOLTAR</span>
                 </button>
             </div>
-            <div>
-                <button (click)="addArquivo()">Adicionar</button>
+            <div class="modal-body">
 
-                <div *ngFor='let arquivo of arquivos; let i = index'>
-                    <button (click)="deleteArquivo(i)">X</button>
-
-                    <label for="midia"></label>
-                    <input type="file" id="midia"  name="midia" (change)="alterarArquivo($event, i)">    
-
-                    <label for="titulo"></label>
-                    <input type="text" id="titulo" name="titulo" [(ngModel)]="arquivos[i].titulo" placeholder="Título">     
-
-                    <label for="descricao"></label>
-                    <input type="text" id="descricao" name="descricao" [(ngModel)]="arquivos[i].descricao" placeholder="Descrição">
-
-                    <label for="codigo"></label>
-                    <input type="text" id="codigo" name="codigo" [(ngModel)]="arquivos[i].codigo" placeholder="href=glasdsadasdasodaojoijhdsah">
+                <div>
+                    <h4>Os projetos que você participa formam o seu portfólio</h4>
                 </div>
+                <form action="">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">Título do Projeto</label>
+                            <input type="text" class="form-control" id="" name="" placeholder="" >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Orientador / Mentor / Colaborador</label>
+                            <input type="text" class="form-control" id="" name="sobrenome1" placeholder=""
+                                >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">Unidade(s)</label>
+                            <input type="text" class="form-control" id="" name="ra1" placeholder=""
+                                value="" >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Curso(s)</label>
+                            <select id="" class="form-control">
+                                <option selected></option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">Tema com o qual o projeto se alinha</label>
+                            <input type="email" class="form-control" id="" name="email1" placeholder=""
+                                value="" >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Coop(s)</label>
+                            <input type="text" class="form-control" id="" name="telefone1"
+                                placeholder="" value="" >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="form-row"> 
+                                <label for="">Tipo de Projeto</label>
+                                <input type="text" class="form-control" id="" name="rg1" placeholder="" value=""></div>
+                            <div class="form-row"> 
+                                <label for="">Status Atual do Projeto</label>
+                                <input type="text" class="form-control" id="" name="rg1" placeholder="" value=""></div>
+                            </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Descrição do Projeto</label>
+                            <textarea  class="form-control" name="" id="" cols="60" rows="4"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalProjectSuccess"
+                    data-dismiss="modal">SALVAR</button>
+          <button type=" button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">PRÓXIMO</button>
             </div>
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="modalProjectSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Uhuuu!</h5>
+            </div>
+            <div class="modal-body">
+                <p>Seu projeto foi cadastrado com sucesso! Agora você pode adicionar mais recursos, como imagens textos,
+                    arquivos, códigos e outros tipos de documentos para complementar as informações do projeto.Clique no
+                    botão "CONTINUAR" para concluir sua edição e voltar a sua página personalizada.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">CONTINUAR</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="modal fade" id="modalResources" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">RECURSOS ADICIONAIS</h5>
+              <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalProject" aria-label="Close">
+                    <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <div>
+                  <h6>Clique nos botões abaixo e adicione recursos que complementam o seu projeto</h6>
+                </div>
+              <br/><br/>
+              <div class="container-fluid">            
+                <div class="row">
+                  <div class="col-sm-3">
+                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Imagens</b></button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Textos</b></button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Mídias</b></button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Documentos</b></button>
+                  </div>
+                </div>
+                <br/><br/>                    
+                <div class="row">
+                  <div class="col-sm-3">
+                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Arquivos</b></button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Códigos</b></button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Detalhes</b></button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Capa</b></button>
+                  </div>
+                </div>    
+              </div>
+            </div>
+            <br/>              
+                <div class="modal-footer">
+                  <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>          
+                </div> 
+            </div>
+          </div>
+        </div>
