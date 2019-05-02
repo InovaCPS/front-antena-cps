@@ -71,27 +71,6 @@ export class ProjectComponent {
     });
   }
 
-  addArquivo(){
-    if(this.arquivos.length < 3){
-      let file: File;
-      let newArquivo: Arquivo = { midia: file, nomeMidia: "", titulo: "", descricao: "", codigo: "" };
-      this.arquivos.push(newArquivo);
-    }
-  }
-
-  deleteArquivo(index){
-    this.arquivos.splice(index, 1);
-  }
-
-  addUnidade(){
-    let newUnidade: Unidade;
-    this.unidadesEnvolvidas.push(newUnidade);
-  }
-
-  deleteUnidade(index){
-    this.unidadesEnvolvidas.splice(index, 1);
-  }
-
   addCurso(){
     let newCurso: Curso;
     this.cursosEnvolvidos.push(newCurso);
@@ -100,36 +79,11 @@ export class ProjectComponent {
   deleteCurso(index){
     this.cursosEnvolvidos.splice(index, 1);
   }
-  
-  exibirEsconderCategorias(){
-    if(this.exibirCategorias == false){
-      this.exibirCategorias = true;
-    }
-    else{
-      this.exibirCategorias = false;
-    }
+
+  postProject(){
+    
   }
 
-  alterarArquivo(event, index){
-    this.projeto.arquivos[index].midia = <File>event.target.files[0]
-    this.projeto.arquivos[index].nomeMidia = this.projeto.arquivos[index].midia.name;
-  }
-
-  cadastrarProjeto(){
-    if(this.premiado == "1"){
-      this.projeto.premiado = true;
-    }
-    else if(this.premiado == "2"){
-      this.projeto.premiado = false;
-    }
-
-    this.projeto.palavrasChave = this.palavrasChave.split(";", 5);
-    this.projeto.colaboradores = this.colaboradores.split(";");
-    this.projeto.links = this.links.split(";");
-
-    console.clear();
-    this.projetoServices.postProjeto(this.projeto);
-  }
 
   upload = require('../../app/images/upload.png')
   imag = require('../../app/images/imag.png')
