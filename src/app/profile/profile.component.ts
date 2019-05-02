@@ -79,7 +79,6 @@ export class ProfileComponent implements OnInit {
     this.profileService.getUserId().subscribe(res => {
       this.profileService.getProfileAluno(res['id']).subscribe((aluno: Aluno) => {
         this.aluno = aluno;
-        alert(JSON.stringify(this.aluno))
         if(aluno.termos != "True"){
           document.getElementById('openModalFirst').click();
         }

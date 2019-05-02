@@ -99,7 +99,7 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 5.2px;
   cursor: pointer;
   box-shadow: 0px 0px 0.6px #00ef00, 0px 0px 0px #0aff0a;
-  background: rgba(0, 255, 101, 0.46);
+  background: rgba(127, 255, 0, 0.99);
   border-radius: 15.1px;
   border: 2.5px solid rgba(203, 229, 79, 0);
 }
@@ -109,7 +109,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 24px;
   width: 25px;
   border-radius: 50px;
-  background: #2c1600;
+  background: #7FFF00;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -11.9px;

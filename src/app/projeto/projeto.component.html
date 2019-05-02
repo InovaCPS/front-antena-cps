@@ -1,140 +1,121 @@
-<app-navbar></app-navbar>
-
-<div><a href=""><img [src]="back" id="graf" alt=""></a></div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h4>
-                <strong>
-                    Cadastrar projeto
-                </strong>
-            </h4>
-            <p>
-                Título do projeto
-            </p>
-
-            <label for="describe"></label>
-            <input type="text" id="describe" name="describe" placeholder="Descrição do projeto">
-
-            <label for="unidade-one"></label>
-            <select id="unidade" name="unidade">
-                <option value="options">Unidade 1 envolvida</option>
-                <option value="options">Unidade 2 envolvida</option>
-                <option value="options">Unidade 3 envolvida</option>
-            </select>
-
-            <label for="others"></label>
-            <select id="others" name="others">
-                <option value="others">Demais unidades</option>
-            </select>
-
-            <label for="curso"></label>
-            <select id="curso" name="curso">
-                <option value="options">Curso 1 envolvido</option>
-                <option value="options">Curso 2 envolvido</option>
-                <option value="options">Curso 3 envolvido</option>
-            </select>
-
-            <label for="keywords"></label>
-            <input type="text" id="kwords" name="kwords" placeholder="5 palavras-chave">
-
-        </div>
-
-
-        <div class="col-md-6">
-            <label for="search"></label>
-            <input type="text" id="search" name="search" placeholder="Buscar colaborador">
-            <div class="row">
-                <div class="col-sm-3"><a href=""><img [src]="upload" id="upload" alt=""></a></div>
-                <div class="col-sm-3"><img [src]="imag" id="imag" alt="" data-toggle="modal" data-target="#modalLogin"></div>
-                <div class="col-sm-3"><a href=""><img [src]="adfile" id="adfile" alt=""></a></div>
-                <div class="col-sm-3"><a href=""><img [src]="friends" id="friends" alt=""></a></div>
+<div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="modalProfileLabe"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE PROJETO</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" id="close-modal-profile" style="font-size: 15px"> VOLTAR</span>
+                </button>
             </div>
+            <div class="modal-body">
 
-            <div><a href=""><img [src]="plus" id="plus" alt=""></a></div>
-            <div><a href=""><img [src]="plus" id="plus" alt=""></a></div>
-
-            <div class="alturas">
-                <h4>
-                    <strong>
-                        Categorias
-                    </strong>
-                </h4>
-            </div>
-
-
-            <div>
-                <div class="row">
-                    <form>
-                        <div class="col-md-4">
-                            <input type="checkbox" name="option1" value="dgn"> design<br>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="checkbox" name="option2" value="amb"> ambiente<br>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="checkbox" name="option3" value="ges"> gestão<br>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="checkbox" name="option4" value="rob"> robótica<br>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="checkbox" name="option5" value="edu"> educação<br>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="checkbox" name="option6" value="tec"> tecnologia<br>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="checkbox" name="option7" value="inf"> infraestrutura<br>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="checkbox" name="option8" value="sau"> saúde<br>
-                        </div>
-                    </form>
+                <div>
+                    <h6>Os projetos que você participa formam o seu portfólio</h6>
                 </div>
-            </div>
-
-            <div><a href=""><img [src]="escudo" id="escudo" alt=""></a></div>
-            <p><strong>Ganhou prêmios?</strong></p>
-            <div>
-                <label for="premium"></label>
-                <input type="text" id="premium" name="premium">
-            </div>
-
-            <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Galeria de fotos e mídias</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                <form action="">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">Título do Projeto</label>
+                            <input type="text" class="form-control" id="" name="" placeholder="" [(ngModel)]="">
                         </div>
-                        <div>
-                            <button (click)="addArquivo()">Adicionar</button>
-
-                            <div *ngFor='let arquivo of arquivos; let i = index'>
-                                <button (click)="deleteArquivo(i)">X</button>
-
-                                <label for="midia"></label>
-                                <input type="file" id="midia"  name="midia" [(ngModel)]="arquivos[i].midia">
-                            
-                                <label for="titulo"></label>
-                                <input type="text" id="titulo" name="titulo" [(ngModel)]="arquivos[i].titulo" placeholder="Título">
-                            
-                                <label for="descricao"></label>
-                                <input type="text" id="descricao" name="descricao" [(ngModel)]="arquivos[i].descricao" placeholder="Descrição">
-
-                                <label for="codigo"></label>
-                                <input type="text" id="codigo" name="codigo" [(ngModel)]="arquivos[i].codigo" placeholder="href=glasdsadasdasodaojoijhdsah">
+                        <div class="form-group col-md-6">
+                            <label for="">Orientador / Mentor / Colaborador</label>
+                            <input type="text" class="form-control" id="" name="sobrenome1" placeholder=""
+                                [(ngModel)]="">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">Unidade(s)</label>
+                            <input type="text" class="form-control" id="" name="ra1" placeholder="{{ aluno.ra }}"
+                                value="{{ aluno.ra }}" [(ngModel)]="RA">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Curso(s)</label>
+                            <select id="" class="form-control">
+                                <option selected>{{ aluno.escola}}</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">Tema com o qual o projeto se alinha</label>
+                            <input type="email" class="form-control" id="" name="email1" placeholder="{{ aluno.email }}"
+                                value="{{ aluno.email }}" [(ngModel)]="email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Coop(s)</label>
+                            <input type="text" class="form-control" id="" name="telefone1"
+                                placeholder="{{ aluno.telefone }}" value="{{ aluno.telefone }}" [(ngModel)]="telefone">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="">RG</label>
+                            <input type="text" class="form-control" id="" name="rg1" placeholder="{{ aluno.rg }}"
+                                value="{{ aluno.rg }}" [(ngModel)]="rg">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">CPF</label>
+                            <input type="text" class="form-control" minlength="11" maxlength="11" mask="000.000.000-00"
+                                id="" name="cpf1" placeholder="{{ aluno.cpf }}" value="{{ aluno.cpf }}"
+                                [(ngModel)]="cpf">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">Suas Redes Sociais</label>
+                            <div class="row">
+                                <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoFacebook"
+                                            alt=""></a></div>
+                                <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoGithub"
+                                            alt=""></a></div>
+                                <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoGoogle"
+                                            alt=""></a></div>
+                                <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoInstagram"
+                                            alt=""></a></div>
+                            </div>
+                            <div class="row" style="margin-top:5%;">
+                                <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoLinkedin"
+                                            alt=""></a></div>
+                                <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoTwitter"
+                                            alt=""></a></div>
+                                <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoYoutube"
+                                            alt=""></a></div>
+                                <div class="col-md-3"><a href="#0"><img class="social-logo" [src]="logoPinterest"
+                                            alt=""></a></div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalProjectSuccess"
+                    data-dismiss="modal"">SALVAR</button>
+          <button type=" button" class="btn btn-danger">PRÓXIMO</button>
             </div>
         </div>
     </div>
 </div>
-                           
+
+
+<div class="modal fade" id="modalProjectSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Uhuuu!</h5>
+            </div>
+            <div class="modal-body">
+                <p>Seu projeto foi cadastrado com sucesso! Agora você pode adicionar mais recursos, como imagens textos,
+                    arquivos, códigos e outros tipos de documentos para complementar as informações do projeto.Clique no
+                    botão "CONTINUAR" para concluir sua edição e voltar a sua página personalizada.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                    data-target="#modalProfile">FINALIZAR</button>
+                <button type="button" class="btn btn-danger" data-dismis="modal">CONTINUAR</button>
+            </div>
+        </div>
+    </div>
+</div>
