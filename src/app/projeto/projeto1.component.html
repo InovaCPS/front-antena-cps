@@ -216,6 +216,28 @@
                         <select name="" id="" class="form-control">
                             <option value=""></option>
                         </select>
+                        <a href="#0" (click)="addCurso"><img [src]="divide"></a>
+                    </div>
+                </div>
+                <div *ngFor="let coop of coops">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="">Coop(s)</label>
+                            <input type="text" class="form-control" id="" name="" placeholder="">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">Unidade(s)</label>
+                            <select name="" id="" class="form-control">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">Curso(s)</label>
+                            <select name="" id="" class="form-control">
+                                <option value=""></option>
+                            </select>
+                            <a href="#0" (click)="deleteCurso"><img [src]="divide"></a>
+                        </div>
                     </div>
                 </div>
             </div>
