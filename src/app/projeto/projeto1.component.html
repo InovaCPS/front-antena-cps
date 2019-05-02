@@ -86,67 +86,127 @@
             </div>
             <div class="modal-body">
                 <p>Seu projeto foi cadastrado com sucesso! Agora você pode adicionar mais recursos, como imagens textos,
-                    arquivos, códigos e outros tipos de documentos para complementar as informações do projeto.Clique no
+                    arquivos, códigos e outros tipos de documentos para complementar as informações do projeto. Clique no
                     botão "CONTINUAR" para concluir sua edição e voltar a sua página personalizada.</p>
             </div>
             <div class="modal-footer">
+              <div class="mr-auto">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+              </div>
+              <div>  
                 <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">CONTINUAR</button>
+              </div>
             </div>
         </div>
     </div>
 </div>
 
-    <div class="modal fade" id="modalResources" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">RECURSOS ADICIONAIS</h5>
-              <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalProject" aria-label="Close">
-                    <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
-                </button>
-            </div>
-            <div class="modal-body" style="text-align: center;">
-                <div>
-                  <h6>Clique nos botões abaixo e adicione recursos que complementam o seu projeto</h6>
-                </div>
-              <br/><br/>
-              <div class="container-fluid">            
-                <div class="row">
-                  <div class="col-sm-3">
-                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Imagens</b></button>
-                  </div>
-                  <div class="col-sm-3">
-                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Textos</b></button>
-                  </div>
-                  <div class="col-sm-3">
-                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Mídias</b></button>
-                  </div>
-                  <div class="col-sm-3">
-                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Documentos</b></button>
-                  </div>
-                </div>
-                <br/><br/>                    
-                <div class="row">
-                  <div class="col-sm-3">
-                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Arquivos</b></button>
-                  </div>
-                  <div class="col-sm-3">
-                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Códigos</b></button>
-                  </div>
-                  <div class="col-sm-3">
-                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Detalhes</b></button>
-                  </div>
-                  <div class="col-sm-3">
-                    <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Capa</b></button>
-                  </div>
-                </div>    
+  <div class="modal fade" id="modalResources" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">RECURSOS ADICIONAIS</h5>
+          <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalProject" aria-label="Close">
+            <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          </button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+          <div>
+            <h6>Clique nos botões abaixo e adicione recursos que complementam o seu projeto</h6>
+          </div>
+          <br/><br/>
+          <div class="container-fluid">            
+            <div class="row">
+              <div class="col-sm-3">
+                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Imagens</b></button>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResText"><b>Textos</b></button>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Mídias</b></button>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Documentos</b></button>
               </div>
             </div>
-            <br/>              
-                <div class="modal-footer">
-                  <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>          
-                </div> 
-            </div>
+            <br/><br/>                    
+            <div class="row">
+              <div class="col-sm-3">
+                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Arquivos</b></button>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Códigos</b></button>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Detalhes</b></button>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Capa</b></button>
+              </div>
+            </div>    
           </div>
         </div>
+        <br/>              
+        <div class="modal-footer">
+          <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>          
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalResText" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE TEXTO</h5>
+          <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" aria-label="Close">
+            <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          </button>
+        </div>
+        <div class="modal-body" style="text-align: left;">
+          <div>
+            <h6>Crie um texto para descrever pontos importantes do seu projeto</h6>
+          </div>
+          <br/>
+          <label for="basic-text">Texto</label>
+          <div class="input-group">
+            <textarea class="form-control" rows="8" id="basic-text" aria-label="With textarea"></textarea>
+          </div>
+          <br/>
+          <label for="basic-url">Link complementar</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          </div>
+        </div>      
+        <div class="modal-footer">
+          <div class="mr-auto">
+            <button class="btn btn-danger" data-toggle="modal" data-dismiss="modal" data-target="#modalMsg">SALVAR</button>          
+          </div>
+          <div>
+            <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>          
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalMsg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+          </div>
+          <div class="modal-body" style="text-align: center;">
+            <h6>Você ainda pode editar o seu texto. Clique no botão "CONTINUAR" para retornar à edição do texto, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h6>
+          </div>
+          <div class="modal-footer">
+            <div class="mr-auto">
+              <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+            </div>
+            <div>
+              <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResText">CONTINUAR</button>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>

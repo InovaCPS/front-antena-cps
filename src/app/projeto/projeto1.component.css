@@ -1,6 +1,10 @@
 #btn-recursos {
     width: 150px;
     height: 90px;
-    border-radius: 8px;
+    border-radius: 15px;
     text-align: center;
   }
+
+.form-control {
+    border-radius: 15px;  
+}

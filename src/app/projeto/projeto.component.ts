@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto } from './projeto.services';
 
 @Component({
@@ -8,8 +10,9 @@ import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto } from './
   styleUrls: ['./projeto1.component.css'], 
   providers: [projetoServices]
 })
+
 export class ProjectComponent {
-  
+
   projeto: Projeto;
   premiado: string = "";
   arquivos: Arquivo[];
@@ -24,8 +27,8 @@ export class ProjectComponent {
   cursosEnvolvidos: Curso[];
   exibirCategorias: boolean = false;
   categorias: Categoria[];
-
-  constructor(private projetoServices: projetoServices){
+  
+  constructor(private projetoServices: projetoServices, private router: Router){
     this.arquivos = [];
     this.unidadesEnvolvidas = [];
     this.cursosEnvolvidos = [];
@@ -77,6 +80,10 @@ export class ProjectComponent {
       let newArquivo: Arquivo = { midia: file, nomeMidia: "", titulo: "", descricao: "", codigo: "" };
       this.arquivos.push(newArquivo);
     }
+  }
+
+  fechar() {
+    this.router.navigate(['/aluno']);
   }
 
   deleteArquivo(index){
