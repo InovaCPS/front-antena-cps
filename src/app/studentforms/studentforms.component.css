@@ -98,7 +98,7 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 5.2px;
   cursor: pointer;
-  box-shadow: 0px 0px 0.6px #00ef00, 0px 0px 0px #0aff0a;
+  box-shadow: 0px 0px 0.6px z#00ef00, 0px 0px 0px #0aff0a;
   background: rgba(127, 255, 0, 0.99);
   border-radius: 15.1px;
   border: 2.5px solid rgba(203, 229, 79, 0);
@@ -171,3 +171,4 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: rgba(51, 255, 132, 0.46);
 }
+

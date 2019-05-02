@@ -17,61 +17,41 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="">Título do Projeto</label>
-                            <input type="text" class="form-control" id="" name="" placeholder="" >
+                            <input type="text" class="form-control" id="" name="" placeholder="">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">Orientador / Mentor / Colaborador</label>
-                            <input type="text" class="form-control" id="" name="sobrenome1" placeholder=""
-                                >
+                            <input type="text" class="form-control" id="" name="sobrenome1" placeholder="">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="">Unidade(s)</label>
-                            <input type="text" class="form-control" id="" name="ra1" placeholder=""
-                                value="" >
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="">Curso(s)</label>
-                            <select id="" class="form-control">
-                                <option selected></option>
-                                <option>...</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="">Tema com o qual o projeto se alinha</label>
-                            <input type="email" class="form-control" id="" name="email1" placeholder=""
-                                value="" >
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="">Coop(s)</label>
-                            <input type="text" class="form-control" id="" name="telefone1"
-                                placeholder="" value="" >
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <div class="form-row"> 
-                                <label for="">Tipo de Projeto</label>
-                                <input type="text" class="form-control" id="" name="rg1" placeholder="" value=""></div>
-                            <div class="form-row"> 
-                                <label for="">Status Atual do Projeto</label>
-                                <input type="text" class="form-control" id="" name="rg1" placeholder="" value=""></div>
+                            <div class="form-row">
+                                <label for="">Tema com o qual o projeto se alinha</label>
+                                <input type="email" class="form-control" id="" name="email1" placeholder="" value="">
                             </div>
-                        <div class="form-group col-md-6">
-                            <label for="">Descrição do Projeto</label>
-                            <textarea  class="form-control" name="" id="" cols="60" rows="4"></textarea>
+                            <div class="form-row">
+                                <label for="">Tipo de Projeto</label>
+                                <input type="text" class="form-control" id="" name="rg1" placeholder="" value="">
+                            </div>
+                            <div class="form-row">
+                                <label for="">Status Atual do Projeto</label>
+                                <input type="text" class="form-control" id="" name="rg1" placeholder="" value="">
+                            </div>
                         </div>
+                        <div class="form-group col-md-6">
+                                <label for="">Descrição do Projeto</label>
+                                <textarea class="form-control" name="" id="" cols="60" rows="7"></textarea>
+                            </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalProjectSuccess"
-                    data-dismiss="modal">SALVAR</button>
-          <button type=" button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">PRÓXIMO</button>
-            </div>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalProjectSuccess"
+                        data-dismiss="modal">SALVAR</button>
+                    <button type=" button" class="btn btn-danger" data-toggle="modal" data-target="#modalProjectUnits"
+                        data-dismiss="modal">PRÓXIMO</button>
+                </div>
         </div>
     </div>
 </div>
@@ -96,6 +76,7 @@
               <div>  
                 <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">CONTINUAR</button>
               </div>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">CONTINUAR</button>
             </div>
         </div>
     </div>
@@ -210,3 +191,39 @@
         </div> 
       </div>
     </div>
+
+<div class="modal fade" id="modalProjectUnits" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Escolha a unidade e os colaboradores do projeto</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="">Coop(s)</label>
+                        <input type="text" class="form-control" id="" name="" placeholder="">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="">Unidade(s)</label>
+                        <select name="" id="" class="form-control">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="">Curso(s)</label>
+                        <select name="" id="" class="form-control">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                    data-target="#modalResources">CONTINUAR</button>
+            </div>
+        </div>
+    </div>
+</div>
