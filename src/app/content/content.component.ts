@@ -20,5 +20,4 @@ export class ContentComponent {
     document.getElementById('openModal2').click();
     }
   }
-
 }
