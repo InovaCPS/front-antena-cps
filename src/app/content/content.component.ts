@@ -16,6 +16,11 @@ export class ContentComponent {
     if(localStorage.getItem('token') != null){
       this.router.navigate(['/aluno']); 
     }
+    // else if(localStorage.getItem('user') != null){
+    //   const user = localStorage.getItem('user');
+    //    const btnUser = document.getElementById('btnUser');
+    //    btnUser.setAttribute('value', '')
+    // }
     else{
     document.getElementById('openModal2').click();
     }

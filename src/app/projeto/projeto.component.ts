@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto } from './projeto.services';
 
 @Component({
@@ -9,7 +9,13 @@ import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto } from './
   providers: [projetoServices]
 })
 export class ProjectComponent {
-  
+  coop: [
+    {"email": "email"}
+  ];
+  mailDu = "edu@hotmail.com"
+  model: any = {} ;
+  resposta : any;
+  apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
   projeto: Projeto;
   premiado: string = "";
   arquivos: Arquivo[];
@@ -25,51 +31,8 @@ export class ProjectComponent {
   exibirCategorias: boolean = false;
   categorias: Categoria[];
 
-  constructor(private projetoServices: projetoServices){
-    this.arquivos = [];
-    this.unidadesEnvolvidas = [];
-    this.cursosEnvolvidos = [];
-    this.exibirCategorias = false;
-    this.categorias = []
-    this.cursos = [];
-    this.projeto = { 
-      titulo: "", 
-      descricao: "", 
-      unidades: this.unidadesEnvolvidas, 
-      cursos: this.cursosEnvolvidos, 
-      palavrasChave: [], 
-      colaboradores: [], 
-      arquivos: this.arquivos,
-      premiado: false, 
-      links: []
-    }
-
-    let categoriaDesign: Categoria = { nome: "design", valor: "dgn", checado: false }
-    let categoriaAmbiente: Categoria = { nome: "ambiente", valor: "amb", checado: false }
-    let categoriaGestao: Categoria = { nome: "gestão", valor: "ges", checado: false }
-    let categoriaRobotica: Categoria = { nome: "robótica", valor: "rob", checado: false }
-    let categoriaEducacao: Categoria = { nome: "educação", valor: "edu", checado: false }
-    let categoriaTecnologia: Categoria = { nome: "tecnologia", valor: "tec", checado: false }
-    let categoriaInfraestrutura: Categoria = { nome: "infraestrutura", valor: "inf", checado: false }
-    let categoriaSaude: Categoria = { nome: "saude", valor: "sau", checado: false }
-
-    this.categorias.push(categoriaDesign);
-    this.categorias.push(categoriaAmbiente);
-    this.categorias.push(categoriaGestao);
-    this.categorias.push(categoriaRobotica);
-    this.categorias.push(categoriaEducacao);
-    this.categorias.push(categoriaTecnologia);
-    this.categorias.push(categoriaInfraestrutura);
-    this.categorias.push(categoriaSaude);
-
-    this.projetoServices.getCursos().subscribe((cursos: Curso[]) => {
-      this.cursos = cursos;
-    });
-
-    this.projetoServices.getUnidades().subscribe((unidades: Unidade[]) => {
-      this.unidades = unidades;
-    });
-  }
+  constructor(private projetoServices: projetoServices,
+    private http: HttpClient){}
 
   addCurso(){
     let newCurso: Curso;
@@ -81,7 +44,31 @@ export class ProjectComponent {
   }
 
   postProject(){
-    
+    console.log("POST");
+    this.model.token = localStorage.getItem('token')
+    this.model.datajson = {titulo: this.model.titulo,
+      orientador: this.model.orientador,
+      descricao: this.model.descricao,
+      status: this.model.status,
+      tipo: this.model.tipo,
+      tema: this.model.tema,
+      coops: [ 
+        {"email": this.mailDu},
+         {"email":this.model.coop}
+      ]};
+      console.log(this.model.datajson);
+    let url = `${this.apiRoot}/cp/projetos`;
+    this.http
+     .post(url, this.model.datajson,{headers: new HttpHeaders({'token': this.model.token.token})})
+    .subscribe(res => {
+      console.log(res["Mensagem"])
+      if( this.resposta == "Cadastrado com sucesso!"){
+        alert(this.resposta)
+      }
+      else{
+        alert(this.resposta)
+      }
+    })
   }
 
 

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { profileService, Aluno } from './profile.services';
+import { EmailValidator } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +13,23 @@ import { profileService, Aluno } from './profile.services';
   providers: [profileService]
 })
 export class ProfileComponent implements OnInit {
+
+  ngOnInit(){
+    this.titleService.setTitle(this.title);
+    this.profileService.getUserId().subscribe(res => {
+      this.profileService.getProfileAluno(res['id']).subscribe((aluno: Aluno) => {
+        this.aluno = aluno;
+        if(aluno.termos != "True"){
+          document.getElementById('openModalFirst').click();
+        }
+        const user = {
+          nome: this.aluno.nome,
+          email: this.aluno.email
+        }
+        localStorage.setItem('user', JSON.stringify(user))
+      });
+    })
+  }
 
   token;
   title = 'Perfil - AntenaCPS'
@@ -72,17 +90,5 @@ export class ProfileComponent implements OnInit {
 
   logOff(){
     localStorage.removeItem('token');
-  }
-
-  ngOnInit(){
-    this.titleService.setTitle(this.title);
-    this.profileService.getUserId().subscribe(res => {
-      this.profileService.getProfileAluno(res['id']).subscribe((aluno: Aluno) => {
-        this.aluno = aluno;
-        if(aluno.termos != "True"){
-          document.getElementById('openModalFirst').click();
-        }
-      });
-    })
   }
 }
