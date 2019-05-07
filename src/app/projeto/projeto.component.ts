@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto } from './projeto.services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projeto',
@@ -8,6 +9,7 @@ import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto } from './
   styleUrls: ['./projeto1.component.css'], 
   providers: [projetoServices]
 })
+
 export class ProjectComponent {
   coop: [
     {"email": "email"}
@@ -33,6 +35,31 @@ export class ProjectComponent {
 
   constructor(private projetoServices: projetoServices,
     private http: HttpClient){}
+
+  addArquivo(){
+    if(this.arquivos.length < 3){
+      let file: File;
+      let newArquivo: Arquivo = { midia: file, nomeMidia: "", titulo: "", descricao: "", codigo: "" };
+      this.arquivos.push(newArquivo);
+    }
+  }
+
+  fechar() {
+    this.router.navigate(['/aluno']);
+  }
+
+  deleteArquivo(index){
+    this.arquivos.splice(index, 1);
+  }
+
+  addUnidade(){
+    let newUnidade: Unidade;
+    this.unidadesEnvolvidas.push(newUnidade);
+  }
+
+  deleteUnidade(index){
+    this.unidadesEnvolvidas.splice(index, 1);
+  }
 
   addCurso(){
     let newCurso: Curso;
