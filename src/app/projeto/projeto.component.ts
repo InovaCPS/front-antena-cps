@@ -32,6 +32,7 @@ export class ProjectComponent {
   cursosEnvolvidos: Curso[];
   exibirCategorias: boolean = false;
   categorias: Categoria[];
+  router: any;
 
   constructor(private projetoServices: projetoServices,
     private http: HttpClient){}
