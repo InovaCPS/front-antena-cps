@@ -17,7 +17,7 @@ export class ProjectComponent {
   mailDu = "edu@hotmail.com"
   model: any = {} ;
   resposta : any;
-  apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
+  apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
   projeto: Projeto;
   premiado: string = "";
   arquivos: Arquivo[];
@@ -88,7 +88,10 @@ export class ProjectComponent {
       coops: [ 
         {"email": this.mailDu},
          {"email":this.model.coop}
-      ]};
+      ],
+      textoProjeto: this.model.textoProjeto,
+      linkTexto: this.model.linkTexto
+    };
       console.log(this.model.datajson);
 
     let url = `${this.apiRoot}/cp/projetos`;
