@@ -31,11 +31,18 @@ import { ReleaseNotesComponent } from './release-notes/release-notes.component';
 import { RePasswordComponent } from './cadastro/re-password/re-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AvatarCreationComponent } from './avatar-creation/avatar-creation.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InputFileConfig, InputFileModule } from 'ngx-input-file';
 
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider } from "angularx-social-login";
 import { ProfileNavbarComponent } from './profile-navbar/profile-navbar.component';
+
+const configs: InputFileConfig = {
+    fileAccept: 'image/*',
+    fileLimit: 4
+
+};
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -121,6 +128,8 @@ export function provideConfig() {
   return config;
 }
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -148,7 +157,8 @@ export function provideConfig() {
     RePasswordComponent,
     ChangePasswordComponent,
     ProfileNavbarComponent,
-    AvatarCreationComponent
+    AvatarCreationComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -160,7 +170,9 @@ export function provideConfig() {
     ),
     NgbModule,
     SwiperModule,
-    SocialLoginModule
+    SocialLoginModule,
+    BrowserAnimationsModule,
+    InputFileModule.forRoot(configs),
   ],
   providers: [
     Title,

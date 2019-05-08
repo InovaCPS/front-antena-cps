@@ -32,6 +32,7 @@
     "moment": "^2.24.0",
     "ng2-bootstrap": "^1.6.3",
     "ngx-swiper-wrapper": "^7.2.1",
+    "popper.js": "^1.15.0",
     "rxjs": "~6.3.3",
     "save": "^2.3.3",
     "sweetalert": "^2.1.2",

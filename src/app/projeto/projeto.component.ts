@@ -8,6 +8,8 @@ import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto } from './
   styleUrls: ['./projeto1.component.css'], 
   providers: [projetoServices]
 })
+
+
 export class ProjectComponent {
   
   projeto: Projeto;
@@ -70,6 +72,11 @@ export class ProjectComponent {
       this.unidades = unidades;
     });
   }
+
+  onSubmit(form){
+      console.log(form)
+  }
+
 
   addArquivo(){
     if(this.arquivos.length < 3){
@@ -140,4 +147,6 @@ export class ProjectComponent {
   fundo = require('../../app/images/fundo.jpg')
   friends = require('../../app/images/amigos.png')
   back = require('../../app/images/atras.jpg')
+  adicionarImagem = require("../../assets/addImg.png")
+
 }
