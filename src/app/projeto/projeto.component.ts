@@ -32,10 +32,15 @@ export class ProjectComponent {
   cursosEnvolvidos: Curso[];
   exibirCategorias: boolean = false;
   categorias: Categoria[];
-  router: any;
 
-  constructor(private projetoServices: projetoServices,
-    private http: HttpClient){}
+  token;
+
+  constructor(
+    private projetoServices: projetoServices,
+    private router: Router,
+    private http: HttpClient){
+      this.token = JSON.parse(localStorage.getItem('token'));
+    }
 
   addArquivo(){
     if(this.arquivos.length < 3){
@@ -73,7 +78,7 @@ export class ProjectComponent {
 
   postProject(){
     console.log("POST");
-    this.model.token = localStorage.getItem('token')
+
     this.model.datajson = {titulo: this.model.titulo,
       orientador: this.model.orientador,
       descricao: this.model.descricao,
@@ -85,10 +90,11 @@ export class ProjectComponent {
          {"email":this.model.coop}
       ]};
       console.log(this.model.datajson);
+
     let url = `${this.apiRoot}/cp/projetos`;
     this.http
-     .post(url, this.model.datajson,{headers: new HttpHeaders({'token': this.model.token.token})})
-    .subscribe(res => {
+     .post(url, this.model.datajson,{headers: new HttpHeaders({'token': this.token.token})})
+      .subscribe(res => {
       console.log(res["Mensagem"])
       if( this.resposta == "Cadastrado com sucesso!"){
         alert(this.resposta)
