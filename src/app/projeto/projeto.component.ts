@@ -94,15 +94,9 @@ export class ProjectComponent {
     let url = `${this.apiRoot}/cp/projetos`;
     this.http
      .post(url, this.model.datajson,{headers: new HttpHeaders({'token': this.token.token})})
-      .subscribe(res => {
+      .subscribe(res => 
       console.log(res["Mensagem"])
-      if( this.resposta == "Cadastrado com sucesso!"){
-        alert(this.resposta)
-      }
-      else{
-        alert(this.resposta)
-      }
-    })
+    )
   }
 
 

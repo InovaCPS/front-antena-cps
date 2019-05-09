@@ -47,8 +47,6 @@
                 </form>
             </div>
             <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalProjectSuccess"
-                        data-dismiss="modal">SALVAR</button>
                     <button type=" button" class="btn btn-danger" data-toggle="modal" data-target="#modalProjectUnits"
                         data-dismiss="modal">PRÓXIMO</button>
                 </div>
@@ -76,7 +74,6 @@
               <div>  
                 <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">CONTINUAR</button>
               </div>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">CONTINUAR</button>
             </div>
         </div>
     </div>
@@ -221,6 +218,11 @@
                         <a href="#0" (click)="addCurso"><img [src]="divide" style="max-width: 20px; position: absolute; top: 50%;"></a>
                     </div>
                 </div>
+                <!-- <div class="form-row">
+                  <div class="form-group ">
+                     <input type="text" value="{{ aluno.email }}" placeholder="{{ aluno.email }}">
+                  </div>
+                </div> -->
                 <div *ngFor="let coop of coops">
                     <div class="form-row">
                         <div class="form-group col-md-4">
