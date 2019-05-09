@@ -150,14 +150,14 @@
             <h6>Crie um texto para descrever pontos importantes do seu projeto</h6>
           </div>
           <br/>
-          <label for="">Texto</label>
+          <label for="basic-text">Texto</label>
           <div class="input-group">
-            <textarea class="form-control" rows="8" id="" name="textoProjeto" [(ngModel)]="model.textoProjeto" aria-label="With textarea"></textarea>
+            <textarea class="form-control" rows="8" id="basic-text" aria-label="With textarea"></textarea>
           </div>
           <br/>
-          <label for="">Link complementar</label>
+          <label for="basic-url">Link complementar</label>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" id="" name="linkTexto" [(ngModel)]="model.linkTexto" aria-describedby="basic-addon3">
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
           </div>
         </div>      
         <div class="modal-footer">
@@ -182,7 +182,7 @@
           </div>
           <div class="modal-footer">
             <div class="mr-auto">
-              <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
+              <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
             </div>
             <div>
               <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResText">CONTINUAR</button>
@@ -246,7 +246,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
-                    data-target="#modalResources">CONTINUAR</button>
+                    data-target="#modalResources" (click)="postProject()">CONTINUAR</button>
             </div>
         </div>
     </div>
@@ -277,6 +277,9 @@
         <label for="basic-url">Link de origem da mídia</label>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+        <div class="mr-auto">
+          <button class="button1" id="button1">INCORPORAR</button>          
         </div>
       </div>  
       <div class="modal-footer">
