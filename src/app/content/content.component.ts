@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-content',
@@ -6,8 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent {
-
+  constructor(private router: Router,  ) {}
   banner = require('../../app/images/grupo.jpg')
   graf = require('../../app/images/background.png')
 
+
+  userLogin(){
+    if(localStorage.getItem('token') != null){
+      this.router.navigate(['/aluno']); 
+    }
+    // else if(localStorage.getItem('user') != null){
+    //   const user = localStorage.getItem('user');
+    //    const btnUser = document.getElementById('btnUser');
+    //    btnUser.setAttribute('value', '')
+    // }
+    else{
+    document.getElementById('openModal2').click();
+    }
+  }
 }

@@ -85,7 +85,7 @@ export class CadastroComponent implements OnInit {
     this.http.post(urlLogin, { username: this.model.email, password: this.model.password })
     .subscribe(res =>{ 
       this.resposta = res;
-      localStorage.setItem('token', JSON.stringify(this.resposta)) 
+      window.localStorage.setItem('token', JSON.stringify(this.resposta)) 
       this.router.navigate(['/aluno']);   
     })
    
