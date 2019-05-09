@@ -203,14 +203,14 @@
                
                 <form #f="ngForm" (ngSubmit)="onSubmit()">
                     <label style="margin-left: 5%"> Título da Imagem </label>
-                    <input type="text" class="form-control" id="tituloImagem" name="tituloImagem" ngModel required> <br/>
+                    <input type="text" class="form-control" id="tituloImagem" name="tituloImagem" [(ngModel)]="model.tituloImagem" required> <br/>
 
                     <label for="" style="margin-left: 5%"> Legenda </label>
-                    <input type="text" class="form-control" id="legendaImagem" name="legendaImagem" ngModel>
+                    <input type="text" class="form-control" id="legendaImagem" name="legendaImagem" [(ngModel)]="model.legendaImagem">
                 </form>
                 
                     <input-file
-                    placeholder="" style="margin-left:7%">
+              placeholder="" style="margin-left:7%" name="imagens" [(ngModel)]="model.imagens">
                     </input-file>
                
               <div class="modal-footer">
@@ -226,7 +226,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
               <div class="modal-content">
                 <h4 style="margin-top: 20%; margin-left:5%">Você ainda pode adicionar outras imagens ao seu projeto. Clique no botão "CONTINUAR" para acrescentar mais imagens, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h4>
-                <button type="submit" class="btn btn-danger" id="btnFinalizar" data-dismiss="modal">FINALIZAR</button>
+                <button type="submit" class="btn btn-danger" id="btnFinalizar" data-dismiss="modal" (click)="postProject()" >FINALIZAR</button>
                 <button type="button" class="btn btn-danger" id="btnContinuar" data-dismiss="modal" data-toggle="modal" data-target="#modalResImg">CONTINUAR</button>
                 </div>
             </div>

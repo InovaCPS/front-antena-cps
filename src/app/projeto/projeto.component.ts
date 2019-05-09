@@ -79,7 +79,8 @@ export class ProjectComponent {
   postProject(){
     console.log("POST");
 
-    this.model.datajson = {titulo: this.model.titulo,
+    this.model.datajson = {
+      titulo: this.model.titulo,
       orientador: this.model.orientador,
       descricao: this.model.descricao,
       status: this.model.status,
@@ -90,7 +91,11 @@ export class ProjectComponent {
          {"email":this.model.coop}
       ],
       textoProjeto: this.model.textoProjeto,
-      linkTexto: this.model.linkTexto
+      linkTexto: this.model.linkTexto,
+      imagens: this.model.imagens,
+      tituloImagem: this.model.tituloImagem,
+      legendaImagem: this.model.legendaImagem
+
     };
       console.log(this.model.datajson);
 
