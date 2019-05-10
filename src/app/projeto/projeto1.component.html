@@ -218,11 +218,6 @@
                         <a href="#0" (click)="addCurso"><img [src]="divide" style="max-width: 20px; position: absolute; top: 50%;"></a>
                     </div>
                 </div>
-                <!-- <div class="form-row">
-                  <div class="form-group ">
-                     <input type="text" value="{{ aluno.email }}" placeholder="{{ aluno.email }}">
-                  </div>
-                </div> -->
                 <div *ngFor="let coop of coops">
                     <div class="form-row">
                         <div class="form-group col-md-4">
@@ -248,7 +243,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
-                    data-target="#modalResources" (click)="postProject()">CONTINUAR</button>
+                    data-target="#modalResources" >CONTINUAR</button>
             </div>
         </div>
     </div>

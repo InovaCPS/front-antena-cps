@@ -37,7 +37,11 @@ export class projetoServices{
             'token': this.token.token
         })})
     }
+
+
 }
+
+
 
 export interface Projeto{
     titulo: string;

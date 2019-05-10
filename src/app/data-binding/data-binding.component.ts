@@ -14,7 +14,7 @@ import { FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider } fro
 
 export class DataBindingComponent implements OnInit {
   resposta: any;
-  apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
+  apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
   emailPassword: string;
   logo = require('../../app/images/antena_logo.png')
   facebook = require('../../app/images/fbAccessBt.png')

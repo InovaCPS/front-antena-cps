@@ -29,7 +29,7 @@
             ],
             "scripts": [
               "src/avatar.js"
-            ]
+                        ]
           },
           "configurations": {
             "production": {

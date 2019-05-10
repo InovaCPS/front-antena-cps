@@ -17,7 +17,7 @@ export class ProjectComponent {
   mailDu = "edu@hotmail.com"
   model: any = {} ;
   resposta : any;
-  apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
+  apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
   projeto: Projeto;
   premiado: string = "";
   arquivos: Arquivo[];
@@ -79,7 +79,8 @@ export class ProjectComponent {
   postProject(){
     console.log("POST");
 
-    this.model.datajson = {titulo: this.model.titulo,
+    this.model.datajson = {
+      titulo: this.model.titulo,
       orientador: this.model.orientador,
       descricao: this.model.descricao,
       status: this.model.status,
@@ -88,7 +89,14 @@ export class ProjectComponent {
       coops: [ 
         {"email": this.mailDu},
          {"email":this.model.coop}
-      ]};
+      ],
+      textoProjeto: this.model.textoProjeto,
+      linkTexto: this.model.linkTexto,
+      imagens: this.model.imagens,
+      tituloImagem: this.model.tituloImagem,
+      legendaImagem: this.model.legendaImagem
+
+    };
       console.log(this.model.datajson);
 
     let url = `${this.apiRoot}/cp/projetos`;
@@ -109,4 +117,6 @@ export class ProjectComponent {
   fundo = require('../../app/images/fundo.jpg')
   friends = require('../../app/images/amigos.png')
   back = require('../../app/images/atras.jpg')
+  adicionarImagem = require("../../assets/addImg.png")
+
 }

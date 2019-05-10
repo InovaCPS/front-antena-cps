@@ -1,3 +1,9 @@
+  .modal-content{
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+  }
+
 #btn-recursos {
     width: 150px;
     height: 90px;
@@ -5,6 +11,67 @@
     text-align: center;
   }
 
-.form-control {
-    border-radius: 15px;  
+  #tituloImagem{
+    width: 90%;
+    margin-left: 5%;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+  }
+
+  #legendaImagem{
+    width: 90%;
+    margin-left: 5%;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+  }
+
+  #btnSalvarImagem{
+    width: 140px;
+    margin-right: 20%;
+      font-size: 15px;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      border-radius: 30px;
+    }
+
+  #btnMaisRecursos{
+    width: 140px;
+    margin-right: 20%;
+    font-size: 15px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+  }
+
+  #btnContinuar{
+    width: 200px;
+    margin-right: 20%;
+    font-size: 20px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    margin-left: 60%;
+    margin-bottom: 5%;
+  }
+
+  #btnFinalizar{
+    width: 200px;
+    margin-right: 20%;
+    font-size: 20px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    margin-top: 25%;
+    margin-left: 20%;
+    margin-bottom: -5%
+  }
+
+#adicionarImagem:hover{
+  cursor: pointer;
+}
+
+#recursoImagem {
+  overflow: auto;
 }
