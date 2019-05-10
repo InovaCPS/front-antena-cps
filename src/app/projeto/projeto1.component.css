@@ -7,7 +7,7 @@
 #btn-recursos {
     width: 150px;
     height: 90px;
-    border-radius: 15px;
+    border-radius: 25px;
     text-align: center;
   }
 
@@ -27,7 +27,7 @@
     border-radius: 30px;
   }
 
-  #btnSalvarImagem{
+  #btnSalvar{
     width: 140px;
     margin-right: 20%;
       font-size: 15px;
@@ -74,4 +74,17 @@
 
 #recursoImagem {
   overflow: auto;
+}
+
+div.relative {
+  position: relative;
+  width: 120px;
+} 
+
+div.absolute {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25px;
+  height: 31px;
 }
