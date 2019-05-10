@@ -47,8 +47,6 @@
                 </form>
             </div>
             <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalProjectSuccess"
-                        data-dismiss="modal">SALVAR</button>
                     <button type=" button" class="btn btn-danger" data-toggle="modal" data-target="#modalProjectUnits"
                         data-dismiss="modal">PRÓXIMO</button>
                 </div>
@@ -74,6 +72,7 @@
                 <option value=""></option>
               </select>
             </div>
+<<<<<<< HEAD
             <div class="form-group col-md-3">
               <label for="">Curso(s)</label>
               <select name="" id="" class="form-control">
@@ -82,6 +81,15 @@
             </div>
             <div class="form-group class-md-1" style="position: relative">
               <a href="#0" (click)="addCurso"><img [src]="divide" style="max-width: 20px; position: absolute; top: 50%;"></a>
+=======
+            <div class="modal-footer">
+              <div class="mr-auto">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+              </div>
+              <div>  
+                <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">CONTINUAR</button>
+              </div>
+>>>>>>> 081f547169a7af971f4ac5c86050860e312c4616
             </div>
           </div>
           <br/><br/>
@@ -134,13 +142,13 @@
           <div class="container-fluid">            
             <div class="row">
               <div class="col-sm-3">
-                <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResImg"><b>Imagens</b></button>
+                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Imagens</b></button>
               </div>
               <div class="col-sm-3">
                 <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResText"><b>Textos</b></button>
               </div>
               <div class="col-sm-3">
-                <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal" data-target="#modalMidias"><b>Mídias</b></button>
+                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Mídias</b></button>
               </div>
               <div class="col-sm-3">
                 <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Documentos</b></button>
@@ -185,14 +193,14 @@
             <h6>Crie um texto para descrever pontos importantes do seu projeto</h6>
           </div>
           <br/>
-          <label for="">Texto</label>
+          <label for="basic-text">Texto</label>
           <div class="input-group">
-            <textarea class="form-control" rows="8" id="" name="textoProjeto" [(ngModel)]="model.textoProjeto" aria-label="With textarea"></textarea>
+            <textarea class="form-control" rows="8" id="basic-text" aria-label="With textarea"></textarea>
           </div>
           <br/>
-          <label for="">Link complementar</label>
+          <label for="basic-url">Link complementar</label>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" id="" name="linkTexto" [(ngModel)]="model.linkTexto" aria-describedby="basic-addon3">
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
           </div>
         </div>      
         <div class="modal-footer">
@@ -215,14 +223,25 @@
           <div class="mr-auto">
             <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
           </div>
+<<<<<<< HEAD
           <div>
             <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResText">CONTINUAR</button>
+=======
+          <div class="modal-footer">
+            <div class="mr-auto">
+              <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+            </div>
+            <div>
+              <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResText">CONTINUAR</button>
+            </div>
+>>>>>>> 081f547169a7af971f4ac5c86050860e312c4616
           </div>
         </div>
       </div> 
     </div>
   </div>
 
+<<<<<<< HEAD
   <div class="modal fade" id="modalResImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
@@ -305,6 +324,14 @@
             <div class="input-group mb-3">
               <input type="text" class="form-control" id="" name="linkCodigo" [(ngModel)]="model.linkCodigo" required>
               <button type="submit" class="btn btn-success" id="iCode" [disabled]="fCode.invalid" (keyup.enter)="mandar(iCode.value)">INCORPORAR</button>
+=======
+<div class="modal fade" id="modalProjectUnits" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Escolha a unidade e os colaboradores do projeto</h5>
+>>>>>>> 081f547169a7af971f4ac5c86050860e312c4616
             </div>
           </form>
           <div>
@@ -314,6 +341,7 @@
                 <div class="absolute">
                   <a href="#1"><img [src]="delCode" style="max-width: 25px;"></a>
                 </div>
+<<<<<<< HEAD
               </div>
             </div>
           </div>
@@ -324,3 +352,99 @@
       </div>
     </div>
   </div>
+=======
+                <div *ngFor="let coop of coops">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="">Coop(s)</label>
+                            <input type="text" class="form-control" id="" name="" placeholder="">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">Unidade(s)</label>
+                            <select name="" id="" class="form-control">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">Curso(s)</label>
+                            <select name="" id="" class="form-control">
+                                <option value=""></option>
+                            </select>
+                            <a href="#0" (click)="deleteCurso"><img [src]="divide" style="max-width: 20px"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+                    data-target="#modalResources" >CONTINUAR</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalMidias" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE MIDIA</h5>
+        <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalMidias" aria-label="Close">
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align: left;">
+        <div>
+          <h6>Incorpore arquivos de mídia ao seu projeto</h6>
+        </div>
+        <br/>
+        <label for="basic-url">Título da Mídia</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+        <label for="basic-url">Legenda</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+        <label for="basic-url">Link de origem da mídia</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+        <div class="mr-auto">
+          <button class="button1" id="button1">INCORPORAR</button>          
+        </div>
+      </div>  
+      <div class="modal-footer">
+        <div class="mr-auto">
+          <button class="btn btn-danger" data-toggle="modal" data-dismiss="modal" data-target="#modalMsg1">SALVAR</button>          
+        </div>
+        <div>
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>          
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalMsg1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <h6>Você ainda pode adicionar outros arquivos ao seu projeto. Clique no botão "CONTINUAR" para acrescentar mais arquivos, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h6>
+      </div>
+      <div class="modal-footer">
+        <div class="mr-auto">
+          <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+        </div>
+        <div>
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResText">CONTINUAR</button>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+
+     
+>>>>>>> 081f547169a7af971f4ac5c86050860e312c4616
