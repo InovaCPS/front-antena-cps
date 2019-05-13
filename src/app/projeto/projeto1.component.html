@@ -72,7 +72,7 @@
                 <option value=""></option>
               </select>
             </div>
-<<<<<<< HEAD
+
             <div class="form-group col-md-3">
               <label for="">Curso(s)</label>
               <select name="" id="" class="form-control">
@@ -81,17 +81,9 @@
             </div>
             <div class="form-group class-md-1" style="position: relative">
               <a href="#0" (click)="addCurso"><img [src]="divide" style="max-width: 20px; position: absolute; top: 50%;"></a>
-=======
-            <div class="modal-footer">
-              <div class="mr-auto">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
-              </div>
-              <div>  
-                <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">CONTINUAR</button>
-              </div>
->>>>>>> 081f547169a7af971f4ac5c86050860e312c4616
             </div>
           </div>
+        </div>
           <br/><br/>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
@@ -100,7 +92,6 @@
         </div>
       </div>
     </div>
-  </div>
 
   <div class="modal fade" id="modalProjectSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog" role="document">
@@ -148,7 +139,7 @@
                 <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResText"><b>Textos</b></button>
               </div>
               <div class="col-sm-3">
-                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Mídias</b></button>
+                <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal" data-target="#modalMidias"><b>Mídias</b></button>
               </div>
               <div class="col-sm-3">
                 <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Documentos</b></button>
@@ -223,25 +214,14 @@
           <div class="mr-auto">
             <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
           </div>
-<<<<<<< HEAD
           <div>
             <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResText">CONTINUAR</button>
-=======
-          <div class="modal-footer">
-            <div class="mr-auto">
-              <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
-            </div>
-            <div>
-              <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResText">CONTINUAR</button>
-            </div>
->>>>>>> 081f547169a7af971f4ac5c86050860e312c4616
           </div>
         </div>
       </div> 
     </div>
   </div>
 
-<<<<<<< HEAD
   <div class="modal fade" id="modalResImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
@@ -323,28 +303,20 @@
             <label for="">Link de origem do Código</label>
             <div class="input-group mb-3">
               <input type="text" class="form-control" id="" name="linkCodigo" [(ngModel)]="model.linkCodigo" required>
-              <button type="submit" class="btn btn-success" id="iCode" [disabled]="fCode.invalid" (keyup.enter)="mandar(iCode.value)">INCORPORAR</button>
-=======
-<div class="modal fade" id="modalProjectUnits" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> Escolha a unidade e os colaboradores do projeto</h5>
->>>>>>> 081f547169a7af971f4ac5c86050860e312c4616
+              <button type="submit" class="btn btn-success" id="iCode" [disabled]="fCode.invalid">INCORPORAR</button>
             </div>
           </form>
           <div>
-            <div [hidden]="!iCode.">
+            <div>
               <div class="relative" >
                 <a href="#0"><img [src]="viewCode" style="max-width: 120px;"></a>
                 <div class="absolute">
                   <a href="#1"><img [src]="delCode" style="max-width: 25px;"></a>
                 </div>
-<<<<<<< HEAD
               </div>
             </div>
           </div>
+        </div>
         <div class="modal-footer">
             <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal" data-target="#modalMsg2">SALVAR</button>          
             <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>
@@ -352,7 +324,13 @@
       </div>
     </div>
   </div>
-=======
+
+<div class="modal fade" id="modalProjectUnits" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Escolha a unidade e os colaboradores do projeto</h5>
                 <div *ngFor="let coop of coops">
                     <div class="form-row">
                         <div class="form-group col-md-4">
@@ -389,7 +367,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE MIDIA</h5>
-        <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalMidias" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" aria-label="Close">
           <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
         </button>
       </div>
@@ -445,6 +423,3 @@
     </div> 
   </div>
 </div>
-
-     
->>>>>>> 081f547169a7af971f4ac5c86050860e312c4616
