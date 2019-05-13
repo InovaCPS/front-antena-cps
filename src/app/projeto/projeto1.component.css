@@ -1,4 +1,22 @@
-  .modal-content{
+body {margin:2rem;}
+
+.modal-dialog {
+      max-width: 800px;
+      margin: 30px auto;
+  }
+
+.close {
+  position:absolute;
+  right:-30px;
+  top:0;
+  z-index:999;
+  font-size:2rem;
+  font-weight: normal;
+  color:#fff;
+  opacity:1;
+}
+  
+.modal-content{
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     border-radius: 30px;
@@ -25,6 +43,7 @@
   display: inline-block;
   font-size: 16px;
   border-radius: 4px;
+  margin-left: -1.5%;
 } 
   #tituloImagem{
     width: 90%;
@@ -103,3 +122,4 @@ div.absolute {
   width: 25px;
   height: 31px;
 }
+
