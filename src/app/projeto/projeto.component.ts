@@ -96,7 +96,10 @@ export class ProjectComponent {
       linkTexto: this.model.linkTexto,
       imagens: this.model.imagens,
       tituloImagem: this.model.tituloImagem,
-      legendaImagem: this.model.legendaImagem
+      legendaImagem: this.model.legendaImagem,
+      tituloCodigo: this.model.tituloCodigo,
+      subtituloCodigo: this.model.subtituloCodigo,
+      linkCodigo: this.model.linkCodigo
 
     };
       console.log(this.model.datajson);
@@ -126,5 +129,24 @@ export class ProjectComponent {
   friends = require('../../app/images/amigos.png')
   back = require('../../app/images/atras.jpg')
   adicionarImagem = require("../../assets/addImg.png")
+  delCode = require('../../app/images/delCode.png')
+  viewCode = require('../../app/images/viewCode.png')
 
 }
+
+$(document).ready(function() {
+  var $videoSrc;  
+  $('.video-btn').click(function() {
+      $videoSrc = $(this).data( "src" );
+  });
+  console.log($videoSrc);
+  $('#myModal').on('shown.bs.modal', function (e) {
+  $("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
+  })
+  $('#myModal').on('hide.bs.modal', function (e) {
+      $("#video").attr('src',$videoSrc); 
+  }) 
+  });
+  
+  
+  
