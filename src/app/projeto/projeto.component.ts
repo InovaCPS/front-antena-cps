@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto } from './projeto.services';
+import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coop } from './projeto.services';
 import { Router } from '@angular/router';
 
 @Component({
@@ -34,6 +34,8 @@ export class ProjectComponent {
   categorias: Categoria[];
 
   token;
+
+  coops: Coop[];
 
   constructor(
     private projetoServices: projetoServices,
@@ -107,7 +109,13 @@ export class ProjectComponent {
     )
   }
 
+  addCoop() : void {
 
+  }
+
+  deleteCoop(index) : void {
+    this.coops.splice(index, 1)
+  }
   upload = require('../../app/images/upload.png')
   imag = require('../../app/images/imag.png')
   escudo = require('../../app/images/escudo.png')

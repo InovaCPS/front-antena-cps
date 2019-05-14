@@ -82,3 +82,7 @@ export interface Categoria{
     valor: string;
     checado?: boolean;    
 }
+
+export interface Coop {
+    email: string;
+}
