@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coop } from './projeto.services';
 import { Router } from '@angular/router';
@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 })
 
 export class ProjectComponent {
-  coop: [
-    {"email": "email"}
-  ];
+  ngOnInit() {
+    this.addCoop();
+  }
   mailDu = "edu@hotmail.com"
   model: any = {} ;
   resposta : any;
@@ -112,13 +112,15 @@ export class ProjectComponent {
     )
   }
 
-  addCoop() : void {
-
+  addCoop() {
+    let newCoop: Coop = {email: ""};
+    this.coops.push(newCoop);
   }
 
-  deleteCoop(index) : void {
+  deleteCoop(index) {
     this.coops.splice(index, 1)
   }
+
   upload = require('../../app/images/upload.png')
   imag = require('../../app/images/imag.png')
   escudo = require('../../app/images/escudo.png')
