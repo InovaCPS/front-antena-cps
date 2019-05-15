@@ -11,18 +11,20 @@ export class ContentComponent {
   banner = require('../../app/images/grupo.jpg')
   graf = require('../../app/images/background.png')
 
+  user = JSON.parse(localStorage.getItem('userInfo'));
+
 
   userLogin(){
-    if(localStorage.getItem('token') != null){
-      this.router.navigate(['/aluno']); 
+    if(localStorage.getItem('userInfo') != null){
+      document.getElementById('openModalCont').click();
     }
-    // else if(localStorage.getItem('user') != null){
-    //   const user = localStorage.getItem('user');
-    //    const btnUser = document.getElementById('btnUser');
-    //    btnUser.setAttribute('value', '')
-    // }
-    else{
-    document.getElementById('openModal2').click();
+    else {
+      document.getElementById('openModal').click();
     }
   }
+  setEmail(): void {
+      document.getElementById('username').setAttribute('value', this.user.email);
+      document.getElementById('username').setAttribute('placeholder', this.user.email);
+  }
+
 }

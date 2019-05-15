@@ -24,9 +24,10 @@ export class ProfileComponent implements OnInit {
         }
         const user = {
           nome: this.aluno.nome,
+          sobrenome: this.aluno.sobrenome,
           email: this.aluno.email
         }
-        localStorage.setItem('user', JSON.stringify(user))
+        window.localStorage['userInfo'] = JSON.stringify(user);
       });
     })
   }
