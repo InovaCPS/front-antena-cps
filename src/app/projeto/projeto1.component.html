@@ -421,13 +421,17 @@
         <br/>
         <form #fCode="ngForm" (ngSubmit)="onSubmit()">
           <label for="">Título do Arquivo</label>
-          <input type="text" class="form-control" id="" name="tituloCodigo" [(ngModel)]="model.tituloCodigo" required><br/>       
+          <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.tituloArquivo" required><br/>       
           <label for="">Link de origem do Arquivo</label>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" id="" name="linkCodigo" [(ngModel)]="model.linkCodigo" required>
-            <button type="submit" class="btn btn-success" id="iCode" [disabled]="fCode.invalid">INCORPORAR</button>
+            <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.linkArquivo" required>
+            <button type="submit" class="btn btn-success" id="iArquivo" [disabled]="fArquivo.invalid">INCORPORAR</button>
                 </div>
               </form>
-            </div>
-          </div>
-        </div>
+          <div class="modal-footer">
+          <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal" data-target="#modalMsg2">SALVAR</button>          
+          <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>
+      </div> 
+    </div>
+  </div>
+</div>    
