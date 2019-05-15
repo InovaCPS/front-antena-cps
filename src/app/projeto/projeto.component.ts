@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coop } from './projeto.services';
+import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coops } from './projeto.services';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,10 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class ProjectComponent {
-  coop: [
-    {"email": "email"}
-  ];
-  mailDu = "edu@hotmail.com"
+  
   model: any = {} ;
   resposta : any;
   apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
@@ -35,22 +32,44 @@ export class ProjectComponent {
 
   token;
 
-  coops: Coop[];
+  coops: Coops[];
 
   constructor(
     private projetoServices: projetoServices,
     private router: Router,
     private http: HttpClient){
+      this.coops = [];
+      this.arquivos = [];
+      this.projeto = { 
+        titulo: "",
+        descricao: "",
+        orientador: "",
+        status: "",
+        tipo: "",
+        tema: "",
+        coops: this.coops,
+        textoProjeto: "",
+        linkTexto: "",
+        arquivos: this.arquivos
+      }
       this.token = JSON.parse(localStorage.getItem('token'));
     }
 
   addArquivo(){
     if(this.arquivos.length < 3){
-      let file: File;
-      let newArquivo: Arquivo = { midia: file, nomeMidia: "", titulo: "", descricao: "", codigo: "" };
+      let newArquivo: Arquivo = { tipo: "", titulo: "", legenda: "", caminho: "" };
       this.arquivos.push(newArquivo);
     }
   }
+
+
+addCoops(){
+  if(this.coops.length < 3){
+    let newCoop: Coops = { email: "", unidade:"", curso:"" };
+    this.coops.push(newCoop);
+  }
+
+}
 
   fechar() {
     this.router.navigate(['/aluno']);
@@ -81,40 +100,16 @@ export class ProjectComponent {
   postProject(){
     console.log("POST");
 
-    this.model.datajson = {
-      titulo: this.model.titulo,
-      orientador: this.model.orientador,
-      descricao: this.model.descricao,
-      status: this.model.status,
-      tipo: this.model.tipo,
-      tema: this.model.tema,
-      coops: [ 
-        {"email": this.mailDu},
-         {"email":this.model.coop}
-      ],
-      textoProjeto: this.model.textoProjeto,
-      linkTexto: this.model.linkTexto,
-      imagens: this.model.imagens,
-      tituloImagem: this.model.tituloImagem,
-      legendaImagem: this.model.legendaImagem,
-      tituloCodigo: this.model.tituloCodigo,
-      subtituloCodigo: this.model.subtituloCodigo,
-      linkCodigo: this.model.linkCodigo
+    console.log(this.projeto);
 
-    };
-      console.log(this.model.datajson);
-
-    let url = `${this.apiRoot}/cp/projetos`;
+    /*let url = `${this.apiRoot}/cp/projetos`;
     this.http
      .post(url, this.model.datajson,{headers: new HttpHeaders({'token': this.token.token})})
       .subscribe(res => 
       console.log(res["Mensagem"])
-    )
+    )*/
   }
 
-  addCoop() : void {
-
-  }
 
   deleteCoop(index) : void {
     this.coops.splice(index, 1)

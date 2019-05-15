@@ -12,20 +12,6 @@ export class projetoServices{
         this.token = JSON.parse(localStorage.getItem('token'));
     }
 
-    postProjeto(projeto: Projeto){
-        var fd = new FormData();
-
-        projeto.arquivos.forEach(arquivo => {
-            fd.append(arquivo.midia.name, arquivo.midia);
-        });
-
-        fd.append('projeto', JSON.stringify(projeto))
-
-        return this.http.post(`${this.apiRoot}/cp/projetos`, fd, {headers: new HttpHeaders({
-            'token': this.token.token
-        })}).subscribe(res => console.log("Cadastrado com Sucesso!!!"))
-    }
-
     getUnidades(){
         return this.http.get(`${this.apiRoot}/cp/unidades`, {headers: new HttpHeaders({
             'token': this.token.token
@@ -46,21 +32,21 @@ export class projetoServices{
 export interface Projeto{
     titulo: string;
     descricao: string;
-    unidades: Unidade[];
-    cursos: Curso[];
-    palavrasChave: string[];
-    colaboradores: string[];
-    arquivos: Arquivo[], 
-    premiado: boolean;
-    links: string[];
+    orientador: string;
+    status: string;
+    tipo: string;
+    tema: string;
+    coops: Coops[];
+    textoProjeto: string;
+    linkTexto: string;
+    arquivos: Arquivo[] 
 }
 
 export interface Arquivo{
-    midia: File;
-    nomeMidia: string;
+    tipo: string;
     titulo: string;
-    descricao: string;
-    codigo: string;
+    legenda: string;
+    caminho: string;
 }
 
 export interface Curso{
@@ -83,6 +69,8 @@ export interface Categoria{
     checado?: boolean;    
 }
 
-export interface Coop {
+export interface Coops {
     email: string;
+    unidade: string;
+    curso: string;
 }

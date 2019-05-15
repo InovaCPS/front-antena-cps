@@ -17,31 +17,31 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="">Título do Projeto</label>
-                            <input type="text" class="form-control" id="" name="titulo" [(ngModel)]="model.titulo" placeholder="">
+                            <input type="text" class="form-control" id="" name="titulo" [(ngModel)]="projeto.titulo" placeholder="">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">Orientador / Mentor / Colaborador</label>
-                            <input type="text" class="form-control" id="" name="orientador" [(ngModel)]="model.orientador" placeholder="">
+                            <input type="text" class="form-control" id="" name="orientador" [(ngModel)]="projeto.orientador" placeholder="">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="form-row">
                                 <label for="">Tema com o qual o projeto se alinha</label>
-                                <input type="email" class="form-control" id="" name="tema" [(ngModel)]="model.tema" placeholder="" value="">
+                                <input type="email" class="form-control" id="" name="tema" [(ngModel)]="projeto.tema" placeholder="" value="">
                             </div>
                             <div class="form-row">
                                 <label for="">Tipo de Projeto</label>
-                                <input type="text" class="form-control" id="" name="tipo" [(ngModel)]="model.tipo" placeholder="" value="">
+                                <input type="text" class="form-control" id="" name="tipo" [(ngModel)]="projeto.tipo" placeholder="" value="">
                             </div>
                             <div class="form-row">
                                 <label for="">Status Atual do Projeto</label>
-                                <input type="text" class="form-control" id="" name="status" [(ngModel)]="model.status" placeholder="" value="">
+                                <input type="text" class="form-control" id="" name="status" [(ngModel)]="projeto.status" placeholder="" value="">
                             </div>
                         </div>
                         <div class="form-group col-md-6">
                                 <label for="">Descrição do Projeto</label>
-                                <textarea class="form-control" name="descricao" [(ngModel)]="model.descricao" id="" cols="60" rows="7" ></textarea>
+                                <textarea class="form-control" name="descricao" [(ngModel)]="projeto.descricao" id="" cols="60" rows="7" ></textarea>
                             </div>
                     </div>
                 </form>
@@ -60,27 +60,27 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel"> Escolha a unidade e os colaboradores do projeto</h5>
         </div>
-        <div class="modal-body">
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <label for="">Coop(s)</label>
-              <input type="text" class="form-control" id="" name="coop" [(ngModel)]="model.coop" placeholder="">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="">Unidade(s)</label>
-              <select name="" id="" class="form-control">
-                <option value=""></option>
-              </select>
-            </div>
-
-            <div class="form-group col-md-3">
-              <label for="">Curso(s)</label>
-              <select name="" id="" class="form-control">
-                <option value=""></option>
-              </select>
-            </div>
-            <div class="form-group class-md-1" style="position: relative">
-              <a href="#0" (click)="addCurso"><img [src]="divide" style="max-width: 20px; position: absolute; top: 50%;"></a>
+        <div>
+          <button (click)="addCoops()">Adicionar</button>
+        
+          <div *ngFor='let coop of coops; let i = index'>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="">Coop(s)</label>
+                <input id="coop" name="coop" [(ngModel)]="coops[i].email" placeholder="Coop"  placeholder="">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="">Unidade(s)</label>
+                <select  id="unidade" name="unidade" [(ngModel)]="coops[i].unidade" placeholder="Unidade" class="form-control">
+                  <option value=""></option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="">Curso(s)</label>
+                <select id="curso" name="curso" [(ngModel)]="coops[i].curso" placeholder="Curso"  class="form-control">
+                  <option value=""></option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
@@ -331,7 +331,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel"> Escolha a unidade e os colaboradores do projeto</h5>
-<<<<<<< HEAD
             </div>
             <div class="modal-body">
                 <div class="form-row">
@@ -355,28 +354,6 @@
                         <a href="#0" (click)="addCurso()"><img [src]="divide" style="max-width: 20px; position: absolute; top: 50%;"></a>
                     </div>
                 </div>
-=======
-                <div *ngFor="let coop of coops">
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="">Coop(s)</label>
-                            <input type="text" class="form-control" id="" name="" placeholder="">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="">Unidade(s)</label>
-                            <select name="" id="" class="form-control">
-                                <option value=""></option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="">Curso(s)</label>
-                            <select name="" id="" class="form-control">
-                                <option value=""></option>
-                            </select>
-                            <a href="#0" (click)="deleteCurso"><img [src]="divide" style="max-width: 20px"></a>
-                        </div>
-                    </div>
->>>>>>> 4c769b686fe2532c7a607bfb3868a458cef4dd5d
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
