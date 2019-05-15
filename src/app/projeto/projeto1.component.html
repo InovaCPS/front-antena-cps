@@ -148,7 +148,7 @@
             <br/><br/>                    
             <div class="row">
               <div class="col-sm-3">
-                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Arquivos</b></button>
+                <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal" data-target="#modalArquivos"><b>Arquivos</b></button>
               </div>
               <div class="col-sm-3">
                 <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResCodes"><b>Códigos</b></button>
@@ -403,3 +403,31 @@
     </div> 
   </div>
 </div>
+
+
+<div class="modal fade" id="modalArquivos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE ARQUIVOS</h5>
+        <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" aria-label="Close">
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align: left;">
+        <div>
+          <h6>Incorpore os arquivos ao seu projeto</h6>
+        </div>
+        <br/>
+        <form #fCode="ngForm" (ngSubmit)="onSubmit()">
+          <label for="">Título do Arquivo</label>
+          <input type="text" class="form-control" id="" name="tituloCodigo" [(ngModel)]="model.tituloCodigo" required><br/>       
+          <label for="">Link de origem do Arquivo</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="" name="linkCodigo" [(ngModel)]="model.linkCodigo" required>
+            <button type="submit" class="btn btn-success" id="iCode" [disabled]="fCode.invalid">INCORPORAR</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
