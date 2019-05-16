@@ -144,7 +144,7 @@
             <br/><br/>                    
             <div class="row">
               <div class="col-sm-3">
-                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Arquivos</b></button>
+                <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal" data-target="#modalArquivos"><b>Arquivos</b></button>
               </div>
               <div class="col-sm-3">
                 <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResCodes"><b>Códigos</b></button>
@@ -289,33 +289,32 @@
             <h6>Incorpore códigos específicos ao seu projeto</h6>
           </div>
           <br/>
-          <form #fCode="ngForm" (ngSubmit)="onSubmit()">
-            <label for="">Título do Código</label>
-            <input type="text" class="form-control" id="" name="tituloCodigo" [(ngModel)]="model.tituloCodigo" required><br/>
+          <label for="">Título do Código</label>
+          <input type="text" class="form-control" id="" name="tituloCodigo" [(ngModel)]="model.titulo"><br/>
             
-            <label for="">Subtítulo do Código</label>
-            <input type="text" class="form-control" id="" name="subtituloCodigo" [(ngModel)]="model.subtituloCodigo"><br/>
+          <label for="">Subtítulo do Código</label>
+          <input type="text" class="form-control" id="" name="subtituloCodigo" [(ngModel)]="model.legenda"><br/>
             
-            <label for="">Link de origem do Código</label>
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" id="" name="linkCodigo" [(ngModel)]="model.linkCodigo" required>
-              <button type="submit" class="btn btn-success" id="iCode" [disabled]="fCode.invalid">INCORPORAR</button>
-            </div>
-          </form>
-          <div>
-            <div>
-              <div class="relative" >
-                <a href="#0"><img [src]="viewCode" style="max-width: 120px;"></a>
-                <div class="absolute">
-                  <a href="#1"><img [src]="delCode" style="max-width: 25px;"></a>
+          <label for="">Link de origem do Código</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="" name="linkCodigo" [(ngModel)]="model.caminho">
+            <button class="btn btn-success" id="iCode" (click)="addArquivo('Codigo')">INCORPORAR</button>
+          </div>
+          <div class="row justify-content-center">
+            <div *ngFor='let arquivo of arquivos; let i = index'>
+              <div class="col-md-2">
+                <div class="relative" id="t1">
+                  <a href="#0" target="__blank"><img [src]="viewCode" title=model.titulo style="max-width: 120px;" (click)="urlDestino(model.caminho)"></a>
+                  <div class="absolute">
+                    <a href="#1"><img [src]="delCode" title="Excluir" style="max-width: 25px;" (click)="deleteArquivo(i)"></a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         <div class="modal-footer">
-            <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal" data-target="#modalMsg2">SALVAR</button>          
-            <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>
+          <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal" data-target="#modalMsg2">SALVAR</button>          
+          <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>
         </div> 
       </div>
     </div>
@@ -337,11 +336,11 @@
         <br/>
         <label for="basic-url">Título da Mídia</label>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="tituloMidia" [(ngModel)]="model.tituloMidia" required> 
         </div>
         <label for="basic-url">Legenda</label>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="legendaMidia" [(ngModel)]="model.legendaMidia" required>
         </div>
         <label for="basic-url">Link de origem da mídia</label>
         <div class="input-group mb-3">
@@ -360,13 +359,13 @@
                       </button>        
               <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
-              </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>   
+                </div>   
               </div>
-      </div>  
+           </div>  
 
       <div class="modal-footer">
         <div class="mr-auto">
@@ -379,6 +378,60 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="modalMsg1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <h6>Você ainda pode adicionar outros arquivos ao seu projeto. Clique no botão "CONTINUAR" para acrescentar mais arquivos, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h6>
+      </div>
+      <div class="modal-footer">
+        <div class="mr-auto">
+          <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+        </div>
+        <div>
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResText">CONTINUAR</button>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+
+
+<div class="modal fade" id="modalArquivos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE ARQUIVOS</h5>
+        <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" aria-label="Close">
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align: left;">
+        <div>
+          <h6>Incorpore os arquivos ao seu projeto</h6>
+        </div>
+        <br/>
+        <form #fCode="ngForm" (ngSubmit)="onSubmit()">
+          <label for="">Título do Arquivo</label>
+          <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.tituloArquivo" required><br/> 
+          <label for="">Subtítulo do Arquivo</label>
+          <input type="text" class="form-control" id="" name="subtituloArquivo" [(ngModel)]="model.subtituloArquivo" required><br/>       
+          <label for="">Link de origem do Arquivo</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.linkArquivo" required>
+            <button type="submit" class="btn btn-success" id="iArquivo" [disabled]="fArquivo.invalid">INCORPORAR</button>
+                </div>
+              </form>
+          <div class="modal-footer">
+          <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal" data-target="#modalMsg1">SALVAR</button>          
+          <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>
+      </div> 
+    </div>
+  </div>
+</div>    
 
 <div class="modal fade" id="modalMsg1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
