@@ -55,21 +55,25 @@ export class ProjectComponent {
       this.token = JSON.parse(localStorage.getItem('token'));
     }
 
-  addArquivo(){
-    if(this.arquivos.length < 3){
-      let newArquivo: Arquivo = { tipo: "", titulo: "", legenda: "", caminho: "" };
+  addArquivo(parametro){
+    //if(this.arquivos.length < 3){
+      let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
       this.arquivos.push(newArquivo);
+      console.log(this.arquivos)
+      console.log(parametro)
+    //}
+  }
+
+  urlDestino(index){
+    window.open('//' + index);
+  }
+  
+  addCoops(){
+    if(this.coops.length < 3){
+      let newCoop: Coops = { email: "", unidade:"", curso:"" };
+      this.coops.push(newCoop);
     }
   }
-
-
-addCoops(){
-  if(this.coops.length < 3){
-    let newCoop: Coops = { email: "", unidade:"", curso:"" };
-    this.coops.push(newCoop);
-  }
-
-}
 
   fechar() {
     this.router.navigate(['/aluno']);
@@ -77,6 +81,7 @@ addCoops(){
 
   deleteArquivo(index){
     this.arquivos.splice(index, 1);
+    console.log(this.arquivos);
   }
 
   addUnidade(){
@@ -127,7 +132,7 @@ addCoops(){
   adicionarImagem = require("../../assets/addImg.png")
   delCode = require('../../app/images/delCode.png')
   viewCode = require('../../app/images/viewCode.png')
-
+  addCode = require('../../app/images/adicionar.png')
 }
 
 $(document).ready(function() {
