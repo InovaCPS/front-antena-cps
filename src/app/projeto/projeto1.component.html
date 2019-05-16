@@ -341,11 +341,11 @@
         <br/>
         <label for="basic-url">Título da Mídia</label>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="tituloMidia" [(ngModel)]="model.tituloMidia" required> 
         </div>
         <label for="basic-url">Legenda</label>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="legendaMidia" [(ngModel)]="model.legendaMidia" required>
         </div>
         <label for="basic-url">Link de origem da mídia</label>
         <div class="input-group mb-3">
@@ -364,7 +364,7 @@
                       </button>        
               <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -421,7 +421,9 @@
         <br/>
         <form #fCode="ngForm" (ngSubmit)="onSubmit()">
           <label for="">Título do Arquivo</label>
-          <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.tituloArquivo" required><br/>       
+          <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.tituloArquivo" required><br/> 
+          <label for="">Subtítulo do Arquivo</label>
+          <input type="text" class="form-control" id="" name="subtituloArquivo" [(ngModel)]="model.subtituloArquivo" required><br/>       
           <label for="">Link de origem do Arquivo</label>
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.linkArquivo" required>
