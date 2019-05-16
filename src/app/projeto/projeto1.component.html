@@ -148,7 +148,7 @@
             <br/><br/>                    
             <div class="row">
               <div class="col-sm-3">
-                <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Arquivos</b></button>
+                <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal" data-target="#modalArquivos"><b>Arquivos</b></button>
               </div>
               <div class="col-sm-3">
                 <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResCodes"><b>Códigos</b></button>
@@ -363,13 +363,13 @@
                       </button>        
               <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
-              </div>
+                    </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>   
+                </div>   
               </div>
-      </div>  
+           </div>  
 
       <div class="modal-footer">
         <div class="mr-auto">
@@ -382,6 +382,58 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="modalMsg1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <h6>Você ainda pode adicionar outros arquivos ao seu projeto. Clique no botão "CONTINUAR" para acrescentar mais arquivos, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h6>
+      </div>
+      <div class="modal-footer">
+        <div class="mr-auto">
+          <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+        </div>
+        <div>
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResText">CONTINUAR</button>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+
+
+<div class="modal fade" id="modalArquivos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE ARQUIVOS</h5>
+        <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" aria-label="Close">
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align: left;">
+        <div>
+          <h6>Incorpore os arquivos ao seu projeto</h6>
+        </div>
+        <br/>
+        <form #fCode="ngForm" (ngSubmit)="onSubmit()">
+          <label for="">Título do Arquivo</label>
+          <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.tituloArquivo" required><br/>       
+          <label for="">Link de origem do Arquivo</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.linkArquivo" required>
+            <button type="submit" class="btn btn-success" id="iArquivo" [disabled]="fArquivo.invalid">INCORPORAR</button>
+                </div>
+              </form>
+          <div class="modal-footer">
+          <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal" data-target="#modalMsg1">SALVAR</button>          
+          <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>
+      </div> 
+    </div>
+  </div>
+</div>    
 
 <div class="modal fade" id="modalMsg1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
