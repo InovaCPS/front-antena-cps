@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-content',
@@ -27,4 +28,7 @@ export class ContentComponent {
       document.getElementById('username').setAttribute('placeholder', this.user.email);
   }
 
+  redirectCadastro(){
+    this.router.navigate['/cadastro'];
+  }
 }

@@ -48,50 +48,46 @@
             </div>
             <div class="modal-footer">
                     <button type=" button" class="btn btn-danger" data-toggle="modal" data-target="#modalProjectUnits"
-                        data-dismiss="modal">PRÓXIMO</button>
+                        data-dismiss="modal" (click)="addCoops()">PRÓXIMO</button>
                 </div>
         </div>
     </div>
 </div>
 
-  <div class="modal fade" id="modalProjectUnits" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-lg" role="document">
+  <div class="modal fade" id="modalProjectUnits" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel"> Escolha a unidade e os colaboradores do projeto</h5>
         </div>
-        <div>
-          <button (click)="addCoops()">Adicionar</button>
-        
-          <div *ngFor='let coop of coops; let i = index'>
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <label for="">Coop(s)</label>
-                <input id="coop" name="coop" [(ngModel)]="coops[i].email" placeholder="Coop"  placeholder="">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="">Unidade(s)</label>
-                <select  id="unidade" name="unidade" [(ngModel)]="coops[i].unidade" placeholder="Unidade" class="form-control">
-                  <option value=""></option>
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label for="">Curso(s)</label>
-                <select id="curso" name="curso" [(ngModel)]="coops[i].curso" placeholder="Curso"  class="form-control">
-                  <option value=""></option>
-                </select>
-              </div>
+        <div class="modal-body">
+          <div *ngFor='let coop of coops; let i = index' class="form-row" style="padding: 20px;">
+            <div class="form-group col-md-6"> 
+              <label for="">Coop(s)</label>
+              <input id="coop" name="coop" class="form-control" [(ngModel)]="coops[i].email" placeholder="Coop" placeholder="">
             </div>
-        </div>
-        </div>
-          <br/><br/>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">CONTINUAR</button>
+            <div class="form-group col-md-5">
+              <label for="">Unidade(s)</label>
+              <select id="unidade" name="unidade" [(ngModel)]="coops[i].unidade" placeholder="Unidade"
+                class="form-control">
+                <option value=""></option>
+              </select>
+            </div>
+            <div *ngIf="i != 0" class="form-group col-md-1">
+              <a (click)="deleteCoop(i)" style="position:absolute; bottom: 15%; cursor: pointer"><i class="fas fa-trash-alt"></i></a>
+            </div>
           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click)="addCoops()" style="margin-left: 20px;position:absolute; left: 0;" >ADD COLABORADOR</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+            data-target="#modalResources">CONTINUAR</button>
         </div>
       </div>
     </div>
+  </div>
 
   <div class="modal fade" id="modalProjectSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog" role="document">

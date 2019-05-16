@@ -64,11 +64,8 @@ export class ProjectComponent {
 
 
 addCoops(){
-  if(this.coops.length < 3){
     let newCoop: Coops = { email: "", unidade:"", curso:"" };
     this.coops.push(newCoop);
-  }
-
 }
 
   fechar() {
