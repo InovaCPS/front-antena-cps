@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   providers: [projetoServices]
 })
 
+
+
 export class ProjectComponent {
   coop: [
     {"email": "email"}
@@ -94,7 +96,8 @@ export class ProjectComponent {
       linkTexto: this.model.linkTexto,
       imagens: this.model.imagens,
       tituloImagem: this.model.tituloImagem,
-      legendaImagem: this.model.legendaImagem
+      legendaImagem: this.model.legendaImagem,
+      capa: this.model.capa
 
     };
       console.log(this.model.datajson);
@@ -112,6 +115,8 @@ export class ProjectComponent {
       }
     })
   }
+
+  
 
 
   upload = require('../../app/images/upload.png')
