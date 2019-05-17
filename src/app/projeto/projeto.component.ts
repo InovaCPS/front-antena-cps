@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto } from './projeto.services';
+import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coops } from './projeto.services';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,13 +10,8 @@ import { Router } from '@angular/router';
   providers: [projetoServices]
 })
 
-
-
 export class ProjectComponent {
-  coop: [
-    {"email": "email"}
-  ];
-  mailDu = "edu@hotmail.com"
+  
   model: any = {} ;
   resposta : any;
   apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
@@ -37,18 +32,46 @@ export class ProjectComponent {
 
   token;
 
+  coops: Coops[];
+
   constructor(
     private projetoServices: projetoServices,
     private router: Router,
     private http: HttpClient){
+      this.coops = [];
+      this.arquivos = [];
+      this.projeto = { 
+        titulo: "",
+        descricao: "",
+        orientador: "",
+        status: "",
+        tipo: "",
+        tema: "",
+        coops: this.coops,
+        textoProjeto: "",
+        linkTexto: "",
+        arquivos: this.arquivos
+      }
       this.token = JSON.parse(localStorage.getItem('token'));
     }
 
-  addArquivo(){
-    if(this.arquivos.length < 3){
-      let file: File;
-      let newArquivo: Arquivo = { midia: file, nomeMidia: "", titulo: "", descricao: "", codigo: "" };
+  addArquivo(parametro){
+    //if(this.arquivos.length < 3){
+      let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
       this.arquivos.push(newArquivo);
+      console.log(this.arquivos)
+      console.log(parametro)
+    //}
+  }
+
+  urlDestino(index){
+    window.open('//' + index);
+  }
+  
+  addCoops(){
+    if(this.coops.length < 3){
+      let newCoop: Coops = { email: "", unidade:"", curso:"" };
+      this.coops.push(newCoop);
     }
   }
 
@@ -58,6 +81,7 @@ export class ProjectComponent {
 
   deleteArquivo(index){
     this.arquivos.splice(index, 1);
+    console.log(this.arquivos);
   }
 
   addUnidade(){
@@ -81,43 +105,20 @@ export class ProjectComponent {
   postProject(){
     console.log("POST");
 
-    this.model.datajson = {
-      titulo: this.model.titulo,
-      orientador: this.model.orientador,
-      descricao: this.model.descricao,
-      status: this.model.status,
-      tipo: this.model.tipo,
-      tema: this.model.tema,
-      coops: [ 
-        {"email": this.mailDu},
-         {"email":this.model.coop}
-      ],
-      textoProjeto: this.model.textoProjeto,
-      linkTexto: this.model.linkTexto,
-      imagens: this.model.imagens,
-      tituloImagem: this.model.tituloImagem,
-      legendaImagem: this.model.legendaImagem,
-      capa: this.model.capa
+    console.log(this.projeto);
 
-    };
-      console.log(this.model.datajson);
-
-    let url = `${this.apiRoot}/cp/projetos`;
+    /*let url = `${this.apiRoot}/cp/projetos`;
     this.http
      .post(url, this.model.datajson,{headers: new HttpHeaders({'token': this.token.token})})
-      .subscribe(res => {
+      .subscribe(res => 
       console.log(res["Mensagem"])
-      if( this.resposta == "Cadastrado com sucesso!"){
-        alert(this.resposta)
-      }
-      else{
-        alert(this.resposta)
-      }
-    })
+    )*/
   }
 
-  
 
+  deleteCoop(index) {
+    this.coops.splice(index, 1)
+  }
 
   upload = require('../../app/images/upload.png')
   imag = require('../../app/images/imag.png')
@@ -129,5 +130,24 @@ export class ProjectComponent {
   friends = require('../../app/images/amigos.png')
   back = require('../../app/images/atras.jpg')
   adicionarImagem = require("../../assets/addImg.png")
-
+  delCode = require('../../app/images/delCode.png')
+  viewCode = require('../../app/images/viewCode.png')
+  addCode = require('../../app/images/adicionar.png')
 }
+
+$(document).ready(function() {
+  var $videoSrc;  
+  $('.video-btn').click(function() {
+      $videoSrc = $(this).data( "src" );
+  });
+  console.log($videoSrc);
+  $('#myModal').on('shown.bs.modal', function (e) {
+  $("#video").attr('src',$videoSrc + "?autoplay=1&modestbranding=1&showinfo=0" ); 
+  })
+  $('#myModal').on('hide.bs.modal', function (e) {
+      $("#video").attr('src',$videoSrc); 
+  }) 
+  });
+  
+  
+  

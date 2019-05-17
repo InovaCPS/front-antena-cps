@@ -7,6 +7,7 @@
     <div class="Entrar jumbrotron"> 
         <button type="button" class="btn btn-danger btn-lg" id="openModal" (click)="userLogin()" style="width: 200px">ENTRAR</button>
         <button hidden data-toggle="modal" data-target="#modalLogin" id="openModal2"></button>
+        <button hidden data-toggle="modal" data-target="#modalCont" id="openModalCont"></button>
     </div> 
 
   </div>
@@ -51,12 +52,12 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Bem vindo de volta</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true"></span>
         </button>
       </div>
       <div class="modal-body">
-        <button id="btnUser" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin"></button>
-        <button class="btn btn-danger" data-dismiss="modal">Entrar com outra conta</button>
+        <button id="btnUser" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin" (click)="setEmail()">Continuar como {{user.nome}}</button>
+        <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin" >Entrar com outra conta</button>
       </div>
     </div>
   </div>
