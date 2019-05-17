@@ -279,6 +279,40 @@
     </div>
   </div>   
 
+  <div class="modal fade" id="modalResCapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources" style="margin-left: 85%;margin-top: 1%" aria-label="Close">
+          <span aria-hidden="true" style="font-size: 10px"> <u>< VOLTAR</u></span>
+      </button>
+          <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CAPA DO PROJETO</h4>
+          <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha uma imagem para a capa do seu projeto</h5> <br/>
+         
+     <form #fc="ngForm" (ngSubmit)="onSubmit()" style="margin-left:40%; width: 200px; height: 300px;">
+         
+          <input-file
+          fileAccept="image/*" fileLimit="1" name="capa" [(ngModel)]="model.capa" required >
+          </input-file>
+          </form> 
+              
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" id="btnSalvarImagem" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizarCapa" [disabled]="fc.invalid">SALVAR</button>
+            <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
+        </div>
+            </div>
+        </div>
+  </div>
+  
+  <div class="modal fade" id="modalFinalizarCapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <h4 style="margin-top: 20%; margin-left:5%">Você pode substituir a imagens de capa do seu projeto. Clique no botão "CONTINUAR" para substituir a imagem de capa, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h4>
+        <button type="submit" class="btn btn-danger" id="btnFinalizar" data-dismiss="modal" (click)="postProject()" >FINALIZAR</button>
+        <button type="button" class="btn btn-danger" id="btnContinuar" data-dismiss="modal" data-toggle="modal" data-target="#modalResCapa">CONTINUAR</button>
+        </div>
+    </div>
+  </div>
+  
   <div class="modal fade" id="modalResCodes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
       <div class="modal-content">
@@ -455,36 +489,3 @@
   </div>
 </div>
 
-<div class="modal fade" id="modalResCapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources" style="margin-left: 85%;margin-top: 1%" aria-label="Close">
-        <span aria-hidden="true" style="font-size: 10px"> <u>< VOLTAR</u></span>
-    </button>
-        <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CAPA DO PROJETO</h4>
-        <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha uma imagem para a capa do seu projeto</h5> <br/>
-       
-   <form #fc="ngForm" (ngSubmit)="onSubmit()" style="margin-left:40%; width: 200px; height: 300px;">
-       
-        <input-file
-        fileAccept="image/*" fileLimit="1" name="capa" [(ngModel)]="model.capa" required >
-        </input-file>
-        </form> 
-            
-      <div class="modal-footer">
-          <button type="button" class="btn btn-danger" id="btnSalvarImagem" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizarCapa" [disabled]="fc.invalid">SALVAR</button>
-          <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
-      </div>
-          </div>
-      </div>
-</div>
-
-<div class="modal fade" id="modalFinalizarCapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <h4 style="margin-top: 20%; margin-left:5%">Você pode substituir a imagens de capa do seu projeto. Clique no botão "CONTINUAR" para substituir a imagem de capa, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h4>
-      <button type="submit" class="btn btn-danger" id="btnFinalizar" data-dismiss="modal" (click)="postProject()" >FINALIZAR</button>
-      <button type="button" class="btn btn-danger" id="btnContinuar" data-dismiss="modal" data-toggle="modal" data-target="#modalResCapa">CONTINUAR</button>
-      </div>
-  </div>
-</div>
