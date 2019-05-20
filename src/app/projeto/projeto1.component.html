@@ -329,16 +329,16 @@
           <h6>Incorpore códigos específicos ao seu projeto</h6>
         </div>
         <br />
-        <form #fcode="ngForm" (ngSubmit)="onSubmit()">
+        <form #fcode="ngForm">
           <label for="">Título do Código</label>
-          <input type="text" class="form-control" id="" name="tituloCodigo" [(ngModel)]="model.titulo" required><br />
+          <input type="text" class="form-control" id="t1" name="tituloCodigo" [(ngModel)]="model.titulo" required><br />
 
           <label for="">Subtítulo do Código</label>
-          <input type="text" class="form-control" id="" name="subtituloCodigo" [(ngModel)]="model.legenda" required><br />
+          <input type="text" class="form-control" id="t2" name="subtituloCodigo" [(ngModel)]="model.legenda" required><br />
 
           <label for="">Link de origem do Código</label>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" id="" name="linkCodigo" [(ngModel)]="model.caminho" required>
+            <input type="text" class="form-control" id="t3" name="linkCodigo" [(ngModel)]="model.caminho" required>
             <button type="submit" class="btn btn-success" id="iCode" (click)="addArquivo('Codigo')" [disabled]="fcode.invalid">INCORPORAR</button>
           </div>
         </form>
@@ -454,7 +454,7 @@
         </div>
         <div>
           <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
-            data-target="#modalResText">CONTINUAR</button>
+            data-target="#modalResources">CONTINUAR</button>
         </div>
       </div>
     </div>
