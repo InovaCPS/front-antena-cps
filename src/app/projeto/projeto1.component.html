@@ -130,7 +130,7 @@
         <h5 class="modal-title" id="exampleModalLabel">RECURSOS ADICIONAIS</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalProject"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">X</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: center;">
@@ -190,7 +190,7 @@
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE TEXTO</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">X</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: left;">
@@ -248,7 +248,7 @@
       <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources"
         style="margin-left: 85%;margin-top: 1%" aria-label="Close">
         <span aria-hidden="true" style="font-size: 10px"> <u>
-            < VOLTAR</u> </span> </button> <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE
+            <X</u> </span> </button> <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE
               IMAGEM</h4>
               <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor
                 caracterizam o projeto</h5> <br />
@@ -321,7 +321,7 @@
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE CÓDIGOS</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">Voltar</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: left;">
@@ -377,7 +377,7 @@
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE MIDIA</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">X</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: left;">
@@ -388,20 +388,20 @@
         <label for="basic-url">Título da Mídia</label>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="tituloMidia"
-            [(ngModel)]="model.tituloMidia" required>
+            [(ngModel)]="model.titulo" required>
         </div>
         <label for="basic-url">Legenda</label>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="legendaMidia"
-            [(ngModel)]="model.legendaMidia" required>
+            [(ngModel)]="model.legenda" required>
         </div>
         <label for="basic-url">Link de origem da mídia</label>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" [(ngModel)]="model.caminho"> 
         </div>
         <div class="container">
           <button type="button" class="btn btn-primary video-btn" id="button1" data-toggle="modal"
-            data-src="https://www.youtube.com/embed/A-twOC3W558" data-target="#myModal">
+            data-src="https://www.youtube.com/embed/A-twOC3W558" data-target="#myModal" (click)="addArquivo('Midias')">
             INCORPORAR
           </button>
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -422,6 +422,7 @@
           </div>
         </div>
       </div>
+
 
       <div class="modal-footer">
         <div class="mr-auto">
@@ -469,7 +470,7 @@
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE ARQUIVOS</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">Voltar</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: left;">
