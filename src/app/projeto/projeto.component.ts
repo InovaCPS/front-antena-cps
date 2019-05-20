@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class ProjectComponent {
-  
+
   model: any = {} ;
   resposta : any;
   apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
@@ -62,6 +62,12 @@ export class ProjectComponent {
       console.log(this.arquivos)
       console.log(parametro)
     //}
+  }
+
+  limpar() {
+    this.model.titulo = '';
+    this.model.legenda = '';
+    this.model.caminho = '';
   }
 
   urlDestino(index){
@@ -130,7 +136,7 @@ export class ProjectComponent {
   adicionarImagem = require("../../assets/addImg.png")
   delCode = require('../../app/images/delCode.png')
   viewCode = require('../../app/images/viewCode.png')
-  addCode = require('../../app/images/adicionar.png')
+  addCode = require('../../app/images/addCode.png')
 }
 
 $(document).ready(function() {

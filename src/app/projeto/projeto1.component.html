@@ -200,7 +200,7 @@
         <br />
         <label for="basic-text">Texto</label>
         <div class="input-group">
-          <textarea class="form-control" rows="8" id="basic-text" aria-label="With textarea"></textarea>
+          <textarea class="form-control" rows="7" id="basic-text" aria-label="With textarea"></textarea>
         </div>
         <br />
         <label for="basic-url">Link complementar</label>
@@ -329,22 +329,24 @@
           <h6>Incorpore códigos específicos ao seu projeto</h6>
         </div>
         <br />
-        <label for="">Título do Código</label>
-        <input type="text" class="form-control" id="" name="tituloCodigo" [(ngModel)]="model.titulo"><br />
+        <form #fcode="ngForm" (ngSubmit)="onSubmit()">
+          <label for="">Título do Código</label>
+          <input type="text" class="form-control" id="" name="tituloCodigo" [(ngModel)]="model.titulo" required><br />
 
-        <label for="">Subtítulo do Código</label>
-        <input type="text" class="form-control" id="" name="subtituloCodigo" [(ngModel)]="model.legenda"><br />
+          <label for="">Subtítulo do Código</label>
+          <input type="text" class="form-control" id="" name="subtituloCodigo" [(ngModel)]="model.legenda" required><br />
 
-        <label for="">Link de origem do Código</label>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" id="" name="linkCodigo" [(ngModel)]="model.caminho">
-          <button class="btn btn-success" id="iCode" (click)="addArquivo('Codigo')">INCORPORAR</button>
-        </div>
+          <label for="">Link de origem do Código</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="" name="linkCodigo" [(ngModel)]="model.caminho" required>
+            <button type="submit" class="btn btn-success" id="iCode" (click)="addArquivo('Codigo')" [disabled]="fcode.invalid">INCORPORAR</button>
+          </div>
+        </form>
         <div class="row justify-content-center">
           <div *ngFor='let arquivo of arquivos; let i = index'>
             <div class="col-md-2">
-              <div class="relative" id="t1">
-                <a href="#0" target="__blank"><img [src]="viewCode" title=model.titulo style="max-width: 120px;"
+              <div class="relative">
+                <a href="#0" target="__blank"><img [src]="viewCode" title={{model.titulo}} style="max-width: 120px;"
                     (click)="urlDestino(model.caminho)"></a>
                 <div class="absolute">
                   <a href="#1"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
@@ -352,6 +354,9 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="relative" *ngIf="arquivos.length > 0">
+            <a href="#0"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
           </div>
         </div>
         <div class="modal-footer">
