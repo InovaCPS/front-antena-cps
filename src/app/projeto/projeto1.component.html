@@ -203,17 +203,17 @@
         <br />
         <label for="basic-text">Texto</label>
         <div class="input-group">
-          <textarea class="form-control" rows="7" id="basic-text" aria-label="With textarea" name="txtProjeto" [(ngModel)]="model.textoProjeto"></textarea>
+          <textarea class="form-control" rows="7" id="basic-text" aria-label="With textarea" name="txtProjeto" [(ngModel)]="projeto.textoProjeto"></textarea>
         </div>
         <br />
         <label for="basic-url">Link complementar</label>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="txtLink" [(ngModel)]="model.linkTexto">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="txtLink" [(ngModel)]="projeto.linkTexto">
         </div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal"
-          data-target="#modalMsg" (click)="addProjeto()">SALVAR</button>
+          data-target="#modalMsg">SALVAR</button>
         <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
           data-target="#modalResources">+ RECURSOS</button>
       </div>
