@@ -169,7 +169,7 @@
                 data-target="#modalResCodes"><b>Códigos</b></button>
             </div>
             <div class="col-sm-3">
-              <button type="button" class="btn-outline-dark" id="btn-recursos" data-toggle="modal" data-target="#modalDetails" data-dismiss="modal"><b>Detalhes</b></button>
+              <button type="button" class="btn-outline-dark" id="btn-recursos" data-toggle="modal" data-target="#modalDetails" data-dismiss="modal" (click)="addlinhas()"><b>Detalhes</b></button>
             </div>
             <div class="col-sm-3">
               <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Capa</b></button>
@@ -540,21 +540,21 @@
       <div class="modal-body">
           <h5>Complete seu projeto com mais informações relevantes</h5>
         <div>
-          <div class="form-row" style="margin-top: 20px">
+          <div *ngFor="let categs of categ; let i = index" class="form-row" style="margin-top: 20px">
             <div class="form-group col-md-6">
               <label for="">Categoria(s)</label>
-              <input class="form-control"type="text" [(ngModel)]="categ[i].desc" name="categ">
+              <input class="form-control"type="text" [(ngModel)]="categ[i]" name="categ[i].desc">
             </div>
             <div class="form-group col-md-5">
               <label for="">Colaborador(es)</label>
-              <input type="text" class="form-control" [(ngModel)]="colab[i].desc" name="colab">
+              <input type="text" class="form-control" [(ngModel)]="colab[i]" name="colab[i].desc">
             </div>
-            <div class="col-md-1 icons-edit">
-                <i (click)="addLine1()" class="fas fa-plus-circle" style="cursor: pointer"></i>
-                <i  (click)="deleteLine1(i)" class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i>
-              </div>
+            <div class="col-md-1 icons-edit form-group">
+              <a href="#0" (click)="addLine1()" style="font-style: none"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
+              <a href="#0" (click)="deleteLine1(i)" style="font-style: none" ><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
+             </div>
           </div>
-          <div class="form-row">
+          <div *ngFor="let recurso of recursos; let i = index" class="form-row"class="form-row">
             <div class="form-group col-md-6">
               <label for="">Recursos Utilizados</label>
               <input class="form-control"type="text" name="rec" [(ngModel)]="recursos[i].desc">
@@ -563,12 +563,12 @@
               <label for="">Premio(s) Conquistado(s)</label>
               <input type="text" class="form-control" [(ngModel)]="premios[i].desc">
             </div>
-            <div class="col-md-1 icons-edit">
-                <i (click)="addLine2()" class="fas fa-plus-circle" style="cursor: pointer"></i>
-                <i  (click)="deleteLine2(i)" class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i>
-              </div>
+            <div class="col-md-1 icons-edit form-group">
+              <a href="#0" (click)="addLine2()" style="font-style: none"><i class="fas fa-plus-circle" ></i></a>
+              <a href="#0" (click)="deleteLine2(i)" style="font-style: none" ><i class="fas fa-trash-alt" style=" margin-left: 10px"></i></a>
+             </div>
           </div>
-          <div class="form-row">
+          <div *ngFor="let direto of direitos; let i = index" class="form-row" class="form-row">
             <div class="form-group col-md-6">
               <label for="">Direitos Autorais</label>
               <input class="form-control"type="text" name="direitos" [(ngModel)]="direitos[i].desc">
@@ -577,9 +577,9 @@
               <label for="">Créditos Adicionais</label>
               <input type="text" class="form-control" name="creditos" [(ngModel)]="creditos[i].desc">
             </div>
-            <div class="col-md-1 icons-edit">
-                <i (click)="addLine3()" class="fas fa-plus-circle" style="cursor: pointer"></i>
-                <i  (click)="deleteLine3(i)" class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i>
+            <div class="col-md-1 icons-edit form-group">
+               <a href="#0" (click)="addLine3()" style="font-style: none"><i class="fas fa-plus-circle"></i></a>
+               <a href="#0" (click)="deleteLine3(i)" style="font-style: none" ><i class="fas fa-trash-alt" style="margin-left: 10px"></i></a>
               </div>
           </div>
         </div>
