@@ -39,7 +39,7 @@ export interface Projeto{
     coops: Coops[];
     textoProjeto: string;
     linkTexto: string;
-    arquivos: Arquivo[] 
+    arquivos: Arquivo[];
 }
 
 export interface Arquivo{

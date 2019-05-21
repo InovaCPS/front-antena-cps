@@ -15,6 +15,11 @@ body {margin:2rem;}
   color:#fff;
   opacity:1;
 }
+
+.icons-edit{
+  margin-top: 40px;
+
+}
   
 .modal-content{
     -webkit-border-radius: 30px;
