@@ -480,15 +480,15 @@
         <br />
         <form #fCode="ngForm" (ngSubmit)="onSubmit()">
           <label for="">Título do Arquivo</label>
-          <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.tituloArquivo"
+          <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.titulo"
             required><br />
           <label for="">Subtítulo do Arquivo</label>
-          <input type="text" class="form-control" id="" name="subtituloArquivo" [(ngModel)]="model.subtituloArquivo"
+          <input type="text" class="form-control" id="" name="subtituloArquivo" [(ngModel)]="model.legenda"
             required><br />
           <label for="">Link de origem do Arquivo</label>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.linkArquivo" required>
-            <button type="submit" class="btn btn-success" id="iArquivo"
+            <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.caminho" required>
+            <button type="submit" class="btn btn-success" id="iArquivo" (click)="addArquivo('Arquivos')"
               [disabled]="fArquivo.invalid">INCORPORAR</button>
           </div>
         </form>
