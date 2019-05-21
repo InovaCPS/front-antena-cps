@@ -20,7 +20,7 @@ export class ProjectComponent {
   model: any = {} ;
   resposta : any;
   apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
-  projeto: Projeto[];
+  projeto: Projeto;
   premiado: string = "";
   arquivos: Arquivo[];
   palavrasChave: string = "";
@@ -52,22 +52,26 @@ export class ProjectComponent {
     private http: HttpClient){
       this.coops = [];
       this.arquivos = [];
-      this.projeto = [];
+      this.projeto = { 
+        titulo: '',
+        descricao: '',
+        orientador: '',
+        status: '',
+        tipo: '',
+        tema: '',
+        coops: this.coops,
+        textoProjeto: '',
+        linkTexto: '',
+        arquivos: this.arquivos
+      }
       this.token = JSON.parse(localStorage.getItem('token'));
     }
 
   addArquivo(parametro){
       let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
       this.arquivos.push(newArquivo);
-      console.log(this.arquivos)
+      console.log(this.arquivos);
       this.desabilitar();
-  }
-
-  addProjeto() {
-    const newProjeto: Projeto = { titulo: '', descricao: '', orientador: '', status: '', tipo: '',
-    tema: '', coops: this.coops, textoProjeto: this.model.textoProjeto, linkTexto: this.model.linkTexto, arquivos: this.arquivos };
-    this.projeto.push(newProjeto);
-    console.log(this.projeto);
   }
 
   desabilitar() {
