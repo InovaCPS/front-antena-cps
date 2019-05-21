@@ -52,12 +52,21 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Bem vindo de volta</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true"></span>
+          <span aria-hidden="true">x</span>
         </button>
       </div>
       <div class="modal-body">
-        <button id="btnUser" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin" (click)="setEmail()">Continuar como {{user.nome}}</button>
-        <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin" >Entrar com outra conta</button>
+        <div style="text-align: center">
+        <div style="margin-bottom: 20px;">
+          <button id="btnUser" class="btn btn-info" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin" (click)="setEmail()">Continuar como {{user.nome}}</button>
+        </div>
+        <div>
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin" >Entrar com outra conta</button>
+        </div>
+      </div>
+      </div>
+      <div class="modal-footer" style="text-align: center">
+          <p>Ainda não é cadastrado ? Cadastre se <a href="/#/cadastro" data-dismiss="modal"> aqui.</a></p>
       </div>
     </div>
   </div>
