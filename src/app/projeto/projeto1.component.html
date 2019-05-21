@@ -133,7 +133,7 @@
         <h5 class="modal-title" id="exampleModalLabel">RECURSOS ADICIONAIS</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalProject"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">X</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: center;">
@@ -193,7 +193,7 @@
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE TEXTO</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">X</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: left;">
@@ -203,7 +203,7 @@
         <br />
         <label for="basic-text">Texto</label>
         <div class="input-group">
-          <textarea class="form-control" rows="8" id="basic-text" aria-label="With textarea"></textarea>
+          <textarea class="form-control" rows="7" id="basic-text" aria-label="With textarea"></textarea>
         </div>
         <br />
         <label for="basic-url">Link complementar</label>
@@ -251,7 +251,7 @@
       <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources"
         style="margin-left: 85%;margin-top: 1%" aria-label="Close">
         <span aria-hidden="true" style="font-size: 10px"> <u>
-            < VOLTAR</u> </span> </button> <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE
+            <X</u> </span> </button> <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE
               IMAGEM</h4>
               <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor
                 caracterizam o projeto</h5> <br />
@@ -324,7 +324,7 @@
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE CÓDIGOS</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">Voltar</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: left;">
@@ -332,22 +332,24 @@
           <h6>Incorpore códigos específicos ao seu projeto</h6>
         </div>
         <br />
-        <label for="">Título do Código</label>
-        <input type="text" class="form-control" id="" name="tituloCodigo" [(ngModel)]="model.titulo"><br />
+        <form #fcode="ngForm">
+          <label for="">Título do Código</label>
+          <input type="text" class="form-control" id="t1" name="tituloCodigo" [(ngModel)]="model.titulo" required><br />
 
-        <label for="">Subtítulo do Código</label>
-        <input type="text" class="form-control" id="" name="subtituloCodigo" [(ngModel)]="model.legenda"><br />
+          <label for="">Subtítulo do Código</label>
+          <input type="text" class="form-control" id="t2" name="subtituloCodigo" [(ngModel)]="model.legenda" required><br />
 
-        <label for="">Link de origem do Código</label>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" id="" name="linkCodigo" [(ngModel)]="model.caminho">
-          <button class="btn btn-success" id="iCode" (click)="addArquivo('Codigo')">INCORPORAR</button>
-        </div>
+          <label for="">Link de origem do Código</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="t3" name="linkCodigo" [(ngModel)]="model.caminho" required>
+            <button type="submit" class="btn btn-success" id="iCode" (click)="addArquivo('Codigo')" [disabled]="fcode.invalid">INCORPORAR</button>
+          </div>
+        </form>
         <div class="row justify-content-center">
           <div *ngFor='let arquivo of arquivos; let i = index'>
             <div class="col-md-2">
-              <div class="relative" id="t1">
-                <a href="#0" target="__blank"><img [src]="viewCode" title=model.titulo style="max-width: 120px;"
+              <div class="relative">
+                <a href="#0" target="__blank"><img [src]="viewCode" title={{model.titulo}} style="max-width: 120px;"
                     (click)="urlDestino(model.caminho)"></a>
                 <div class="absolute">
                   <a href="#1"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
@@ -355,6 +357,9 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="relative" *ngIf="arquivos.length > 0">
+            <a href="#0"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
           </div>
         </div>
         <div class="modal-footer">
@@ -375,7 +380,7 @@
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE MIDIA</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">X</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: left;">
@@ -386,20 +391,20 @@
         <label for="basic-url">Título da Mídia</label>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="tituloMidia"
-            [(ngModel)]="model.tituloMidia" required>
+            [(ngModel)]="model.titulo" required>
         </div>
         <label for="basic-url">Legenda</label>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="legendaMidia"
-            [(ngModel)]="model.legendaMidia" required>
+            [(ngModel)]="model.legenda" required>
         </div>
         <label for="basic-url">Link de origem da mídia</label>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" [(ngModel)]="model.caminho"> 
         </div>
         <div class="container">
           <button type="button" class="btn btn-primary video-btn" id="button1" data-toggle="modal"
-            data-src="https://www.youtube.com/embed/A-twOC3W558" data-target="#myModal">
+            data-src="https://www.youtube.com/embed/A-twOC3W558" data-target="#myModal" (click)="addArquivo('Midias')">
             INCORPORAR
           </button>
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -420,6 +425,7 @@
           </div>
         </div>
       </div>
+
 
       <div class="modal-footer">
         <div class="mr-auto">
@@ -451,7 +457,7 @@
         </div>
         <div>
           <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
-            data-target="#modalResText">CONTINUAR</button>
+            data-target="#modalResources">CONTINUAR</button>
         </div>
       </div>
     </div>
@@ -467,7 +473,7 @@
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE ARQUIVOS</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">Voltar</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: left;">

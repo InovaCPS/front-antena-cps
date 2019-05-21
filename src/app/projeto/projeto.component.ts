@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class ProjectComponent {
-  
+
   model: any = {} ;
   resposta : any;
   apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
@@ -56,18 +56,31 @@ export class ProjectComponent {
     }
 
   addArquivo(parametro){
-    //if(this.arquivos.length < 3){
       let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
       this.arquivos.push(newArquivo);
       console.log(this.arquivos)
       console.log(parametro)
-    //}
+      this.desabilitar();
+  }
+
+  desabilitar() {
+    document.getElementById('t1').setAttribute('disabled', 'disabled');
+    document.getElementById('t2').setAttribute('disabled', 'disabled');
+    document.getElementById('t3').setAttribute('disabled', 'disabled');
+    document.getElementById('iCode').setAttribute('disabled', 'disabled');
+  }
+
+  limpar() {
+    this.model.titulo = ''; this.model.legenda = ''; this.model.caminho = '';
+    document.getElementById('t1').removeAttribute('disabled');
+    document.getElementById('t2').removeAttribute('disabled');
+    document.getElementById('t3').removeAttribute('disabled');
   }
 
   urlDestino(index){
     window.open('//' + index);
   }
-  
+
   addCoops(){
       let newCoop: Coops = { email: "", unidade:"", curso:"" };
       this.coops.push(newCoop);
@@ -130,7 +143,7 @@ export class ProjectComponent {
   adicionarImagem = require("../../assets/addImg.png")
   delCode = require('../../app/images/delCode.png')
   viewCode = require('../../app/images/viewCode.png')
-  addCode = require('../../app/images/adicionar.png')
+  addCode = require('../../app/images/addCode.png')
 }
 
 $(document).ready(function() {

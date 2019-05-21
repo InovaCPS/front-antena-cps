@@ -1,6 +1,6 @@
 import { CollaboratorComponent } from './collaborator/collaborator.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import * as core from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -33,9 +33,9 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { AvatarCreationComponent } from './avatar-creation/avatar-creation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputFileConfig, InputFileModule } from 'ngx-input-file';
-
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider } from "angularx-social-login";
+
 import { ProfileNavbarComponent } from './profile-navbar/profile-navbar.component';
 
 const configs: InputFileConfig = {
@@ -130,7 +130,7 @@ export function provideConfig() {
 
 
 
-@NgModule({
+@core.NgModule({
   declarations: [
     AppComponent,
     DataBindingComponent,
@@ -189,6 +189,4 @@ export function provideConfig() {
   entryComponents: [AgendaComponent, NgbdModalContent],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-
-}
+export class AppModule {}
