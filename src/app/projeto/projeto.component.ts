@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coops } from './projeto.services';
+import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coops, Categ, Colab, Premios, Recursos, Direitos, Creditos } from './projeto.services';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,6 +12,11 @@ import { Router } from '@angular/router';
 
 export class ProjectComponent {
 
+  ngOnInit() {
+    this.addLine1();
+    this.addLine2();
+    this.addLine3();
+  }
   model: any = {} ;
   resposta : any;
   apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
@@ -33,6 +38,13 @@ export class ProjectComponent {
   token;
 
   coops: Coops[];
+
+  categ: Categ[];
+  colab: Colab[];
+  recursos: Recursos[];
+  premios: Premios [];
+  direitos: Direitos [];
+  creditos: Creditos[];
 
   constructor(
     private projetoServices: projetoServices,
@@ -84,6 +96,51 @@ export class ProjectComponent {
   addCoops(){
       let newCoop: Coops = { email: "", unidade:"", curso:"" };
       this.coops.push(newCoop);
+  }
+
+  addLine1(){
+    if (this.categ.length < 3 || this.colab.length < 3 ){
+      let newCateg: Categ = { desc: ""};
+      let newColab: Colab = { desc: ""};
+
+      this.colab.push(newColab);
+      this.categ.push(newCateg);
+    }
+  }
+
+  deleteLine1(index){
+    this.colab.splice(index, 1);
+    this.categ.splice(index, 1);
+  }
+
+  addLine2(){
+    if (this.recursos.length < 3 || this.premios.length < 3 ){
+      let newRecursos: Recursos = { desc: ""};
+      let newPremios: Premios = { desc: ""};
+
+      this.recursos.push(newRecursos);
+      this.premios.push(newPremios);
+    }
+  }
+
+  deleteLine2(index){
+    this.recursos.splice(index, 1);
+    this.premios.splice(index, 1);
+  }
+
+  addLine3(){
+    if (this.direitos.length < 3 || this.creditos.length < 3 ){
+      let newDireitos: Direitos = { desc: ""};
+      let newCreditos: Premios = { desc: ""};
+
+      this.direitos.push(newDireitos);
+      this.creditos.push(newCreditos);
+    }
+  }
+
+  deleteLine3(index){
+    this.direitos.splice(index, 1);
+    this.creditos.splice(index, 1);
   }
 
   fechar() {

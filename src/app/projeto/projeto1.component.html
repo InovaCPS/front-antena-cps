@@ -543,43 +543,43 @@
           <div class="form-row" style="margin-top: 20px">
             <div class="form-group col-md-6">
               <label for="">Categoria(s)</label>
-              <input class="form-control"type="text">
+              <input class="form-control"type="text" [(ngModel)]="categ[i].desc" name="categ">
             </div>
             <div class="form-group col-md-5">
               <label for="">Colaborador(es)</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" [(ngModel)]="colab[i].desc" name="colab">
             </div>
             <div class="col-md-1 icons-edit">
-                <i class="fas fa-plus-circle" style="cursor: pointer"></i>
-                <i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i>
+                <i (click)="addLine1()" class="fas fa-plus-circle" style="cursor: pointer"></i>
+                <i  (click)="deleteLine1(i)" class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i>
               </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="">Recursos Utilizados</label>
-              <input class="form-control"type="text">
+              <input class="form-control"type="text" name="rec" [(ngModel)]="recursos[i].desc">
             </div>
             <div class="form-group col-md-5">
               <label for="">Premio(s) Conquistado(s)</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" [(ngModel)]="premios[i].desc">
             </div>
             <div class="col-md-1 icons-edit">
-                <i class="fas fa-plus-circle" style="cursor: pointer"></i>
-                <i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i>
+                <i (click)="addLine2()" class="fas fa-plus-circle" style="cursor: pointer"></i>
+                <i  (click)="deleteLine2(i)" class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i>
               </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="">Direitos Autorais</label>
-              <input class="form-control"type="text">
+              <input class="form-control"type="text" name="direitos" [(ngModel)]="direitos[i].desc">
             </div>
             <div class="form-group col-md-5">
               <label for="">Créditos Adicionais</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" name="creditos" [(ngModel)]="creditos[i].desc">
             </div>
             <div class="col-md-1 icons-edit">
-                <i class="fas fa-plus-circle" style="cursor: pointer"></i>
-                <i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i>
+                <i (click)="addLine3()" class="fas fa-plus-circle" style="cursor: pointer"></i>
+                <i  (click)="deleteLine3(i)" class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i>
               </div>
           </div>
         </div>

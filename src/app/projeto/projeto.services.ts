@@ -74,3 +74,27 @@ export interface Coops {
     unidade: string;
     curso: string;
 }
+
+export interface Categ {
+    desc: string;
+}
+
+export interface Colab {
+    desc: string;
+}
+
+export interface Premios {
+    desc: string;
+}
+
+export interface Recursos {
+    desc: string;
+}
+
+export interface Direitos {
+    desc: string;
+}
+
+export interface Creditos {
+    desc: string;
+}
