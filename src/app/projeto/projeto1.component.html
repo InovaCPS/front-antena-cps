@@ -203,17 +203,17 @@
         <br />
         <label for="basic-text">Texto</label>
         <div class="input-group">
-          <textarea class="form-control" rows="7" id="basic-text" aria-label="With textarea"></textarea>
+          <textarea class="form-control" rows="7" id="basic-text" aria-label="With textarea" name="txtProjeto" [(ngModel)]="model.textoProjeto"></textarea>
         </div>
         <br />
         <label for="basic-url">Link complementar</label>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="txtLink" [(ngModel)]="model.linkTexto">
         </div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal"
-          data-target="#modalMsg">SALVAR</button>
+          data-target="#modalMsg" (click)="addProjeto()">SALVAR</button>
         <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
           data-target="#modalResources">+ RECURSOS</button>
       </div>
@@ -483,15 +483,15 @@
         <br />
         <form #fCode="ngForm" (ngSubmit)="onSubmit()">
           <label for="">Título do Arquivo</label>
-          <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.tituloArquivo"
+          <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.titulo"
             required><br />
           <label for="">Subtítulo do Arquivo</label>
-          <input type="text" class="form-control" id="" name="subtituloArquivo" [(ngModel)]="model.subtituloArquivo"
+          <input type="text" class="form-control" id="" name="subtituloArquivo" [(ngModel)]="model.legenda"
             required><br />
           <label for="">Link de origem do Arquivo</label>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.linkArquivo" required>
-            <button type="submit" class="btn btn-success" id="iArquivo"
+            <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.caminho" required>
+            <button type="submit" class="btn btn-success" id="iArquivo" (click)="addArquivo('Arquivos')"
               [disabled]="fArquivo.invalid">INCORPORAR</button>
           </div>
         </form>
