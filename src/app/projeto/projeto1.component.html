@@ -256,7 +256,7 @@
               <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor
                 caracterizam o projeto</h5> <br />
 
-              <form #f="ngForm" (ngSubmit)="onSubmit()">
+              <form #f="ngForm" >
                 <label style="margin-left: 5%"> Título da Imagem </label>
                 <input type="text" class="form-control" id="tituloImagem" name="tituloImagem"
                   [(ngModel)]="model.tituloImagem" required> <br />
@@ -481,7 +481,7 @@
           <h6>Incorpore os arquivos ao seu projeto</h6>
         </div>
         <br />
-        <form #fCode="ngForm" (ngSubmit)="onSubmit()">
+        <form #fCode="ngForm">
           <label for="">Título do Arquivo</label>
           <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.titulo"
             required><br />
@@ -492,7 +492,7 @@
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.caminho" required>
             <button type="submit" class="btn btn-success" id="iArquivo" (click)="addArquivo('Arquivos')"
-              [disabled]="fArquivo.invalid">INCORPORAR</button>
+              [disabled]="fCode.invalid">INCORPORAR</button>
           </div>
         </form>
         <div class="modal-footer">
@@ -543,11 +543,11 @@
           <div *ngFor="let categs of categ; let i = index" class="form-row" style="margin-top: 20px">
             <div class="form-group col-md-6">
               <label for="">Categoria(s)</label>
-              <input class="form-control"type="text" [(ngModel)]="categ[i]" name="categ[i].desc">
+              <input class="form-control"type="text" [(ngModel)]="categ[i].desc" name="categ">
             </div>
             <div class="form-group col-md-5">
               <label for="">Colaborador(es)</label>
-              <input type="text" class="form-control" [(ngModel)]="colab[i]" name="colab[i].desc">
+              <input type="text" class="form-control" [(ngModel)]="colab[i].desc" name="colab">
             </div>
             <div class="col-md-1 icons-edit form-group">
               <a href="#0" (click)="addLine1()" style="font-style: none"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
