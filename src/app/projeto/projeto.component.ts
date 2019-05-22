@@ -12,11 +12,6 @@ import { Router } from '@angular/router';
 
 export class ProjectComponent {
 
-  ngOnInit() {
-    this.addLine1();
-    this.addLine2();
-    this.addLine3();
-  }
   model: any = {} ;
   resposta : any;
   apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
@@ -54,6 +49,12 @@ export class ProjectComponent {
       this.arquivos = [];
       this.projeto = [];
       this.token = JSON.parse(localStorage.getItem('token'));
+      this.premios = [];
+      this.categ = [];
+      this.colab = [];
+      this.recursos = [];
+      this.direitos = [];
+      this.creditos = [];
     }
 
   addArquivo(parametro){
@@ -136,6 +137,12 @@ export class ProjectComponent {
   deleteLine3(index){
     this.direitos.splice(index, 1);
     this.creditos.splice(index, 1);
+  }
+
+  addlinhas(){
+    this.addLine1();
+    this.addLine2();
+    this.addLine3();
   }
 
   fechar() {
