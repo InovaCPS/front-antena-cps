@@ -72,7 +72,6 @@ export class ProjectComponent {
       let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
       this.arquivos.push(newArquivo);
       console.log(this.arquivos);
-      this.desabilitar();
   }
 
   desabilitar() {
