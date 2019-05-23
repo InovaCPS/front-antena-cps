@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coops } from './projeto.services';
+import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coops, Categ, Colab, Premios, Recursos, Direitos, Creditos } from './projeto.services';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 })
 
 export class ProjectComponent {
-  
+
   model: any = {} ;
   resposta : any;
   apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
-  projeto: Projeto;
+  projeto: Projeto[];
   premiado: string = "";
   arquivos: Arquivo[];
   palavrasChave: string = "";
@@ -34,43 +34,114 @@ export class ProjectComponent {
 
   coops: Coops[];
 
+  categ: Categ[];
+  colab: Colab[];
+  recursos: Recursos[];
+  premios: Premios [];
+  direitos: Direitos [];
+  creditos: Creditos[];
+
   constructor(
     private projetoServices: projetoServices,
     private router: Router,
     private http: HttpClient){
       this.coops = [];
       this.arquivos = [];
-      this.projeto = { 
-        titulo: "",
-        descricao: "",
-        orientador: "",
-        status: "",
-        tipo: "",
-        tema: "",
-        coops: this.coops,
-        textoProjeto: "",
-        linkTexto: "",
-        arquivos: this.arquivos
-      }
+      this.projeto = [];
       this.token = JSON.parse(localStorage.getItem('token'));
+      this.premios = [];
+      this.categ = [];
+      this.colab = [];
+      this.recursos = [];
+      this.direitos = [];
+      this.creditos = [];
     }
 
   addArquivo(parametro){
-    //if(this.arquivos.length < 3){
       let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
       this.arquivos.push(newArquivo);
-      console.log(this.arquivos)
-      console.log(parametro)
-    //}
+      console.log(this.arquivos);
+  }
+
+  addProjeto() {
+    const newProjeto: Projeto = { titulo: '', descricao: '', orientador: '', status: '', tipo: '',
+    tema: '', coops: this.coops, textoProjeto: this.model.textoProjeto, linkTexto: this.model.linkTexto, arquivos: this.arquivos };
+    this.projeto.push(newProjeto);
+    console.log(this.projeto);
+  }
+
+  desabilitar() {
+    document.getElementById('t1').setAttribute('disabled', 'disabled');
+    document.getElementById('t2').setAttribute('disabled', 'disabled');
+    document.getElementById('t3').setAttribute('disabled', 'disabled');
+    document.getElementById('iCode').setAttribute('disabled', 'disabled');
+  }
+
+  limpar() {
+    this.model.titulo = ''; this.model.legenda = ''; this.model.caminho = '';
+    document.getElementById('t1').removeAttribute('disabled');
+    document.getElementById('t2').removeAttribute('disabled');
+    document.getElementById('t3').removeAttribute('disabled');
   }
 
   urlDestino(index){
     window.open('//' + index);
   }
-  
+
   addCoops(){
       let newCoop: Coops = { email: "", unidade:"", curso:"" };
       this.coops.push(newCoop);
+  }
+
+  addLine1(){
+    if (this.categ.length < 3 || this.colab.length < 3 ){
+      let newCateg: Categ = { desc: ""};
+      let newColab: Colab = { desc: ""};
+
+      this.colab.push(newColab);
+      this.categ.push(newCateg);
+    }
+  }
+
+  deleteLine1(index){
+    this.colab.splice(index, 1);
+    this.categ.splice(index, 1);
+  }
+
+  addLine2(){
+    if (this.recursos.length < 3 || this.premios.length < 3 ){
+      let newRecursos: Recursos = { desc: ""};
+      let newPremios: Premios = { desc: ""};
+
+      this.recursos.push(newRecursos);
+      this.premios.push(newPremios);
+    }
+  }
+
+  deleteLine2(index){
+    this.recursos.splice(index, 1);
+    this.premios.splice(index, 1);
+  }
+
+  addLine3(){
+    if (this.direitos.length < 3 || this.creditos.length < 3 ){
+      let newDireitos: Direitos = { desc: ""};
+      let newCreditos: Premios = { desc: ""};
+
+      this.direitos.push(newDireitos);
+      this.creditos.push(newCreditos);
+    }
+  }
+
+  deleteLine3(index){
+    this.direitos.splice(index, 1);
+    this.creditos.splice(index, 1);
+  }
+
+  addlinhas(){
+    this.addLine1();
+    this.addLine2();
+    this.addLine3();
   }
 
   fechar() {
@@ -130,7 +201,7 @@ export class ProjectComponent {
   adicionarImagem = require("../../assets/addImg.png")
   delCode = require('../../app/images/delCode.png')
   viewCode = require('../../app/images/viewCode.png')
-  addCode = require('../../app/images/adicionar.png')
+  addCode = require('../../app/images/addCode.png')
 }
 
 $(document).ready(function() {
@@ -140,12 +211,14 @@ $(document).ready(function() {
   });
   console.log($videoSrc);
   $('#myModal').on('shown.bs.modal', function (e) {
-  $("#video").attr('src',$videoSrc + "?autoplay=1&modestbranding=1&showinfo=0" ); 
+  $("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
   })
   $('#myModal').on('hide.bs.modal', function (e) {
       $("#video").attr('src',$videoSrc); 
   }) 
   });
+
+  
   
   
   

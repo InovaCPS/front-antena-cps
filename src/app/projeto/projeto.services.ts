@@ -39,7 +39,7 @@ export interface Projeto{
     coops: Coops[];
     textoProjeto: string;
     linkTexto: string;
-    arquivos: Arquivo[] 
+    arquivos: Arquivo[];
 }
 
 export interface Arquivo{
@@ -73,4 +73,28 @@ export interface Coops {
     email: string;
     unidade: string;
     curso: string;
+}
+
+export interface Categ {
+    desc: string;
+}
+
+export interface Colab {
+    desc: string;
+}
+
+export interface Premios {
+    desc: string;
+}
+
+export interface Recursos {
+    desc: string;
+}
+
+export interface Direitos {
+    desc: string;
+}
+
+export interface Creditos {
+    desc: string;
 }

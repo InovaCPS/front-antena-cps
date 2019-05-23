@@ -33,7 +33,6 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { AvatarCreationComponent } from './avatar-creation/avatar-creation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputFileConfig, InputFileModule } from 'ngx-input-file';
-
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider } from "angularx-social-login";
 import { ProfileNavbarComponent } from './profile-navbar/profile-navbar.component';
@@ -189,6 +188,4 @@ export function provideConfig() {
   entryComponents: [AgendaComponent, NgbdModalContent],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-
-}
+export class AppModule {}

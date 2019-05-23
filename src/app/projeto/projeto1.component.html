@@ -65,6 +65,9 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"> Escolha a unidade e os colaboradores do projeto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" id="close-modal-profile" style="font-size: 15px"> VOLTAR</span>
+        </button>
       </div>
       <div class="modal-body">
         <div *ngFor='let coop of coops; let i = index' class="form-row" style="padding: 20px;">
@@ -122,8 +125,6 @@
   </div>
 </div>
 
-<app-recurso-imagem></app-recurso-imagem>
-
 <div class="modal fade" id="modalResources" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -132,7 +133,7 @@
         <h5 class="modal-title" id="exampleModalLabel">RECURSOS ADICIONAIS</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalProject"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">X</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: center;">
@@ -169,7 +170,7 @@
                 data-target="#modalResCodes"><b>Códigos</b></button>
             </div>
             <div class="col-sm-3">
-              <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Detalhes</b></button>
+              <button type="button" class="btn-outline-dark" id="btn-recursos" data-toggle="modal" data-target="#modalDetails" data-dismiss="modal" (click)="addlinhas()"><b>Detalhes</b></button>
             </div>
             <div class="col-sm-3">
               <button type="button" class="btn-outline-dark" id="btn-recursos"  data-dismiss="modal" data-toggle="modal"
@@ -186,56 +187,6 @@
   </div>
 </div>
 
-<div class="modal fade" id="modalResImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources"
-        style="margin-left: 85%;margin-top: 1%" aria-label="Close">
-        <span aria-hidden="true" style="font-size: 10px"> <u>
-            < VOLTAR</u> </span> </button> <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE
-              IMAGEM</h4>
-              <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor
-                caracterizam o projeto</h5> <br />
-
-              <form #fi="ngForm" (ngSubmit)="onSubmit()">
-                <label style="margin-left: 5%"> Título da Imagem </label>
-                <input type="text" class="form-control" id="tituloImagem" name="tituloImagem"
-                  [(ngModel)]="model.tituloImagem" required> <br />
-
-                <label for="" style="margin-left: 5%"> Legenda </label>
-                <input type="text" class="form-control" id="legendaImagem" name="legendaImagem"
-                  [(ngModel)]="model.legendaImagem">
-
-              </form>
-
-              <input-file placeholder="" style="margin-left:7%" name="imagens" [(ngModel)]="model.imagens" required></input-file>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="btnSalvar" data-dismiss="modal" data-toggle="modal"
-                  data-target="#modalFinalizarImg" [disabled]="fi.invalid">SALVAR</button>
-                <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal"
-                  data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>
-              </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="modalFinalizarImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <h4 style="margin-top: 20%; margin-left:5%">Você ainda pode adicionar outras imagens ao seu projeto. Clique no
-        botão "CONTINUAR" para acrescentar mais imagens, ou clique em "FINALIZAR" para concluir a edição e retornar à
-        sua página personalizada.</h4>
-      <button type="submit" class="btn btn-danger" id="btnFinalizar" data-dismiss="modal"
-        (click)="postProject()">FINALIZAR</button>
-      <button type="button" class="btn btn-danger" id="btnContinuar" data-dismiss="modal" data-toggle="modal"
-        data-target="#modalResImg">CONTINUAR</button>
-    </div>
-  </div>
-</div>
-
 <div class="modal fade" id="modalResText" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -244,7 +195,7 @@
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE TEXTO</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">X</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: left;">
@@ -254,12 +205,12 @@
         <br />
         <label for="basic-text">Texto</label>
         <div class="input-group">
-          <textarea class="form-control" rows="8" id="basic-text" aria-label="With textarea"></textarea>
+          <textarea class="form-control" rows="7" id="basic-text" aria-label="With textarea" name="txtProjeto" [(ngModel)]="projeto.textoProjeto"></textarea>
         </div>
         <br />
         <label for="basic-url">Link complementar</label>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="txtLink" [(ngModel)]="projeto.linkTexto">
         </div>
       </div>
       <div class="modal-footer">
@@ -284,13 +235,80 @@
       </div>
       <div class="modal-footer">
         <div class="mr-auto">
-          <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" 
+            data-target="#modalResources" (click)="postProject()">FINALIZAR</button>
         </div>
         <div>
           <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
             data-target="#modalResText">CONTINUAR</button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalResImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources"
+        style="margin-left: 85%;margin-top: 1%" aria-label="Close">
+        <span aria-hidden="true" style="font-size: 10px"> <u>
+            <X</u> </span> </button> <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE
+              IMAGEM</h4>
+              <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor
+                caracterizam o projeto</h5> <br />
+
+              <form #f="ngForm" (ngSubmit)="onSubmit()">
+                <label style="margin-left: 5%"> Título da Imagem </label>
+                <input type="text" class="form-control" id="t1" name="tituloImagem"
+                  [(ngModel)]="model.titulo" required> <br />
+
+                <label for="" style="margin-left: 5%"> Legenda </label>
+                <input type="text" class="form-control" id="t2" name="legendaImagem"
+                  [(ngModel)]="model.legenda">
+                  <input type="file" id="t3" accept="image/*" required [(ngModel)]="model.caminho">
+                  <button type="submit" class="btn btn-success" id="iCode" (click)="addArquivo('Imagem')" [disabled]="f.invalid">INCORPORAR</button> 
+              </form>
+
+         
+        <!--      <div class="row justify-content-center">
+                  <div *ngFor='let arquivo of arquivos; let i = index'>
+                    <div class="col-md-2">
+                      <div class="relative">
+                       <img [src]="viewCode" title={{model.titulo}} style="max-width: 120px;">
+                        <div class="absolute">
+                          <img [src]="delCode" title="Excluir" style="max-width: 25px;"
+                              (click)="deleteArquivo(i)">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative" *ngIf="arquivos.length > 0">
+                    <a href="#0"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
+                  </div>
+            </div> -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnSalvar" data-dismiss="modal" data-toggle="modal"
+                  data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
+                <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal"
+                  data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>
+              </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalFinalizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <h4 style="margin-top: 20%; margin-left:5%">Você ainda pode adicionar outras imagens ao seu projeto. Clique no
+        botão "CONTINUAR" para acrescentar mais imagens, ou clique em "FINALIZAR" para concluir a edição e retornar à
+        sua página personalizada.</h4>
+      <button type="submit" class="btn btn-danger" id="btnFinalizar" data-dismiss="modal"
+        (click)="postProject()">FINALIZAR</button>
+      <button type="button" class="btn btn-danger" id="btnContinuar" data-dismiss="modal" data-toggle="modal"
+        data-target="#modalResImg">CONTINUAR</button>
     </div>
   </div>
 </div>
@@ -307,7 +325,8 @@
       </div>
       <div class="modal-footer">
         <div class="mr-auto">
-          <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" 
+            data-target="#modalResources" (click)="postProject()">FINALIZAR</button>
         </div>
         <div>
           <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
@@ -326,7 +345,7 @@
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE CÓDIGOS</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">Voltar</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: left;">
@@ -334,23 +353,26 @@
           <h6>Incorpore códigos específicos ao seu projeto</h6>
         </div>
         <br />
-        <label for="">Título do Código</label>
-        <input type="text" class="form-control" id="" name="tituloCodigo" [(ngModel)]="model.titulo"><br />
+        <form #fcode="ngForm">
+          <label for="">Título do Código</label>
+          <input type="text" class="form-control" id="t1" name="tituloCodigo" [(ngModel)]="model.titulo" required><br />
 
-        <label for="">Subtítulo do Código</label>
-        <input type="text" class="form-control" id="" name="subtituloCodigo" [(ngModel)]="model.legenda"><br />
+          <label for="">Subtítulo do Código</label>
+          <input type="text" class="form-control" id="t2" name="subtituloCodigo" [(ngModel)]="model.legenda" required><br />
 
-        <label for="">Link de origem do Código</label>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" id="" name="linkCodigo" [(ngModel)]="model.caminho">
-          <button class="btn btn-success" id="iCode" (click)="addArquivo('Codigo')">INCORPORAR</button>
-        </div>
+          <label for="">Link de origem do Código</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="t3" name="linkCodigo" [(ngModel)]="model.caminho" required>
+            <button type="submit" class="btn btn-success" id="iCode" (click)="addArquivo('Codigo')" 
+              (click)="limpar()" (click)="desabilitar()" [disabled]="fcode.invalid">INCORPORAR</button>
+          </div>
+        </form>
         <div class="row justify-content-center">
           <div *ngFor='let arquivo of arquivos; let i = index'>
             <div class="col-md-2">
-              <div class="relative" id="t1">
-                <a href="#0" target="__blank"><img [src]="viewCode" title=model.titulo style="max-width: 120px;"
-                    (click)="urlDestino(model.caminho)"></a>
+              <div class="relative">
+                <a href="#0" target="__blank"><img [src]="viewCode" title={{arquivo.titulo}} style="max-width: 120px;"
+                    (click)="urlDestino(arquivo.caminho)"></a>
                 <div class="absolute">
                   <a href="#1"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
                       (click)="deleteArquivo(i)"></a>
@@ -358,10 +380,13 @@
               </div>
             </div>
           </div>
+          <div class="relative" *ngIf="arquivos.length > 0">
+            <a href="#0"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
+          </div>
         </div>
         <div class="modal-footer">
           <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal"
-            data-target="#modalMsg2">SALVAR</button>
+            data-target="#modalMsg2" [disabled]="!arquivos.length > 0">SALVAR</button>
           <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
             data-target="#modalResources">+ RECURSOS</button>
         </div>
@@ -377,7 +402,7 @@
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE MIDIA</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">X</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: left;">
@@ -388,20 +413,20 @@
         <label for="basic-url">Título da Mídia</label>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="tituloMidia"
-            [(ngModel)]="model.tituloMidia" required>
+            [(ngModel)]="model.titulo" required>
         </div>
         <label for="basic-url">Legenda</label>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="legendaMidia"
-            [(ngModel)]="model.legendaMidia" required>
+            [(ngModel)]="model.legenda" required>
         </div>
         <label for="basic-url">Link de origem da mídia</label>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" [(ngModel)]="model.caminho"> 
         </div>
         <div class="container">
           <button type="button" class="btn btn-primary video-btn" id="button1" data-toggle="modal"
-            data-src="https://www.youtube.com/embed/A-twOC3W558" data-target="#myModal">
+            data-src="https://www.youtube.com/embed/A-twOC3W558" data-target="#myModal" (click)="addArquivo('Midias')">
             INCORPORAR
           </button>
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -422,6 +447,7 @@
           </div>
         </div>
       </div>
+
 
       <div class="modal-footer">
         <div class="mr-auto">
@@ -453,7 +479,7 @@
         </div>
         <div>
           <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
-            data-target="#modalResText">CONTINUAR</button>
+            data-target="#modalResources">CONTINUAR</button>
         </div>
       </div>
     </div>
@@ -469,7 +495,7 @@
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE ARQUIVOS</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
-          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">Voltar</span>
         </button>
       </div>
       <div class="modal-body" style="text-align: left;">
@@ -479,16 +505,16 @@
         <br />
         <form #fCode="ngForm" (ngSubmit)="onSubmit()">
           <label for="">Título do Arquivo</label>
-          <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.tituloArquivo"
+          <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.titulo"
             required><br />
           <label for="">Subtítulo do Arquivo</label>
-          <input type="text" class="form-control" id="" name="subtituloArquivo" [(ngModel)]="model.subtituloArquivo"
+          <input type="text" class="form-control" id="" name="subtituloArquivo" [(ngModel)]="model.legenda"
             required><br />
           <label for="">Link de origem do Arquivo</label>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.linkArquivo" required>
-            <button type="submit" class="btn btn-success" id="iArquivo"
-              [disabled]="fArquivo.invalid">INCORPORAR</button>
+            <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.caminho" required>
+            <button type="submit" class="btn btn-success" id="iArquivo" (click)="addArquivo('Arquivos')"
+              [disabled]="fCode.invalid">INCORPORAR</button>
           </div>
         </form>
         <div class="modal-footer">
@@ -517,12 +543,80 @@
         </div>
         <div>
           <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
-            data-target="#modalResText">CONTINUAR</button>
+            data-target="#modalArquivos">CONTINUAR</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="modalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adicionar Detalhes</h5><br>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h5>Complete seu projeto com mais informações relevantes</h5>
+        <div>
+          <div *ngFor="let categs of categ; let i = index" class="form-row" style="margin-top: 20px">
+            <div class="form-group col-md-6">
+              <label for="">Categoria(s)</label>
+              <input class="form-control"type="text" [(ngModel)]="categ[i]" name="categ[i].desc">
+            </div>
+            <div class="form-group col-md-5">
+              <label for="">Colaborador(es)</label>
+              <input type="text" class="form-control" [(ngModel)]="colab[i]" name="colab[i].desc">
+            </div>
+            <div class="col-md-1 icons-edit form-group">
+              <a href="#0" (click)="addLine1()" style="font-style: none"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
+              <a href="#0" (click)="deleteLine1(i)" style="font-style: none" ><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
+             </div>
+          </div>
+          <div *ngFor="let recurso of recursos; let i = index" class="form-row"class="form-row">
+            <div class="form-group col-md-6">
+              <label for="">Recursos Utilizados</label>
+              <input class="form-control"type="text" name="rec" [(ngModel)]="recursos[i].desc">
+            </div>
+            <div class="form-group col-md-5">
+              <label for="">Premio(s) Conquistado(s)</label>
+              <input type="text" class="form-control" [(ngModel)]="premios[i].desc">
+            </div>
+            <div class="col-md-1 icons-edit form-group">
+              <a href="#0" (click)="addLine2()" style="font-style: none"><i class="fas fa-plus-circle" ></i></a>
+              <a href="#0" (click)="deleteLine2(i)" style="font-style: none" ><i class="fas fa-trash-alt" style=" margin-left: 10px"></i></a>
+             </div>
+          </div>
+          <div *ngFor="let direto of direitos; let i = index" class="form-row" class="form-row">
+            <div class="form-group col-md-6">
+              <label for="">Direitos Autorais</label>
+              <input class="form-control"type="text" name="direitos" [(ngModel)]="direitos[i].desc">
+            </div>
+            <div class="form-group col-md-5">
+              <label for="">Créditos Adicionais</label>
+              <input type="text" class="form-control" name="creditos" [(ngModel)]="creditos[i].desc">
+            </div>
+            <div class="col-md-1 icons-edit form-group">
+               <a href="#0" (click)="addLine3()" style="font-style: none"><i class="fas fa-plus-circle"></i></a>
+               <a href="#0" (click)="deleteLine3(i)" style="font-style: none" ><i class="fas fa-trash-alt" style="margin-left: 10px"></i></a>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="display: flex; justify-content: center;">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" style="border-radius: 30px;">SALVAR</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" style="border-radius: 30px; margin-left: 30px;">+ RECURSOS</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 <div class="modal fade" id="modalResCapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -531,20 +625,28 @@
       <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources" style="margin-left: 85%;margin-top: 1%" aria-label="Close">
         <span aria-hidden="true" style="font-size: 10px"> <u>< VOLTAR</u></span>
     </button>
-        <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CAPA DO PROJETO</h4>
-        <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha uma imagem para a capa do seu projeto</h5> <br/>
+        <h4 class="modal-title" id="capalabel1" style="margin-left: 5%">CAPA DO PROJETO</h4>
+        <h5 class="modal-title" id="capalabel2" style="margin-left: 5%">Escolha uma imagem para a capa do seu projeto</h5> <br/>
        
    <form #fc="ngForm" (ngSubmit)="onSubmit()" style="margin-left:40%; width: 200px; height: 300px;">
        
-        <input type="file" name="capaTeste" [(ngModel)]="model.capaTeste" required>
-      <!-- <input-file
-        fileAccept="image/*" fileLimit="1" name="capa" [(ngModel)]="model.capa" required >
-        </input-file> --> 
-        </form> 
-            
+        <input type="file" name="capa" [(ngModel)]="model.capa" accept="image/*"  required>
+        
+  </form> 
       <div class="modal-footer">
-          <button type="button" class="btn btn-danger" id="btnSalvarImagem" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizarCapa" [disabled]="fc.invalid">SALVAR</button>
+          <button type="button" class="btn btn-danger" id="btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizarCapa" [disabled]="fc.invalid">SALVAR</button>
           <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
       </div>
           </div>
       </div>
+    
+      <div class="modal fade" id="modalFinalizarCapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <h4 style="margin-top: 20%; margin-left:5%">Você pode substituir a imagens de capa do seu projeto. Clique no botão "CONTINUAR" para substituir a imagem de capa, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h4>
+            <button type="submit" class="btn btn-danger" id="btnFinalizar" data-dismiss="modal" (click)="postProject()" >FINALIZAR</button>
+            <button type="button" class="btn btn-danger" id="btnContinuar" data-dismiss="modal" data-toggle="modal" data-target="#modalResCapa">CONTINUAR</button>
+            </div>
+        </div>
+      </div>
+      
