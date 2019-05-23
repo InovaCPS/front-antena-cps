@@ -61,6 +61,7 @@ export class ProjectComponent {
       let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
       this.arquivos.push(newArquivo);
       console.log(this.arquivos);
+
   }
 
   addProjeto() {
@@ -68,6 +69,20 @@ export class ProjectComponent {
     tema: '', coops: this.coops, textoProjeto: this.model.textoProjeto, linkTexto: this.model.linkTexto, arquivos: this.arquivos };
     this.projeto.push(newProjeto);
     console.log(this.projeto);
+  }
+
+  desabilitarImg(){
+    document.getElementById('i1').setAttribute('disabled', 'disabled');
+    document.getElementById('i2').setAttribute('disabled', 'disabled');
+    document.getElementById('i3').setAttribute('disabled', 'disabled');
+    document.getElementById('iImg').setAttribute('disabled', 'disabled');
+  }
+
+  limparImg(){
+    this.model.titulo = ''; this.model.legenda = ''; this.model.caminho = '';
+    document.getElementById('i1').removeAttribute('disabled');
+    document.getElementById('i2').removeAttribute('disabled');
+    document.getElementById('i3').removeAttribute('disabled');
   }
 
   desabilitar() {

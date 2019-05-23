@@ -261,18 +261,17 @@
 
               <form #f="ngForm" (ngSubmit)="onSubmit()">
                 <label style="margin-left: 5%"> Título da Imagem </label>
-                <input type="text" class="form-control" id="t1" name="tituloImagem"
+                <input type="text" class="form-control" id="i1" name="tituloImagem"
                   [(ngModel)]="model.titulo" required> <br />
 
                 <label for="" style="margin-left: 5%"> Legenda </label>
-                <input type="text" class="form-control" id="t2" name="legendaImagem"
+                <input type="text" class="form-control" id="i2" name="legendaImagem"
                   [(ngModel)]="model.legenda">
-                  <input type="file" id="t3" accept="image/*" required [(ngModel)]="model.caminho">
-                  <button type="submit" class="btn btn-success" id="iCode" (click)="addArquivo('Imagem')" [disabled]="f.invalid">INCORPORAR</button> 
+                  <input type="file" id="i3" name="imagem" accept="image/*" required [(ngModel)]="model.caminho">
+                  <button type="submit" class="btn btn-success" id="iImg" (click)="addArquivo('Imagem')" 
+                  (click)="limparImg()" (click)="desabilitarImg()"[disabled]="f.invalid">INCORPORAR</button> 
               </form>
-
-         
-        <!--      <div class="row justify-content-center">
+        <div class="row justify-content-center">
                   <div *ngFor='let arquivo of arquivos; let i = index'>
                     <div class="col-md-2">
                       <div class="relative">
@@ -287,7 +286,8 @@
                   <div class="relative" *ngIf="arquivos.length > 0">
                     <a href="#0"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
                   </div>
-            </div> -->
+            </div> 
+            
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" id="btnSalvar" data-dismiss="modal" data-toggle="modal"
                   data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
