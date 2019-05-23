@@ -114,7 +114,7 @@
       </div>
       <div class="modal-footer">
         <div class="mr-auto">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
         </div>
         <div>
           <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
@@ -144,7 +144,8 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-3">
-              <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Imagens</b></button>
+              <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal"
+              data-target="#modalResImg"><b>Imagens</b></button>
             </div>
             <div class="col-sm-3">
               <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal"
@@ -179,7 +180,7 @@
       </div>
       <br />
       <div class="modal-footer">
-        <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+        <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
       </div>
     </div>
   </div>
@@ -245,38 +246,33 @@
   </div>
 </div>
 
-<div class="modal fade" id="modalResImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+<div class="modal fade" id="modalResImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
-      <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources"
-        style="margin-left: 85%;margin-top: 1%" aria-label="Close">
-        <span aria-hidden="true" style="font-size: 10px"> <u>
-            <X</u> </span> </button> <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE
-              IMAGEM</h4>
-              <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor
-                caracterizam o projeto</h5> <br />
+      <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources" style="margin-left: 85%;margin-top: 1%" aria-label="Close">
+        <span aria-hidden="true" style="font-size: 10px"> <u>< VOLTAR</u></span>
+    </button>
+        <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE IMAGEM</h4>
+        <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor caracterizam o projeto</h5> <br/>
+       
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
+            <label style="margin-left: 5%"> Título da Imagem </label>
+            <input type="text" class="form-control" id="tituloImagem" name="tituloImagem" [(ngModel)]="model.tituloImagem" required> <br/>
 
-              <form #f="ngForm" (ngSubmit)="onSubmit()">
-                <label style="margin-left: 5%"> Título da Imagem </label>
-                <input type="text" class="form-control" id="tituloImagem" name="tituloImagem"
-                  [(ngModel)]="model.tituloImagem" required> <br />
-
-                <label for="" style="margin-left: 5%"> Legenda </label>
-                <input type="text" class="form-control" id="legendaImagem" name="legendaImagem"
-                  [(ngModel)]="model.legendaImagem">
-              </form>
-
-              <input-file placeholder="" style="margin-left:7%" name="imagens" [(ngModel)]="model.imagens"></input-file>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="btnSalvar" data-dismiss="modal" data-toggle="modal"
-                  data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
-                <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal"
-                  data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>
-              </div>
-    </div>
-  </div>
+            <label for="" style="margin-left: 5%"> Legenda </label>
+            <input type="text" class="form-control" id="legendaImagem" name="legendaImagem" [(ngModel)]="model.legendaImagem">
+        </form>
+        
+            <input-file
+      placeholder="" style="margin-left:7%" name="imagens" [(ngModel)]="model.imagens">
+            </input-file>
+       
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id="btnSalvarImagem" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
+          <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
+      </div>
+          </div>
+      </div>
 </div>
 
 <div class="modal fade" id="modalFinalizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -456,7 +452,7 @@
       </div>
       <div class="modal-footer">
         <div class="mr-auto">
-          <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+          <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
         </div>
         <div>
           <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
@@ -495,7 +491,7 @@
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.caminho" required>
             <button type="submit" class="btn btn-success" id="iArquivo" (click)="addArquivo('Arquivos')"
-              [disabled]="fArquivo.invalid">INCORPORAR</button>
+              [disabled]="fCode.invalid">INCORPORAR</button>
           </div>
         </form>
         <div class="modal-footer">
@@ -520,7 +516,7 @@
       </div>
       <div class="modal-footer">
         <div class="mr-auto">
-          <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+          <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
         </div>
         <div>
           <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
