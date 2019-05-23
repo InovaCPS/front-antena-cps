@@ -190,7 +190,6 @@ export class ProjectComponent {
     console.log("POST");
 
     console.log(this.projeto);
-
     /*let url = `${this.apiRoot}/cp/projetos`;
     this.http
      .post(url, this.model.datajson,{headers: new HttpHeaders({'token': this.token.token})})
