@@ -98,3 +98,15 @@ export interface Direitos {
 export interface Creditos {
     desc: string;
 }
+
+export interface Detalhes {
+    categoria1: string,
+    		categoria2: string,
+    		premio1: string,
+    		premio2: string,
+    		recurso1: string,
+    		recurso2: string,
+    		credito1: string,
+    	credito2: string,
+    	direitos: string
+}

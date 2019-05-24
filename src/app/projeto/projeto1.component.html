@@ -550,9 +550,11 @@
               <input type="text" class="form-control" [(ngModel)]="colab[i].desc" name="colab">
             </div>
             <div class="col-md-1 icons-edit form-group">
-              <a href="#0" (click)="addLine1()" style="font-style: none"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
-              <a href="#0" (click)="deleteLine1(i)" style="font-style: none" ><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
-             </div>
+              <a class="c-icons" href="#0" (click)="addLine1()" ><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
+              <ng-template [ngIf]="i !=0 ">
+                <a class="c-icons" href="#0" (click)="deleteLine1(i)"><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
+              </ng-template>
+            </div>
           </div>
           <div *ngFor="let recurso of recursos; let i = index" class="form-row"class="form-row">
             <div class="form-group col-md-6">
@@ -564,8 +566,10 @@
               <input type="text" class="form-control" [(ngModel)]="premios[i].desc">
             </div>
             <div class="col-md-1 icons-edit form-group">
-              <a href="#0" (click)="addLine2()" style="font-style: none"><i class="fas fa-plus-circle" ></i></a>
-              <a href="#0" (click)="deleteLine2(i)" style="font-style: none" ><i class="fas fa-trash-alt" style=" margin-left: 10px"></i></a>
+              <a class="c-icons" href="#0" (click)="addLine2()" ><i class="fas fa-plus-circle" ></i></a>
+              <ng-template [ngIf]="i !=0 ">
+                  <a class="c-icons" href="#0" (click)="deleteLine2(i)" ><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
+              </ng-template>
              </div>
           </div>
           <div *ngFor="let direto of direitos; let i = index" class="form-row" class="form-row">
@@ -578,14 +582,16 @@
               <input type="text" class="form-control" name="creditos" [(ngModel)]="creditos[i].desc">
             </div>
             <div class="col-md-1 icons-edit form-group">
-               <a href="#0" (click)="addLine3()" style="font-style: none"><i class="fas fa-plus-circle"></i></a>
-               <a href="#0" (click)="deleteLine3(i)" style="font-style: none" ><i class="fas fa-trash-alt" style="margin-left: 10px"></i></a>
+               <a class="c-icons" href="#0" (click)="addLine3()" ><i class="fas fa-plus-circle"></i></a>
+               <ng-template [ngIf]="i !=0 ">
+                  <a class="c-icons" href="#0" (click)="deleteLine3(i)" ><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
+                </ng-template>
               </div>
           </div>
         </div>
       </div>
       <div class="modal-footer" style="display: flex; justify-content: center;">
-        <button type="button" class="btn btn-danger" data-dismiss="modal" style="border-radius: 30px;">SALVAR</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" style="border-radius: 30px;" (click)="addDetails()" data-toggle="modal" data-target="#modalResources" >SALVAR</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" style="border-radius: 30px; margin-left: 30px;">+ RECURSOS</button>
       </div>
     </div>
