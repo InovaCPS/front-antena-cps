@@ -60,8 +60,13 @@ export class ProjectComponent {
   addArquivo(parametro){
       let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
       this.arquivos.push(newArquivo);
+<<<<<<< HEAD
       console.log(this.arquivos)
       this.desabilitar();
+=======
+      console.log(this.arquivos);
+
+>>>>>>> dda1a46e605bb7e42d4ab1a4306032b817df41cb
   }
 
   addProjeto() {
@@ -69,6 +74,20 @@ export class ProjectComponent {
     tema: '', coops: this.coops, textoProjeto: this.model.textoProjeto, linkTexto: this.model.linkTexto, arquivos: this.arquivos };
     this.projeto.push(newProjeto);
     console.log(this.projeto);
+  }
+
+  desabilitarImg(){
+    document.getElementById('i1').setAttribute('disabled', 'disabled');
+    document.getElementById('i2').setAttribute('disabled', 'disabled');
+    document.getElementById('i3').setAttribute('disabled', 'disabled');
+    document.getElementById('iImg').setAttribute('disabled', 'disabled');
+  }
+
+  limparImg(){
+    this.model.titulo = ''; this.model.legenda = ''; this.model.caminho = '';
+    document.getElementById('i1').removeAttribute('disabled');
+    document.getElementById('i2').removeAttribute('disabled');
+    document.getElementById('i3').removeAttribute('disabled');
   }
 
   desabilitar() {
@@ -176,7 +195,6 @@ export class ProjectComponent {
     console.log("POST");
 
     console.log(this.projeto);
-
     /*let url = `${this.apiRoot}/cp/projetos`;
     this.http
      .post(url, this.model.datajson,{headers: new HttpHeaders({'token': this.token.token})})

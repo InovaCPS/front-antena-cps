@@ -114,7 +114,7 @@
       </div>
       <div class="modal-footer">
         <div class="mr-auto">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
         </div>
         <div>
           <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
@@ -144,7 +144,8 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-3">
-              <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Imagens</b></button>
+              <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal"
+              data-target="#modalResImg"><b>Imagens</b></button>
             </div>
             <div class="col-sm-3">
               <button type="button" class="btn-outline-dark" id="btn-recursos" data-dismiss="modal" data-toggle="modal"
@@ -172,14 +173,15 @@
               <button type="button" class="btn-outline-dark" id="btn-recursos" data-toggle="modal" data-target="#modalDetails" data-dismiss="modal" (click)="addlinhas()"><b>Detalhes</b></button>
             </div>
             <div class="col-sm-3">
-              <button type="button" class="btn-outline-dark" id="btn-recursos"><b>Capa</b></button>
+              <button type="button" class="btn-outline-dark" id="btn-recursos"  data-dismiss="modal" data-toggle="modal"
+              data-target="#modalResCapa"><b>Capa</b></button>
             </div>
           </div>
         </div>
       </div>
       <br />
       <div class="modal-footer">
-        <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+        <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
       </div>
     </div>
   </div>
@@ -245,38 +247,35 @@
   </div>
 </div>
 
-<div class="modal fade" id="modalResImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+<div class="modal fade" id="modalResImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
-      <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources"
-        style="margin-left: 85%;margin-top: 1%" aria-label="Close">
-        <span aria-hidden="true" style="font-size: 10px"> <u>
-            <X</u> </span> </button> <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE
-              IMAGEM</h4>
-              <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor
-                caracterizam o projeto</h5> <br />
+      <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources" style="margin-left: 85%;margin-top: 1%" aria-label="Close">
+        <span aria-hidden="true" style="font-size: 10px"> <u>< VOLTAR</u></span>
+    </button>
+        <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE IMAGEM</h4>
+        <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor caracterizam o projeto</h5> <br/>
+       
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
+            <label style="margin-left: 5%"> Título da Imagem </label>
+            <input type="text" class="form-control" id="tituloImagem" name="tituloImagem" [(ngModel)]="model.tituloImagem" required> <br/>
 
-              <form #f="ngForm" (ngSubmit)="onSubmit()">
-                <label style="margin-left: 5%"> Título da Imagem </label>
-                <input type="text" class="form-control" id="tituloImagem" name="tituloImagem"
-                  [(ngModel)]="model.tituloImagem" required> <br />
+            <label for="" style="margin-left: 5%"> Legenda </label>
+            <input type="text" class="form-control" id="legendaImagem" name="legendaImagem" [(ngModel)]="model.legendaImagem">
 
-                <label for="" style="margin-left: 5%"> Legenda </label>
-                <input type="text" class="form-control" id="legendaImagem" name="legendaImagem"
-                  [(ngModel)]="model.legendaImagem">
-              </form>
-
-              <input-file placeholder="" style="margin-left:7%" name="imagens" [(ngModel)]="model.imagens"></input-file>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="btnSalvar" data-dismiss="modal" data-toggle="modal"
-                  data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
-                <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal"
-                  data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>
-              </div>
-    </div>
-  </div>
+            <input-file
+            placeholder="" style="margin-left:7%" name="imagens" [(ngModel)]="model.imagens" required>
+            </input-file>
+        </form>
+        
+           
+       
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id="btnSalvarImagem" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
+          <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
+      </div>
+          </div>
+      </div>
 </div>
 
 <div class="modal fade" id="modalFinalizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -455,7 +454,7 @@
       </div>
       <div class="modal-footer">
         <div class="mr-auto">
-          <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+          <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
         </div>
         <div>
           <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
@@ -493,7 +492,7 @@
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.caminho" required>
             <button type="submit" class="btn btn-success" id="iArquivo" (click)="addArquivo('Arquivos')"
-              [disabled]="fArquivo.invalid">INCORPORAR</button>
+              [disabled]="fCode.invalid">INCORPORAR</button>
           </div>
         </form>
         <div class="modal-footer">
@@ -519,7 +518,7 @@
       </div>
       <div class="modal-footer">
         <div class="mr-auto">
-          <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+          <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
         </div>
         <div>
           <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
@@ -594,3 +593,42 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+<div class="modal fade" id="modalResCapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources" style="margin-left: 85%;margin-top: 1%" aria-label="Close">
+        <span aria-hidden="true" style="font-size: 10px"> <u>< VOLTAR</u></span>
+    </button>
+        <h4 class="modal-title" id="capalabel1" style="margin-left: 5%">CAPA DO PROJETO</h4>
+        <h5 class="modal-title" id="capalabel2" style="margin-left: 5%">Escolha uma imagem para a capa do seu projeto</h5> <br/>
+       
+   <form #fc="ngForm" (ngSubmit)="onSubmit()" style="margin-left:40%; width: 200px; height: 300px;">
+       
+    <input-file
+    placeholder="" style="margin-left:40" name="capa" [(ngModel)]="model.capa" fileAccept="image/*" fileLimit="1" required>
+    </input-file>
+        
+  </form> 
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id="btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizarCapa" [disabled]="fc.invalid">SALVAR</button>
+          <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
+      </div>
+          </div>
+      </div>
+    
+      <div class="modal fade" id="modalFinalizarCapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <h4 style="margin-top: 20%; margin-left:5%">Você pode substituir a imagens de capa do seu projeto. Clique no botão "CONTINUAR" para substituir a imagem de capa, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h4>
+            <button type="submit" class="btn btn-danger" id="btnFinalizar" data-dismiss="modal" (click)="postProject()" >FINALIZAR</button>
+            <button type="button" class="btn btn-danger" id="btnContinuar" data-dismiss="modal" data-toggle="modal" data-target="#modalResCapa">CONTINUAR</button>
+            </div>
+        </div>
+      </div>
+      
