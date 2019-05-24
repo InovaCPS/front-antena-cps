@@ -15,7 +15,7 @@ export class ProjectComponent {
   model: any = {} ;
   resposta : any;
   apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
-  projeto: Projeto;
+  projeto: Projeto[];
   premiado: string = "";
   arquivos: Arquivo[];
   palavrasChave: string = "";
@@ -58,18 +58,7 @@ export class ProjectComponent {
     private http: HttpClient){
       this.coops = [];
       this.arquivos = [];
-      this.projeto = { 
-        titulo: '',
-        descricao: '',
-        orientador: '',
-        status: '',
-        tipo: '',
-        tema: '',
-        coops: this.coops,
-        textoProjeto: '',
-        linkTexto: '',
-        arquivos: this.arquivos,      
-      }
+      this.projeto = [];
       this.token = JSON.parse(localStorage.getItem('token'));
       this.premios = [];
       this.categ = [];
@@ -94,7 +83,28 @@ export class ProjectComponent {
       let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
       this.arquivos.push(newArquivo);
       console.log(this.arquivos);
-      this.desabilitar();
+
+  }
+
+  addProjeto() {
+    const newProjeto: Projeto = { titulo: '', descricao: '', orientador: '', status: '', tipo: '',
+    tema: '', coops: this.coops, textoProjeto: this.model.textoProjeto, linkTexto: this.model.linkTexto, arquivos: this.arquivos };
+    this.projeto.push(newProjeto);
+    console.log(this.projeto);
+  }
+
+  desabilitarImg(){
+    document.getElementById('i1').setAttribute('disabled', 'disabled');
+    document.getElementById('i2').setAttribute('disabled', 'disabled');
+    document.getElementById('i3').setAttribute('disabled', 'disabled');
+    document.getElementById('iImg').setAttribute('disabled', 'disabled');
+  }
+
+  limparImg(){
+    this.model.titulo = ''; this.model.legenda = ''; this.model.caminho = '';
+    document.getElementById('i1').removeAttribute('disabled');
+    document.getElementById('i2').removeAttribute('disabled');
+    document.getElementById('i3').removeAttribute('disabled');
   }
 
   desabilitar() {
@@ -202,7 +212,6 @@ export class ProjectComponent {
     console.log("POST");
 
     console.log(this.projeto);
-
     /*let url = `${this.apiRoot}/cp/projetos`;
     this.http
      .post(url, this.model.datajson,{headers: new HttpHeaders({'token': this.token.token})})
@@ -301,6 +310,8 @@ $(document).ready(function() {
       $("#video").attr('src',$videoSrc); 
   }) 
   });
+
+  
   
   
   
