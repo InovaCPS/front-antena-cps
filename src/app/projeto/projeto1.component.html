@@ -250,7 +250,6 @@
 <div class="modal fade" id="modalResImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
-<<<<<<< HEAD
       <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources"
         style="margin-left: 85%;margin-top: 1%" aria-label="Close">
         <span aria-hidden="true" style="font-size: 10px"> <u>
@@ -268,7 +267,6 @@
                 <input type="text" class="form-control" id="legendaImagem" name="legendaImagem"
                   [(ngModel)]="model.legendaImagem">
               </form>
-=======
       <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources" style="margin-left: 85%;margin-top: 1%" aria-label="Close">
         <span aria-hidden="true" style="font-size: 10px"> <u>< VOLTAR</u></span>
     </button>
@@ -278,7 +276,6 @@
         <form #f="ngForm" (ngSubmit)="onSubmit()">
             <label style="margin-left: 5%"> Título da Imagem </label>
             <input type="text" class="form-control" id="tituloImagem" name="tituloImagem" [(ngModel)]="model.tituloImagem" required> <br/>
->>>>>>> 3c024e570af33890a4b7ed56d91eafd297474bef
 
             <label for="" style="margin-left: 5%"> Legenda </label>
             <input type="text" class="form-control" id="legendaImagem" name="legendaImagem" [(ngModel)]="model.legendaImagem">
@@ -369,13 +366,15 @@
         </form>
         <div class="row justify-content-center">
           <div *ngFor='let arquivo of arquivos; let i = index'>
-            <div class="col-md-2">
-              <div class="relative">
-                <a href="#0" target="__blank"><img [src]="viewCode" title={{arquivo.titulo}} style="max-width: 120px;"
-                    (click)="urlDestino(arquivo.caminho)"></a>
-                <div class="absolute">
-                  <a href="#1"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
-                      (click)="deleteArquivo(i)"></a>
+            <div *ngIf="arquivos[i].tipo == 'Codigo'">
+              <div class="col-md-2">
+                <div class="relative">
+                  <a href="#0" target="__blank"><img [src]="viewCode" title={{arquivo.titulo}} style="max-width: 120px;"
+                      (click)="urlDestino(arquivo.caminho)"></a>
+                  <div class="absolute">
+                    <a href="#1"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
+                        (click)="deleteArquivo(i)"></a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -384,6 +383,7 @@
             <a href="#0"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
           </div>
         </div>
+      </div>
         <div class="modal-footer">
           <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal"
             data-target="#modalMsg2" [disabled]="!arquivos.length > 0">SALVAR</button>
@@ -393,7 +393,7 @@
       </div>
     </div>
   </div>
-</div>
+
 <div class="modal fade" id="modalMidias" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -423,12 +423,10 @@
         <label for="basic-url">Link de origem da mídia</label>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" [(ngModel)]="model.caminho"> 
+          <button type="button" class="btn btn-success video-btn" data-src="http://www.youtube.com/embed/M7lc1UVf-VE" 
+          (click)="addArquivo('Midias')">INCORPORAR</button>
         </div>
         <div class="container">
-          <button type="button" class="btn btn-primary video-btn" id="button1" data-toggle="modal"
-            data-src="https://www.youtube.com/embed/A-twOC3W558" data-target="#myModal" (click)="addArquivo('Midias')">
-            INCORPORAR
-          </button>
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -446,16 +444,35 @@
             </div>
           </div>
         </div>
+        <div class="row justify-content-center">
+            <div *ngFor='let arquivo of arquivos; let i = index'>
+              <div *ngIf="arquivos[i].tipo == 'Midias'">
+                <div class="col-md-2">
+                  <div class="relative-midia">
+                    <a href="#0"><img [src]="viewMidia" title={{arquivo.titulo}} style="max-width: 160px;"
+                      class="video-btn" data-toggle="modal"
+                      data-src="http://www.youtube.com/embed/M7lc1UVf-VE" data-target="#myModal"></a>
+                    <div class="absolute-midia">
+                      <a href="#1"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
+                          (click)="deleteArquivo(i)"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relative" *ngIf="arquivos.length > 0">
+              <a href="#0"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
+            </div>
+          </div>
       </div>
-
       <div class="modal-footer">
         <div class="mr-auto">
           <button class="btn btn-danger" data-toggle="modal" data-dismiss="modal"
             data-target="#modalMsg1">SALVAR</button>
         </div>
         <div>
-          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">+
-            RECURSOS</button>
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">
+            + RECURSOS</button>
         </div>
       </div>
     </div>
@@ -474,7 +491,7 @@
       </div>
       <div class="modal-footer">
         <div class="mr-auto">
-          <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
+          <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
         </div>
         <div>
           <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
@@ -484,6 +501,7 @@
     </div>
   </div>
 </div>
+
 
 <div class="modal fade" id="modalArquivos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -501,7 +519,7 @@
           <h6>Incorpore os arquivos ao seu projeto</h6>
         </div>
         <br />
-        <form #fCode="ngForm">
+        <form #farquivo="ngForm" (ngSubmit)="onSubmit()">
           <label for="">Título do Arquivo</label>
           <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.titulo"
             required><br />
@@ -512,7 +530,7 @@
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.caminho" required>
             <button type="submit" class="btn btn-success" id="iArquivo" (click)="addArquivo('Arquivos')"
-              [disabled]="fCode.invalid">INCORPORAR</button>
+              (click)="limpar()" [disabled]="farquivo.invalid">INCORPORAR</button>
           </div>
         </form>
         <div class="modal-footer">

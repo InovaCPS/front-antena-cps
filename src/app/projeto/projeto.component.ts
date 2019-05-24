@@ -80,10 +80,9 @@ export class ProjectComponent {
     }
 
   addArquivo(parametro){
-      let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
-      this.arquivos.push(newArquivo);
-      console.log(this.arquivos);
-
+    let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
+    this.arquivos.push(newArquivo);
+    console.log(this.arquivos);
   }
 
   addProjeto() {
@@ -238,6 +237,7 @@ export class ProjectComponent {
   delCode = require('../../app/images/delCode.png')
   viewCode = require('../../app/images/viewCode.png')
   addCode = require('../../app/images/addCode.png')
+  viewMidia = require('../../app/images/vidMidia.png')
 
   addDetails(){
     alert("entro");
@@ -298,20 +298,15 @@ export class ProjectComponent {
 }
 
 $(document).ready(function() {
-  var $videoSrc;  
+  var $videoSrc; 
   $('.video-btn').click(function() {
-      $videoSrc = $(this).data( "src" );
+      $videoSrc = $(this).data( 'src' );
   });
   console.log($videoSrc);
   $('#myModal').on('shown.bs.modal', function (e) {
-  $("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
+  $('#video').attr('src', $videoSrc + '?autoplay=1&amp;modestbranding=1&amp;showinfo=0' );
   })
   $('#myModal').on('hide.bs.modal', function (e) {
-      $("#video").attr('src',$videoSrc); 
-  }) 
+      $('#video').attr('src', $videoSrc);
+  })
   });
-
-  
-  
-  
-  

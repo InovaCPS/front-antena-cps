@@ -131,3 +131,16 @@ div.absolute {
   width: 25px;
   height: 38px;
 }
+
+div.relative-midia {
+  position: relative;
+  width: 160px;  
+} 
+
+div.absolute-midia {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25px;
+  height: 45px;
+}
