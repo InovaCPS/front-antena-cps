@@ -40,6 +40,17 @@ export class ProjectComponent {
   premios: Premios [];
   direitos: Direitos [];
   creditos: Creditos[];
+  detalhes: {
+    categoria1: string,
+    categoria2: string,
+    premio1: string,
+    premio2: string,
+    recurso1: string,
+    recurso2: string,
+    credito1: string,
+    credito2: string,
+    direitos: string
+   };
 
   constructor(
     private projetoServices: projetoServices,
@@ -55,13 +66,30 @@ export class ProjectComponent {
       this.recursos = [];
       this.direitos = [];
       this.creditos = [];
+      this.detalhes = {
+        categoria1: "",
+        categoria2: "",
+        premio1: "",
+        premio2: "",
+        recurso1: "",
+        recurso2: "",
+        credito1: "",
+        credito2: "",
+        direitos: ""
+       };
     }
 
   addArquivo(parametro){
+<<<<<<< HEAD
       let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
       this.arquivos.push(newArquivo);
       console.log(this.arquivos)
       this.desabilitar();
+=======
+    let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
+    this.arquivos.push(newArquivo);
+    console.log(this.arquivos);
+>>>>>>> 1c89c479b2e499c6b3155f304b464d97da6be299
   }
 
   addProjeto() {
@@ -109,7 +137,7 @@ export class ProjectComponent {
   }
 
   addLine1(){
-    if (this.categ.length < 3 || this.colab.length < 3 ){
+    if (this.categ.length < 2 || this.colab.length < 2 ){
       let newCateg: Categ = { desc: ""};
       let newColab: Colab = { desc: ""};
 
@@ -124,7 +152,7 @@ export class ProjectComponent {
   }
 
   addLine2(){
-    if (this.recursos.length < 3 || this.premios.length < 3 ){
+    if (this.recursos.length < 2 || this.premios.length < 2 ){
       let newRecursos: Recursos = { desc: ""};
       let newPremios: Premios = { desc: ""};
 
@@ -139,7 +167,7 @@ export class ProjectComponent {
   }
 
   addLine3(){
-    if (this.direitos.length < 3 || this.creditos.length < 3 ){
+    if (this.direitos.length < 2 || this.creditos.length < 2 ){
       let newDireitos: Direitos = { desc: ""};
       let newCreditos: Premios = { desc: ""};
 
@@ -216,23 +244,76 @@ export class ProjectComponent {
   delCode = require('../../app/images/delCode.png')
   viewCode = require('../../app/images/viewCode.png')
   addCode = require('../../app/images/addCode.png')
+  viewMidia = require('../../app/images/vidMidia.png')
+
+  addDetails(){
+    alert("entro");
+    for (let index = 0; index < this.categ.length; index++) {
+      alert("entro no for");
+      if (index == 0 ){
+        this.detalhes.categoria1 = this.categ[index].desc;
+        this.detalhes.credito1 = this.creditos[index].desc;
+        this.detalhes.premio1 = this.premios[index].desc;
+        this.detalhes.recurso1 = this.recursos[index].desc;
+        this.detalhes.direitos = this.direitos[index].desc;
+        alert('primeiro if');
+        this.deleteLine1(0);
+        this.deleteLine2(0);
+        this.deleteLine3(0);
+      }
+      if (index == 1 ){
+        if ( this.categ[index].desc != undefined ){
+          this.detalhes.categoria2 = this.categ[index].desc;
+        }
+        else {
+          this.detalhes.categoria2 = "";
+        }
+        if ( this.creditos[index].desc != undefined ){
+          this.detalhes.credito2 = this.creditos[index].desc;
+        }
+        else {
+          this.detalhes.credito2 = "";
+        }
+        if ( this.premios[index].desc != undefined ){
+          this.detalhes.premio2 = this.premios[index].desc;
+        }
+        else {
+          this.detalhes.premio2 = "";
+        }
+        if ( this.recursos[index].desc != undefined ){
+          this.detalhes.recurso2 = this.recursos[index].desc;
+        }
+        else {
+          this.detalhes.recurso2 = "";
+        }
+        if ( this.direitos[index].desc != undefined ){
+          this.detalhes.direitos = this.direitos[index].desc;
+        }
+        else {
+          this.detalhes.direitos = "";
+        }
+        alert('segundo if');
+        this.deleteLine1(1);
+        this.deleteLine2(1);
+        this.deleteLine3(1);
+      }
+      alert('resetando valor');
+    }
+    console.log(JSON.stringify(this.detalhes));
+    alert('resetando array');
+  }
 }
 
 $(document).ready(function() {
-  var $videoSrc;  
+  var $videoSrc; 
   $('.video-btn').click(function() {
-      $videoSrc = $(this).data( "src" );
+      $videoSrc = $(this).data( 'src' );
   });
   console.log($videoSrc);
   $('#myModal').on('shown.bs.modal', function (e) {
-  $("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
+  $('#video').attr('src', $videoSrc + '?autoplay=1&amp;modestbranding=1&amp;showinfo=0' );
   })
   $('#myModal').on('hide.bs.modal', function (e) {
-      $("#video").attr('src',$videoSrc); 
-  }) 
+      $('#video').attr('src', $videoSrc);
+  })
   });
-
-  
-  
-  
-  
