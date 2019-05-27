@@ -60,13 +60,8 @@ export class ProjectComponent {
   addArquivo(parametro){
       let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
       this.arquivos.push(newArquivo);
-<<<<<<< HEAD
       console.log(this.arquivos)
       this.desabilitar();
-=======
-      console.log(this.arquivos);
-
->>>>>>> dda1a46e605bb7e42d4ab1a4306032b817df41cb
   }
 
   addProjeto() {
