@@ -257,21 +257,52 @@
         <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor caracterizam o projeto</h5> <br/>
        
         <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <!--  <div class="container">
+           
+          <div *ngFor='let col of col; let i = index' class="col-6 col-sm-3">
+ -->      
             <label style="margin-left: 5%"> Título da Imagem </label>
-            <input type="text" class="form-control" id="tituloImagem" name="tituloImagem" [(ngModel)]="model.tituloImagem" required> <br/>
+            <input type="text" class="form-control" id="tituloImagem" name="tituloImagem" [(ngModel)]="model.titulo" required> <br/>
 
             <label for="" style="margin-left: 5%"> Legenda </label>
-            <input type="text" class="form-control" id="legendaImagem" name="legendaImagem" [(ngModel)]="model.legendaImagem">
-
+            <input type="text" class="form-control" id="legendaImagem" name="legendaImagem" [(ngModel)]="model.legenda">
+            <div class="row justify-content-center">
             <input-file
-            placeholder="" style="margin-left:7%" name="imagens" [(ngModel)]="model.imagens" required>
+            placeholder="" name="imagens" id="imagem" [(ngModel)]="model.caminho" required>
             </input-file>
+            </div>
+ <!--               </div>
+      </div> -->
+          <div class="col-md-3 offset-md-9"> 
+            <button type="submit" class="btn btn-success" id="iImg"  style="margin-top: -100%" (click)="addArquivo('Imagem')" 
+            (click)="limparImg()" (click)="desabilitarImg()"[disabled]="f.invalid">Adicionar outra foto.</button> 
+          </div>
+      <!--     <button class="btn btn-sucess" id="addCol" (click)="addCol()"> Adicionar Coluna </button>  
+         
+        <div class="relative">
+              <a href="#0"><img [src]="addCode" title=Adicionar style="max-width: 60px;" (click)="limpar()"></a>
+          </div> -->
         </form>
-        
+       
+        <div style=" margin-left: 3%">
+        <div class="row justify-content-start">
+                  <div *ngFor='let arquivo of arquivos; let i = index'>
+                    <div class="col-md-2">
+                      <div id="RelativeImg" class="relative">
+                       <img [src]="viewCode" title={{model.titulo}} style="max-width: 60px;">
+                        <div id="AbsoluteImg" class="absolute">
+                          <img [src]="delCode" title="Excluir" style="max-width: 12px"
+                              (click)="deleteArquivo(i)">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div> 
            
        
       <div class="modal-footer">
-          <button type="button" class="btn btn-danger" id="btnSalvarImagem" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
+          <button type="button" class="btn btn-danger" id="btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
           <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
       </div>
           </div>

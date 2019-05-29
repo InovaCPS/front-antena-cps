@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coops, Categ, Colab, Premios, Recursos, Direitos, Creditos } from './projeto.services';
+import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coops, Categ, Colab, Premios, Recursos, Direitos, Creditos, Col } from './projeto.services';
 import { Router } from '@angular/router';
 
 @Component({
@@ -40,6 +40,7 @@ export class ProjectComponent {
   premios: Premios [];
   direitos: Direitos [];
   creditos: Creditos[];
+  col : Col[];
 
   constructor(
     private projetoServices: projetoServices,
@@ -55,6 +56,7 @@ export class ProjectComponent {
       this.recursos = [];
       this.direitos = [];
       this.creditos = [];
+      this.col = [];
     }
 
   addArquivo(parametro){
@@ -106,6 +108,11 @@ export class ProjectComponent {
   addCoops(){
       let newCoop: Coops = { email: "", unidade:"", curso:"" };
       this.coops.push(newCoop);
+  }
+
+  addCol(){
+    let newCol : Col = { titulo: "", legenda: "", caminho: ""};
+    this.col.push(newCol);
   }
 
   addLine1(){

@@ -39,7 +39,7 @@ import { ProfileNavbarComponent } from './profile-navbar/profile-navbar.componen
 
 const configs: InputFileConfig = {
     fileAccept: 'image/*',
-    fileLimit: 4
+    fileLimit: 1
 
 };
 

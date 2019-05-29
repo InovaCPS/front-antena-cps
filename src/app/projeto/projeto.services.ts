@@ -98,3 +98,9 @@ export interface Direitos {
 export interface Creditos {
     desc: string;
 }
+
+export interface Col {
+    titulo : string;
+    legenda : string;
+    caminho : any;
+}

@@ -128,3 +128,16 @@ div.absolute {
   width: 25px;
   height: 38px;
 }
+
+#AbsoluteImg{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 18px;
+}
+
+#RelativeImg{
+  position: relative;
+  width: 60px;
+}
