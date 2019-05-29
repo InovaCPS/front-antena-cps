@@ -250,17 +250,16 @@
 <div class="modal fade" id="modalResImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
-      <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources" style="margin-left: 85%;margin-top: 1%" aria-label="Close">
-        <span aria-hidden="true" style="font-size: 10px"> <u>< VOLTAR</u></span>
-    </button>
-        <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE IMAGEM</h4>
-        <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor caracterizam o projeto</h5> <br/>
-       
+      <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources"
+        style="margin-left: 85%;margin-top: 1%" aria-label="Close">
+        <span aria-hidden="true" style="font-size: 10px"> <u>
+            <X</u> </span> </button> <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE
+              IMAGEM</h4>
+              <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor
+                caracterizam o projeto</h5> <br />
+
         <form #f="ngForm" (ngSubmit)="onSubmit()">
-        <!--  <div class="container">
-           
-          <div *ngFor='let col of col; let i = index' class="col-6 col-sm-3">
- -->      
+    
             <label style="margin-left: 5%"> Título da Imagem </label>
             <input type="text" class="form-control" id="tituloImagem" name="tituloImagem" [(ngModel)]="model.titulo" required> <br/>
 
@@ -271,29 +270,26 @@
             placeholder="" name="imagens" id="imagem" [(ngModel)]="model.caminho" required>
             </input-file>
             </div>
- <!--               </div>
-      </div> -->
+
           <div class="col-md-3 offset-md-9"> 
             <button type="submit" class="btn btn-success" id="iImg"  style="margin-top: -100%" (click)="addArquivo('Imagem')" 
             (click)="limparImg()" (click)="desabilitarImg()"[disabled]="f.invalid">Adicionar outra foto.</button> 
           </div>
-      <!--     <button class="btn btn-sucess" id="addCol" (click)="addCol()"> Adicionar Coluna </button>  
-         
-        <div class="relative">
-              <a href="#0"><img [src]="addCode" title=Adicionar style="max-width: 60px;" (click)="limpar()"></a>
-          </div> -->
+
         </form>
        
         <div style=" margin-left: 3%">
         <div class="row justify-content-start">
                   <div *ngFor='let arquivo of arquivos; let i = index'>
+                    <div *ngIf="arquivos[i].tipo == 'Imagem'">
                     <div class="col-md-2">
-                      <div id="RelativeImg" class="relative">
+                      <div class="relative-imagem">
                        <img [src]="viewCode" title={{model.titulo}} style="max-width: 60px;">
-                        <div id="AbsoluteImg" class="absolute">
+                        <div class="absolute-imagem">
                           <img [src]="delCode" title="Excluir" style="max-width: 12px"
                               (click)="deleteArquivo(i)">
-                        </div>
+                            </div>
+                          </div>
                       </div>
                     </div>
                   </div>
@@ -380,37 +376,40 @@
         </form>
         <div class="row justify-content-center">
           <div *ngFor='let arquivo of arquivos; let i = index'>
-            <div class="col-md-2">
-              <div class="relative">
-                <a href="#0" target="__blank"><img [src]="viewCode" title={{arquivo.titulo}} style="max-width: 120px;"
-                    (click)="urlDestino(arquivo.caminho)"></a>
-                <div class="absolute">
-                  <a href="#1"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
-                      (click)="deleteArquivo(i)"></a>
+            <div *ngIf="arquivos[i].tipo == 'Codigo'">
+              <div class="col-md-2">
+                <div class="relative">
+                  <a href="javascript:void(0);" target="__blank"><img [src]="viewCode" title={{arquivo.titulo}} style="max-width: 120px;"
+                      (click)="urlDestino(arquivo.caminho)"></a>
+                  <div class="absolute">
+                    <a href="javascript:void(1);"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
+                        (click)="deleteArquivo(i)" (click)="limpar()"></a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="relative" *ngIf="arquivos.length > 0">
-            <a href="#0"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
+            <a href="javascript:void(0);"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
           </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal"
-            data-target="#modalMsg2" [disabled]="!arquivos.length > 0">SALVAR</button>
-          <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
-            data-target="#modalResources">+ RECURSOS</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal"
+          data-target="#modalMsg2" [disabled]="!arquivos.length > 0">SALVAR</button>
+        <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
+          data-target="#modalResources">+ RECURSOS</button>
       </div>
     </div>
   </div>
 </div>
+
 <div class="modal fade" id="modalMidias" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE MIDIA</h5>
+        <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE MÍDIA</h5>
         <button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           aria-label="Close">
           <span aria-hidden="true" id="close-modal-resources" style="font-size: 15px">X</span>
@@ -434,40 +433,53 @@
         <label for="basic-url">Link de origem da mídia</label>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" [(ngModel)]="model.caminho"> 
+          <button type="button" class="btn btn-success video-btn" data-src="http://www.youtube.com/embed/M7lc1UVf-VE" 
+          (click)="addArquivo('Midias')" (click)="limpar()">INCORPORAR</button>
         </div>
-        <div class="container">
-          <button type="button" class="btn btn-primary video-btn" id="button1" data-toggle="modal"
-            data-src="https://www.youtube.com/embed/A-twOC3W558" data-target="#myModal" (click)="addArquivo('Midias')">
-            INCORPORAR
-          </button>
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                  <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
-                      allow="autoplay"></iframe>
+        <div class="row justify-content-center">
+          <div *ngFor='let arquivo of arquivos; let i = index'>
+            <div *ngIf="arquivos[i].tipo == 'Midias'">
+              <div class="col-md-2">
+                <div class="relative-midia">
+                  <a href="javascript:void(0);"><img [src]="viewMidia" title={{arquivo.titulo}} style="max-width: 160px;"
+                    class="video-btn" data-toggle="modal"
+                    data-src="http://www.youtube.com/embed/M7lc1UVf-VE" data-target="#myModal"></a>
+                  <div class="absolute-midia">
+                    <a href="javascript:void(1);"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
+                      (click)="deleteArquivo(i)"></a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="relative" *ngIf="arquivos.length > 0">
+            <a href="javascript:void(0);"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
+          </div>
         </div>
       </div>
-
-
       <div class="modal-footer">
-        <div class="mr-auto">
-          <button class="btn btn-danger" data-toggle="modal" data-dismiss="modal"
-            data-target="#modalMsg1">SALVAR</button>
+        <button class="btn btn-danger" data-toggle="modal" data-dismiss="modal" id="btnSalvar"
+          data-target="#modalMsg1">SALVAR</button>
+        <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
+          id="btnMaisRecursos">+ RECURSOS</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
+              allow="autoplay"></iframe>
+          </div>
         </div>
-        <div>
-          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">+
-            RECURSOS</button>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">VOLTAR</button>
         </div>
       </div>
     </div>
@@ -486,7 +498,7 @@
       </div>
       <div class="modal-footer">
         <div class="mr-auto">
-          <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
+          <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
         </div>
         <div>
           <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
@@ -514,7 +526,7 @@
           <h6>Incorpore os arquivos ao seu projeto</h6>
         </div>
         <br />
-        <form #fCode="ngForm" (ngSubmit)="onSubmit()">
+        <form #farquivo="ngForm" (ngSubmit)="onSubmit()">
           <label for="">Título do Arquivo</label>
           <input type="text" class="form-control" id="" name="tituloArquivo" [(ngModel)]="model.titulo"
             required><br />
@@ -525,7 +537,7 @@
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="" name="linkArquivo" [(ngModel)]="model.caminho" required>
             <button type="submit" class="btn btn-success" id="iArquivo" (click)="addArquivo('Arquivos')"
-              [disabled]="fCode.invalid">INCORPORAR</button>
+              (click)="limpar()" [disabled]="farquivo.invalid">INCORPORAR</button>
           </div>
         </form>
         <div class="modal-footer">
@@ -538,6 +550,7 @@
     </div>
   </div>
 </div>
+
 <div class="modal fade" id="modalMsg1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -576,16 +589,18 @@
           <div *ngFor="let categs of categ; let i = index" class="form-row" style="margin-top: 20px">
             <div class="form-group col-md-6">
               <label for="">Categoria(s)</label>
-              <input class="form-control"type="text" [(ngModel)]="categ[i]" name="categ[i].desc">
+              <input class="form-control"type="text" [(ngModel)]="categ[i].desc" name="categ">
             </div>
             <div class="form-group col-md-5">
               <label for="">Colaborador(es)</label>
-              <input type="text" class="form-control" [(ngModel)]="colab[i]" name="colab[i].desc">
+              <input type="text" class="form-control" [(ngModel)]="colab[i].desc" name="colab">
             </div>
             <div class="col-md-1 icons-edit form-group">
-              <a href="#0" (click)="addLine1()" style="font-style: none"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
-              <a href="#0" (click)="deleteLine1(i)" style="font-style: none" ><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
-             </div>
+              <a class="c-icons" href="#0" (click)="addLine1()" ><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
+              <ng-template [ngIf]="i !=0 ">
+                <a class="c-icons" href="#0" (click)="deleteLine1(i)"><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
+              </ng-template>
+            </div>
           </div>
           <div *ngFor="let recurso of recursos; let i = index" class="form-row"class="form-row">
             <div class="form-group col-md-6">
@@ -597,8 +612,10 @@
               <input type="text" class="form-control" [(ngModel)]="premios[i].desc">
             </div>
             <div class="col-md-1 icons-edit form-group">
-              <a href="#0" (click)="addLine2()" style="font-style: none"><i class="fas fa-plus-circle" ></i></a>
-              <a href="#0" (click)="deleteLine2(i)" style="font-style: none" ><i class="fas fa-trash-alt" style=" margin-left: 10px"></i></a>
+              <a class="c-icons" href="#0" (click)="addLine2()" ><i class="fas fa-plus-circle" ></i></a>
+              <ng-template [ngIf]="i !=0 ">
+                  <a class="c-icons" href="#0" (click)="deleteLine2(i)" ><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
+              </ng-template>
              </div>
           </div>
           <div *ngFor="let direto of direitos; let i = index" class="form-row" class="form-row">
@@ -611,14 +628,17 @@
               <input type="text" class="form-control" name="creditos" [(ngModel)]="creditos[i].desc">
             </div>
             <div class="col-md-1 icons-edit form-group">
-               <a href="#0" (click)="addLine3()" style="font-style: none"><i class="fas fa-plus-circle"></i></a>
-               <a href="#0" (click)="deleteLine3(i)" style="font-style: none" ><i class="fas fa-trash-alt" style="margin-left: 10px"></i></a>
+               <a class="c-icons" href="#0" (click)="addLine3()" ><i class="fas fa-plus-circle"></i></a>
+               <ng-template [ngIf]="i !=0 ">
+                  <a class="c-icons" href="#0" (click)="deleteLine3(i)" ><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
+                </ng-template>
               </div>
           </div>
         </div>
       </div>
+      
       <div class="modal-footer" style="display: flex; justify-content: center;">
-        <button type="button" class="btn btn-danger" data-dismiss="modal" style="border-radius: 30px;">SALVAR</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" style="border-radius: 30px;" (click)="addDetails()" data-toggle="modal" data-target="#modalResources" >SALVAR</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" style="border-radius: 30px; margin-left: 30px;">+ RECURSOS</button>
       </div>
     </div>

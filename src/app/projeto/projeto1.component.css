@@ -18,7 +18,10 @@ body {margin:2rem;}
 
 .icons-edit{
   margin-top: 40px;
+}
 
+.c-icons{
+  color: black;
 }
   
 .modal-content{
@@ -129,7 +132,7 @@ div.absolute {
   height: 38px;
 }
 
-#AbsoluteImg{
+div.absolute-imagem{
   position: absolute;
   bottom: 0;
   right: 0;
@@ -137,7 +140,20 @@ div.absolute {
   height: 18px;
 }
 
-#RelativeImg{
+div.relative-imagem{
   position: relative;
   width: 60px;
+}
+
+div.relative-midia {
+  position: relative;
+  width: 160px;  
+} 
+
+div.absolute-midia {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25px;
+  height: 45px;
 }
