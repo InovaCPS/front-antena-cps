@@ -219,6 +219,18 @@ export class ProjectComponent {
     )*/
   }
 
+  dsbltSalvar(mdl, btn) {
+    let v: any;
+    for (let i = 0, len = this.arquivos.length; i < len; i++) {
+      if (this.arquivos[i].tipo === mdl) { v = mdl; }
+    }
+    if (v === mdl) {
+      document.getElementById(btn).removeAttribute('disabled');
+      return true;
+    } else {
+      document.getElementById(btn).setAttribute('disabled', 'disabled');
+    }
+  }
 
   deleteCoop(index) {
     this.coops.splice(index, 1)
