@@ -97,8 +97,8 @@ export class ProjectComponent {
     document.getElementById('i2').setAttribute('disabled', 'disabled');
     document.getElementById('i3').setAttribute('disabled', 'disabled');
     document.getElementById('iImg').setAttribute('disabled', 'disabled');
-  }
-
+  } 
+  
   limparImg(){
     this.model.titulo = ''; this.model.legenda = ''; this.model.caminho = '';
     document.getElementById('i1').removeAttribute('disabled');

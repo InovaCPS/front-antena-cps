@@ -126,9 +126,7 @@ const config = new AuthServiceConfig([
 export function provideConfig() {
   return config;
 }
-
-
-
+  
 @core.NgModule({
   declarations: [
     AppComponent,
@@ -157,7 +155,6 @@ export function provideConfig() {
     ChangePasswordComponent,
     ProfileNavbarComponent,
     AvatarCreationComponent,
-
   ],
   imports: [
     BrowserModule,
