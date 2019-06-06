@@ -246,10 +246,12 @@ export class ProjectComponent {
   friends = require('../../app/images/amigos.png')
   back = require('../../app/images/atras.jpg')
   adicionarImagem = require("../../assets/addImg.png")
-  delCode = require('../../app/images/delCode.png')
+  add = require('../../app/images/add.png')
+  del = require('../../app/images/del.png')
   viewCode = require('../../app/images/viewCode.png')
-  addCode = require('../../app/images/addCode.png')
   viewMidia = require('../../app/images/vidMidia.png')
+  viewDoc = require('../../app/images/viewDoc.png')
+  viewArquivo = require('../../app/images/viewArquivo.png')
 
   addDetails(){
     alert("entro");
