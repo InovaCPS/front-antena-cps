@@ -375,7 +375,7 @@
           </div>
         </form>
         <div class="row justify-content-center">
-          <div *ngFor='let arquivo of arquivos; let i = index'>
+          <div *ngFor='let arquivo of arquivos; let i = index' class="fadeIn">
             <div *ngIf="arquivos[i].tipo == 'Codigo'">
               <div class="col-md-2">
                 <div class="relative">
@@ -389,14 +389,14 @@
               </div>
             </div>
           </div>
-          <div class="relative" *ngIf="arquivos.length > 0">
+          <div class="relative" *ngIf="dsbltSalvar('Codigo', 'btn1') === true">
             <a href="javascript:void(0);"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal"
-          data-target="#modalMsg2" [disabled]="!arquivos.length > 0">SALVAR</button>
+        <button class="btn btn-danger btnSalvar" id="btn1" data-toggle="modal" data-dismiss="modal"
+          data-target="#modalMsg2" [disabled]="dsbltSalvar('Codigo', 'btn1') || !arquivos.length > 0">SALVAR</button>
         <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
           data-target="#modalResources">+ RECURSOS</button>
       </div>
@@ -406,7 +406,7 @@
 
 <div class="modal fade" id="modalMidias" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable " role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE MÍDIA</h5>
@@ -437,7 +437,7 @@
           (click)="addArquivo('Midias')" (click)="limpar()">INCORPORAR</button>
         </div>
         <div class="row justify-content-center">
-          <div *ngFor='let arquivo of arquivos; let i = index'>
+          <div *ngFor='let arquivo of arquivos; let i = index' class="fadeIn">
             <div *ngIf="arquivos[i].tipo == 'Midias'">
               <div class="col-md-2">
                 <div class="relative-midia">
@@ -452,14 +452,14 @@
               </div>
             </div>
           </div>
-          <div class="relative" *ngIf="arquivos.length > 0">
+          <div class="relative" *ngIf="dsbltSalvar('Midias', 'btn2') === true">
             <a href="javascript:void(0);"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger" data-toggle="modal" data-dismiss="modal" id="btnSalvar"
-          data-target="#modalMsg1">SALVAR</button>
+        <button class="btn btn-danger btnSalvar" data-toggle="modal" data-dismiss="modal" id="btn2"
+          data-target="#modalMsg1" [disabled]="dsbltSalvar('Midias', 'btn2') || !arquivos.length > 0">SALVAR</button>
         <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           id="btnMaisRecursos">+ RECURSOS</button>
       </div>
@@ -541,8 +541,8 @@
           </div>
         </form>
         <div class="modal-footer">
-          <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal"
-            data-target="#modalMsg1">SALVAR</button>
+          <button class="btn btn-danger btnSalvar" id="btn3" data-toggle="modal" data-dismiss="modal"
+            data-target="#modalMsg1" [disabled]="dsbltSalvar('Arquivos', 'btn3') || !arquivos.length > 0">SALVAR</button>
           <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
             data-target="#modalResources">+ RECURSOS</button>
         </div>
