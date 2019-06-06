@@ -5,7 +5,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE PROJETO</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" id="close-modal-profile" style="font-size: 15px"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-profile" style="font-size: 15px; color: black"> VOLTAR</span>
         </button>
       </div>
       <div class="modal-body">
@@ -250,25 +250,6 @@
 <div class="modal fade" id="modalResImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
-<<<<<<< HEAD
-      <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources"
-        style="margin-left: 85%;margin-top: 1%" aria-label="Close">
-        <span aria-hidden="true" style="font-size: 10px"> <u>
-            <X</u> </span> </button> <h4 class="modal-title" id="imagemlabel1" style="margin-left: 5%">CADASTRO DE
-              IMAGEM</h4>
-              <h5 class="modal-title" id="imagemlabel2" style="margin-left: 5%">Escolha as imagens que melhor
-                caracterizam o projeto</h5> <br />
-
-              <form #f="ngForm" >
-                <label style="margin-left: 5%"> Título da Imagem </label>
-                <input type="text" class="form-control" id="tituloImagem" name="tituloImagem"
-                  [(ngModel)]="model.tituloImagem" required> <br />
-
-                <label for="" style="margin-left: 5%"> Legenda </label>
-                <input type="text" class="form-control" id="legendaImagem" name="legendaImagem"
-                  [(ngModel)]="model.legendaImagem">
-              </form>
-=======
       <button type="button" class="close" data-toggle="modal" data-dismiss="modal" data-target="#modalResources" style="margin-left: 85%;margin-top: 1%" aria-label="Close">
         <span aria-hidden="true" style="font-size: 10px"> <u>< VOLTAR</u></span>
     </button>
@@ -278,7 +259,6 @@
         <form #f="ngForm" (ngSubmit)="onSubmit()">
             <label style="margin-left: 5%"> Título da Imagem </label>
             <input type="text" class="form-control" id="tituloImagem" name="tituloImagem" [(ngModel)]="model.tituloImagem" required> <br/>
->>>>>>> 3c024e570af33890a4b7ed56d91eafd297474bef
 
             <label for="" style="margin-left: 5%"> Legenda </label>
             <input type="text" class="form-control" id="legendaImagem" name="legendaImagem" [(ngModel)]="model.legendaImagem">
@@ -561,52 +541,93 @@
       <div class="modal-body">
           <h5>Complete seu projeto com mais informações relevantes</h5>
         <div>
-          <div *ngFor="let categs of categ; let i = index" class="form-row" style="margin-top: 20px">
-            <div class="form-group col-md-6">
+          <div class="form-row" style="margin-top: 20px">
+            <div class="form-group col-md-5">
               <label for="">Categoria(s)</label>
-              <input class="form-control"type="text" [(ngModel)]="categ[i].desc" name="categ">
+              <input class="form-control" type="text" id="categoria1">
+            </div>
+            <div class="col-md-1 icons-edit form-group">
+              <a class="c-icons" href="#0" (click)="addCat"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
             </div>
             <div class="form-group col-md-5">
               <label for="">Colaborador(es)</label>
-              <input type="text" class="form-control" [(ngModel)]="colab[i].desc" name="colab">
+              <input type="text" class="form-control" id="colaborador1">
             </div>
             <div class="col-md-1 icons-edit form-group">
-              <a class="c-icons" href="#0" (click)="addLine1()" ><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
-              <ng-template [ngIf]="i !=0 ">
-                <a class="c-icons" href="#0" (click)="deleteLine1(i)"><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
-              </ng-template>
+              <a class="c-icons" href="#0" (click)="addColab"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
             </div>
           </div>
-          <div *ngFor="let recurso of recursos; let i = index" class="form-row"class="form-row">
-            <div class="form-group col-md-6">
-              <label for="">Recursos Utilizados</label>
-              <input class="form-control"type="text" name="rec" [(ngModel)]="recursos[i].desc">
+          <div class="form-row" style="margin-top: 20px" id="line1" style="display: none">
+            <div class="form-group col-md-5" id="cat2" style="display: none">
+              <label for="">Categoria(s)</label>
+              <input class="form-control"type="text" id="categoria2">
             </div>
+            <div class="col-md-1 icons-edit form-group" id="trashCat" style="display: none">
+              <a class="c-icons" href="#0"><i class="fas fa-trash-alt" style="cursor: pointer"></i></a>
+            </div>
+            <div class="form-group col-md-5" id="colab2" style="display: none">
+              <label for="">Colaborador(es)</label>
+              <input type="text" class="form-control" id="colaborador2">
+            </div>
+            <div class="col-md-1 icons-edit form-group" id="trashColab" style="display: none">
+              <a class="c-icons" href="#0"><i class="fas fa-trash-alt" style="cursor: pointer"></i></a>
+            </div>
+          </div>
+          <div class="form-row"class="form-row">
+            <div class="form-group col-md-5">
+              <label for="">Recursos Utilizados</label>
+              <input class="form-control"type="text" id="recurso1">
+            </div>
+            <div class="col-md-1 icons-edit form-group">
+              <a class="c-icons" href="#0"><i class="fas fa-plus-circle" ></i></a>
+             </div>
             <div class="form-group col-md-5">
               <label for="">Premio(s) Conquistado(s)</label>
-              <input type="text" class="form-control" [(ngModel)]="premios[i].desc">
+              <input type="text" class="form-control" id="premio1">
             </div>
             <div class="col-md-1 icons-edit form-group">
-              <a class="c-icons" href="#0" (click)="addLine2()" ><i class="fas fa-plus-circle" ></i></a>
-              <ng-template [ngIf]="i !=0 ">
-                  <a class="c-icons" href="#0" (click)="deleteLine2(i)" ><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
-              </ng-template>
+              <a class="c-icons" href="#0" ><i class="fas fa-plus-circle" ></i></a>
              </div>
           </div>
-          <div *ngFor="let direto of direitos; let i = index" class="form-row" class="form-row">
-            <div class="form-group col-md-6">
+          <div class="form-row"class="form-row" hidden id="line2">
+            <div class="form-group col-md-5">
+              <label for="">Recursos Utilizados</label>
+              <input class="form-control"type="text" id="recurso2">
+            </div>
+            <div class="col-md-1 icons-edit form-group">
+              <a class="c-icons" href="#0"><i class="fas fa-trash-alt" ></i></a>
+             </div>
+            <div class="form-group col-md-5">
+              <label for="">Premio(s) Conquistado(s)</label>
+              <input type="text" class="form-control" id="premio2">
+            </div>
+            <div class="col-md-1 icons-edit form-group">
+              <a class="c-icons" href="#0" ><i class="fas fa-trash-alt" ></i></a>
+             </div>
+          </div>
+          <div class="form-row" class="form-row">
+            <div class="form-group col-md-5">
               <label for="">Direitos Autorais</label>
-              <input class="form-control"type="text" name="direitos" [(ngModel)]="direitos[i].desc">
+              <input class="form-control"type="text" id="direito1">
+            </div>
+            <div class="form-group col-md-1">
+
             </div>
             <div class="form-group col-md-5">
               <label for="">Créditos Adicionais</label>
-              <input type="text" class="form-control" name="creditos" [(ngModel)]="creditos[i].desc">
+              <input type="text" class="form-control" id="credito1">
             </div>
             <div class="col-md-1 icons-edit form-group">
-               <a class="c-icons" href="#0" (click)="addLine3()" ><i class="fas fa-plus-circle"></i></a>
-               <ng-template [ngIf]="i !=0 ">
-                  <a class="c-icons" href="#0" (click)="deleteLine3(i)" ><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
-                </ng-template>
+               <a class="c-icons" href="#0" ><i class="fas fa-plus-circle"></i></a>
+              </div>
+          </div>
+          <div class="form-row" class="form-row" id="line3" hidden>
+            <div class="form-group col-md-5">
+              <label for="">Créditos Adicionais</label>
+              <input type="text" class="form-control" id="credito2">
+            </div>
+            <div class="col-md-1 icons-edit form-group">
+               <a class="c-icons" href="#0" ><i class="fas fa-trash-alt"></i></a>
               </div>
           </div>
         </div>
