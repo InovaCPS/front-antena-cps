@@ -70,7 +70,7 @@ body {margin:2rem;}
     border-radius: 30px;
   }
 
-  #btnSalvar{
+  .btnSalvar{
     width: 140px;
     margin-right: 20%;
       font-size: 15px;
@@ -131,3 +131,53 @@ div.absolute {
   width: 25px;
   height: 38px;
 }
+
+div.absolute-imagem{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 18px;
+}
+
+div.relative-imagem{
+  position: relative;
+  width: 60px;
+}
+
+div.relative-midia {
+  position: relative;
+  width: 160px;  
+} 
+
+div.absolute-midia {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25px;
+  height: 45px;
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; } 
+  }
+  @-moz-keyframes fadeIn {
+  0% { opacity: 0;}
+  100% { opacity: 1; }
+  }
+  @-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+  }
+  @keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+  }
+
+.fadeIn {
+  -webkit-animation: fadeIn 1s ease-in-out;
+  -moz-animation: fadeIn 1s ease-in-out;
+  -o-animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
+  }

@@ -1,6 +1,6 @@
 import { CollaboratorComponent } from './collaborator/collaborator.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import * as core from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -39,7 +39,7 @@ import { ProfileNavbarComponent } from './profile-navbar/profile-navbar.componen
 
 const configs: InputFileConfig = {
     fileAccept: 'image/*',
-    fileLimit: 4
+    fileLimit: 1
 
 };
 
@@ -129,7 +129,7 @@ export function provideConfig() {
 
 
 
-@NgModule({
+@core.NgModule({
   declarations: [
     AppComponent,
     DataBindingComponent,

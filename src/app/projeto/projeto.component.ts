@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coops, Categ, Colab, Premios, Recursos, Direitos, Creditos } from './projeto.services';
+import { projetoServices, Arquivo, Curso, Unidade, Categoria, Projeto, Coops, Categ, Colab, Premios, Recursos, Direitos, Creditos} from './projeto.services';
 import { Router } from '@angular/router';
 
 @Component({
@@ -83,10 +83,9 @@ export class ProjectComponent {
     }
 
   addArquivo(parametro){
-      let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
-      this.arquivos.push(newArquivo);
-      console.log(this.arquivos);
-
+    let newArquivo: Arquivo = { tipo: parametro, titulo: this.model.titulo, legenda: this.model.legenda, caminho: this.model.caminho };
+    this.arquivos.push(newArquivo);
+    console.log(this.arquivos);
   }
 
   addProjeto() {
@@ -188,6 +187,18 @@ export class ProjectComponent {
     )*/
   }
 
+  dsbltSalvar(mdl, btn) {
+    let v: any;
+    for (let i = 0, len = this.arquivos.length; i < len; i++) {
+      if (this.arquivos[i].tipo === mdl) { v = mdl; }
+    }
+    if (v === mdl) {
+      document.getElementById(btn).removeAttribute('disabled');
+      return true;
+    } else {
+      document.getElementById(btn).setAttribute('disabled', 'disabled');
+    }
+  }
 
   deleteCoop(index) {
     this.coops.splice(index, 1)
@@ -206,23 +217,69 @@ export class ProjectComponent {
   delCode = require('../../app/images/delCode.png')
   viewCode = require('../../app/images/viewCode.png')
   addCode = require('../../app/images/addCode.png')
+  viewMidia = require('../../app/images/vidMidia.png')
+
+  addDetails(){
+    alert("entro");
+    for (let index = 0; index < this.categ.length; index++) {
+      alert("entro no for");
+      if (index == 0 ){
+        this.detalhes.categoria1 = this.categ[index].desc;
+        this.detalhes.credito1 = this.creditos[index].desc;
+        this.detalhes.premio1 = this.premios[index].desc;
+        this.detalhes.recurso1 = this.recursos[index].desc;
+        this.detalhes.direitos = this.direitos[index].desc;
+        alert('primeiro if');
+      }
+      if (index == 1 ){
+        if ( this.categ[index].desc != undefined ){
+          this.detalhes.categoria2 = this.categ[index].desc;
+        }
+        else {
+          this.detalhes.categoria2 = "";
+        }
+        if ( this.creditos[index].desc != undefined ){
+          this.detalhes.credito2 = this.creditos[index].desc;
+        }
+        else {
+          this.detalhes.credito2 = "";
+        }
+        if ( this.premios[index].desc != undefined ){
+          this.detalhes.premio2 = this.premios[index].desc;
+        }
+        else {
+          this.detalhes.premio2 = "";
+        }
+        if ( this.recursos[index].desc != undefined ){
+          this.detalhes.recurso2 = this.recursos[index].desc;
+        }
+        else {
+          this.detalhes.recurso2 = "";
+        }
+        if ( this.direitos[index].desc != undefined ){
+          this.detalhes.direitos = this.direitos[index].desc;
+        }
+        else {
+          this.detalhes.direitos = "";
+        }
+      }
+      alert('resetando valor');
+    }
+    console.log(JSON.stringify(this.detalhes));
+    alert('resetando array');
+  }
 }
 
 $(document).ready(function() {
-  var $videoSrc;  
+  var $videoSrc; 
   $('.video-btn').click(function() {
-      $videoSrc = $(this).data( "src" );
+      $videoSrc = $(this).data( 'src' );
   });
   console.log($videoSrc);
   $('#myModal').on('shown.bs.modal', function (e) {
-  $("#video").attr('src',$videoSrc + "gridautoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
+  $('#video').attr('src', $videoSrc + '?autoplay=1&amp;modestbranding=1&amp;showinfo=0' );
   })
   $('#myModal').on('hide.bs.modal', function (e) {
-      $("#video").attr('src',$videoSrc); 
-  }) 
+      $('#video').attr('src', $videoSrc);
+  })
   });
-
-  
-  
-  
-  

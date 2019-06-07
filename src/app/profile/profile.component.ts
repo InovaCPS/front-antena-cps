@@ -3,8 +3,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { profileService, Aluno } from './profile.services';
-import { EmailValidator } from '@angular/forms';
+import { profileService, Aluno, Portfolio } from './profile.services';
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +21,9 @@ export class ProfileComponent implements OnInit {
         if(aluno.termos != "True"){
           document.getElementById('openModalFirst').click();
         }
+        else {
+          alert(JSON.stringify(this.portfolio))
+        }
         const user = {
           nome: this.aluno.nome,
           sobrenome: this.aluno.sobrenome,
@@ -29,9 +31,9 @@ export class ProfileComponent implements OnInit {
         }
         window.localStorage['userInfo'] = JSON.stringify(user);
       });
-    })
+    });
   }
-
+  portfolio: Portfolio;
   token;
   title = 'Perfil - AntenaCPS'
   aluno: Aluno;
@@ -53,6 +55,11 @@ export class ProfileComponent implements OnInit {
       });
       this.token = JSON.parse(localStorage.getItem('token'));
     })
+    this.profileService.getUserPortfolio().subscribe(
+      (portfolio: Portfolio) =>{
+        this.portfolio = portfolio;
+      }
+    )
   }
 
 
@@ -62,13 +69,12 @@ export class ProfileComponent implements OnInit {
   calendar = require('../../assets/iconEVENT.png')
   friends = require('../../assets/iconXP.png')
   trof = require('../../assets/iconAWARDS.png')
-  github = require('../../assets/iconGithub.png')  
+  github = require('../../assets/iconGithub.png')
   facebook = require('../../assets/iconFacebook.png')
   twitter = require('../../assets/iconTwitter.png')
   linkedin = require('../../assets/iconLinkedin.png')
   youtube = require('../../assets/iconYoutube.png')
   instagram = require('../../assets/iconInstagram.png')
-
   imgTeste = require("../../assets/imgTeste.jpg")
   addImg = require("../../assets/addImg.png")
 
