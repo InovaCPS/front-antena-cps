@@ -259,27 +259,26 @@
                 caracterizam o projeto</h5> <br />
 
         <form #f="ngForm" (ngSubmit)="onSubmit()">
-    
+          
             <label style="margin-left: 5%"> Título da Imagem </label>
-            <input type="text" class="form-control" id="tituloImagem" name="tituloImagem" [(ngModel)]="model.titulo" required> <br/>
+            <input type="text" class="form-control" id="i1" name="tituloImagem" [(ngModel)]="model.titulo" required> <br/>
 
             <label for="" style="margin-left: 5%"> Legenda </label>
-            <input type="text" class="form-control" id="legendaImagem" name="legendaImagem" [(ngModel)]="model.legenda">
+            <input type="text" class="form-control" id="i2" name="legendaImagem" [(ngModel)]="model.legenda">
             <div class="row justify-content-center">
             <input-file
-            placeholder="" name="imagens" id="imagem" [(ngModel)]="model.caminho" required>
+            placeholder="" id="i3" name="imagens"  [(ngModel)]="model.caminho" required>
             </input-file>
             </div>
 
           <div class="col-md-3 offset-md-9"> 
-            <button type="submit" class="btn btn-success" id="iImg"  style="margin-top: -100%" (click)="addArquivo('Imagem')" 
-            (click)="limparImg()" (click)="desabilitarImg()"[disabled]="f.invalid">Adicionar outra foto.</button> 
+            <button type="submit" class="btn btn-success" id="iImg"  style="margin-top: -100%" (click)="addArquivo2('Imagem')" 
+            (click)="limparImg()"  [disabled]="f.invalid" >Adicionar imagem.</button> 
           </div>
 
-        </form>
+        
        
-        <div style=" margin-left: 3%">
-        <div class="row justify-content-start">
+        <div class="row justify-content-start" style=" margin-left: 3%">
                   <div *ngFor='let arquivo of arquivos; let i = index'>
                     <div *ngIf="arquivos[i].tipo == 'Imagem'">
                     <div class="col-md-2">
@@ -290,12 +289,11 @@
                               (click)="deleteArquivo(i)">
                             </div>
                           </div>
-                      </div>
                     </div>
                   </div>
                 </div>
             </div> 
-           
+          </form>    
        
       <div class="modal-footer">
           <button type="button" class="btn btn-danger" id="btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
@@ -662,7 +660,7 @@
    <form #fc="ngForm" (ngSubmit)="onSubmit()" style="margin-left:40%; width: 200px; height: 300px;">
        
     <input-file
-    placeholder="" style="margin-left:40" name="capa" [(ngModel)]="model.capa" fileAccept="image/*" fileLimit="1" required>
+    placeholder="" style="margin-left:40" name="capa"  (change)="Fotos(model.capa)" [(ngModel)]="model.capa" fileAccept="image/*" fileLimit="1" required>
     </input-file>
         
   </form> 

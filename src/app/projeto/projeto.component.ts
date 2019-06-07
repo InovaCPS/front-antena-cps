@@ -31,6 +31,7 @@ export class ProjectComponent {
   categorias: Categoria[];
 
   token;
+  fotoBase64: string;
 
   coops: Coops[];
 
@@ -66,6 +67,7 @@ export class ProjectComponent {
       this.recursos = [];
       this.direitos = [];
       this.creditos = [];
+      this.fotoBase64 = "";
       this.detalhes = {
         categoria1: "",
         categoria2: "",
@@ -85,18 +87,28 @@ export class ProjectComponent {
     console.log(this.arquivos);
   }
 
-  addProjeto() {
-    const newProjeto: Projeto = { titulo: '', descricao: '', orientador: '', status: '', tipo: '',
-    tema: '', coops: this.coops, textoProjeto: this.model.textoProjeto, linkTexto: this.model.linkTexto, arquivos: this.arquivos };
-    this.projeto.push(newProjeto);
-    console.log(this.projeto);
+ 
+
+  public Fotos(event) {
+      console.log(event)
+      var reader = new FileReader();
+      reader.onloadend = this.ConvertBase64.bind(this);
+      reader.readAsDataURL(event);
+
+  }
+  ConvertBase64(e) {
+    let reader = e.target;
+    var base64result = reader.result.substr(reader.result.indexOf(',') + 1);
+    this.fotoBase64 = base64result;  
+    console.log(this.fotoBase64);
   }
 
-  desabilitarImg(){
-    document.getElementById('i1').setAttribute('disabled', 'disabled');
-    document.getElementById('i2').setAttribute('disabled', 'disabled');
-    document.getElementById('i3').setAttribute('disabled', 'disabled');
-    document.getElementById('iImg').setAttribute('disabled', 'disabled');
+
+  addProjeto() {
+    const newProjeto: Projeto = { titulo: '', descricao: '', orientador: '', status: '', tipo: '',
+    tema: '', coops: this.coops, textoProjeto: this.model.textoProjeto, linkTexto: this.model.linkTexto, arquivos: this.arquivos, capa : this.fotoBase64 };
+    this.projeto.push(newProjeto);
+    console.log(this.projeto);
   }
 
   limparImg(){
