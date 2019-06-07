@@ -15,7 +15,7 @@ export class ProjectComponent {
   model: any = {} ;
   resposta : any;
   apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
-  projeto: Projeto[];
+  projeto: Projeto;
   premiado: string = "";
   arquivos: Arquivo[];
   palavrasChave: string = "";
@@ -59,7 +59,19 @@ export class ProjectComponent {
     private http: HttpClient){
       this.coops = [];
       this.arquivos = [];
-      this.projeto = [];
+      this.projeto = { 
+        titulo: '',
+        descricao: '',
+        orientador: '',
+        status: '',
+        tipo: '',
+        tema: '',
+        coops: this.coops,
+        textoProjeto: '',
+        linkTexto: '',
+        capa: '',
+        arquivos: this.arquivos
+      };
       this.token = JSON.parse(localStorage.getItem('token'));
       this.premios = [];
       this.categ = [];
@@ -79,9 +91,6 @@ export class ProjectComponent {
         credito2: "",
         direitos: ""
        };
-      this.colaboradores = [
-        {"email": this.user.email}
-      ]
     }
 
   addArquivo(parametro){
@@ -106,13 +115,6 @@ export class ProjectComponent {
     console.log(this.fotoBase64);
   }
 
-
-  addProjeto() {
-    const newProjeto: Projeto = { titulo: '', descricao: '', orientador: '', status: '', tipo: '',
-    tema: '', coops: this.coops, textoProjeto: this.model.textoProjeto, linkTexto: this.model.linkTexto, arquivos: this.arquivos, capa : this.fotoBase64 };
-    this.projeto.push(newProjeto);
-    console.log(this.projeto);
-  }
 
   desabilitarImg(){
     document.getElementById('i1').setAttribute('disabled', 'disabled');
@@ -196,7 +198,8 @@ export class ProjectComponent {
 
   postProject(){
     console.log("POST");
-
+    let newCoop: Coops = { email: this.user.email, unidade:"", curso:"" };
+    this.coops.push(newCoop);
     console.log(this.projeto);
     /*let url = `${this.apiRoot}/cp/projetos`;
     this.http
