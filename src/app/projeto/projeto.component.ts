@@ -56,7 +56,9 @@ export class ProjectComponent {
     private projetoServices: projetoServices,
     private router: Router,
     private http: HttpClient){
-      this.coops = [];
+      this.coops = [{"email": this.user.email,
+                      "unidade":"",
+                      "curso": ""}];
       this.arquivos = [];
       this.projeto = [];
       this.token = JSON.parse(localStorage.getItem('token'));
@@ -78,7 +80,7 @@ export class ProjectComponent {
         direitos: ""
        };
       this.colaboradores = [
-        {"email": this.user.email}
+        {}
       ]
     }
 
@@ -88,12 +90,12 @@ export class ProjectComponent {
     console.log(this.arquivos);
   }
 
-  addProjeto() {
-    const newProjeto: Projeto = { titulo: '', descricao: '', orientador: '', status: '', tipo: '',
-    tema: '', coops: this.coops, textoProjeto: this.model.textoProjeto, linkTexto: this.model.linkTexto, arquivos: this.arquivos };
-    this.projeto.push(newProjeto);
-    console.log(this.projeto);
-  }
+  // addProjeto() {
+  //   const newProjeto: Projeto = { titulo: '', descricao: '', orientador: '', status: '', tipo: '',
+  //   tema: '', coops: this.coops, textoProjeto: this.model.textoProjeto, linkTexto: this.model.linkTexto, arquivos: this.arquivos };
+  //   this.projeto.push(newProjeto);
+  //   console.log(this.projeto);
+  // }
 
   desabilitarImg(){
     document.getElementById('i1').setAttribute('disabled', 'disabled');
@@ -142,6 +144,10 @@ export class ProjectComponent {
    
   }
 
+  onSubmit(){
+    
+  }
+
   addCateg(){
     document.getElementById('line1').style.display = "block";
     document.getElementById('cat2').style.display = "block";
@@ -176,6 +182,12 @@ export class ProjectComponent {
   }
 
   postProject(){
+    let edulindo = {
+      "email": this.user.email,
+      "unidade": "",
+      "curso": ""
+    }
+    this.coops.push(edulindo)
     console.log("POST");
 
     console.log(this.projeto);

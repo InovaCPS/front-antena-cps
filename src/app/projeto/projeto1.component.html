@@ -175,7 +175,7 @@
                 data-target="#modalResCodes"><b>Códigos</b></button>
             </div>
             <div class="col-sm-3">
-              <button type="button" class="btn-outline-dark" id="btn-recursos" data-toggle="modal" data-target="#modalDetails" data-dismiss="modal" (click)="addlinhas()"><b>Detalhes</b></button>
+              <button type="button" class="btn-outline-dark" id="btn-recursos" data-toggle="modal" data-target="#modalDetails" data-dismiss="modal"><b>Detalhes</b></button>
             </div>
             <div class="col-sm-3">
               <button type="button" class="btn-outline-dark" id="btn-recursos"  data-dismiss="modal" data-toggle="modal"
@@ -396,7 +396,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger btnSalvar" id="btn1" data-toggle="modal" data-dismiss="modal"
-          data-target="#modalMsg2" [disabled]="dsbltSalvar('Codigo', 'btn1') || !arquivos.length > 0">SALVAR</button>
+          data-target="#modalMsg2" [disabled]="dsbltSalvar('Codigo', 'btn1') || !(arquivos.length > 0)">SALVAR</button>
         <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
           data-target="#modalResources">+ RECURSOS</button>
       </div>
@@ -459,7 +459,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger btnSalvar" data-toggle="modal" data-dismiss="modal" id="btn2"
-          data-target="#modalMsg1" [disabled]="dsbltSalvar('Midias', 'btn2') || !arquivos.length > 0">SALVAR</button>
+          data-target="#modalMsg1" [disabled]="dsbltSalvar('Midias', 'btn2') || !(arquivos.length > 0)">SALVAR</button>
         <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           id="btnMaisRecursos">+ RECURSOS</button>
       </div>
@@ -559,7 +559,7 @@
       </div>
         <div class="modal-footer">
           <button class="btn btn-danger btnSalvar" id="btn3" data-toggle="modal" data-dismiss="modal"
-            data-target="#modalMsg1" [disabled]="dsbltSalvar('Arquivos', 'btn3') || !arquivos.length > 0">SALVAR</button>
+            data-target="#modalMsg1" [disabled]="dsbltSalvar('Arquivos', 'btn3') || !(arquivos.length > 0)">SALVAR</button>
           <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
             data-target="#modalResources">+ RECURSOS</button>
         </div>
@@ -608,14 +608,14 @@
               <input class="form-control" type="text" id="categoria1">
             </div>
             <div class="col-md-1 icons-edit form-group">
-              <a class="c-icons" href="#0" (click)="addCat"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
+              <a class="c-icons" href="#0" (click)="addCateg()"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
             </div>
             <div class="form-group col-md-5">
               <label for="">Colaborador(es)</label>
               <input type="text" class="form-control" id="colaborador1">
             </div>
             <div class="col-md-1 icons-edit form-group">
-              <a class="c-icons" href="#0" (click)="addColab"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
+              <a class="c-icons" href="#0" (click)="addColab()"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
             </div>
           </div>
           <div class="form-row" style="margin-top: 20px" id="line1" style="display: none">
