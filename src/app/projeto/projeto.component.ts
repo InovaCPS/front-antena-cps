@@ -111,8 +111,6 @@ export class ProjectComponent {
     console.log(this.projeto);
   }
 
-<<<<<<< HEAD
-=======
   desabilitarImg(){
     document.getElementById('i1').setAttribute('disabled', 'disabled');
     document.getElementById('i2').setAttribute('disabled', 'disabled');
@@ -120,7 +118,6 @@ export class ProjectComponent {
     document.getElementById('iImg').setAttribute('disabled', 'disabled');
   } 
   
->>>>>>> 553107200d4b1b6cab12a7a02f527e47219b4c2e
   limparImg(){
     this.model.titulo = ''; this.model.legenda = ''; this.model.caminho = '';
     document.getElementById('i1').removeAttribute('disabled');
