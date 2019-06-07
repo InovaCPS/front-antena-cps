@@ -19,7 +19,7 @@ export class ProjectComponent {
   premiado: string = "";
   arquivos: Arquivo[];
   palavrasChave: string = "";
-  colaboradores: string = "";
+  colaboradores: [object] ;
   links: string = "";
 
   unidades: Unidade[];
@@ -29,7 +29,7 @@ export class ProjectComponent {
   cursosEnvolvidos: Curso[];
   exibirCategorias: boolean = false;
   categorias: Categoria[];
-
+  user = JSON.parse(localStorage.getItem('userInfo'));
   token;
   fotoBase64: string;
 
@@ -79,6 +79,9 @@ export class ProjectComponent {
         credito2: "",
         direitos: ""
        };
+      this.colaboradores = [
+        {"email": this.user.email}
+      ]
     }
 
   addArquivo(parametro){
@@ -148,55 +151,20 @@ export class ProjectComponent {
       this.coops.push(newCoop);
   }
 
-  addLine1(){
-    if (this.categ.length < 2 || this.colab.length < 2 ){
-      let newCateg: Categ = { desc: ""};
-      let newColab: Colab = { desc: ""};
-
-      this.colab.push(newColab);
-      this.categ.push(newCateg);
-    }
+  addColab(){
+    document.getElementById('line1').style.display = "block";
+    document.getElementById('colab2').style.display = "block";
+    document.getElementById('trashColab').style.display = "block";
   }
 
-  deleteLine1(index){
-    this.colab.splice(index, 1);
-    this.categ.splice(index, 1);
+  delColab(){
+   
   }
 
-  addLine2(){
-    if (this.recursos.length < 2 || this.premios.length < 2 ){
-      let newRecursos: Recursos = { desc: ""};
-      let newPremios: Premios = { desc: ""};
-
-      this.recursos.push(newRecursos);
-      this.premios.push(newPremios);
-    }
-  }
-
-  deleteLine2(index){
-    this.recursos.splice(index, 1);
-    this.premios.splice(index, 1);
-  }
-
-  addLine3(){
-    if (this.direitos.length < 2 || this.creditos.length < 2 ){
-      let newDireitos: Direitos = { desc: ""};
-      let newCreditos: Premios = { desc: ""};
-
-      this.direitos.push(newDireitos);
-      this.creditos.push(newCreditos);
-    }
-  }
-
-  deleteLine3(index){
-    this.direitos.splice(index, 1);
-    this.creditos.splice(index, 1);
-  }
-
-  addlinhas(){
-    this.addLine1();
-    this.addLine2();
-    this.addLine3();
+  addCateg(){
+    document.getElementById('line1').style.display = "block";
+    document.getElementById('cat2').style.display = "block";
+    document.getElementById('trashCat').style.display = "block";
   }
 
   fechar() {
@@ -283,9 +251,6 @@ export class ProjectComponent {
         this.detalhes.recurso1 = this.recursos[index].desc;
         this.detalhes.direitos = this.direitos[index].desc;
         alert('primeiro if');
-        this.deleteLine1(0);
-        this.deleteLine2(0);
-        this.deleteLine3(0);
       }
       if (index == 1 ){
         if ( this.categ[index].desc != undefined ){
@@ -318,10 +283,6 @@ export class ProjectComponent {
         else {
           this.detalhes.direitos = "";
         }
-        alert('segundo if');
-        this.deleteLine1(1);
-        this.deleteLine2(1);
-        this.deleteLine3(1);
       }
       alert('resetando valor');
     }
