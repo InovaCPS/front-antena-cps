@@ -1,6 +1,6 @@
 import { CollaboratorComponent } from './collaborator/collaborator.component';
 import { HttpClientModule } from '@angular/common/http';
-import * as core from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -127,7 +127,7 @@ export function provideConfig() {
   return config;
 }
   
-@core.NgModule({
+@NgModule({
   declarations: [
     AppComponent,
     DataBindingComponent,
