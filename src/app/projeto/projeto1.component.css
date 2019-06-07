@@ -132,6 +132,19 @@ div.absolute {
   height: 38px;
 }
 
+div.relative-arquivos {
+  position: relative;
+  width: 120px;
+} 
+
+div.absolute-arquivos {
+  position: absolute;
+  bottom: 0;
+  right: 4px;
+  width: 25px;
+  height: 46px;
+}
+
 div.absolute-imagem{
   position: absolute;
   bottom: 0;

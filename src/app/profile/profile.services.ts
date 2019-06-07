@@ -17,6 +17,12 @@ export class profileService{
         })});
     }
 
+    getUserPortfolio(){
+        return this.http.get(`${this.apiRoot}/cp/projetos/aluno`, {headers: new HttpHeaders({
+            'token': this.token.token
+        })});
+    }
+
     getProfileAluno(id){
         return this.http.get(`${this.apiRoot}/cp/aluno/${id}`, {headers: new HttpHeaders({
             'token': this.token.token
@@ -49,4 +55,10 @@ export interface Aluno{
     idade?: string;
     tipo?: string;
     termos?: string;
+}
+
+export interface Portfolio{
+    id: string;
+    titulo: string;
+    descricao: string;
 }

@@ -15,11 +15,11 @@ export class ProjectComponent {
   model: any = {} ;
   resposta : any;
   apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
-  projeto: Projeto[];
+  projeto: Projeto;
   premiado: string = "";
   arquivos: Arquivo[];
   palavrasChave: string = "";
-  colaboradores: string = "";
+  colaboradores: [object] ;
   links: string = "";
 
   unidades: Unidade[];
@@ -29,8 +29,9 @@ export class ProjectComponent {
   cursosEnvolvidos: Curso[];
   exibirCategorias: boolean = false;
   categorias: Categoria[];
-
+  user = JSON.parse(localStorage.getItem('userInfo'));
   token;
+  fotoBase64: string;
 
   coops: Coops[];
 
@@ -58,7 +59,19 @@ export class ProjectComponent {
     private http: HttpClient){
       this.coops = [];
       this.arquivos = [];
-      this.projeto = [];
+      this.projeto = { 
+        titulo: '',
+        descricao: '',
+        orientador: '',
+        status: '',
+        tipo: '',
+        tema: '',
+        coops: this.coops,
+        textoProjeto: '',
+        linkTexto: '',
+        capa: '',
+        arquivos: this.arquivos
+      };
       this.token = JSON.parse(localStorage.getItem('token'));
       this.premios = [];
       this.categ = [];
@@ -66,6 +79,7 @@ export class ProjectComponent {
       this.recursos = [];
       this.direitos = [];
       this.creditos = [];
+      this.fotoBase64 = "";
       this.detalhes = {
         categoria1: "",
         categoria2: "",
@@ -85,12 +99,22 @@ export class ProjectComponent {
     console.log(this.arquivos);
   }
 
-  addProjeto() {
-    const newProjeto: Projeto = { titulo: '', descricao: '', orientador: '', status: '', tipo: '',
-    tema: '', coops: this.coops, textoProjeto: this.model.textoProjeto, linkTexto: this.model.linkTexto, arquivos: this.arquivos };
-    this.projeto.push(newProjeto);
-    console.log(this.projeto);
+ 
+
+  public Fotos(event) {
+      console.log(event)
+      var reader = new FileReader();
+      reader.onloadend = this.ConvertBase64.bind(this);
+      reader.readAsDataURL(event);
+
   }
+  ConvertBase64(e) {
+    let reader = e.target;
+    var base64result = reader.result.substr(reader.result.indexOf(',') + 1);
+    this.fotoBase64 = base64result;  
+    console.log(this.fotoBase64);
+  }
+
 
   desabilitarImg(){
     document.getElementById('i1').setAttribute('disabled', 'disabled');
@@ -129,55 +153,20 @@ export class ProjectComponent {
       this.coops.push(newCoop);
   }
 
-  addLine1(){
-    if (this.categ.length < 2 || this.colab.length < 2 ){
-      let newCateg: Categ = { desc: ""};
-      let newColab: Colab = { desc: ""};
-
-      this.colab.push(newColab);
-      this.categ.push(newCateg);
-    }
+  addColab(){
+    document.getElementById('line1').style.display = "block";
+    document.getElementById('colab2').style.display = "block";
+    document.getElementById('trashColab').style.display = "block";
   }
 
-  deleteLine1(index){
-    this.colab.splice(index, 1);
-    this.categ.splice(index, 1);
+  delColab(){
+   
   }
 
-  addLine2(){
-    if (this.recursos.length < 2 || this.premios.length < 2 ){
-      let newRecursos: Recursos = { desc: ""};
-      let newPremios: Premios = { desc: ""};
-
-      this.recursos.push(newRecursos);
-      this.premios.push(newPremios);
-    }
-  }
-
-  deleteLine2(index){
-    this.recursos.splice(index, 1);
-    this.premios.splice(index, 1);
-  }
-
-  addLine3(){
-    if (this.direitos.length < 2 || this.creditos.length < 2 ){
-      let newDireitos: Direitos = { desc: ""};
-      let newCreditos: Premios = { desc: ""};
-
-      this.direitos.push(newDireitos);
-      this.creditos.push(newCreditos);
-    }
-  }
-
-  deleteLine3(index){
-    this.direitos.splice(index, 1);
-    this.creditos.splice(index, 1);
-  }
-
-  addlinhas(){
-    this.addLine1();
-    this.addLine2();
-    this.addLine3();
+  addCateg(){
+    document.getElementById('line1').style.display = "block";
+    document.getElementById('cat2').style.display = "block";
+    document.getElementById('trashCat').style.display = "block";
   }
 
   fechar() {
@@ -209,7 +198,8 @@ export class ProjectComponent {
 
   postProject(){
     console.log("POST");
-
+    let newCoop: Coops = { email: this.user.email, unidade:"", curso:"" };
+    this.coops.push(newCoop);
     console.log(this.projeto);
     /*let url = `${this.apiRoot}/cp/projetos`;
     this.http
@@ -246,10 +236,12 @@ export class ProjectComponent {
   friends = require('../../app/images/amigos.png')
   back = require('../../app/images/atras.jpg')
   adicionarImagem = require("../../assets/addImg.png")
-  delCode = require('../../app/images/delCode.png')
+  add = require('../../app/images/add.png')
+  del = require('../../app/images/del.png')
   viewCode = require('../../app/images/viewCode.png')
-  addCode = require('../../app/images/addCode.png')
   viewMidia = require('../../app/images/vidMidia.png')
+  viewDoc = require('../../app/images/viewDoc.png')
+  viewArquivo = require('../../app/images/viewArquivo.png')
 
   addDetails(){
     alert("entro");
@@ -262,9 +254,6 @@ export class ProjectComponent {
         this.detalhes.recurso1 = this.recursos[index].desc;
         this.detalhes.direitos = this.direitos[index].desc;
         alert('primeiro if');
-        this.deleteLine1(0);
-        this.deleteLine2(0);
-        this.deleteLine3(0);
       }
       if (index == 1 ){
         if ( this.categ[index].desc != undefined ){
@@ -297,10 +286,6 @@ export class ProjectComponent {
         else {
           this.detalhes.direitos = "";
         }
-        alert('segundo if');
-        this.deleteLine1(1);
-        this.deleteLine2(1);
-        this.deleteLine3(1);
       }
       alert('resetando valor');
     }
