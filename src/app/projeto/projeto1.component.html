@@ -265,19 +265,19 @@
         <form #f="ngForm" (ngSubmit)="onSubmit()">
           
             <label style="margin-left: 5%"> Título da Imagem </label>
-            <input type="text" class="form-control" id="i1" name="tituloImagem" [(ngModel)]="model.titulo" required> <br/>
+            <input type="text" class="form-control" id="i1" name="tituloImagem" [disabled]="arquivos.length == 4" [(ngModel)]="model.titulo" required> <br/>
 
             <label for="" style="margin-left: 5%"> Legenda </label>
-            <input type="text" class="form-control" id="i2" name="legendaImagem" [(ngModel)]="model.legenda">
+            <input type="text" class="form-control" id="i2" name="legendaImagem" [disabled]="arquivos.length == 4"  [(ngModel)]="model.legenda">
             <div class="row justify-content-center">
             <input-file
-            placeholder="" id="i3" name="imagens"  [(ngModel)]="model.caminho" required>
+            placeholder="" id="i3" name="imagens" [disabled]="arquivos.length == 4" [(ngModel)]="model.caminho" required>
             </input-file>
             </div>
 
           <div class="col-md-3 offset-md-9"> 
             <button type="submit" class="btn btn-success" id="iImg"  style="margin-top: -100%" (click)="addArquivo('Imagem')" 
-            (click)="limparImg()"  [disabled]="f.invalid" >Adicionar imagem.</button> 
+            (click)="limparImg()" *ngIf="arquivos.length != 4" [disabled]="f.invalid" >Adicionar imagem.</button> 
           </div>
 
         
@@ -300,7 +300,7 @@
           </form>    
        
       <div class="modal-footer">
-          <button type="button" class="btn btn-danger btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
+          <button type="button" class="btn btn-danger btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="arquivos.length < 1">SALVAR</button>
           <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
       </div>
           </div>
