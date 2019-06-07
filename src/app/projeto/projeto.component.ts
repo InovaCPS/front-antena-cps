@@ -111,6 +111,16 @@ export class ProjectComponent {
     console.log(this.projeto);
   }
 
+<<<<<<< HEAD
+=======
+  desabilitarImg(){
+    document.getElementById('i1').setAttribute('disabled', 'disabled');
+    document.getElementById('i2').setAttribute('disabled', 'disabled');
+    document.getElementById('i3').setAttribute('disabled', 'disabled');
+    document.getElementById('iImg').setAttribute('disabled', 'disabled');
+  } 
+  
+>>>>>>> 553107200d4b1b6cab12a7a02f527e47219b4c2e
   limparImg(){
     this.model.titulo = ''; this.model.legenda = ''; this.model.caminho = '';
     document.getElementById('i1').removeAttribute('disabled');
@@ -231,6 +241,18 @@ export class ProjectComponent {
     )*/
   }
 
+  dsbltSalvar(mdl, btn) {
+    let v: any;
+    for (let i = 0, len = this.arquivos.length; i < len; i++) {
+      if (this.arquivos[i].tipo === mdl) { v = mdl; }
+    }
+    if (v === mdl) {
+      document.getElementById(btn).removeAttribute('disabled');
+      return true;
+    } else {
+      document.getElementById(btn).setAttribute('disabled', 'disabled');
+    }
+  }
 
   deleteCoop(index) {
     this.coops.splice(index, 1)
@@ -246,10 +268,12 @@ export class ProjectComponent {
   friends = require('../../app/images/amigos.png')
   back = require('../../app/images/atras.jpg')
   adicionarImagem = require("../../assets/addImg.png")
-  delCode = require('../../app/images/delCode.png')
+  add = require('../../app/images/add.png')
+  del = require('../../app/images/del.png')
   viewCode = require('../../app/images/viewCode.png')
-  addCode = require('../../app/images/addCode.png')
   viewMidia = require('../../app/images/vidMidia.png')
+  viewDoc = require('../../app/images/viewDoc.png')
+  viewArquivo = require('../../app/images/viewArquivo.png')
 
   addDetails(){
     alert("entro");
