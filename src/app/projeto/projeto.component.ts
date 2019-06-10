@@ -15,7 +15,7 @@ export class ProjectComponent {
   model: any = {} ;
   resposta : any;
   apiRoot: string = 'http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com';
-  projeto: Projeto[];
+  projeto: Projeto;
   premiado: string = "";
   arquivos: Arquivo[];
   palavrasChave: string = "";
@@ -31,6 +31,7 @@ export class ProjectComponent {
   categorias: Categoria[];
   user = JSON.parse(localStorage.getItem('userInfo'));
   token;
+  fotoBase64: string;
 
   coops: Coops[];
 
@@ -56,11 +57,21 @@ export class ProjectComponent {
     private projetoServices: projetoServices,
     private router: Router,
     private http: HttpClient){
-      this.coops = [{"email": this.user.email,
-                      "unidade":"",
-                      "curso": ""}];
+      this.coops = [];
       this.arquivos = [];
-      this.projeto = [];
+      this.projeto = { 
+        titulo: '',
+        descricao: '',
+        orientador: '',
+        status: '',
+        tipo: '',
+        tema: '',
+        coops: this.coops,
+        textoProjeto: '',
+        linkTexto: '',
+        capa: '',
+        arquivos: this.arquivos
+      };
       this.token = JSON.parse(localStorage.getItem('token'));
       this.premios = [];
       this.categ = [];
@@ -68,6 +79,7 @@ export class ProjectComponent {
       this.recursos = [];
       this.direitos = [];
       this.creditos = [];
+      this.fotoBase64 = "";
       this.detalhes = {
         categoria1: "",
         categoria2: "",
@@ -79,9 +91,6 @@ export class ProjectComponent {
         credito2: "",
         direitos: ""
        };
-      this.colaboradores = [
-        {}
-      ]
     }
 
   addArquivo(parametro){
@@ -90,12 +99,22 @@ export class ProjectComponent {
     console.log(this.arquivos);
   }
 
-  // addProjeto() {
-  //   const newProjeto: Projeto = { titulo: '', descricao: '', orientador: '', status: '', tipo: '',
-  //   tema: '', coops: this.coops, textoProjeto: this.model.textoProjeto, linkTexto: this.model.linkTexto, arquivos: this.arquivos };
-  //   this.projeto.push(newProjeto);
-  //   console.log(this.projeto);
-  // }
+ 
+
+  public Fotos(event) {
+      console.log(event)
+      var reader = new FileReader();
+      reader.onloadend = this.ConvertBase64.bind(this);
+      reader.readAsDataURL(event);
+
+  }
+  ConvertBase64(e) {
+    let reader = e.target;
+    var base64result = reader.result.substr(reader.result.indexOf(',') + 1);
+    this.fotoBase64 = base64result;  
+    console.log(this.fotoBase64);
+  }
+
 
   desabilitarImg(){
     document.getElementById('i1').setAttribute('disabled', 'disabled');
@@ -182,14 +201,9 @@ export class ProjectComponent {
   }
 
   postProject(){
-    let edulindo = {
-      "email": this.user.email,
-      "unidade": "",
-      "curso": ""
-    }
-    this.coops.push(edulindo)
     console.log("POST");
-
+    let newCoop: Coops = { email: this.user.email, unidade:"", curso:"" };
+    this.coops.push(newCoop);
     console.log(this.projeto);
     /*let url = `${this.apiRoot}/cp/projetos`;
     this.http

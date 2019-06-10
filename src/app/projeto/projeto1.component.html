@@ -263,27 +263,26 @@
                 caracterizam o projeto</h5> <br />
 
         <form #f="ngForm" (ngSubmit)="onSubmit()">
-    
+          
             <label style="margin-left: 5%"> Título da Imagem </label>
-            <input type="text" class="form-control" id="tituloImagem" name="tituloImagem" [(ngModel)]="model.titulo" required> <br/>
+            <input type="text" class="form-control" id="i1" name="tituloImagem" [disabled]="arquivos.length == 4" [(ngModel)]="model.titulo" required> <br/>
 
             <label for="" style="margin-left: 5%"> Legenda </label>
-            <input type="text" class="form-control" id="legendaImagem" name="legendaImagem" [(ngModel)]="model.legenda">
+            <input type="text" class="form-control" id="i2" name="legendaImagem" [disabled]="arquivos.length == 4"  [(ngModel)]="model.legenda">
             <div class="row justify-content-center">
             <input-file
-            placeholder="" name="imagens" id="imagem" [(ngModel)]="model.caminho" required>
+            placeholder="" id="i3" name="imagens" [disabled]="arquivos.length == 4" [(ngModel)]="model.caminho" required>
             </input-file>
             </div>
 
           <div class="col-md-3 offset-md-9"> 
             <button type="submit" class="btn btn-success" id="iImg"  style="margin-top: -100%" (click)="addArquivo('Imagem')" 
-            (click)="limparImg()" (click)="desabilitarImg()"[disabled]="f.invalid">Adicionar outra foto.</button> 
+            (click)="limparImg()" *ngIf="arquivos.length != 4" [disabled]="f.invalid" >Adicionar imagem.</button> 
           </div>
 
-        </form>
+        
        
-        <div style=" margin-left: 3%">
-        <div class="row justify-content-start">
+        <div class="row justify-content-start" style=" margin-left: 3%">
                   <div *ngFor='let arquivo of arquivos; let i = index'>
                     <div *ngIf="arquivos[i].tipo == 'Imagem'">
                     <div class="col-md-2">
@@ -294,15 +293,14 @@
                               (click)="deleteArquivo(i)">
                             </div>
                           </div>
-                      </div>
                     </div>
                   </div>
                 </div>
             </div> 
-           
+          </form>    
        
       <div class="modal-footer">
-          <button type="button" class="btn btn-danger btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
+          <button type="button" class="btn btn-danger btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="arquivos.length < 1">SALVAR</button>
           <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
       </div>
           </div>
@@ -702,11 +700,6 @@
   </div>
 </div>
 
-
-
-
-
-
 <div class="modal fade" id="modalResCapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
@@ -719,7 +712,7 @@
    <form #fc="ngForm" (ngSubmit)="onSubmit()" style="margin-left:40%; width: 200px; height: 300px;">
        
     <input-file
-    placeholder="" style="margin-left:40" name="capa" [(ngModel)]="model.capa" fileAccept="image/*" fileLimit="1" required>
+    placeholder="" style="margin-left:40" name="capa"  (change)="Fotos(model.capa)" [(ngModel)]="model.capa" fileAccept="image/*" fileLimit="1" required>
     </input-file>
         
   </form> 
@@ -729,6 +722,17 @@
       </div>
           </div>
       </div>
+<<<<<<< HEAD
+
+      <div class="modal fade" id="modalFinalizarCapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <h4 style="margin-top: 20%; margin-left:5%">Você pode substituir a imagens de capa do seu projeto. Clique no botão "CONTINUAR" para substituir a imagem de capa, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h4>
+            <button type="submit" class="btn btn-danger" id="btnFinalizar" data-dismiss="modal" (click)="postProject()" >FINALIZAR</button>
+            <button type="button" class="btn btn-danger" id="btnContinuar" data-dismiss="modal" data-toggle="modal" data-target="#modalResCapa">CONTINUAR</button>
+            </div>
+        </div>
+=======
     
 <div class="modal fade" id="modalFinalizarCapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -736,6 +740,7 @@
       <h4 style="margin-top: 20%; margin-left:5%">Você pode substituir a imagens de capa do seu projeto. Clique no botão "CONTINUAR" para substituir a imagem de capa, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h4>
       <button type="submit" class="btn btn-danger" id="btnFinalizar" data-dismiss="modal" (click)="postProject()" >FINALIZAR</button>
       <button type="button" class="btn btn-danger" id="btnContinuar" data-dismiss="modal" data-toggle="modal" data-target="#modalResCapa">CONTINUAR</button>
+>>>>>>> b246ec0a6b1ce9ffe04c044e34daac2f04163f74
       </div>
   </div>
 </div>

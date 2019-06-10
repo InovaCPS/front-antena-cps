@@ -29,6 +29,7 @@ export class projetoServices{
 
 
 
+
 export interface Projeto{
     titulo: string;
     descricao: string;
@@ -40,6 +41,7 @@ export interface Projeto{
     textoProjeto: string;
     linkTexto: string;
     arquivos: Arquivo[];
+    capa : string;
 }
 
 export interface Arquivo{
