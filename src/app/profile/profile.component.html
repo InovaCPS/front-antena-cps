@@ -72,11 +72,11 @@
 
                                     <div class="carousel-item active">
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col" *ngFor="let projeto of portfolio;">
                                                 <a target="_blank">
                                                     <img class="portfolio-item" [src]="imgTeste" alt="Image"
                                                         style="max-width:100%;">
-                                                        <h3 style="color: orange; margin-top: -20%"> Teste portfolio</h3>
+                                                        <h3 style="color: orange; margin-top: -20%">{{ projeto.titulo}}</h3>
                                                 </a>
                                             </div>
                                             <div class="col">
