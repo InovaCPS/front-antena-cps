@@ -1,6 +1,6 @@
 import { CollaboratorComponent } from './collaborator/collaborator.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import * as core from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -40,7 +40,6 @@ import { ProfileNavbarComponent } from './profile-navbar/profile-navbar.componen
 const configs: InputFileConfig = {
     fileAccept: 'image/*',
     fileLimit: 1
-
 };
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -127,7 +126,7 @@ export function provideConfig() {
   return config;
 }
   
-@NgModule({
+@core.NgModule({
   declarations: [
     AppComponent,
     DataBindingComponent,
