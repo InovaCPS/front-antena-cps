@@ -97,6 +97,110 @@ background: #707070;
 
 #profile-image a{
     position: absolute;
-    top: 71%;
-    left: 45%;
+    top: 73%;
+    left: 43%;
+    padding: 1% 1%; 
+    background-color: #0069B5; 
+    border-radius: 50%; 
+    color: white;
+    border: #72A5FF solid;
 }
+
+.modal-top {
+    background-color: #0069B5; 
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px;
+}
+
+.btn-x {
+    position: absolute; 
+    right: -4%; 
+    margin-top: -5%; 
+    border-radius: 50%;
+    width: 62px; 
+    height: 62px;
+    box-shadow: -1px 1px 9px black;
+}
+
+.btn-cancel {
+    width: 125px; 
+    height: 55px; 
+    border-radius: 20px; 
+    font-size: unset;
+    border: #191919 solid 1px;
+    text-align: center; 
+    position: relative; 
+    right: 20%;
+}
+
+.btn-send {
+    background-color: #00B59C; 
+    color: white; 
+    width: 125px; 
+    height: 55px; 
+    border-radius: 20px; 
+    font-size: unset; 
+    text-align: center; 
+    position: absolute; 
+    left: 20%;
+}
+
+.btn-send:hover {
+    background-color: #177165; 
+}
+
+.desafio-title {
+    color: white; 
+    margin-top: 1%
+}
+
+.x {
+    font-size: 15px; 
+    color: red;
+    font-weight: bold;
+}
+
+/* carousel desafios */
+.container-desafio {
+    position: relative; 
+  }
+  
+  .image-desafio {
+    opacity: 1;
+    display: block;
+    width: 450px;
+    height: 300px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+
+  .image-desafio:hover{
+    width: 550px;
+    height: 400px;
+    transition: 0.5s;
+}
+  
+  .middle-desafio {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .container-desafio:hover .image-desafio {
+    opacity: 0.9;
+  }
+  
+  .container-desafio:hover .middle-desafio {
+    opacity: 1;
+  }
+  
+  .btn-desafio {
+    color: black;
+    font-size: 16px;
+    padding: 16px 32px;
+  }

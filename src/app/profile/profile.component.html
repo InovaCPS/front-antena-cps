@@ -23,9 +23,9 @@
                     <h1>{{ aluno.nome }} {{ aluno.sobrenome }}</h1>
                 </div>
                 <div id="profile-image">
-                    <img id="profile-pic" [src]="fotoPerfil" alt="">
+                    <img id="profile-pic" [src]="fotoPerfil" alt="" style="border: #72A5FF solid;">
                     <a  id="buttonPopover" hidden class="btn btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">teste</a>
-                    <a href="#0" data-toggle="modal" data-target="#modalProfile" ><i class="fas fa-cog fa-3x"></i></a>
+                    <a href="#0" data-toggle="modal" data-target="#modalProfile"><i class="fas fa-cog fa-3x"></i></a>
                 </div>
                 <div id="user-info">
                     <div class="" style="margin-top: -5px;" >{{ aluno.escola }}</div>
@@ -58,7 +58,7 @@
         </div>
         <div class="row" id="portfolio">
             <div id="port" class="row">
-                <h4>Meu Portfólio</h4>
+                <h4 style="color: #72A5FF;"><b>Meu Portfólio</b></h4>
             </div>
         </div>
             <div class="row" id="border">
@@ -94,6 +94,46 @@
                     </div>
                 </div>
             </div>
+            <div class="row" id="desafios">
+              <div id="port" class="row">
+                  <h4 style="color: #72A5FF;"><b>Desafios</b></h4>
+              </div>
+          </div>
+              <div class="row" id="border">
+                  <div class="container">
+                      <div class="row blog">
+                          <div class="col-md-12">
+                              <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+  
+                                  <!-- Carousel items -->
+                                  <div class="carousel-inner">
+  
+                                      <div class="carousel-item active">
+                                          <div class="row">
+                                              <div class="container-desafio">
+                                                <img [src]="imgTeste" alt="Image" class="image-desafio" style="max-width: 100%;">
+                                                <div class="middle-desafio">
+                                                  <button class="btn-desafio" data-toggle="modal" data-target="#NewModal">button</button><br/>
+                                                  <button class="btn-desafio">button</button><br/>
+                                                  <button class="btn-desafio">button</button><br/>
+                                                  <button class="btn-desafio">button</button>
+                                                </div>
+                                              </div>
+                                              <div class="col">
+                                                  <a href="#0" data-toggle="modal" data-target="#modalProject">
+                                                      <img class="portfolio-item" [src]="addImg" alt="Image"
+                                                          style="max-width:100%;">
+                                                  </a>
+                                              </div>
+                                          </div>
+                                          <!--.row-->
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
         </div>
         <div class="padding"></div>
         <div class="padding"></div>
@@ -219,3 +259,30 @@
         </div>
       </div>
     </div>
+
+<div class="modal fade " id="NewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 30px">
+      <div class="modal-header modal-top">
+        <h5 class="desafio-title">COMPARTILHAR DESAFIO</h5>
+        <button type="button" class="btn btn-light btn-x" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="x">X</span></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <br />
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" style="border-radius: 15px;">
+        </div>
+        <br/>
+        <div class="input-group">
+          <textarea class="form-control" rows="7" id="basic-text" aria-label="With textarea" style="border-radius: 15px; resize: none;"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-info btn-send" data-dismiss="modal">Enviar</button>
+        <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
