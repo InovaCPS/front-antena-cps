@@ -1,11 +1,11 @@
 <div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="modalProfileLabe"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE PROJETO</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" id="close-modal-profile" style="font-size: 15px; color: black"> VOLTAR</span>
+          <span aria-hidden="true" id="close-modal-profile" style="font-size: 15px"> VOLTAR</span>
         </button>
       </div>
       <div class="modal-body">
@@ -53,8 +53,7 @@
       </div>
       <div class="modal-footer">
         <button type=" button" class="btn btn-danger" data-toggle="modal" data-target="#modalProjectUnits"
-          data-dismiss="modal" (click)="addCoops()" style="width: 140px; margin-right: 3%; font-size: 15px;
-            -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;">PRÓXIMO</button>
+          data-dismiss="modal" (click)="addCoops()">PRÓXIMO</button>
       </div>
     </div>
   </div>
@@ -62,7 +61,7 @@
 
 <div class="modal fade" id="modalProjectUnits" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"> Escolha a unidade e os colaboradores do projeto</h5>
@@ -92,13 +91,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="addCoops()"
-          style="position:absolute; left: 4%; width: 170px; font-size: 15px; -webkit-border-radius: 30px; 
-          -moz-border-radius: 30px; border-radius: 30px;">ADD COLABORADOR</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()"
-          style="width: 140px; margin-right: 3%; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; 
-          border-radius: 30px;">FINALIZAR</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" style="width: 140px; margin-right: 3%; 
-          font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;" 
+          style="margin-left: 20px;position:absolute; left: 0;">ADD COLABORADOR</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
           data-target="#modalResources">CONTINUAR</button>
       </div>
     </div>
@@ -107,7 +102,7 @@
 
 <div class="modal fade" id="modalProjectSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Uhuuu!</h5>
@@ -175,7 +170,7 @@
                 data-target="#modalResCodes"><b>Códigos</b></button>
             </div>
             <div class="col-sm-3">
-              <button type="button" class="btn-outline-dark" id="btn-recursos" data-toggle="modal" data-target="#modalDetails" data-dismiss="modal"><b>Detalhes</b></button>
+              <button type="button" class="btn-outline-dark" id="btn-recursos" data-toggle="modal" data-target="#modalDetails" data-dismiss="modal" (click)="addlinhas()"><b>Detalhes</b></button>
             </div>
             <div class="col-sm-3">
               <button type="button" class="btn-outline-dark" id="btn-recursos"  data-dismiss="modal" data-toggle="modal"
@@ -186,9 +181,7 @@
       </div>
       <br />
       <div class="modal-footer">
-        <button class="btn btn-danger" style="width: 140px; margin-right: 3%; font-size: 15px;
-          -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;" data-dismiss="modal" 
-          (click)="postProject()">FINALIZAR</button>
+        <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
       </div>
     </div>
   </div>
@@ -196,7 +189,7 @@
 
 <div class="modal fade" id="modalResText" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE TEXTO</h5>
@@ -221,7 +214,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger btnSalvar" data-toggle="modal" data-dismiss="modal"
+        <button class="btn btn-danger" id="btnSalvar" data-toggle="modal" data-dismiss="modal"
           data-target="#modalMsg">SALVAR</button>
         <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
           data-target="#modalResources">+ RECURSOS</button>
@@ -241,11 +234,14 @@
           em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h6>
       </div>
       <div class="modal-footer">
-          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" style="position: absolute; 
-            left: 4%; width: 140px; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;"
-            (click)="postProject()">FINALIZAR</button>
-          <button class="btn btn-danger"  data-dismiss="modal" data-toggle="modal" data-target="#modalResText" style="width: 140px; position: relative; 
-            right: 3%; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;" >CONTINUAR</button>
+        <div class="mr-auto">
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" 
+            data-target="#modalResources" (click)="postProject()">FINALIZAR</button>
+        </div>
+        <div>
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+            data-target="#modalResText">CONTINUAR</button>
+        </div>
       </div>
     </div>
   </div>
@@ -263,44 +259,45 @@
                 caracterizam o projeto</h5> <br />
 
         <form #f="ngForm" (ngSubmit)="onSubmit()">
-          
+    
             <label style="margin-left: 5%"> Título da Imagem </label>
-            <input type="text" class="form-control" id="i1" name="tituloImagem" [disabled]="arquivos.length == 4" [(ngModel)]="model.titulo" required> <br/>
+            <input type="text" class="form-control" id="tituloImagem" name="tituloImagem" [(ngModel)]="model.titulo" required> <br/>
 
             <label for="" style="margin-left: 5%"> Legenda </label>
-            <input type="text" class="form-control" id="i2" name="legendaImagem" [disabled]="arquivos.length == 4"  [(ngModel)]="model.legenda">
+            <input type="text" class="form-control" id="legendaImagem" name="legendaImagem" [(ngModel)]="model.legenda">
             <div class="row justify-content-center">
             <input-file
-            placeholder="" id="i3" name="imagens" [disabled]="arquivos.length == 4" [(ngModel)]="model.caminho" required>
+            placeholder="" name="imagens" id="imagem" [(ngModel)]="model.caminho" required>
             </input-file>
             </div>
 
           <div class="col-md-3 offset-md-9"> 
             <button type="submit" class="btn btn-success" id="iImg"  style="margin-top: -100%" (click)="addArquivo('Imagem')" 
-            (click)="limparImg()" *ngIf="arquivos.length != 4" [disabled]="f.invalid" >Adicionar imagem.</button> 
+            (click)="limparImg()" (click)="desabilitarImg()"[disabled]="f.invalid">Adicionar outra foto.</button> 
           </div>
 
-        
+        </form>
        
-        <div class="row justify-content-start" style=" margin-left: 3%">
+        <div style=" margin-left: 3%">
+        <div class="row justify-content-start">
                   <div *ngFor='let arquivo of arquivos; let i = index'>
                     <div *ngIf="arquivos[i].tipo == 'Imagem'">
                     <div class="col-md-2">
                       <div class="relative-imagem">
                        <img [src]="viewCode" title={{model.titulo}} style="max-width: 60px;">
                         <div class="absolute-imagem">
-                          <img [src]="del" title="Excluir" style="max-width: 12px"
+                          <img [src]="delCode" title="Excluir" style="max-width: 12px"
                               (click)="deleteArquivo(i)">
                             </div>
                           </div>
+                      </div>
                     </div>
                   </div>
                 </div>
             </div> 
-          </form>    
-       
+          
       <div class="modal-footer">
-          <button type="button" class="btn btn-danger btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="arquivos.length < 1">SALVAR</button>
+          <button type="button" class="btn btn-danger" id="btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
           <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
       </div>
           </div>
@@ -333,10 +330,14 @@
           códigos, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h6>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" style="position: absolute; 
-          left: 4%; width: 140px; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;">FINALIZAR</button>
-        <button class="btn btn-danger"  data-dismiss="modal" data-toggle="modal" data-target="#modalMidias" style="width: 140px; position: relative; 
-          right: 3%; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;" >CONTINUAR</button>
+        <div class="mr-auto">
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" 
+            data-target="#modalResources" (click)="postProject()">FINALIZAR</button>
+        </div>
+        <div>
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+            data-target="#modalResCodes">CONTINUAR</button>
+        </div>
       </div>
     </div>
   </div>
@@ -380,7 +381,7 @@
                   <a href="javascript:void(0);" target="__blank"><img [src]="viewCode" title={{arquivo.titulo}} style="max-width: 120px;"
                       (click)="urlDestino(arquivo.caminho)"></a>
                   <div class="absolute">
-                    <a href="javascript:void(1);"><img [src]="del" title="Excluir" style="max-width: 25px;"
+                    <a href="javascript:void(1);"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
                         (click)="deleteArquivo(i)" (click)="limpar()"></a>
                   </div>
                 </div>
@@ -388,13 +389,13 @@
             </div>
           </div>
           <div class="relative" *ngIf="dsbltSalvar('Codigo', 'btn1') === true">
-            <a href="javascript:void(0);"><img [src]="add" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
+            <a href="javascript:void(0);"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger btnSalvar" id="btn1" data-toggle="modal" data-dismiss="modal"
-          data-target="#modalMsg2" [disabled]="dsbltSalvar('Codigo', 'btn1') || !(arquivos.length > 0)">SALVAR</button>
+          data-target="#modalMsg2" [disabled]="dsbltSalvar('Codigo', 'btn1') || !arquivos.length > 0">SALVAR</button>
         <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
           data-target="#modalResources">+ RECURSOS</button>
       </div>
@@ -443,7 +444,7 @@
                     class="video-btn" data-toggle="modal"
                     data-src="http://www.youtube.com/embed/M7lc1UVf-VE" data-target="#myModal"></a>
                   <div class="absolute-midia">
-                    <a href="javascript:void(1);"><img [src]="del" title="Excluir" style="max-width: 25px;"
+                    <a href="javascript:void(1);"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
                       (click)="deleteArquivo(i)"></a>
                   </div>
                 </div>
@@ -451,13 +452,13 @@
             </div>
           </div>
           <div class="relative" *ngIf="dsbltSalvar('Midias', 'btn2') === true">
-            <a href="javascript:void(0);"><img [src]="add" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
+            <a href="javascript:void(0);"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger btnSalvar" data-toggle="modal" data-dismiss="modal" id="btn2"
-          data-target="#modalMsg1" [disabled]="dsbltSalvar('Midias', 'btn2') || !(arquivos.length > 0)">SALVAR</button>
+          data-target="#modalMsg1" [disabled]="dsbltSalvar('Midias', 'btn2') || !arquivos.length > 0">SALVAR</button>
         <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources"
           id="btnMaisRecursos">+ RECURSOS</button>
       </div>
@@ -495,10 +496,13 @@
           mais arquivos, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h6>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" style="position: absolute; 
-          left: 4%; width: 140px; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;">FINALIZAR</button>
-        <button class="btn btn-danger"  data-dismiss="modal" data-toggle="modal" data-target="#modalMidias" style="width: 140px; position: relative; 
-          right: 3%; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;" >CONTINUAR</button>
+        <div class="mr-auto">
+          <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
+        </div>
+        <div>
+          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+            data-target="#modalResources">CONTINUAR</button>
+        </div>
       </div>
     </div>
   </div>
@@ -535,32 +539,13 @@
               (click)="limpar()" [disabled]="farquivo.invalid">INCORPORAR</button>
           </div>
         </form>
-        <div class="row justify-content-center">
-          <div *ngFor='let arquivo of arquivos; let i = index' class="fadeIn">
-            <div *ngIf="arquivos[i].tipo == 'Arquivos'">
-              <div class="col-md-2">
-                <div class="relative-arquivos">
-                  <a href="javascript:void(0);" target="__blank"><img [src]="viewArquivo" title={{arquivo.titulo}} style="max-width: 120px;"
-                      (click)="urlDestino(arquivo.caminho)"></a>
-                  <div class="absolute-arquivos">
-                    <a href="javascript:void(1);"><img [src]="del" title="Excluir" style="max-width: 25px;"
-                        (click)="deleteArquivo(i)" (click)="limpar()"></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="relative" *ngIf="dsbltSalvar('Arquivos', 'btn3') === true">
-            <a href="javascript:void(0);"><img [src]="add" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
-          </div>
-        </div>
-      </div>
         <div class="modal-footer">
           <button class="btn btn-danger btnSalvar" id="btn3" data-toggle="modal" data-dismiss="modal"
-            data-target="#modalMsg1" [disabled]="dsbltSalvar('Arquivos', 'btn3') || !(arquivos.length > 0)">SALVAR</button>
+            data-target="#modalMsg1" [disabled]="dsbltSalvar('Arquivos', 'btn3') || !arquivos.length > 0">SALVAR</button>
           <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
             data-target="#modalResources">+ RECURSOS</button>
         </div>
+      </div>
     </div>
   </div>
 </div>
@@ -589,10 +574,10 @@
 </div>
 
 <div class="modal fade" id="modalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">ADICIONAR DETALHES</h5><br>
+        <h5 class="modal-title" id="exampleModalLabel">Adicionar Detalhes</h5><br>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -600,101 +585,61 @@
       <div class="modal-body">
           <h5>Complete seu projeto com mais informações relevantes</h5>
         <div>
-          <div class="form-row" style="margin-top: 20px">
-            <div class="form-group col-md-5">
+          <div *ngFor="let categs of categ; let i = index" class="form-row" style="margin-top: 20px">
+            <div class="form-group col-md-6">
               <label for="">Categoria(s)</label>
-              <input class="form-control" type="text" id="categoria1">
-            </div>
-            <div class="col-md-1 icons-edit form-group">
-              <a class="c-icons" href="#0" (click)="addCateg()"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
+              <input class="form-control"type="text" [(ngModel)]="categ[i].desc" name="categ">
             </div>
             <div class="form-group col-md-5">
               <label for="">Colaborador(es)</label>
-              <input type="text" class="form-control" id="colaborador1">
+              <input type="text" class="form-control" [(ngModel)]="colab[i].desc" name="colab">
             </div>
             <div class="col-md-1 icons-edit form-group">
-              <a class="c-icons" href="#0" (click)="addColab()"><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
+              <a class="c-icons" href="#0" (click)="addLine1()" ><i class="fas fa-plus-circle" style="cursor: pointer"></i></a>
+              <ng-template [ngIf]="i !=0 ">
+                <a class="c-icons" href="#0" (click)="deleteLine1(i)"><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
+              </ng-template>
             </div>
           </div>
-          <div class="form-row" style="margin-top: 20px" id="line1" style="display: none">
-            <div class="form-group col-md-5" id="cat2" style="display: none">
-              <label for="">Categoria(s)</label>
-              <input class="form-control"type="text" id="categoria2">
-            </div>
-            <div class="col-md-1 icons-edit form-group" id="trashCat" style="display: none">
-              <a class="c-icons" href="#0"><i class="fas fa-trash-alt" style="cursor: pointer"></i></a>
-            </div>
-            <div class="form-group col-md-5" id="colab2" style="display: none">
-              <label for="">Colaborador(es)</label>
-              <input type="text" class="form-control" id="colaborador2">
-            </div>
-            <div class="col-md-1 icons-edit form-group" id="trashColab" style="display: none">
-              <a class="c-icons" href="#0"><i class="fas fa-trash-alt" style="cursor: pointer"></i></a>
-            </div>
-          </div>
-          <div class="form-row"class="form-row">
-            <div class="form-group col-md-5">
+          <div *ngFor="let recurso of recursos; let i = index" class="form-row"class="form-row">
+            <div class="form-group col-md-6">
               <label for="">Recursos Utilizados</label>
-              <input class="form-control"type="text" id="recurso1">
+              <input class="form-control"type="text" name="rec" [(ngModel)]="recursos[i].desc">
             </div>
-            <div class="col-md-1 icons-edit form-group">
-              <a class="c-icons" href="#0"><i class="fas fa-plus-circle" ></i></a>
-             </div>
             <div class="form-group col-md-5">
               <label for="">Premio(s) Conquistado(s)</label>
-              <input type="text" class="form-control" id="premio1">
+              <input type="text" class="form-control" [(ngModel)]="premios[i].desc">
             </div>
             <div class="col-md-1 icons-edit form-group">
-              <a class="c-icons" href="#0" ><i class="fas fa-plus-circle" ></i></a>
+              <a class="c-icons" href="#0" (click)="addLine2()" ><i class="fas fa-plus-circle" ></i></a>
+              <ng-template [ngIf]="i !=0 ">
+                  <a class="c-icons" href="#0" (click)="deleteLine2(i)" ><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
+              </ng-template>
              </div>
           </div>
-          <div class="form-row"class="form-row" hidden id="line2">
-            <div class="form-group col-md-5">
-              <label for="">Recursos Utilizados</label>
-              <input class="form-control"type="text" id="recurso2">
-            </div>
-            <div class="col-md-1 icons-edit form-group">
-              <a class="c-icons" href="#0"><i class="fas fa-trash-alt" ></i></a>
-             </div>
-            <div class="form-group col-md-5">
-              <label for="">Premio(s) Conquistado(s)</label>
-              <input type="text" class="form-control" id="premio2">
-            </div>
-            <div class="col-md-1 icons-edit form-group">
-              <a class="c-icons" href="#0" ><i class="fas fa-trash-alt" ></i></a>
-             </div>
-          </div>
-          <div class="form-row" class="form-row">
-            <div class="form-group col-md-5">
+          <div *ngFor="let direto of direitos; let i = index" class="form-row" class="form-row">
+            <div class="form-group col-md-6">
               <label for="">Direitos Autorais</label>
-              <input class="form-control"type="text" id="direito1">
-            </div>
-            <div class="form-group col-md-1">
-
+              <input class="form-control"type="text" name="direitos" [(ngModel)]="direitos[i].desc">
             </div>
             <div class="form-group col-md-5">
               <label for="">Créditos Adicionais</label>
-              <input type="text" class="form-control" id="credito1">
+              <input type="text" class="form-control" name="creditos" [(ngModel)]="creditos[i].desc">
             </div>
             <div class="col-md-1 icons-edit form-group">
-               <a class="c-icons" href="#0" ><i class="fas fa-plus-circle"></i></a>
+               <a class="c-icons" href="#0" (click)="addLine3()" ><i class="fas fa-plus-circle"></i></a>
+               <ng-template [ngIf]="i !=0 ">
+                  <a class="c-icons" href="#0" (click)="deleteLine3(i)" ><i class="fas fa-trash-alt" style="cursor: pointer; margin-left: 10px"></i></a>
+                </ng-template>
               </div>
           </div>
-          <div class="form-row" class="form-row" id="line3" hidden>
-            <div class="form-group col-md-5">
-              <label for="">Créditos Adicionais</label>
-              <input type="text" class="form-control" id="credito2">
-            </div>
-            <div class="col-md-1 icons-edit form-group">
-               <a class="c-icons" href="#0" ><i class="fas fa-trash-alt"></i></a>
-              </div>
-          </div>
-        </div>
+        </div> 
+        
       </div>
       
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger btnSalvar" data-dismiss="modal" (click)="addDetails()" data-toggle="modal" data-target="#modalResources">SALVAR</button>
-        <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>
+      <div class="modal-footer" style="display: flex; justify-content: center;">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" style="border-radius: 30px;" (click)="addDetails()" data-toggle="modal" data-target="#modalResources" >SALVAR</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" style="border-radius: 30px; margin-left: 30px;">+ RECURSOS</button>
       </div>
     </div>
   </div>
@@ -712,13 +657,15 @@
    <form #fc="ngForm" (ngSubmit)="onSubmit()" style="margin-left:40%; width: 200px; height: 300px;">
        
     <input-file
-    placeholder="" style="margin-left:40" name="capa"  (change)="Fotos(model.capa)" [(ngModel)]="model.capa" fileAccept="image/*" fileLimit="1" required>
+    placeholder="" style="margin-left:40" name="capa" [(ngModel)]="model.capa" fileAccept="image/*" fileLimit="1" required>
     </input-file>
-        
+
   </form> 
       <div class="modal-footer">
-          <button type="button" class="btn btn-danger btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizarCapa" [disabled]="fc.invalid">SALVAR</button>
+          <button type="button" class="btn btn-danger" id="btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizarCapa" [disabled]="fc.invalid">SALVAR</button>
           <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
+      </div>
+          </div>
       </div>
 
       <div class="modal fade" id="modalFinalizarCapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -729,7 +676,6 @@
             <button type="button" class="btn btn-danger" id="btnContinuar" data-dismiss="modal" data-toggle="modal" data-target="#modalResCapa">CONTINUAR</button>
             </div>
         </div>
-      </div>
-  </div>
-</div>
-      
+      </div>  
+
+
