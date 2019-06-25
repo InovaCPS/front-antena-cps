@@ -173,19 +173,13 @@ background: #707070;
     transition: .5s ease;
     backface-visibility: hidden;
   }
-
-  .image-desafio:hover{
-    width: 550px;
-    height: 400px;
-    transition: 0.5s;
-}
   
   .middle-desafio {
     transition: .5s ease;
     opacity: 0;
     position: absolute;
-    top: 40%;
-    left: 70%;
+    top: 46%;
+    left: 92%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
@@ -201,6 +195,7 @@ background: #707070;
   
   .btn-desafio {
     color: black;
-    font-size: 16px;
-    padding: 16px 32px;
+    font-size: 10px;
+    padding: 16px 16px;
+    border-radius: 50%;
   }
