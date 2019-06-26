@@ -77,6 +77,15 @@ export class ProfileComponent implements OnInit {
   instagram = require('../../assets/iconInstagram.png')
   imgTeste = require("../../assets/imgTeste.jpg")
   addImg = require("../../assets/addImg.png")
+  wifi = require("../../assets/wifi.svg")
+  thumb = require("../../assets/thumbUp.svg")
+  search = require("../../assets/search.svg")
+  personAdd = require("../../assets/personAdd.svg")
+  share = require("../../assets/share.svg")
+  star = require("../../assets/star.svg")
+  bubble = require("../../assets/bubble.svg")
+  calendarToday = require("../../assets/calendar.svg")
+  favorite = require("../../assets/favorite.svg")
 
   Agree: boolean = true;
 

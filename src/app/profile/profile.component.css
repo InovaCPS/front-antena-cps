@@ -179,10 +179,12 @@ background: #707070;
     opacity: 0;
     position: absolute;
     top: 46%;
-    left: 92%;
+    left: 95.5%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
+    background-color: #a3a3a3;
+    padding: 1%
   }
   
   .container-desafio:hover .image-desafio {
@@ -194,8 +196,6 @@ background: #707070;
   }
   
   .btn-desafio {
-    color: black;
     font-size: 10px;
-    padding: 16px 16px;
-    border-radius: 50%;
+    padding: 13%;
   }
