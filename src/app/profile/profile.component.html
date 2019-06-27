@@ -120,7 +120,7 @@
                                                   <a href="#0" data-toggle="modal" data-target="#NewModal"><img class="btn-desafio" [src]="personAdd" alt="Image"></a><br/>
                                                   <a href="#0" data-toggle="modal" data-target="#NewModal"><img class="btn-desafio" [src]="share" alt="Image"></a><br/>
                                                   <a href="#0" data-toggle="modal" data-target="#NewModal"><img class="btn-desafio" [src]="star" alt="Image"></a><br/>
-                                                  <a href="#0" data-toggle="modal" data-target="#NewModal"><img class="btn-desafio" style="transform: rotate(270deg);" [src]="wifi" alt="Image"></a><br/>
+                                                  <a href="#0" data-toggle="modal" data-target="#Tchun"><img class="btn-desafio" style="transform: rotate(270deg);" [src]="wifi" alt="Image"></a><br/>
                                                 </div>
                                               </div>
                                               <div class="col">
@@ -282,6 +282,90 @@
         <div class="input-group">
           <textarea class="form-control" rows="7" id="basic-text" aria-label="With textarea" style="border-radius: 15px; resize: none;"></textarea>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-info btn-send" data-dismiss="modal">Enviar</button>
+        <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade " id="Tchun" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 30px">
+      <div class="modal-header modal-top">
+        <h5 class="desafio-title">DEU TCHUN!</h5>
+        <button type="button" class="btn btn-light btn-x" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="x">X</span></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <br />
+        <form #radio="ngForm" (ngSubmit)="onSubmit()">
+<div class="row">
+  <div class="col">
+<label class="container">Com projeto
+  <input type="radio" name="radio" id="ideia" value="option1" [(ngModel)]="option1" required>
+  <span class="checkmark"></span>
+</label>
+</div>
+<div class="col">
+<label class="container">Com ideia
+  <input type="radio" name="radio" id="projeto" value="option2" onclick="return false;">
+  <span class="checkmark"></span>
+</label>
+</div>
+<div class="w-100"></div>
+<div class="col">
+<label class="container">Com experiência
+  <input type="radio" name="radio" id="ideia" value="option3" onclick="return false;">
+  <span class="checkmark"></span>
+</label>
+</div>
+<div class="col">
+<label class="container">Com formação
+  <input type="radio" name="radio" id="ideia" value="option4" onclick="return false;">
+  <span class="checkmark"></span>
+</label>
+</div>
+</div>
+</form>
+        <br/>
+        <div>
+          <img style="max-width: 100%; margin-top: 5%; margin-bottom: 5%" [src]="desafio">
+        </div>
+      </div> 
+
+      <div class="modal-footer" style="margin-left: 5%">
+        <button class="btn btn-info btn-send" data-dismiss="modal"  data-toggle="modal" data-target="#TchunProjeto" [disabled]="option1 == checked">Continuar</button>
+        <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade " id="TchunProjeto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 30px">
+      <div class="modal-header modal-top">
+        <h5 class="desafio-title"> DEU TCHUN! </h5>
+        <button type="button" class="btn btn-light btn-x" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="x">X</span></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <br />
+          <label> <b> Escolha um dos seus projetos que pode resolver o desafio proposto pelo colaborador Arnaldo Antunes.</b> </label>
+        <br/> <br/>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" [(ngModel)] = "teste">
+              <option selected>Escolha o seu projeto</option>
+              <option value="1">Teste</option>
+            </select>  
+          <div *ngIf=" teste == 1" class="container">
+            <label>Funcionou </label>
+          </div>         
       </div>
       <div class="modal-footer">
         <button class="btn btn-info btn-send" data-dismiss="modal">Enviar</button>
