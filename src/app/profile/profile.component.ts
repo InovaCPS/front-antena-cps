@@ -86,6 +86,7 @@ export class ProfileComponent implements OnInit {
   bubble = require("../../assets/bubble.svg")
   calendarToday = require("../../assets/calendar.svg")
   favorite = require("../../assets/favorite.svg")
+  desafio = require("../../assets/desafio.jpg")
 
   Agree: boolean = true;
 
