@@ -25,7 +25,7 @@
                 <div id="profile-image">
                     <img id="profile-pic" [src]="fotoPerfil" alt="" style="border: #72A5FF solid;">
                     <a  id="buttonPopover" hidden class="btn btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">teste</a>
-                    <a href="#0" data-toggle="modal" data-target="#modalProfile"><i class="fas fa-cog fa-3x"></i></a>
+                    <a href="#0" data-toggle="modal" data-target="#modalProfile"><i class="fas fa-cog fa-3x" style="font-size: 2em"></i></a>
                 </div>
                 <div id="user-info">
                     <div class="" style="margin-top: -5px;" >{{ aluno.escola }}</div>
@@ -111,13 +111,13 @@
                                               <div class="container-desafio">
                                                 <img [src]="imgTeste" alt="Image" class="image-desafio" style="max-width: 100%;">
                                                 <div class="middle-desafio">
-                                                  <a href="#0" data-toggle="modal" data-target="#NewModal"><img class="btn-desafio" [src]="search" alt="Image"></a><br/>
-                                                  <a href="#0" data-toggle="modal" data-target="#NewModal"><img class="btn-desafio" [src]="favorite" alt="Image"></a><br/>
-                                                  <a href="#0" data-toggle="modal" data-target="#NewModal"><img class="btn-desafio" [src]="bubble" alt="Image"></a><br/>
-                                                  <a href="#0" data-toggle="modal" data-target="#NewModal"><img class="btn-desafio" [src]="calendarToday" alt="Image"></a><br/>
-                                                  <a href="#0" data-toggle="modal" data-target="#NewModal"><img class="btn-desafio" [src]="personAdd" alt="Image"></a><br/>
-                                                  <a href="#0" data-toggle="modal" data-target="#NewModal"><img class="btn-desafio" [src]="share" alt="Image"></a><br/>
-                                                  <a href="#0" data-toggle="modal" data-target="#NewModal"><img class="btn-desafio" [src]="star" alt="Image"></a><br/>
+                                                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" [src]="search" alt="Image"></a><br/>
+                                                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" [src]="favorite" alt="Image"></a><br/>
+                                                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" [src]="bubble" alt="Image"></a><br/>
+                                                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" [src]="calendarToday" alt="Image"></a><br/>
+                                                  <a href="#0" data-toggle="modal" data-target="#MentorDesafio"><img class="btn-desafio" [src]="personAdd" alt="Image"></a><br/>
+                                                  <a href="#0" data-toggle="modal" data-target="#CompDesafio"><img class="btn-desafio" [src]="share" alt="Image"></a><br/>
+                                                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" [src]="star" alt="Image"></a><br/>
                                                   <a href="#0" data-toggle="modal" data-target="#Tchun"><img class="btn-desafio" style="transform: rotate(270deg);" [src]="wifi" alt="Image"></a><br/>
                                                 </div>
                                               </div>
@@ -304,7 +304,7 @@
       </div>
     </div>
 
-<div class="modal fade " id="NewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="CompDesafio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" style="border-radius: 30px">
@@ -314,24 +314,69 @@
           <span aria-hidden="true" class="x">X</span></button>
       </div>
       <div class="modal-body" style="text-align: center;">
-        <br />
+        <form #compartilhar="ngForm" (ngSubmit)="onSubmit()">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" style="border-radius: 15px;">
+          <input type="text" class="form-control" id="ideia" aria-describedby="basic-addon3" 
+          placeholder="Digite o(s) nome(s) ou apelido(s) do(s) colega(s) ou professor(es)" 
+          style="border-radius: 15px; color: #8E959B; height: 60px;" [(ngModel)]="option7" required>
         </div>
-        <br/>
         <div class="input-group">
-          <textarea class="form-control" rows="7" id="basic-text" aria-label="With textarea" style="border-radius: 15px; resize: none;"></textarea>
+          <textarea class="form-control" rows="7" id="ideia" aria-label="With textarea" 
+          placeholder="Mensagem (opcional) sobre o desafio que está compartilhando" 
+          style="border-radius: 15px; resize: none; color: #8E959B; padding: 4% 3% 4% 3%;" [(ngModel)]="option6" required></textarea>
         </div>
+      </form>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-info btn-send" data-dismiss="modal">Enviar</button>
-        <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-info btn-send" data-dismiss="modal" data-toggle="modal" 
+          data-target="#CompSucesso" [disabled]="compartilhar.invalid">Enviar</button>
+        <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal" data-toggle="modal" data-target="#CompCancelar">Cancelar</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade " id="Tchun" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="CompCancelar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 30px">
+      <div class="modal-header modal-top">
+        <h5 class="desafio-title">CANCELAR COMPARTILHAMENTO</h5>
+        <button type="button" class="btn btn-light btn-x" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="x">X</span></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <label style="padding: 100px 0px; color: #9E9E9E;">Deseja cancelar o compartilhamento do desafio?</label>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-info btn-send" data-dismiss="modal">OK</button>
+        <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal" data-toggle="modal" 
+        data-target="#CompDesafio">Voltar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="CompSucesso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 30px">
+      <div class="modal-header modal-top">
+        <h5 class="desafio-title">COMPARTILHADO</h5>
+        <button type="button" class="btn btn-light btn-x" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="x">X</span></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <label style="padding: 100px 0px; color: #8E959B;">Você compartilhou o desafio com sucesso!</label>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-info btn-send" data-dismiss="modal" style="margin-right: 55%; position: relative;">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Tchun" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" style="border-radius: 30px">
@@ -386,7 +431,7 @@
 </div>
 
 
-<div class="modal fade " id="TchunProjeto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="TchunProjeto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" style="border-radius: 30px">
@@ -410,6 +455,89 @@
       <div class="modal-footer">
         <button class="btn btn-info btn-send" data-dismiss="modal">Enviar</button>
         <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="MentorDesafio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 30px">
+      <div class="modal-header modal-top">
+        <h5 class="desafio-title">SOLICITAÇÃO DE MENTORIA</h5>
+        <button type="button" class="btn btn-light btn-x" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="x">X</span></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <form #mentoria="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <select class="form-control" id="sel1" style="border-radius: 15px; color: #8E959B; height: 60px;" [(ngModel)]="area" required>
+              <option hidden disabled selected>Escolha a área para a qual deseja mentoria</option>
+              <option>Administração e Negócios</option>
+              <option>Artes e Moda</option>
+              <option>Ciência da Computação</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select class="form-control" id="sel2" style="border-radius: 15px; color: #8E959B; height: 60px;" [(ngModel)]="mentor" required>
+              <option hidden disabled selected>Escolha um mentor</option>
+              <option>Bill Gates</option>
+              <option>Robert Downey Jr.</option>
+              <option>Steve Jobs</option>
+            </select>
+          </div>
+        <div class="input-group">
+          <textarea class="form-control scrll" rows="7" id="ideia" aria-label="With textarea" 
+            placeholder="Descreva como o mentor pode ajudá-lo neste projeto"
+            style="border-radius: 15px; resize: none; color: #8E959B; padding: 4% 3% 4% 3%;" [(ngModel)]="texto" required></textarea>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-info btn-send" data-dismiss="modal" data-toggle="modal" 
+          data-target="#MentorSucesso" [disabled]="mentoria.invalid">Enviar</button>
+        <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal" data-toggle="modal" data-target="#MentorCancelar">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="MentorSucesso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 30px">
+      <div class="modal-header modal-top">
+        <h5 class="desafio-title">SOLICITAÇÃO DE MENTORIA ENVIADA</h5>
+        <button type="button" class="btn btn-light btn-x" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="x">X</span></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <label style="padding: 100px 0px; color: #8E959B;">Mensagem enviada com sucesso!</label>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-info btn-send" data-dismiss="modal" style="margin-right: 55%; position: relative;">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="MentorCancelar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 30px">
+      <div class="modal-header modal-top">
+        <h5 class="desafio-title">CANCELAR SOLICITAÇÃO DE MENTORIA</h5>
+        <button type="button" class="btn btn-light btn-x" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="x">X</span></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <label style="padding: 100px 0px; color: #8E959B;">Deseja cancelar a solicitação de mentoria?</label>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-info btn-send" data-dismiss="modal">OK</button>
+        <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal" data-toggle="modal" 
+        data-target="#MentorDesafio">Voltar</button>
       </div>
     </div>
   </div>
