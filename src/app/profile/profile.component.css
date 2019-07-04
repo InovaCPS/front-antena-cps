@@ -123,7 +123,7 @@ background: #707070;
 
 #profile-image a{
     position: absolute;
-    top: 74%;
+    top: 78%;
     left: 45%;
     padding: 4px 3px 0px 3px;
     background-color: #0069B5;
@@ -199,8 +199,18 @@ background: #707070;
     height: 300px;
     transition: .5s ease;
     backface-visibility: hidden;
+    filter: brightness(65%)
   }
   
+  .image-evento {
+    opacity: 1;
+    display: block;
+    width: 450px;
+    height: 300px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+
   .middle-desafio {
     height: 100%!important;
     max-width: 50px;
@@ -212,12 +222,21 @@ background: #707070;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
-    background-color: #a3a3a3;
-    padding: 1%
+    background-color: #444749;
+    padding: 1%;
   }
   
-  .container-desafio:hover .image-desafio {
-    opacity: 0.9;
+  .text-image {
+    position: absolute;
+    top: 17rem;
+    left: 2rem;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin: 0px 42px 0px 0px;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 25px;
+    letter-spacing: -0.8px;
+    word-spacing: -0.4px;
   }
   
   .container-desafio:hover .middle-desafio {
