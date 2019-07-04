@@ -491,12 +491,12 @@
            <!-- *ngIf=" teste == 1" ? -->
            <img class="boxmodel" src="https://http2.mlstatic.com/projeto-fazer-barcos-canoa-com-fundo-em-v-frete-gratis-D_NQ_NP_19932-MLB20179892561_102014-F.jpg"> 
             <div class="custom-control custom-checkbox" style="margin-left: 65%; margin-top: -8%">
-                <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                <label class="custom-control-label" for="defaultUnchecked" [(ngModel)]="anexo" checked="false">Incluir Anexos</label>    
+                <input type="checkbox" class="custom-control-input" id="defaultUnchecked" [(ngModel)]="anexo" data-md-icheck (change)="toggleVisibility($event)">
+                <label class="custom-control-label" for="defaultUnchecked" >Incluir Anexos</label>
           </div>         
         </div>   
       </div>
-      <div class="modal-footer" *ngIf="anexo == checked; else notChecked">
+      <div class="modal-footer" *ngIf="marked; else notChecked">
         <button class="btn btn-info btn-send" data-dismiss="modal"  data-toggle="modal"  data-target="#TchunChecked" >Enviar</button>
         <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal">Cancelar</button>
       </div>
@@ -548,13 +548,13 @@
         <br/> <br/> <br/> <br/> <br/> 
        <p> Você está TCHUNANDO seu projeto COM ANEXOS. </p> 
          
-       <p>Você deve revisar e aceitar os nossos <a data-toggle="modal" data-dismiss="modal" href="#TermosDeUso">Termos de Uso</a> </p> 
-       <p>e <a data-toggle="modal" data-dismiss="modal" href="#PoliticaDP">Política de Privacidade</a> para enviar projetos com documentos anexos: </p>
+       <p>Você deve revisar e aceitar os nossos <a data-toggle="modal" data-dismiss="modal" href="#TermosDeUso">Termos de Uso</a> e </p> 
+       <p><a data-toggle="modal" data-dismiss="modal" href="#PoliticaDP">Política de Privacidade</a> para enviar projetos com documentos anexos: </p>
        <div class="custom-control custom-checkbox mb-3">
         <input type="checkbox" class="custom-control-input" id="customCheck" name="example1" [(ngModel)]="checkbox" required>
         <label class="custom-control-label" for="customCheck">Li e aceito os Termos de Uso e Poĺítica de Privacidade</label>
       </div>
-          <br/> <br/> <br/> <br/> <br/> 
+          <br/> <br/> <br/> <br/>
       </div>
     </form>
       <div class="modal-footer">

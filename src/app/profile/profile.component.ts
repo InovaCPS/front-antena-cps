@@ -40,6 +40,8 @@ export class ProfileComponent implements OnInit {
   fotoPerfil: string;
   apiRoot: string = "http://antenacpsbackend-env.xryvsu2wzz.sa-east-1.elasticbeanstalk.com";
   resposta: any;
+  marked = false;
+  anexo = false;
   constructor(private profileService: profileService,
               public titleService: Title,
               private http: HttpClient){
@@ -62,7 +64,10 @@ export class ProfileComponent implements OnInit {
     )
   }
 
-
+  toggleVisibility(e){
+    this.marked= e.target.checked;
+  }
+  
   //bg = require('../../assets/background_4k.jpg')
   profile = require('../../app/images/profile-pic.jpg')
   shield = require('../../assets/iconPROJ.png')
