@@ -1,6 +1,6 @@
 <div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="modalProfileLabe"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE PROJETO</h5>
@@ -53,7 +53,8 @@
       </div>
       <div class="modal-footer">
         <button type=" button" class="btn btn-danger" data-toggle="modal" data-target="#modalProjectUnits"
-          data-dismiss="modal" (click)="addCoops()">PRÓXIMO</button>
+          data-dismiss="modal" (click)="addCoops()" style="width: 140px; margin-right: 3%; font-size: 15px;
+          -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;">PRÓXIMO</button>
       </div>
     </div>
   </div>
@@ -61,7 +62,7 @@
 
 <div class="modal fade" id="modalProjectUnits" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"> Escolha a unidade e os colaboradores do projeto</h5>
@@ -91,9 +92,13 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="addCoops()"
-          style="margin-left: 20px;position:absolute; left: 0;">ADD COLABORADOR</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
+        style="position:absolute; left: 4%; width: 170px; font-size: 15px; -webkit-border-radius: 30px; 
+        -moz-border-radius: 30px; border-radius: 30px;">ADD COLABORADOR</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="postProject()"
+        style="width: 140px; margin-right: 3%; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; 
+        border-radius: 30px;">FINALIZAR</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" style="width: 140px; margin-right: 3%; 
+        font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;" 
           data-target="#modalResources">CONTINUAR</button>
       </div>
     </div>
@@ -102,7 +107,7 @@
 
 <div class="modal fade" id="modalProjectSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Uhuuu!</h5>
@@ -181,7 +186,9 @@
       </div>
       <br />
       <div class="modal-footer">
-        <button class="btn btn-danger" data-dismiss="modal" (click)="postProject()">FINALIZAR</button>
+        <button class="btn btn-danger" style="width: 140px; margin-right: 3%; font-size: 15px;
+          -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;" data-dismiss="modal" 
+          (click)="postProject()">FINALIZAR</button>
       </div>
     </div>
   </div>
@@ -189,7 +196,7 @@
 
 <div class="modal fade" id="modalResText" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">CADASTRO DE TEXTO</h5>
@@ -214,7 +221,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger btnSalvar" id="btn1" data-toggle="modal" data-dismiss="modal"
+        <button class="btn btn-danger btnSalvar" data-toggle="modal" data-dismiss="modal"
           data-target="#modalMsg">SALVAR</button>
         <button class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal"
           data-target="#modalResources">+ RECURSOS</button>
@@ -234,18 +241,16 @@
           em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h6>
       </div>
       <div class="modal-footer">
-        <div class="mr-auto">
-          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" 
-            data-target="#modalResources" (click)="postProject()">FINALIZAR</button>
-        </div>
-        <div>
-          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
-            data-target="#modalResText">CONTINUAR</button>
+        <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" style="position: absolute; 
+          left: 4%; width: 140px; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;"
+          (click)="postProject()">FINALIZAR</button>
+        <button class="btn btn-danger"  data-dismiss="modal" data-toggle="modal" data-target="#modalResText" style="width: 140px; position: relative; 
+          right: 3%; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;" >CONTINUAR</button>
         </div>
       </div>
     </div>
   </div>
-</div>
+
 
 <div class="modal fade" id="modalResImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -286,7 +291,7 @@
                       <div class="relative-imagem">
                        <img [src]="viewCode" title={{model.titulo}} style="max-width: 60px;">
                         <div class="absolute-imagem">
-                          <img [src]="delCode" title="Excluir" style="max-width: 12px"
+                          <img [src]="del" title="Excluir" style="max-width: 12px"
                               (click)="deleteArquivo(i)">
                             </div>
                           </div>
@@ -297,7 +302,7 @@
             </div> 
           
       <div class="modal-footer">
-          <button type="button" class="btn btn-danger btnSalvar" id="btn1" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
+        <button type="button" class="btn btn-danger btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizar" [disabled]="f.invalid">SALVAR</button>
           <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
       </div>
           </div>
@@ -330,14 +335,10 @@
           códigos, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h6>
       </div>
       <div class="modal-footer">
-        <div class="mr-auto">
-          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" 
-            data-target="#modalResources" (click)="postProject()">FINALIZAR</button>
-        </div>
-        <div>
-          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
-            data-target="#modalResCodes">CONTINUAR</button>
-        </div>
+        <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" style="position: absolute; 
+          left: 4%; width: 140px; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;">FINALIZAR</button>
+        <button class="btn btn-danger"  data-dismiss="modal" data-toggle="modal" data-target="#modalMidias" style="width: 140px; position: relative; 
+          right: 3%; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;" >CONTINUAR</button>
       </div>
     </div>
   </div>
@@ -381,7 +382,7 @@
                   <a href="javascript:void(0);" target="__blank"><img [src]="viewCode" title={{arquivo.titulo}} style="max-width: 120px;"
                       (click)="urlDestino(arquivo.caminho)"></a>
                   <div class="absolute">
-                    <a href="javascript:void(1);"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
+                    <a href="javascript:void(1);"><img [src]="del" title="Excluir" style="max-width: 25px;"
                         (click)="deleteArquivo(i)" (click)="limpar()"></a>
                   </div>
                 </div>
@@ -389,7 +390,7 @@
             </div>
           </div>
           <div class="relative" *ngIf="dsbltSalvar('Codigo', 'btn1') === true">
-            <a href="javascript:void(0);"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
+            <a href="javascript:void(0);"><img [src]="add" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
           </div>
         </div>
       </div>
@@ -444,7 +445,7 @@
                     class="video-btn" data-toggle="modal"
                     data-src="http://www.youtube.com/embed/M7lc1UVf-VE" data-target="#myModal"></a>
                   <div class="absolute-midia">
-                    <a href="javascript:void(1);"><img [src]="delCode" title="Excluir" style="max-width: 25px;"
+                    <a href="javascript:void(1);"><img [src]="del" title="Excluir" style="max-width: 25px;"
                       (click)="deleteArquivo(i)"></a>
                   </div>
                 </div>
@@ -452,7 +453,7 @@
             </div>
           </div>
           <div class="relative" *ngIf="dsbltSalvar('Midias', 'btn2') === true">
-            <a href="javascript:void(0);"><img [src]="addCode" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
+            <a href="javascript:void(0);"><img [src]="add" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
           </div>
         </div>
       </div>
@@ -496,13 +497,10 @@
           mais arquivos, ou clique em "FINALIZAR" para concluir a edição e retornar à sua página personalizada.</h6>
       </div>
       <div class="modal-footer">
-        <div class="mr-auto">
-          <button class="btn btn-danger" data-dismiss="modal">FINALIZAR</button>
-        </div>
-        <div>
-          <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal"
-            data-target="#modalResources">CONTINUAR</button>
-        </div>
+        <button class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" style="position: absolute; 
+          left: 4%; width: 140px; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;">FINALIZAR</button>
+        <button class="btn btn-danger"  data-dismiss="modal" data-toggle="modal" data-target="#modalMidias" style="width: 140px; position: relative; 
+          right: 3%; font-size: 15px; -webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px;" >CONTINUAR</button>
       </div>
     </div>
   </div>
@@ -538,7 +536,27 @@
             <button type="submit" class="btn btn-success" id="iArquivo" (click)="addArquivo('Arquivos')"
               (click)="limpar()" [disabled]="farquivo.invalid">INCORPORAR</button>
           </div>
-        </form>
+        </form> 
+        <div class="row justify-content-center">
+          <div *ngFor='let arquivo of arquivos; let i = index' class="fadeIn">
+            <div *ngIf="arquivos[i].tipo == 'Arquivos'">
+              <div class="col-md-2">
+                <div class="relative-arquivos">
+                  <a href="javascript:void(0);" target="__blank"><img [src]="viewArquivo" title={{arquivo.titulo}} style="max-width: 120px;"
+                      (click)="urlDestino(arquivo.caminho)"></a>
+                  <div class="absolute-arquivos">
+                    <a href="javascript:void(1);"><img [src]="del" title="Excluir" style="max-width: 25px;"
+                        (click)="deleteArquivo(i)" (click)="limpar()"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="relative" *ngIf="dsbltSalvar('Arquivos', 'btn3') === true">
+            <a href="javascript:void(0);"><img [src]="add" title=Adicionar style="max-width: 120px;" (click)="limpar()"></a>
+          </div>
+          </div>
+        </div>
         <div class="modal-footer">
           <button class="btn btn-danger btnSalvar" id="btn3" data-toggle="modal" data-dismiss="modal"
             data-target="#modalMsg1" [disabled]="dsbltSalvar('Arquivos', 'btn3') || !arquivos.length > 0">SALVAR</button>
@@ -548,7 +566,7 @@
       </div>
     </div>
   </div>
-</div>
+
 
 <div class="modal fade" id="modalMsg1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -574,10 +592,10 @@
 </div>
 
 <div class="modal fade" id="modalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Adicionar Detalhes</h5><br>
+        <h5 class="modal-title" id="exampleModalLabel">ADICIONAR DETALHES</h5><br>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -637,9 +655,9 @@
         
       </div>
       
-      <div class="modal-footer" style="display: flex; justify-content: center;">
-        <button type="button" class="btn btn-danger" data-dismiss="modal" style="border-radius: 30px;" (click)="addDetails()" data-toggle="modal" data-target="#modalResources" >SALVAR</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" style="border-radius: 30px; margin-left: 30px;">+ RECURSOS</button>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btnSalvar" data-dismiss="modal" (click)="addDetails()" data-toggle="modal" data-target="#modalResources">SALVAR</button>
+        <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources">+ RECURSOS</button>
       </div>
     </div>
   </div>
@@ -662,8 +680,8 @@
 
   </form> 
       <div class="modal-footer">
-          <button type="button" class="btn btn-danger btnSalvar" id="btn1" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizarCapa" [disabled]="fc.invalid">SALVAR</button>
-          <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
+        <button type="button" class="btn btn-danger btnSalvar" data-dismiss="modal" data-toggle="modal" data-target="#modalFinalizarCapa" [disabled]="fc.invalid">SALVAR</button>
+        <button type="button" class="btn btn-danger" id="btnMaisRecursos" data-dismiss="modal" data-toggle="modal" data-target="#modalResources" >+ RECURSOS</button>
       </div>
           </div>
       </div>

@@ -13,7 +13,7 @@
 }
 
 #profile{
-    margin-top: -140px;
+    margin-top: -160px;
 }
 
 #profile-pic {
@@ -35,6 +35,10 @@
 #name{
     color: greenyellow;
     font-weight: bold;
+    text-align: center; 
+    margin-bottom: 30px; 
+    margin-left: -300px; 
+    margin-right: -300px;
 }
 #user-info{
     margin-top: 20px;
@@ -43,16 +47,16 @@
 }
 
 #portfolio{
-    margin-top: 100px;
-    margin-left: -60px;
+    margin-top: 15px;
+    margin-left: 15px;
 }
 
 #ultimasnoticias{
-    margin-left: 3%;
+    margin-left: 10%;
 }
 
 #desafios{
-    margin-left: -6%;
+    margin-left: -1%;
 }
 
 #port{
@@ -119,13 +123,13 @@ background: #707070;
 
 #profile-image a{
     position: absolute;
-    top: 73%;
-    left: 43%;
-    padding: 1% 1%; 
-    background-color: #0069B5; 
-    border-radius: 50%; 
+    top: 74%;
+    left: 45%;
+    padding: 4px 3px 0px 3px;
+    background-color: #0069B5;
+    border-radius: 50%;
     color: white;
-    border: #72A5FF solid;
+    border: #72A5FF solid 2px;
 }
 
 .modal-top {
@@ -238,11 +242,11 @@ background: #707070;
     border:1px solid #003d66;
     font-size:100px;
     font-family:arial, helvetica, sans-serif; 
-    padding: 30px 50px 30px 50px;
+    padding: 20px 50px 20px 50px;
     display:inline-block;
     text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
     font-weight:bold; 
-    color: #72A5FF;
+    color: #0069B1;
      background-color: #005E9E; 
      background-image: -webkit-gradient(linear, left top, left bottom, from(#005E9E), to(#002138));
      background-image: -webkit-linear-gradient(top, #005E9E, #002138);
