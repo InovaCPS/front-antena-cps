@@ -301,3 +301,12 @@ background: #707070;
 
     }
    
+    .perfil-footer{
+        background-color: #00183A;
+        font-size: 12px; 
+        margin-top: -1%
+    }
+
+    .footer-copyright{
+        color: gray;
+    }
