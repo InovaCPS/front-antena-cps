@@ -528,7 +528,7 @@
           <br/> <br/> <br/> <br/> <br/> <br/> 
       </div>
       <div class="modal-footer">
-        <button class="btn btn-info btn-send" data-dismiss="modal">Enviar</button>
+        <button class="btn btn-info btn-send" data-dismiss="modal"  data-toggle="modal" data-target="#TchunEnd" >Enviar</button>
         <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal" data-toggle="modal" data-target="#TchunProjeto" >Cancelar</button>
       </div>
     </div>
@@ -559,7 +559,7 @@
       </div>
     </form>
       <div class="modal-footer">
-        <button class="btn btn-info btn-send" data-dismiss="modal" [disabled]="Tchunbox.invalid">Enviar</button>
+        <button class="btn btn-info btn-send" data-dismiss="modal" [disabled]="Tchunbox.invalid"  data-toggle="modal" data-target="#TchunEnd" >Enviar</button>
         <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal" data-toggle="modal" data-target="#TchunProjeto">Cancelar</button>
       </div>
     </div>
@@ -582,7 +582,7 @@
         <br/> 
       </div>
       <div class="modal-footer">
-        <button class="btn btn-info btn-send" data-dismiss="modal" data-toggle="modal" data-target="#TchunChecked" >Enviar</button>
+        <button class="btn btn-info btn-send" data-dismiss="modal" data-toggle="modal" data-target="#TchunChecked" >OK</button>
         <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal" data-toggle="modal" data-target="#TchunProjeto" >Cancelar</button>
       </div>
     </div>
@@ -605,12 +605,34 @@
         <br/> 
       </div>
       <div class="modal-footer">
-        <button class="btn btn-info btn-send" data-dismiss="modal" data-toggle="modal" data-target="#TchunChecked" >Enviar</button>
+        <button class="btn btn-info btn-send" data-dismiss="modal" data-toggle="modal" data-target="#TchunChecked" >OK</button>
         <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal" data-toggle="modal" data-target="#TchunProjeto" >Cancelar</button>
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal fade " id="TchunEnd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="border-radius: 30px">
+      <div class="modal-header modal-top">
+        <h5 class="desafio-title"> DEU TCHUN </h5>
+        <button type="button" class="btn btn-light btn-x" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="x">X</span></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <br/>  <br/> <br/> <br/> <br/> <br/> <br/> 
+              Você TCHUNOU um desafio com sucesso!
+        <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-info btn-send" style="margin-left: 18%; margin-bottom: 7%" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="MentorDesafio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
