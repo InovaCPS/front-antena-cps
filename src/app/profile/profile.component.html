@@ -76,7 +76,7 @@
                                                 <a target="_blank">
                                                     <img class="portfolio-item" [src]="imgTeste" alt="Image"
                                                         style="max-width:100%;">
-                                                        <h3 style="color: orange; margin-top: -20%">{{ projeto.titulo }}</h3>
+                                                        <div class="text-portfolio">{{ projeto.titulo }}</div>
                                                 </a>
                                             </div>
                                             <div class="col">
@@ -110,7 +110,7 @@
                                         <div class="row">
                                             <div class="container-desafio">
                                               <img [src]="imgTeste" alt="Image" class="image-desafio" style="max-width: 100%;">
-                                              <div class="text-image">CASCO DE NAVIO COM MÍNIMA RESISTÊNCIA</div>
+                                              <div class="text-image">Casco de Navio com Mínima Resistência</div>
                                               <div class="middle-desafio">
                                                 <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="search" alt="Image"></a><br/>
                                                 <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="favorite" alt="Image"></a><br/>
@@ -687,9 +687,9 @@
           <span aria-hidden="true" class="x">X</span></button>
       </div>
       <div class="modal-body" style="text-align: center;">
-        <form #mentoria="ngForm" (ngSubmit)="onSubmit()">
+        <form #mentoria="ngForm">
           <div class="form-group">
-            <select class="form-control" style="border-radius: 15px; color: #8E959B; height: 60px;" name="area" [(ngModel)]="area" required>
+            <select class="form-control" style="border-radius: 15px; color: #8E959B; height: 60px;" name="area" required>
               <option hidden disabled selected>Escolha a área para a qual deseja mentoria</option>
               <option>Administração e Negócios</option>
               <option>Artes e Moda</option>
@@ -697,19 +697,19 @@
             </select>
           </div>
           <div class="form-group">
-            <select class="form-control" style="border-radius: 15px; color: #8E959B; height: 60px;" name="mentor" [(ngModel)]="mentor" required>
+            <select class="form-control" style="border-radius: 15px; color: #8E959B; height: 60px;" name="mentor" required>
               <option hidden disabled selected>Escolha um mentor</option>
               <option>Bill Gates</option>
               <option>Robert Downey Jr.</option>
               <option>Steve Jobs</option>
             </select>
           </div>
-        <div class="input-group">
-          <textarea class="form-control scrll" rows="7" id="ideia" aria-label="With textarea" 
-            placeholder="Descreva como o mentor pode ajudá-lo neste projeto" name="texto"
-            style="border-radius: 15px; resize: none; color: #8E959B; padding: 4% 3% 4% 3%;" [(ngModel)]="texto" required></textarea>
-        </div>
-      </form>
+          <div class="input-group">
+            <textarea class="form-control scrll" rows="7" id="ideia" aria-label="With textarea" name="texto" [(ngModel)]="texto"
+              placeholder="Descreva como o mentor pode ajudá-lo neste projeto" 
+              style="border-radius: 15px; resize: none; color: #8E959B; padding: 4% 3% 4% 3%;" required></textarea>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-info btn-send" data-dismiss="modal" data-toggle="modal" 
