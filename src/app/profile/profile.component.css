@@ -225,16 +225,16 @@
     -ms-transform: translate(-50%, -50%);
     text-align: center;
     background-color: #444749;
-    padding: 1%;
+    padding: 3px;
 }
   
 .text-image {
     position: absolute;
     top: 17rem;
-    left: 2rem;
+    left: 1rem;
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    margin: 0px 42px 0px 0px;
+    margin: 0px 20px 0px 0px;
     font-family: 'Fjalla One', sans-serif;
     font-size: 25px;
     letter-spacing: -0.8px;
