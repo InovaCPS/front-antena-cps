@@ -483,18 +483,26 @@
           <label> <b> Escolha um dos seus projetos que pode resolver o desafio proposto pelo colaborador Arnaldo Antunes.</b> </label>
         <br/> <br/>
         <div>
-            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref"> <!-- [(ngModel)] ="teste"-->
-              <option selected>Escolha o seu projeto</option>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" [(ngModel)] ="selector">
+              <option value="0" selected>Escolha o seu projeto</option>
               <option value="1">Teste</option>
               <option value="2">Teste 2</option>
             </select>  
 
-           <!-- *ngIf=" teste == 1" ? -->
+            <div *ngIf=" selector == 1">
            <img class="boxmodel" src="https://http2.mlstatic.com/projeto-fazer-barcos-canoa-com-fundo-em-v-frete-gratis-D_NQ_NP_19932-MLB20179892561_102014-F.jpg"> 
             <div class="custom-control custom-checkbox" style="margin-left: 65%; margin-top: -8%">
                 <input type="checkbox" class="custom-control-input" id="defaultUnchecked" [(ngModel)]="anexo" data-md-icheck (change)="toggleVisibility($event)">
                 <label class="custom-control-label" for="defaultUnchecked" >Incluir Anexos</label>
-          </div>         
+              </div>
+          </div>
+          <div *ngIf=" selector == 2">
+            <img class="boxmodel" src="https://http2.mlstatic.com/bote-canoa-de-fibra-de-vidro-0-km-fabricaco-propria-D_NQ_NP_858379-MLB25795441763_072017-F.jpg"> 
+             <div class="custom-control custom-checkbox" style="margin-left: 65%; margin-top: -8%">
+                 <input type="checkbox" class="custom-control-input" id="defaultUnchecked" [(ngModel)]="anexo" data-md-icheck (change)="toggleVisibility($event)">
+                 <label class="custom-control-label" for="defaultUnchecked" >Incluir Anexos</label>
+               </div>
+           </div>     
         </div>   
       </div>
       <div class="modal-footer" *ngIf="marked; else notChecked">
