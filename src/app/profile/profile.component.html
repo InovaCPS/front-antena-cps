@@ -76,7 +76,7 @@
                                                 <a target="_blank">
                                                     <img class="portfolio-item" [src]="imgTeste" alt="Image"
                                                         style="max-width:100%;">
-                                                        <div class="text-portfolio">{{ projeto.titulo }}</div>
+                                                        <h3 style="color: orange; margin-top: -20%">{{ projeto.titulo }}</h3>
                                                 </a>
                                             </div>
                                             <div class="col">
@@ -110,7 +110,7 @@
                                         <div class="row" style="margin-left: 0%; margin-right: 0%;">
                                             <div class="container-desafio">
                                               <img [src]="imgTeste" alt="Image" class="image-desafio" style="max-width: 100%;">
-                                              <div class="text-image">Casco de Navio com Mínima Resistência</div>
+                                              <div class="text-image">CASCO DE NAVIO COM MÍNIMA RESISTÊNCIA</div>
                                               <div class="middle-desafio">
                                                 <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="search" alt="Image"></a><br/>
                                                 <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="favorite" alt="Image"></a><br/>
@@ -497,18 +497,26 @@
           <label> <b> Escolha um dos seus projetos que pode resolver o desafio proposto pelo colaborador Arnaldo Antunes.</b> </label>
         <br/> <br/>
         <div>
-            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref"> <!-- [(ngModel)] ="teste"-->
-              <option selected>Escolha o seu projeto</option>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" [(ngModel)] ="selector">
+              <option value="0" selected>Escolha o seu projeto</option>
               <option value="1">Teste</option>
               <option value="2">Teste 2</option>
             </select>  
 
-           <!-- *ngIf=" teste == 1" ? -->
+            <div *ngIf=" selector == 1">
            <img class="boxmodel" src="https://http2.mlstatic.com/projeto-fazer-barcos-canoa-com-fundo-em-v-frete-gratis-D_NQ_NP_19932-MLB20179892561_102014-F.jpg"> 
             <div class="custom-control custom-checkbox" style="margin-left: 65%; margin-top: -8%">
                 <input type="checkbox" class="custom-control-input" id="defaultUnchecked" [(ngModel)]="anexo" data-md-icheck (change)="toggleVisibility($event)">
                 <label class="custom-control-label" for="defaultUnchecked" >Incluir Anexos</label>
-          </div>         
+              </div>
+          </div>
+          <div *ngIf=" selector == 2">
+            <img class="boxmodel" src="https://http2.mlstatic.com/bote-canoa-de-fibra-de-vidro-0-km-fabricaco-propria-D_NQ_NP_858379-MLB25795441763_072017-F.jpg"> 
+             <div class="custom-control custom-checkbox" style="margin-left: 65%; margin-top: -8%">
+                 <input type="checkbox" class="custom-control-input" id="defaultUnchecked" [(ngModel)]="anexo" data-md-icheck (change)="toggleVisibility($event)">
+                 <label class="custom-control-label" for="defaultUnchecked" >Incluir Anexos</label>
+               </div>
+           </div>     
         </div>   
       </div>
       <div class="modal-footer" *ngIf="marked; else notChecked">
@@ -603,6 +611,28 @@
   </div>
 </div>
 
+<div class="modal fade " id="TermosDeUso2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content" style="border-radius: 30px">
+      <div class="modal-header modal-top">
+        <h5 class="desafio-title"> TERMOS DE USO </h5>
+        <button type="button" class="btn btn-light btn-x" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="x">X</span></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <br/>  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc finibus laoreet dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc eros felis, dapibus vitae gravida non, commodo quis risus. In ut ex a eros iaculis ultrices. Nullam quis lorem a turpis tempus blandit in vel nisl. Vestibulum non viverra arcu. Suspendisse euismod ante non diam condimentum varius eget a mauris. Suspendisse lacinia turpis a mauris efficitur, nec imperdiet orci luctus. Morbi quis efficitur sapien. Integer nec libero vel enim ullamcorper facilisis at quis tortor. Etiam lobortis lacus id volutpat tempor. </p>   
+               <p>Praesent ultrices lectus mauris, ut porttitor justo tincidunt eget. Vivamus at metus in lectus dignissim elementum nec id mi. Donec sed facilisis nisl, sed placerat leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eleifend sollicitudin odio in tincidunt. Sed ultricies diam erat, in volutpat quam pretium id. Praesent sagittis, purus at euismod aliquet, massa nisl fermentum quam, ac mollis enim ligula a tellus. Aenean ipsum urna, mollis eget posuere vitae, varius at nulla. </p>
+               <p> Mauris at urna ac ligula viverra vehicula. Integer ultricies dui vitae luctus mollis. Sed tincidunt velit eu eleifend aliquet. In maximus bibendum ex, sed consectetur nisl maximus eu. Aenean consequat molestie odio a rhoncus. Proin nec congue metus. Nulla facilisi. Mauris sollicitudin dui odio, sed ornare lacus aliquam sed. Phasellus porttitor ipsum sapien, sit amet faucibus turpis viverra quis. Cras vel turpis in tellus pretium viverra at sed sem. In in urna gravida mi vehicula malesuada in vel ante. In fermentum purus massa, pulvinar interdum nulla gravida egestas. </p>
+        <br/> 
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-info btn-send" style="margin-left: 25%; margin-bottom: 5%" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade " id="PoliticaDP" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-xl" role="document">
@@ -625,6 +655,28 @@
     </div>
   </div>
 </div>
+<div class="modal fade " id="PoliticaDP2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content" style="border-radius: 30px">
+      <div class="modal-header modal-top">
+        <h5 class="desafio-title"> Política de Privacidade </h5>
+        <button type="button" class="btn btn-light btn-x" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="x">X</span></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <br/>  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc finibus laoreet dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc eros felis, dapibus vitae gravida non, commodo quis risus. In ut ex a eros iaculis ultrices. Nullam quis lorem a turpis tempus blandit in vel nisl. Vestibulum non viverra arcu. Suspendisse euismod ante non diam condimentum varius eget a mauris. Suspendisse lacinia turpis a mauris efficitur, nec imperdiet orci luctus. Morbi quis efficitur sapien. Integer nec libero vel enim ullamcorper facilisis at quis tortor. Etiam lobortis lacus id volutpat tempor. </p>   
+               <p>Praesent ultrices lectus mauris, ut porttitor justo tincidunt eget. Vivamus at metus in lectus dignissim elementum nec id mi. Donec sed facilisis nisl, sed placerat leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eleifend sollicitudin odio in tincidunt. Sed ultricies diam erat, in volutpat quam pretium id. Praesent sagittis, purus at euismod aliquet, massa nisl fermentum quam, ac mollis enim ligula a tellus. Aenean ipsum urna, mollis eget posuere vitae, varius at nulla. </p>
+               <p> Mauris at urna ac ligula viverra vehicula. Integer ultricies dui vitae luctus mollis. Sed tincidunt velit eu eleifend aliquet. In maximus bibendum ex, sed consectetur nisl maximus eu. Aenean consequat molestie odio a rhoncus. Proin nec congue metus. Nulla facilisi. Mauris sollicitudin dui odio, sed ornare lacus aliquam sed. Phasellus porttitor ipsum sapien, sit amet faucibus turpis viverra quis. Cras vel turpis in tellus pretium viverra at sed sem. In in urna gravida mi vehicula malesuada in vel ante. In fermentum purus massa, pulvinar interdum nulla gravida egestas. </p>
+        <br/> 
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-info btn-send" style="margin-left: 25%; margin-bottom: 5%" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="modal fade " id="TchunEnd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -657,9 +709,9 @@
           <span aria-hidden="true" class="x">X</span></button>
       </div>
       <div class="modal-body" style="text-align: center;">
-        <form #mentoria="ngForm">
+        <form #mentoria="ngForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <select class="form-control" style="border-radius: 15px; color: #8E959B; height: 60px;" name="area" required>
+            <select class="form-control" style="border-radius: 15px; color: #8E959B; height: 60px;" name="area" [(ngModel)]="area" required>
               <option hidden disabled selected>Escolha a área para a qual deseja mentoria</option>
               <option>Administração e Negócios</option>
               <option>Artes e Moda</option>
@@ -667,19 +719,19 @@
             </select>
           </div>
           <div class="form-group">
-            <select class="form-control" style="border-radius: 15px; color: #8E959B; height: 60px;" name="mentor" required>
+            <select class="form-control" style="border-radius: 15px; color: #8E959B; height: 60px;" name="mentor" [(ngModel)]="mentor" required>
               <option hidden disabled selected>Escolha um mentor</option>
               <option>Bill Gates</option>
               <option>Robert Downey Jr.</option>
               <option>Steve Jobs</option>
             </select>
           </div>
-          <div class="input-group">
-            <textarea class="form-control scrll" rows="7" id="ideia" aria-label="With textarea" name="texto" [(ngModel)]="texto"
-              placeholder="Descreva como o mentor pode ajudá-lo neste projeto" 
-              style="border-radius: 15px; resize: none; color: #8E959B; padding: 4% 3% 4% 3%;" required></textarea>
-          </div>
-        </form>
+        <div class="input-group">
+          <textarea class="form-control scrll" rows="7" id="ideia" aria-label="With textarea" 
+            placeholder="Descreva como o mentor pode ajudá-lo neste projeto" name="texto"
+            style="border-radius: 15px; resize: none; color: #8E959B; padding: 4% 3% 4% 3%;" [(ngModel)]="texto" required></textarea>
+        </div>
+      </form>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-info btn-send" data-dismiss="modal" data-toggle="modal" 
@@ -808,3 +860,10 @@
     </div>
   </div>
 </div>
+
+
+<footer class="perfil-footer">
+  <div class="footer-copyright text-muted text-center py-3">
+    <a data-toggle="modal" href="#TermosDeUso2" class="text-muted">Termos de Uso</a> | <a data-toggle="modal" href="#PoliticaDP2" class="text-muted">Política de Privacidade e Segurança </a> | INOVA CPS - Centro Paula Souza - 2019 ®
+  </div>
+</footer>
