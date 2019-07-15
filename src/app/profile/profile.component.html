@@ -1,237 +1,248 @@
 <div class="background" id="border">
-    <app-profile-navbar style="background-color: transparent"></app-profile-navbar>
-    <div class="container" style="margin-top: 250px">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="row" id="icons"style="margin-top: 80px">
-                    <div class="col-sm-3" id="icon"><a target="__blank"><img [src]="trof" alt=""></a>
-                      <h6 style="margin-left: 20%; color: #ffff;">Prêmios</h6>
-                    </div>
-                    <div class="col-sm-3" id="icon"><a href="#/agenda"><img [src]="calendar" alt=""></a>
-                      <h6 style="margin-left: 20%; color: #ffff;">Eventos</h6>
-                    </div>
-                    <div class="col-sm-3" id="icon"><a target="_blank"><img [src]="friends" alt=""></a>
-                      <h6 style="margin-left: 20%; color: #ffff;">Projetos</h6>
-                    </div>
-                    <div class="col-sm-3" id="icon"><a target="_blank"><img [src]="shield" alt=""></a>
-                      <h6 style="margin-left: 45%; color: #ffff;">XP</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4" id="profile">
-                <div class="profile-name" id="name">
-                    <h1>{{ aluno.nome }} {{ aluno.sobrenome }}</h1>
-                </div>
-                <div id="profile-image">
-                    <img id="profile-pic" [src]="fotoPerfil" alt="" style="border: #72A5FF solid;">
-                    <a  id="buttonPopover" hidden class="btn btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">teste</a>
-                    <a href="#0" data-toggle="modal" data-target="#modalProfile"><i class="fas fa-cog fa-3x" style="font-size: 2em"></i></a>
-                </div>
-                <div id="user-info">
-                    <div class="" style="margin-top: -5px;" >{{ aluno.escola }}</div>
-                    <div *ngIf="aluno.idade != ''" class="" style="margin-top: -5px;">{{ aluno.idade }} anos</div>
-                    <div class="" style="margin-top: -5px;">Estudante</div>
-                </div>
-            </div>
-            <div class="col-md-4" >
-                <div class="row" style="margin-top: 110px;">
-                    <div class="col-sm-3" id="">
-                        <a target="_blank"><img class="social-icons" [src]="github" alt=""></a>
-                    </div>
-                    <div class="col-sm-3 " id="icons-social">
-                        <a target="_blank"><img class="social-icons" [src]="facebook" alt=""></a>
-                    </div>
-                    <div class="col-sm-3" id="icons-social">
-                        <a target="_blank"><img class="social-icons" [src]="twitter" alt=""></a>
-                    </div>
-                    <div class="col-sm-3" id="icons-social">
-                        <a target="_blank"><img class="social-icons" [src]="linkedin" alt=""></a>
-                    </div>
-                    <div class="col-sm-3" id="icons-social">
-                        <a target="_blank"><img class="social-icons" [src]="youtube" alt=""></a>
-                    </div>
-                    <div class="col-sm-3" id="icons-social">
-                        <a target="_blank"><img class="social-icons" [src]="instagram" alt=""></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" id="portfolio">
-            <div id="port" class="row">
-                <h4 style="color: #72A5FF;"><b>Meu Portfólio</b></h4>
-            </div>
-        </div>
-            <div class="row" id="border" style="margin-right: 0;">
-                <div class="container">
-                    <div class="row blog">
-                        <div class="col-md-12">
-                            <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-
-                                <!-- Carousel items -->
-                                <div class="carousel-inner">
-
-                                    <div class="carousel-item active">
-                                        <div class="row">
-                                            <div class="col" *ngFor="let projeto of portfolio;">
-                                                <a target="_blank">
-                                                    <img class="portfolio-item" [src]="imgTeste" alt="Image"
-                                                        style="max-width:100%;">
-                                                        <h3 style="color: orange; margin-top: -20%">{{ projeto.titulo }}</h3>
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                            </div>
-                                            <button type="button" class="btn-blue" data-toggle="modal" data-target="#modalProject" 
-                                              style="max-height:100%!important;max-width:200px;margin: 0px 15px 0px 0px;">+</button>
-                                        </div>
-                                        <!--.row-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" id="desafios">
-              <div id="port" class="row" style="margin-left: 15px; margin-top:25px;">
-                  <h4 style="color: #72A5FF;"><b>Desafios</b></h4>
-              </div>
-            </div>
-            <div class="row" id="border">
-                <div class="container">
-                    <div class="row blog">
-                        <div class="col-md-12">
-                            <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-
-                                <!-- Carousel items -->
-                                <div class="carousel-inner">
-
-                                    <div class="carousel-item active">
-                                        <div class="row" style="margin-left: 0%; margin-right: 0%;">
-                                            <div class="container-desafio">
-                                              <img [src]="imgTeste" alt="Image" class="image-desafio" style="max-width: 100%;">
-                                              <div class="text-image">CASCO DE NAVIO COM MÍNIMA RESISTÊNCIA</div>
-                                              <div class="middle-desafio">
-                                                <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="search" alt="Image"></a><br/>
-                                                <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="favorite" alt="Image"></a><br/>
-                                                <a href="#0" data-toggle="modal" data-target="#EnviarMensagem"><img class="btn-desafio" style="filter: invert(1);" [src]="bubble" alt="Image"></a><br/>
-                                                <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="calendarToday" alt="Image"></a><br/>
-                                                <a href="#0" data-toggle="modal" data-target="#MentorDesafio"><img class="btn-desafio" style="filter: invert(1);" [src]="personAdd" alt="Image"></a><br/>
-                                                <a href="#0" data-toggle="modal" data-target="#CompDesafio"><img class="btn-desafio" style="filter: invert(1);" [src]="share" alt="Image"></a><br/>
-                                                <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="star" alt="Image"></a><br/>
-                                                <a href="#0" data-toggle="modal" data-target="#Tchun"><img class="btn-desafio" style="transform: rotate(270deg); filter: invert(1);" [src]="wifi" alt="Image"></a><br/>
-                                              </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="container-desafio">
-                                                    <img [src]="imgTeste" alt="Image" class="image-desafio" style="max-width: 100%;">
-                                                    <div class="text-image">Casco de Navio com Mínima Resistência</div>
-                                                    <div class="middle-desafio">
-                                                      <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="search" alt="Image"></a><br/>
-                                                      <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="favorite" alt="Image"></a><br/>
-                                                      <a href="#0" data-toggle="modal" data-target="#EnviarMensagem"><img class="btn-desafio" style="filter: invert(1);" [src]="bubble" alt="Image"></a><br/>
-                                                      <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="calendarToday" alt="Image"></a><br/>
-                                                      <a href="#0" data-toggle="modal" data-target="#MentorDesafio"><img class="btn-desafio" style="filter: invert(1);" [src]="personAdd" alt="Image"></a><br/>
-                                                      <a href="#0" data-toggle="modal" data-target="#CompDesafio"><img class="btn-desafio" style="filter: invert(1);" [src]="share" alt="Image"></a><br/>
-                                                      <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="star" alt="Image"></a><br/>
-                                                      <a href="#0" data-toggle="modal" data-target="#Tchun"><img class="btn-desafio" style="transform: rotate(270deg); filter: invert(1);" [src]="wifi" alt="Image"></a><br/>
-                                                    </div>
-                                                  </div>
-                                            </div>
-                                            <button type="button" class="btn-blue" data-toggle="modal" data-target="#modalProject" 
-                                              style="max-height:100%!important;max-width:200px;margin: 0px 15px 0px 0px;">+</button>
-                                        </div>
-                                        <!--.row-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" id="eventos">
-              <div id="port" class="row" style="margin-left: 15px; margin-top:25px;">
-                  <h4 style="color: #72A5FF;"><b>Próximos Eventos</b></h4>
-              </div>
-            </div>
-            <div class="row" id="border">
-                <div class="container">
-                    <div class="row blog" style="margin-right: 0px;">
-                        <div class="col-md-12">
-                            <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-
-                                <!-- Carousel items -->
-                                <div class="carousel-inner">
-
-                                    <div class="carousel-item active">
-                                        <div class="row" style="margin-left: 0px;">
-                                            <div class="container-desafio">
-                                              <img [src]="imgTeste" alt="Image" class="image-evento" style="max-width: 100%;">
-                                            </div>
-                                            <div class="col">
-                                              </div>
-                                            <button type="button" class="btn-blue" data-toggle="modal" data-target="#modalProject" 
-                                              style="max-height:100%!important;max-width:200px;margin: 0px 15px 0px 0px;">+</button>
-                                        </div>
-                                        <!--.row-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
-        <div class="row" id="ultimasnoticias">
-          <div id="port" class="row">
-              <h4 style="color: #72A5FF;"><b>Últimas Noticías</b></h4>
+  <app-profile-navbar style="background-color: transparent"></app-profile-navbar>
+  <div class="container" style="margin-top: 250px">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="row" id="icons"style="margin-top: 80px">
+          <div class="col-sm-3" id="icon"><a target="__blank"><img [src]="trof" alt=""></a>
+            <h6 style="margin-left: 20%; color: #ffff;">Prêmios</h6>
           </div>
+          <div class="col-sm-3" id="icon"><a href="#/agenda"><img [src]="calendar" alt=""></a>
+            <h6 style="margin-left: 20%; color: #ffff;">Eventos</h6>
+          </div>
+          <div class="col-sm-3" id="icon"><a target="_blank"><img [src]="friends" alt=""></a>
+            <h6 style="margin-left: 20%; color: #ffff;">Projetos</h6>
+          </div>
+          <div class="col-sm-3" id="icon"><a target="_blank"><img [src]="shield" alt=""></a>
+            <h6 style="margin-left: 45%; color: #ffff;">XP</h6>
+          </div>
+        </div>
       </div>
-          <div class="container">
-              <div class="row">
-                <div class="col-md-6">
-                  <img
-                    src="https://www.nih.no/globalassets/artikkel-toppbilde-1600x900/arbeidslivsdagen_1600.jpg"
-                    class="card1"
-                    alt="..."
-                    style="height:400px;"
-                  />
+      <div class="col-md-4" id="profile">
+        <div class="profile-name" id="name">
+          <h1>{{ aluno.nome }} {{ aluno.sobrenome }}</h1>
+        </div>
+        <div id="profile-image">
+          <img id="profile-pic" [src]="fotoPerfil" alt="" style="border: #72A5FF solid;">
+          <a  id="buttonPopover" hidden class="btn btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">teste</a>
+          <a href="#0" data-toggle="modal" data-target="#modalProfile"><i class="fas fa-cog fa-3x" style="font-size: 2em"></i></a>
+        </div>
+        <div id="user-info">
+          <div class="" style="margin-top: -5px;" >{{ aluno.escola }}</div>
+          <div *ngIf="aluno.idade != ''" class="" style="margin-top: -5px;">{{ aluno.idade }} anos</div>
+          <div class="" style="margin-top: -5px;">Estudante</div>
+        </div>
+      </div>
+      <div class="col-md-4" >
+        <div class="row" style="margin-top: 110px;">
+          <div class="col-sm-3" id="">
+            <a target="_blank"><img class="social-icons" [src]="github" alt=""></a>
+          </div>
+          <div class="col-sm-3 " id="icons-social">
+            <a target="_blank"><img class="social-icons" [src]="facebook" alt=""></a>
+          </div>
+          <div class="col-sm-3" id="icons-social">
+            <a target="_blank"><img class="social-icons" [src]="twitter" alt=""></a>
+          </div>
+          <div class="col-sm-3" id="icons-social">
+            <a target="_blank"><img class="social-icons" [src]="linkedin" alt=""></a>
+          </div>
+          <div class="col-sm-3" id="icons-social">
+            <a target="_blank"><img class="social-icons" [src]="youtube" alt=""></a>
+          </div>
+          <div class="col-sm-3" id="icons-social">
+            <a target="_blank"><img class="social-icons" [src]="instagram" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--P O R T F O L I O-->
+
+    <div class="row" id="portfolio">
+      <div id="port" class="row" style="margin-top:25px;">
+        <h4 style="color: #72A5FF;"><b>Meu Portfólio</b></h4>
+      </div>
+    </div>
+    <div class="row" id="border">
+      <div class="container">
+        <div class="row blog">
+          <div class="col-md-12">
+            <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="row" style="margin-left: -15px; margin-right: 0px;">
+                    <div class="col" *ngFor="let projeto of portfolio;">
+                      <a target="_blank">
+                        <img class="portfolio-item" [src]="imgTeste" alt="Image"
+                          style="max-width:100%;">
+                          <div class="text-portfolio">{{ projeto.titulo }}</div>
+                      </a>
+                    </div>
+                    <div class="col">
+                    </div>
+                      <button type="button" class="btn-blue" data-toggle="modal" data-target="#modalProject" 
+                        style="max-height:100%!important;max-width:200px;margin: 0px 15px 0px 0px;">+</button>
+                  </div>
                 </div>
-                <div class="col-md-6">
-                  <img
-                    src="https://www.nih.no/globalassets/artikkel-toppbilde-1600x900/arbeidslivsdagen_1600.jpg"
-                    class="card2"
-                    alt="..."
-                    style="height:400px;"
-                  />
-                </div>
-              </div>
-            <br />
-              <div class="row">
-                <div class="col-md-6">
-                  <img
-                    src="https://www.nih.no/globalassets/artikkel-toppbilde-1600x900/arbeidslivsdagen_1600.jpg"
-                    class="card3"
-                    alt="..."
-                    style="height:400px;"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <img
-                    src="https://portal6.com.br/wp-content/uploads/2017/04/robo2.jpeg"
-                    class="card4"
-                    alt="..."
-                    style="height:85%; width: 131%;"
-                  />
-                </div>     
               </div>
             </div>
-              
-        <div class="padding"></div>
-        <div class="padding"></div>
-        <button hidden id="openModalFirst" data-toggle="modal" data-target="#modalFirst"></button>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!--D E S A F I O S-->
+
+    <div class="row" id="desafios">
+      <div id="port" class="row" style="margin-left: 15px; margin-top:25px;">
+          <h4 style="color: #72A5FF;"><b>Desafios</b></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" style="max-width: 930px;">
+        <div id="carousel-desafio" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-desafio">
+                <img [src]="imgTeste" alt="Image" class="image-desafio" style="max-width: 100%;">
+                <div class="text-image">Casco de navio com mínima resistência</div>
+                <div class="middle-desafio">
+                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="search" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="favorite" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target="#EnviarMensagem"><img class="btn-desafio" style="filter: invert(1);" [src]="bubble" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="calendarToday" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target="#MentorDesafio"><img class="btn-desafio" style="filter: invert(1);" [src]="personAdd" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target="#CompDesafio"><img class="btn-desafio" style="filter: invert(1);" [src]="share" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="star" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target="#Tchun"><img class="btn-desafio" style="transform: rotate(270deg); filter: invert(1);" [src]="wifi" alt="Image"></a><br/>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="container-desafio">
+                <img [src]="imgTeste" alt="Image" class="image-desafio" style="max-width: 100%;">
+                <div class="text-image">Aplicativo para estímulos psicomotores</div>
+                <div class="middle-desafio">
+                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="search" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="favorite" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target="#EnviarMensagem"><img class="btn-desafio" style="filter: invert(1);" [src]="bubble" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="calendarToday" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target="#MentorDesafio"><img class="btn-desafio" style="filter: invert(1);" [src]="personAdd" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target="#CompDesafio"><img class="btn-desafio" style="filter: invert(1);" [src]="share" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target=""><img class="btn-desafio" style="filter: invert(1);" [src]="star" alt="Image"></a><br/>
+                  <a href="#0" data-toggle="modal" data-target="#Tchun"><img class="btn-desafio" style="transform: rotate(270deg); filter: invert(1);" [src]="wifi" alt="Image"></a><br/>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="container-desafio">
+                <img [src]="imgTeste" alt="Image" class="image-desafio img-fluid d-block" style="max-width: 100%;">
+                <div class="text-image">IMAGEM 3</div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carousel-desafio" style="width: 20px; height: 20px; 
+            margin-top: 15%; margin-left: -20px;" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="sr-only">Anterior</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel-desafio" style="width: 20px; height: 20px;
+            margin-top: 15%; margin-right: -20px;" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="sr-only">Próximo</span>
+          </a>
+        </div>
+      </div>
+      <button type="button" class="btn-blue" data-toggle="modal" data-target="#modalProject" 
+        style="max-height:100%!important;max-width:200px;margin-left: 15px;">+</button>
+    </div>
+
+    <!--E V E N T O S-->
+
+    <div class="row" id="eventos">
+      <div id="port" class="row" style="margin-left: 15px; margin-top:25px;">
+        <h4 style="color: #72A5FF;"><b>Próximos Eventos</b></h4>
+      </div>
+    </div>
+    <div class="row" id="border">
+      <div class="container">
+        <div class="row blog" style="margin-right: 0px;">
+          <div class="col-md-12">
+            <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="row" style="margin-left: 0px;">
+                    <div class="container-desafio">
+                      <img [src]="imgTeste" alt="Image" class="image-evento" style="max-width: 100%;">
+                    </div>
+                    <div class="col">
+                    </div>
+                    <button type="button" class="btn-blue" data-toggle="modal" data-target="#modalProject" 
+                      style="max-height:100%!important;max-width:200px;margin: 0px 15px 0px 0px;">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+  <!--N O T I C I A S-->
+
+    <div class="row" id="ultimasnoticias">
+      <div id="port" class="row">
+        <h4 style="color: #72A5FF;"><b>Últimas Noticías</b></h4>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            src="https://www.nih.no/globalassets/artikkel-toppbilde-1600x900/arbeidslivsdagen_1600.jpg"
+            class="card1"
+            alt="..."
+            style="height:400px;"
+          />
+        </div>
+        <div class="col-md-6">
+          <img
+            src="https://www.nih.no/globalassets/artikkel-toppbilde-1600x900/arbeidslivsdagen_1600.jpg"
+            class="card2"
+            alt="..."
+            style="height:400px;"
+          />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            src="https://www.nih.no/globalassets/artikkel-toppbilde-1600x900/arbeidslivsdagen_1600.jpg"
+            class="card3"
+            alt="..."
+            style="height:400px;"
+          />
+        </div>
+        <div class="col-md-6">
+          <img
+            src="https://portal6.com.br/wp-content/uploads/2017/04/robo2.jpeg"
+            class="card4"
+            alt="..."
+            style="height:85%; width: 131%;"
+          />
+        </div>     
+      </div>
+    </div>
+    <div class="padding"></div>
+    <div class="padding"></div>
+    <button hidden id="openModalFirst" data-toggle="modal" data-target="#modalFirst"></button>
+  </div>
+</div>
+
+<!--M O D A L S-->
 
       <div class="modal fade" id="modalAvatar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -861,9 +872,9 @@
   </div>
 </div>
 
+
 <footer class="perfil-footer">
   <div class="footer-copyright text-muted text-center py-3">
     <a data-toggle="modal" href="#TermosDeUso2" class="text-muted">Termos de Uso</a> | <a data-toggle="modal" href="#PoliticaDP2" class="text-muted">Política de Privacidade e Segurança </a> | INOVA CPS - Centro Paula Souza - 2019 ®
   </div>
 </footer>
-
