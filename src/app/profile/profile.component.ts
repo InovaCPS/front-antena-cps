@@ -42,6 +42,7 @@ export class ProfileComponent implements OnInit {
   resposta: any;
   marked = false;
   anexo = false;
+  selector = 0;
   constructor(private profileService: profileService,
               public titleService: Title,
               private http: HttpClient){
