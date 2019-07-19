@@ -36,6 +36,7 @@ import { InputFileConfig, InputFileModule } from 'ngx-input-file';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider } from "angularx-social-login";
 import { ProfileNavbarComponent } from './profile-navbar/profile-navbar.component';
+import { DesafioComponent } from './desafio/desafio.component';
 
 const configs: InputFileConfig = {
     fileAccept: 'image/*',
@@ -154,6 +155,7 @@ export function provideConfig() {
     ChangePasswordComponent,
     ProfileNavbarComponent,
     AvatarCreationComponent,
+    DesafioComponent,
   ],
   imports: [
     BrowserModule,
