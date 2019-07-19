@@ -30,10 +30,10 @@ Instruções para montar o projeto:
     ```
 * Instalando os pacotes necessario do projeto
     ```bash
-    npm install
+    npm install --save
     ```
 * Rode o projeto
     * Executar:
     ```bash
-    npm start
+    ng serve
     ```
