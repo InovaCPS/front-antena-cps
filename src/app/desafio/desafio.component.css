@@ -1,0 +1,19 @@
+.background {
+    background-image: url(../../assets/background_4K.jpg);
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#border {
+    border-style: dotted;
+    border-color: transparent;
+}
+
+.perfil-footer{
+    background-color: #00183A;
+    font-size: 12px; 
+    margin-top: -1%
+}

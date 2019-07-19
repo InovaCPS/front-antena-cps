@@ -105,7 +105,12 @@ const routes: Routes = [
   {
     path: 'avatar_creation',
     component: AvatarCreationComponent
+  },
+  {
+    path: 'desafio',
+    component: DesafioComponent
   }
+
 ];
 
 const config = new AuthServiceConfig([
