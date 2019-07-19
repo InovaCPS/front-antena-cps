@@ -574,6 +574,37 @@ aria-hidden="true" data-backdrop="static" data-keyboard="false">
   </div>
   </div>
 
+  <div class="modal fade " id="TchunChecked" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true" data-backdrop="static" data-keyboard="false">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content" style="border-radius: 30px">
+    <div class="modal-header modal-top">
+      <h5 class="desafio-title"> DEU TCHUN! </h5>
+      <button type="button" class="btn btn-light btn-x" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true" class="x">X</span></button>
+    </div>
+    <form #Tchunbox="ngForm">
+    <div class="modal-body" style="text-align: center;">
+      <br/> <br/> <br/> <br/> <br/> 
+     <p> Você está TCHUNANDO seu projeto COM ANEXOS. </p> 
+       
+     <p>Você deve revisar e aceitar os nossos <a data-toggle="modal" data-dismiss="modal" href="#TermosDeUso">Termos de Uso</a> e </p> 
+     <p><a data-toggle="modal" data-dismiss="modal" href="#PoliticaDP">Política de Privacidade</a> para enviar projetos com documentos anexos: </p>
+     <div class="custom-control custom-checkbox mb-3">
+      <input type="checkbox" class="custom-control-input" id="customCheck" name="example1" [(ngModel)]="checkbox" required>
+      <label class="custom-control-label" for="customCheck">Li e aceito os Termos de Uso e Poĺítica de Privacidade</label>
+    </div>
+        <br/> <br/> <br/> <br/>
+    </div>
+  </form>
+    <div class="modal-footer">
+      <button class="btn btn-info btn-send" data-dismiss="modal" [disabled]="Tchunbox.invalid"  data-toggle="modal" data-target="#TchunEnd" >Enviar</button>
+      <button class="btn btn-lg btn-light btn-cancel" data-dismiss="modal" data-toggle="modal" data-target="#TchunProjeto">Cancelar</button>
+    </div>
+  </div>
+</div>
+</div>
+
 <div class="modal fade " id="TermosDeUso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true" data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog modal-xl" role="document">
