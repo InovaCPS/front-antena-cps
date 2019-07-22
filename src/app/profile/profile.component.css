@@ -1,10 +1,11 @@
 .background {
     background-image: url(../../assets/background_4K.jpg);
     width: 100%;
-    height: auto;
+    height: 40rem;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-color: black; /* cor temporária até tirar borda branca da imagem */
 }
 
 #bg-profile {
